@@ -1,0 +1,18 @@
+[
+  {
+    "headline": "HAL receives INR 26000 Crore order from IAF for 12 Su-30MKI fighter aircraft",
+    "result": {
+      "direction": "BULLISH",
+      "confidence": 85,
+      "reasoning": "A INR 26,000 crore order is a material addition to HAL's order book \u00e2\u20ac\u201d roughly 80-85% of its annual revenue run-rate (~INR 30,000 cr) \u00e2\u20ac\u201d and materially improves multi-year revenue visibility, which is the single most important valuation driver for Indian defence PSUs. Su-30MKI manufacturing at the Nashik division is an established line with high indigenous content (~62%), so execution risk is low and margins should hold near company averages. The order also reinforces the IAF's squadron-replenishment cycle and strengthens HAL's positioning ahead of further MRFA/LCA Mk1A/Mk2 awards. Tempering the confidence from a 90+ level: defence orders are typically pre-announced via CCS/MoD approval and Exchange filings, so part of the news may already be discounted; revenue recognition is spread over 5-6 years rather than immediate; and HAL often trades at elevated multiples where large orders can trigger 'sell-the-news' profit booking after an initial gap-up. Expected reaction: positive gap of 2-5% with follow-through if volumes confirm, plus sympathy strength in the broader defence basket (BEL, BDL, Data Patterns)."
+    }
+  },
+  {
+    "headline": "Asian Paints Q3 net profit declines 18% YoY due to crude oil price surge",
+    "result": {
+      "direction": "BEARISH",
+      "confidence": 78,
+      "reasoning": "An 18% YoY decline in net profit is a significant miss for a premium-valued FMCG-style compounder like Asian Paints, which typically trades at elevated multiples on the expectation of steady double-digit earnings growth. Crude oil is the key input for monomers, resins and solvents (~50-60% of raw material basket), so a crude surge signals sustained gross margin compression over the next 1-2 quarters, not a one-off. Price hikes in decorative paints are passed through with a lag and are constrained by intensifying competition (Grasim/Birla Opus, JSW Paints), limiting margin recovery. Expect near-term earnings downgrades and multiple de-rating pressure. Confidence is capped below 90 because the reaction depends on whether the miss was already guided/priced in, and volume growth commentary plus any crude cool-off could soften the downside; sector-wide read-across to Berger, Kansai and Indigo Paints is also likely negative."
+    }
+  }
+]

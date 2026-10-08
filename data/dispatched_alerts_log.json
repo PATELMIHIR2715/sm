@@ -1,0 +1,273 @@
+[
+  {
+    "id": "ALT_1791447856216",
+    "timestamp": "2026-10-08T08:24:16.216Z",
+    "retention_policy": "90_DAYS",
+    "channel": "EMAIL",
+    "type": "TEST_EMAIL",
+    "recipient": "mihirpqtel@gmail.com",
+    "result": {
+      "success": true,
+      "messageId": "<9e57f8a5-1bd5-650c-1834-88d611c3cd42@gmail.com>",
+      "recipients": [
+        "mihirpqtel@gmail.com"
+      ],
+      "dispatchedAt": "2026-10-08T08:24:16.203Z"
+    }
+  },
+  {
+    "id": "ALT_1791444555676",
+    "timestamp": "2026-10-08T07:29:15.676Z",
+    "channel": "SUBSCRIPTION_UPDATE",
+    "type": "USER_OPT_IN",
+    "subscriber": {
+      "id": "SUB_1791444552992",
+      "name": "Production Trader",
+      "whatsapp": "+919876543212",
+      "email": "trader@example.com",
+      "active": true,
+      "updated_at": "2026-10-08T07:29:12.992Z",
+      "preferences": {
+        "preCatalystRadar": true,
+        "liveSignals": true,
+        "doNotChaseAlerts": true,
+        "stopLossWarnings": true,
+        "dailyBriefing": true
+      },
+      "created_at": "2026-10-08T07:29:12.992Z"
+    },
+    "welcomeReport": {
+      "whatsapp": {
+        "success": false,
+        "error": "No LID for user\ns (https://static.whatsapp.net/rsrc.php/v4/y0/r/84JdB7FBKo5.js:85:180)",
+        "chatId": "919876543212@c.us"
+      },
+      "email": {
+        "success": true,
+        "messageId": "<01e7b62e-e4eb-21de-d3bc-29bd47145e26@gmail.com>",
+        "recipients": [
+          "trader@example.com"
+        ],
+        "dispatchedAt": "2026-10-08T07:29:15.672Z"
+      }
+    }
+  },
+  {
+    "id": "ALT_1791444495510",
+    "timestamp": "2026-10-08T07:28:15.510Z",
+    "channel": "SUBSCRIPTION_UPDATE",
+    "type": "USER_OPT_IN",
+    "subscriber": {
+      "id": "SUB_001_PRIMARY",
+      "name": "Institutional Subscriber",
+      "whatsapp": "+919876543210",
+      "email": "mihirpqtel@gmail.com",
+      "active": true,
+      "updated_at": "2026-10-08T07:28:06.841Z",
+      "preferences": {
+        "preCatalystRadar": true,
+        "liveSignals": true,
+        "doNotChaseAlerts": true,
+        "stopLossWarnings": true,
+        "dailyBriefing": true
+      }
+    },
+    "welcomeReport": {
+      "whatsapp": {
+        "success": false,
+        "error": "Cannot read properties of undefined (reading 'id')",
+        "chatId": "919876543210@c.us"
+      },
+      "email": {
+        "success": true,
+        "messageId": "<6193db49-ed8f-ff1c-bee2-060d547aa4d1@gmail.com>",
+        "recipients": [
+          "mihirpqtel@gmail.com"
+        ],
+        "dispatchedAt": "2026-10-08T07:28:15.508Z"
+      }
+    }
+  },
+  {
+    "id": "ALT_1791443692544",
+    "timestamp": "2026-10-08T07:14:52.544Z",
+    "channel": "WHATSAPP",
+    "type": "TEST_MESSAGE",
+    "recipient": "+919876543210",
+    "result": {
+      "success": false,
+      "error": "Cannot read properties of undefined (reading 'id')",
+      "chatId": "919876543210@c.us"
+    }
+  },
+  {
+    "id": "ALT_1791443553937",
+    "timestamp": "2026-10-08T07:12:33.937Z",
+    "channel": "WHATSAPP",
+    "type": "TEST_MESSAGE",
+    "recipient": "+919876543210",
+    "result": {
+      "success": true,
+      "simulated": true,
+      "status": "QR_READY",
+      "chatId": "919876543210@c.us",
+      "messagePreview": "⚡ *TEST NOTIFICATION: Institutional AI News Impact Engine*\n• *System Status:* ONLINE (13.04ms Pipeli...",
+      "note": "WhatsApp Web client awaiting QR pairing. Scan QR code in Dashboard to enable live delivery."
+    }
+  },
+  {
+    "id": "ALT_1791443551110",
+    "timestamp": "2026-10-08T07:12:31.110Z",
+    "channel": "WHATSAPP",
+    "type": "TEST_MESSAGE",
+    "recipient": "+919876543210",
+    "result": {
+      "success": true,
+      "simulated": true,
+      "status": "QR_READY",
+      "chatId": "919876543210@c.us",
+      "messagePreview": "⚡ *TEST NOTIFICATION: Institutional AI News Impact Engine*\n• *System Status:* ONLINE (13.04ms Pipeli...",
+      "note": "WhatsApp Web client awaiting QR pairing. Scan QR code in Dashboard to enable live delivery."
+    }
+  },
+  {
+    "id": "ALT_1791443551087",
+    "timestamp": "2026-10-08T07:12:31.087Z",
+    "channel": "EMAIL",
+    "type": "TEST_EMAIL",
+    "recipient": "mihirpqtel@gmail.com",
+    "result": {
+      "success": true,
+      "messageId": "<5b8cc8a1-899a-7dfe-a556-27c38ef9099c@gmail.com>",
+      "recipients": [
+        "mihirpqtel@gmail.com"
+      ],
+      "dispatchedAt": "2026-10-08T07:12:31.084Z"
+    }
+  },
+  {
+    "id": "ALT_1791442681481",
+    "timestamp": "2026-10-08T06:58:01.481Z",
+    "channel": "SUBSCRIPTION_UPDATE",
+    "type": "USER_OPT_IN",
+    "subscriber": {
+      "id": "SUB_001_PRIMARY",
+      "name": "Test User",
+      "whatsapp": "+919876543210",
+      "email": "mihirpqtel@gmail.com",
+      "active": true,
+      "updated_at": "2026-10-08T06:58:01.467Z",
+      "preferences": {
+        "preCatalystRadar": true,
+        "liveSignals": true,
+        "doNotChaseAlerts": true,
+        "stopLossWarnings": true,
+        "dailyBriefing": true
+      }
+    },
+    "welcomeReport": {
+      "whatsapp": null,
+      "email": null
+    }
+  },
+  {
+    "id": "ALT_1791441987456",
+    "timestamp": "2026-10-08T06:46:27.456Z",
+    "channel": "EMAIL",
+    "type": "TEST_EMAIL",
+    "recipient": "mihirpqtel@gmail.com",
+    "result": {
+      "success": true,
+      "messageId": "<6aca30fa-46e3-0dce-d138-f1c2afafb6a7@gmail.com>",
+      "recipients": [
+        "mihirpqtel@gmail.com"
+      ],
+      "dispatchedAt": "2026-10-08T06:46:27.447Z"
+    }
+  },
+  {
+    "id": "ALT_1791441663839",
+    "timestamp": "2026-10-08T06:41:03.839Z",
+    "channel": "MULTI_CHANNEL",
+    "type": "SIGNAL_BROADCAST",
+    "symbol": "BHEL",
+    "headline": "BHEL declared lowest bidder (L1) for landmark INR 6,100 Crore NTPC Supercritical Thermal Power Project and FGD emission systems in Talcher",
+    "report": {
+      "signalId": "SIG_20261008_01_BHEL",
+      "symbol": "BHEL",
+      "dispatchedAt": "2026-10-08T06:41:03.834Z",
+      "channels": {
+        "whatsapp": {
+          "success": true,
+          "totalRecipients": 1,
+          "formattedText": "⚡ *INSTITUTIONAL STOCK IMPACT ALERT*\n*Symbol:* BHEL (Power & Capital Goods)\n*Action:* 🟢 STRONG BUY (Conviction: *84%*)\n*Current LTP:* ₹434.45\n*Order Corridor:* ACCUMULATE_BEFORE_MOVE\n\n🎯 *PRICE TARGETS:*\n• *T+1 (Tomorrow):* ₹454.35 – ₹470.90 (+4.58% to +8.39%)\n• *T+5 (1-Week):* ₹452.70 – ₹467.03 (+4.20% to +7.50%)\n🛑 *Stop-Loss:* ₹421.42 (-3.0%)\n\n📊 *CATALYST & MICROSTRUCTURE INTEL:*\n• *Catalyst:* BHEL declared lowest bidder (L1) for landmark INR 6,100 Crore NTPC Supercritical Thermal Power Project and FGD emission systems in Talcher\n• *Catalyst Absorption:* 0% | *Remaining Alpha:* +7.63%\n• *Kelly Capital Allocation:* ₹19,984.7 (46 Shares)\n\n🛡️ *Microstructure Defense:* Active | Clamped to F&O Resistance\n⏱️ *Time:* 12:11 pm IST",
+          "results": [
+            {
+              "number": "+919876543210",
+              "success": true,
+              "simulated": true,
+              "status": "QR_READY",
+              "chatId": "919876543210@c.us",
+              "messagePreview": "⚡ *INSTITUTIONAL STOCK IMPACT ALERT*\n*Symbol:* BHEL (Power & Capital Goods)\n*Action:* 🟢 STRONG BUY ...",
+              "note": "WhatsApp Web client awaiting QR pairing. Scan QR code in Dashboard to enable live delivery."
+            }
+          ]
+        },
+        "email": {
+          "success": true,
+          "messageId": "<5d0dbb5e-400f-f86d-88e3-180ea514fc7e@institutional-trading.internal>",
+          "recipients": [
+            "trader@institutional-edge.internal",
+            "analyst@alpha-fund.internal"
+          ],
+          "dispatchedAt": "2026-10-08T06:41:03.838Z"
+        }
+      }
+    }
+  },
+  {
+    "id": "ALT_1791441654619",
+    "timestamp": "2026-10-08T06:40:54.619Z",
+    "channel": "WHATSAPP",
+    "type": "TEST_MESSAGE",
+    "recipient": "919876543210",
+    "result": {
+      "success": true,
+      "simulated": true,
+      "status": "QR_READY",
+      "chatId": "919876543210@c.us",
+      "messagePreview": "⚡ *TEST NOTIFICATION: Institutional AI News Impact Engine*\n• *System Status:* ONLINE (13.04ms Pipeli...",
+      "note": "WhatsApp Web client awaiting QR pairing. Scan QR code in Dashboard to enable live delivery."
+    }
+  },
+  {
+    "id": "ALT_1791441647210",
+    "timestamp": "2026-10-08T06:40:47.210Z",
+    "channel": "WHATSAPP",
+    "type": "TEST_MESSAGE",
+    "recipient": "919876543210",
+    "result": {
+      "success": true,
+      "simulated": true,
+      "status": "INITIALIZING",
+      "chatId": "919876543210@c.us",
+      "messagePreview": "⚡ *TEST NOTIFICATION: Institutional AI News Impact Engine*\n• *System Status:* ONLINE (13.04ms Pipeli...",
+      "note": "WhatsApp Web client awaiting QR pairing. Scan QR code in Dashboard to enable live delivery."
+    }
+  },
+  {
+    "id": "ALT_1791441647187",
+    "timestamp": "2026-10-08T06:40:47.187Z",
+    "channel": "EMAIL",
+    "type": "TEST_EMAIL",
+    "recipient": "portfolio-manager@deepalpha.internal",
+    "result": {
+      "success": true,
+      "messageId": "<0e63b846-093e-b0f0-f957-cd1de3199e54@institutional-trading.internal>",
+      "recipients": [
+        "portfolio-manager@deepalpha.internal"
+      ],
+      "dispatchedAt": "2026-10-08T06:40:47.177Z"
+    }
+  }
+]

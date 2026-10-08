@@ -1,0 +1,18 @@
+{
+  "test_headline": "Cabinet clears landmark INR 14200 Crore defense procurement contract for 240 indigenous AL-31FP aero-engines with HAL",
+  "symbol": "HAL",
+  "profiled_iterations": 100,
+  "average_total_latency_ms": 13.047,
+  "average_total_latency_seconds": 0.01305,
+  "estimated_throughput_signals_per_sec": 76.6,
+  "stage_breakdown_ms": {
+    "Stage 1 - SHA256 Deduplication": "0.025 ms",
+    "Stage 2 - Entity Resolution & Metadata Lookup": "0.003 ms",
+    "Stage 3 - Materiality Extraction & Sentiment Scoring": "0.235 ms",
+    "Stage 4 - 10-Year Vector RAG Cosine Search": "0.083 ms",
+    "Stage 5 - Technical Confluence (EMA/RSI/Nifty)": "0.008 ms",
+    "Stage 6 - Multi-Horizon Target (T1/T5/T10) Bounds": "0.004 ms",
+    "Stage 7 - Dynamic Kelly Position Sizing": "0.009 ms",
+    "Stage 8 - Alert Formatting & Persistence": "12.674 ms"
+  }
+}

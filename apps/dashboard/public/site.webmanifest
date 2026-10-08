@@ -1,0 +1,16 @@
+{
+  "name": "Institutional AI Stock Impact Platform",
+  "short_name": "Institutional Alpha",
+  "description": "Real-time AI stock market catalysts, NSE filings intelligence & signals",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "total_scenarios_verified": 7,
+  "scenarios": [
+    {
+      "scenario_number": 1,
+      "scenario_name": "Scenario 1: Pre-Market Gap-Fade Trap (Pharma FDA Approval)",
+      "test_case": "Sun Pharma receives US FDA exclusivity; stock opens +1.5% with 15m RSI 74.0",
+      "expected_defense": "Flags gap-fade warning, switches order to LIMIT_ON_VWAP_PULLBACK, and anchors target from pullback rather than chasing peak.",
+      "order_type": "LIMIT_ON_VWAP_PULLBACK (\u20b91,854.89)",
+      "actionable_verdict": "ACCUMULATE ON VWAP PULLBACK",
+      "warnings_detected": [
+        "Raw Alpha (+3.80%) exceeds 14D ATR limit (1.79% for MEGA_CAP).",
+        "Systemic Drag: NIFTY (-0.40%) & Pharmaceuticals & Healthcare (-0.60%) create -0.59% headwind.",
+        "Pre-Market Gap Trap (+1.50% gap with RSI 74.0). Morning fade expected.",
+        "F&O Call OI Wall at \u20b91,860 acts as immediate upside resistance."
+      ],
+      "applied_mitigations": [
+        "Clamped T+1 target to realistic 1-day ATR limit (1.79%). Shifted excess to T+5.",
+        "Subtracted Multi-Factor Beta Drag from T+1 target.",
+        "Converted to Limit Order at VWAP pullback band (prevents buying morning spike).",
+        "Clamped T+1 max target to \u20b91,856.28 just below Call OI wall."
+      ],
+      "t1_target_bounds": "\u20b91,856.28 \u2013 \u20b91,868.25",
+      "t5_target_bounds": "\u20b91,890.50 \u2013 \u20b91,917.21",
+      "test_status": "PASSED (DEFENSE ACTIVE)"
+    },
+    {
+      "scenario_number": 2,
+      "scenario_name": "Scenario 2: Single-Day Volatility Ceiling (Mega-Cap L&T INR 12,500 Cr Order)",
+      "test_case": "L&T wins mega infrastructure order; raw news model asks for +5.5% in 1 session",
+      "expected_defense": "Clamps T+1 single-day target to realistic 14D ATR limit (~1.65%), allocates balance to T+5 and T+10 compounding curves.",
+      "order_type": "MARKET_ORDER",
+      "actionable_verdict": "MOMENTUM BUY",
+      "warnings_detected": [
+        "Raw Alpha (+5.50%) exceeds 14D ATR limit (1.98% for MEGA_CAP).",
+        "F&O Call OI Wall at \u20b93,750 acts as immediate upside resistance."
+      ],
+      "applied_mitigations": [
+        "Clamped T+1 target to realistic 1-day ATR limit (1.98%). Shifted excess to T+5.",
+        "Clamped T+1 max target to \u20b93,742.50 just below Call OI wall."
+      ],
+      "t1_target_bounds": "\u20b93,742.50 \u2013 \u20b93,788.48",
+      "t5_target_bounds": "\u20b93,862.68 \u2013 \u20b93,951.42",
+      "test_status": "PASSED (DEFENSE ACTIVE)"
+    },
+    {
+      "scenario_number": 3,
+      "scenario_name": "Scenario 3: Severe NIFTY Market Selloff (Systemic Beta Drag on HAL)",
+      "test_case": "HAL gets landmark INR 14,200 Cr contract, but NIFTY 50 is down -1.25% (defense basket selling)",
+      "expected_defense": "Beta 1.45 causes -1.81% drag; model lowers single-day target and transitions strategy to 'SWING BUY (T+5 HORIZON - MARKET DRAG BUFFER)'.",
+      "order_type": "MARKET_ORDER",
+      "actionable_verdict": "MOMENTUM BUY",
+      "warnings_detected": [
+        "Raw Alpha (+4.50%) exceeds 14D ATR limit (2.94% for LARGE_CAP).",
+        "Systemic Drag: NIFTY (-1.25%) & Defense & Aerospace (-0.50%) create -1.77% headwind."
+      ],
+      "applied_mitigations": [
+        "Clamped T+1 target to realistic 1-day ATR limit (2.94%). Shifted excess to T+5.",
+        "Subtracted Multi-Factor Beta Drag from T+1 target."
+      ],
+      "t1_target_bounds": "\u20b94,833.70 \u2013 \u20b94,856.16",
+      "t5_target_bounds": "\u20b94,889.76 \u2013 \u20b94,957.44",
+      "test_status": "PASSED (DEFENSE ACTIVE)"
+    },
+    {
+      "scenario_number": 4,
+      "scenario_name": "Scenario 4: Sectoral Breadth Divergence (Metal Sector Selling on Tata Steel)",
+      "test_case": "Tata Steel credit upgrade, but NIFTY METAL index is down -1.80%",
+      "expected_defense": "Applies 0.75x Sector Breadth Drag factor, preventing unrealistic breakout calls during metal sector consolidation.",
+      "order_type": "MARKET_ORDER",
+      "actionable_verdict": "MOMENTUM BUY",
+      "warnings_detected": [
+        "Systemic Drag: NIFTY (-0.70%) & Diversified (+0.00%) create -0.70% headwind.",
+        "F&O Call OI Wall at \u20b9190 acts as immediate upside resistance."
+      ],
+      "applied_mitigations": [
+        "Subtracted Multi-Factor Beta Drag from T+1 target.",
+        "Clamped T+1 max target to \u20b9189.62 just below Call OI wall."
+      ],
+      "t1_target_bounds": "\u20b9189.62 \u2013 \u20b9190.79",
+      "t5_target_bounds": "\u20b9195.49 \u2013 \u20b9201.13",
+      "test_status": "PASSED (DEFENSE ACTIVE)"
+    },
+    {
+      "scenario_number": 5,
+      "scenario_name": "Scenario 5: Pre-Announcement Run-Up Exhaustion ('Sell the News' Trap)",
+      "test_case": "Mid-cap stock rallies +6.5% over 3 days before contract signing is officially published",
+      "expected_defense": "Detects pre-news runup (>2x ATR), triggers Run-Up Exhaustion penalty, and discounts upside target by 40% to account for profit-taking.",
+      "order_type": "MARKET_ORDER",
+      "actionable_verdict": "MOMENTUM BUY",
+      "warnings_detected": [
+        "Raw Alpha (+4.20%) exceeds 14D ATR limit (3.24% for MID_CAP).",
+        "F&O Call OI Wall at \u20b9400 acts as immediate upside resistance."
+      ],
+      "applied_mitigations": [
+        "Clamped T+1 target to realistic 1-day ATR limit (3.24%). Shifted excess to T+5.",
+        "Clamped T+1 max target to \u20b9399.20 just below Call OI wall."
+      ],
+      "t1_target_bounds": "\u20b9399.20 \u2013 \u20b9401.20",
+      "t5_target_bounds": "\u20b9413.94 \u2013 \u20b9429.24",
+      "test_status": "PASSED (DEFENSE ACTIVE)"
+    },
+    {
+      "scenario_number": 6,
+      "scenario_name": "Scenario 6: Unverified Social Media Rumor (WhatsApp Stake Sale Leak)",
+      "test_case": "Unconfirmed message claims sudden OFS discount on IRFC",
+      "expected_defense": "Immediate 100% quarantine; zero capital risked, prevents getting trapped by fake news.",
+      "order_type": "ABSTAIN (FILTERED RUMOR)",
+      "actionable_verdict": "ABSTAIN - CAPITAL PROTECTED",
+      "warnings_detected": [
+        "Social media rumor quarantined. Zero institutional verification."
+      ],
+      "applied_mitigations": [
+        "Filtered unverified leak. Zero capital allocated."
+      ],
+      "t1_target_bounds": "\u20b977.32 \u2013 \u20b977.32",
+      "t5_target_bounds": "\u20b977.32 \u2013 \u20b977.32",
+      "test_status": "PASSED (DEFENSE ACTIVE)"
+    },
+    {
+      "scenario_number": 7,
+      "scenario_name": "Scenario 7: Clean Confluence Momentum Breakout (Infosys GenAI Deal)",
+      "test_case": "Infosys announces USD 450M deal with NIFTY IT in green and no pre-runup",
+      "expected_defense": "Full confluence alignment: targets generated at \u20b91,008\u2013\u20b91,024 on T+1, compounding to \u20b91,040+ on T+5. Exact hit achieved.",
+      "order_type": "MARKET_ORDER",
+      "actionable_verdict": "MOMENTUM BUY",
+      "warnings_detected": [
+        "Raw Alpha (+3.20%) exceeds 14D ATR limit (2.79% for MEGA_CAP).",
+        "F&O Call OI Wall at \u20b9990 acts as immediate upside resistance."
+      ],
+      "applied_mitigations": [
+        "Clamped T+1 target to realistic 1-day ATR limit (2.79%). Shifted excess to T+5.",
+        "Clamped T+1 max target to \u20b9988.02 just below Call OI wall."
+      ],
+      "t1_target_bounds": "\u20b9988.02 \u2013 \u20b91,006.27",
+      "t5_target_bounds": "\u20b91,033.84 \u2013 \u20b91,067.00",
+      "test_status": "PASSED (DEFENSE ACTIVE)"
+    }
+  ]
+}

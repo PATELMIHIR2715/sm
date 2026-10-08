@@ -1,0 +1,390 @@
+{
+  "prediction_generation_timestamp": "2026-10-01 10:02:25 IST",
+  "prediction_target_session": "TOMORROW (Oct 02/03, 2026)",
+  "benchmark_signals_count": 7,
+  "market_regime": {
+    "nifty_symbol": "^NSEI",
+    "nifty_ltp": 22599.85,
+    "nifty_change_pct": -0.09,
+    "market_regime": "NEUTRAL_CONSOLIDATION",
+    "regime_multiplier": 1.0,
+    "is_market_in_pullback": false,
+    "timestamp": "2026-10-01 10:02:23 IST"
+  },
+  "predictions": [
+    {
+      "id": "SIG_20261001_01_HAL",
+      "symbol": "HAL",
+      "company_name": "Hindustan Aeronautics Ltd",
+      "sector": "Defense & Aerospace",
+      "news_date": "Oct 01, 2026 (Today)",
+      "news_time": "09:15 AM IST",
+      "source_type": "CABINET_DEFENSE_CONTRACT",
+      "headline": "Ministry of Defence formally executes landmark INR 26,000 Crore contract with HAL for 240 AL-31FP Sukhoi aero-engines over 8 years with 54% indigenous content",
+      "current_live_ltp_t0": 4692.9,
+      "optimal_entry_price": 4692.9,
+      "execution_order_type": "MARKET_ORDER",
+      "day_change_pct": 0.53,
+      "day_high": 4694.0,
+      "day_low": 4646.0,
+      "volume": 117364,
+      "is_genuine_live_tick": true,
+      "predicted_direction": "BULLISH",
+      "conviction_score_pct": 76.5,
+      "confluence_grade": "C (COUNTER-TREND CONFLICT)",
+      "materiality_ratio": 30381.0,
+      "market_regime": "NEUTRAL_CONSOLIDATION",
+      "market_drag_contribution_pct": -0.1,
+      "recommended_execution_strategy": "MOMENTUM BUY",
+      "target_confidence_note": "Order: MARKET_ORDER. Microstructure defense active.",
+      "warnings_detected": [
+        "Raw Alpha (+3.60%) exceeds 14D ATR limit (2.94% for LARGE_CAP).",
+        "Systemic Drag: NIFTY (-0.09%) & Defense & Aerospace (-0.50%) create -0.43% headwind.",
+        "F&O Call OI Wall at \u20b94,700 acts as immediate upside resistance."
+      ],
+      "applied_mitigations": [
+        "Clamped T+1 target to realistic 1-day ATR limit (2.94%). Shifted excess to T+5.",
+        "Subtracted Multi-Factor Beta Drag from T+1 target.",
+        "Clamped T+1 max target to \u20b94,690.60 just below Call OI wall."
+      ],
+      "predicted_tomorrows_price_range_t1": {
+        "target_horizon": "TOMORROW (Oct 02/03 Session)",
+        "expected_move_pct": "+1.51% to +2.51%",
+        "predicted_price_bounds_inr": "\u20b94,690.60 \u2013 \u20b94,763.58"
+      },
+      "forward_5day_target_t5": {
+        "target_horizon": "Next 5 Days (Oct 08, 2026)",
+        "expected_move_pct": "+4.02% to +7.03%",
+        "predicted_price_bounds_inr": "\u20b94,881.55 \u2013 \u20b95,022.81"
+      },
+      "forward_10day_target_t10": {
+        "target_horizon": "Next 10 Days (Oct 15, 2026)",
+        "expected_move_pct": "+6.27% to +11.29%",
+        "predicted_price_bounds_inr": "\u20b94,987.14 \u2013 \u20b95,222.73"
+      },
+      "recommended_stop_loss": "INR 4,552.11 (-3.0%)",
+      "kelly_capital_allocation_inr": 18771.6,
+      "recommended_shares_quantity": 4,
+      "max_risk_inr": 563.15,
+      "top_historical_rag_match": "Defence Acquisition Council accords Acceptance of Necessity for major indigenous manufacturing contract"
+    },
+    {
+      "id": "SIG_20261001_02_INFY",
+      "symbol": "INFY",
+      "company_name": "Infosys Ltd",
+      "sector": "Information Technology",
+      "news_date": "Oct 01, 2026 (Today)",
+      "news_time": "09:25 AM IST",
+      "source_type": "NSE_FILING",
+      "headline": "Infosys signs USD 350 Million 4-year strategic partnership with leading UK Retail Banking Group for Generative AI cloud modernization and core digital banking migration",
+      "current_live_ltp_t0": 1014.15,
+      "optimal_entry_price": 1019.83,
+      "execution_order_type": "LIMIT_ON_VWAP_PULLBACK (\u20b91,019.83)",
+      "day_change_pct": 2.02,
+      "day_high": 1019.5,
+      "day_low": 1001.3,
+      "volume": 2789938,
+      "is_genuine_live_tick": true,
+      "predicted_direction": "BULLISH",
+      "conviction_score_pct": 70.4,
+      "confluence_grade": "C (COUNTER-TREND CONFLICT)",
+      "materiality_ratio": 153670.0,
+      "market_regime": "NEUTRAL_CONSOLIDATION",
+      "market_drag_contribution_pct": -0.08,
+      "recommended_execution_strategy": "ACCUMULATE ON VWAP PULLBACK",
+      "target_confidence_note": "Order: LIMIT_ON_VWAP_PULLBACK (\u20b91,019.83). Microstructure defense active.",
+      "warnings_detected": [
+        "Multi-year contract (4 Yrs) optical illusion: Annualized revenue impact is only 0.47%.",
+        "Pre-Market Gap Trap (+1.60% gap with RSI 41.6). Morning fade expected.",
+        "F&O Call OI Wall at \u20b91,020 acts as immediate upside resistance."
+      ],
+      "applied_mitigations": [
+        "Dampened T+1 move from +3.60% to realistic +2.07% based on annualized cash flow.",
+        "Converted to Limit Order at VWAP pullback band (prevents buying morning spike).",
+        "Clamped T+1 max target to \u20b91,017.96 just below Call OI wall."
+      ],
+      "predicted_tomorrows_price_range_t1": {
+        "target_horizon": "TOMORROW (Oct 02/03 Session)",
+        "expected_move_pct": "+1.24% to +2.07%",
+        "predicted_price_bounds_inr": "\u20b91,017.96 \u2013 \u20b91,032.47"
+      },
+      "forward_5day_target_t5": {
+        "target_horizon": "Next 5 Days (Oct 08, 2026)",
+        "expected_move_pct": "+3.31% to +5.79%",
+        "predicted_price_bounds_inr": "\u20b91,053.59 \u2013 \u20b91,078.88"
+      },
+      "forward_10day_target_t10": {
+        "target_horizon": "Next 10 Days (Oct 15, 2026)",
+        "expected_move_pct": "+5.17% to +9.30%",
+        "predicted_price_bounds_inr": "\u20b91,072.56 \u2013 \u20b91,114.67"
+      },
+      "recommended_stop_loss": "INR 989.24 (-3.0%)",
+      "kelly_capital_allocation_inr": 19376.77,
+      "recommended_shares_quantity": 19,
+      "max_risk_inr": 581.3,
+      "top_historical_rag_match": "Signs multi-year large deal TCV exceeding USD 500 Million for enterprise AI cloud migration and core modernization"
+    },
+    {
+      "id": "SIG_20261001_03_SUNPHARMA",
+      "symbol": "SUNPHARMA",
+      "company_name": "Sun Pharmaceutical Industries Ltd",
+      "sector": "Pharmaceuticals & Healthcare",
+      "news_date": "Oct 01, 2026 (Today)",
+      "news_time": "09:40 AM IST",
+      "source_type": "US_FDA_EXCLUSIVITY",
+      "headline": "Sun Pharma receives US FDA Final Approval for generic Apremilast tablets (60mg/30mg) for plaque psoriasis with 180-day generic exclusivity; annual US market USD 410 Million",
+      "current_live_ltp_t0": 1817.7,
+      "optimal_entry_price": 1817.7,
+      "execution_order_type": "MARKET_ORDER",
+      "day_change_pct": 0.06,
+      "day_high": 1827.2,
+      "day_low": 1806.5,
+      "volume": 218640,
+      "is_genuine_live_tick": true,
+      "predicted_direction": "BULLISH",
+      "conviction_score_pct": 77.4,
+      "confluence_grade": "C (COUNTER-TREND CONFLICT)",
+      "materiality_ratio": 48496.0,
+      "market_regime": "NEUTRAL_CONSOLIDATION",
+      "market_drag_contribution_pct": -0.06,
+      "recommended_execution_strategy": "MOMENTUM BUY",
+      "target_confidence_note": "Order: MARKET_ORDER. Microstructure defense active.",
+      "warnings_detected": [
+        "Raw Alpha (+3.60%) exceeds 14D ATR limit (1.79% for MEGA_CAP).",
+        "Systemic Drag: NIFTY (-0.09%) & Pharmaceuticals & Healthcare (-0.60%) create -0.39% headwind.",
+        "F&O Call OI Wall at \u20b91,820 acts as immediate upside resistance."
+      ],
+      "applied_mitigations": [
+        "Clamped T+1 target to realistic 1-day ATR limit (1.79%). Shifted excess to T+5.",
+        "Subtracted Multi-Factor Beta Drag from T+1 target.",
+        "Clamped T+1 max target to \u20b91,816.36 just below Call OI wall."
+      ],
+      "predicted_tomorrows_price_range_t1": {
+        "target_horizon": "TOMORROW (Oct 02/03 Session)",
+        "expected_move_pct": "+0.84% to +1.40%",
+        "predicted_price_bounds_inr": "\u20b91,816.36 \u2013 \u20b91,832.97"
+      },
+      "forward_5day_target_t5": {
+        "target_horizon": "Next 5 Days (Oct 08, 2026)",
+        "expected_move_pct": "+2.24% to +3.92%",
+        "predicted_price_bounds_inr": "\u20b91,858.42 \u2013 \u20b91,888.95"
+      },
+      "forward_10day_target_t10": {
+        "target_horizon": "Next 10 Days (Oct 15, 2026)",
+        "expected_move_pct": "+3.50% to +6.30%",
+        "predicted_price_bounds_inr": "\u20b91,881.32 \u2013 \u20b91,932.22"
+      },
+      "recommended_stop_loss": "INR 1,775.17 (-2.34%)",
+      "kelly_capital_allocation_inr": 19994.7,
+      "recommended_shares_quantity": 11,
+      "max_risk_inr": 467.88,
+      "top_historical_rag_match": "Receives US FDA Final Approval for specialty generic injectable with 180-day market exclusivity"
+    },
+    {
+      "id": "SIG_20261001_04_LT",
+      "symbol": "LT",
+      "company_name": "Larsen & Toubro Ltd",
+      "sector": "Capital Goods & Infrastructure",
+      "news_date": "Oct 01, 2026 (Today)",
+      "news_time": "09:50 AM IST",
+      "source_type": "GLOBAL_EPC_AWARD",
+      "headline": "L&T Hydrocarbon Onshore bags mega turnkey EPC contract worth INR 8,500 Crore from Middle East energy conglomerate for gas compression facilities over 3.5 years",
+      "current_live_ltp_t0": 3730.1,
+      "optimal_entry_price": 3730.1,
+      "execution_order_type": "MARKET_ORDER",
+      "day_change_pct": -0.8,
+      "day_high": 3737.3,
+      "day_low": 3695.0,
+      "volume": 400563,
+      "is_genuine_live_tick": true,
+      "predicted_direction": "BULLISH",
+      "conviction_score_pct": 71.4,
+      "confluence_grade": "C (COUNTER-TREND CONFLICT)",
+      "materiality_ratio": 221113.0,
+      "market_regime": "NEUTRAL_CONSOLIDATION",
+      "market_drag_contribution_pct": -0.09,
+      "recommended_execution_strategy": "MOMENTUM BUY",
+      "target_confidence_note": "Order: MARKET_ORDER. Microstructure defense active.",
+      "warnings_detected": [
+        "Raw Alpha (+3.60%) exceeds 14D ATR limit (1.98% for MEGA_CAP).",
+        "F&O Call OI Wall at \u20b93,750 acts as immediate upside resistance."
+      ],
+      "applied_mitigations": [
+        "Clamped T+1 target to realistic 1-day ATR limit (1.98%). Shifted excess to T+5.",
+        "Clamped T+1 max target to \u20b93,742.50 just below Call OI wall."
+      ],
+      "predicted_tomorrows_price_range_t1": {
+        "target_horizon": "TOMORROW (Oct 02/03 Session)",
+        "expected_move_pct": "+1.19% to +1.98%",
+        "predicted_price_bounds_inr": "\u20b93,742.50 \u2013 \u20b93,774.41"
+      },
+      "forward_5day_target_t5": {
+        "target_horizon": "Next 5 Days (Oct 08, 2026)",
+        "expected_move_pct": "+3.17% to +5.54%",
+        "predicted_price_bounds_inr": "\u20b93,848.34 \u2013 \u20b93,936.75"
+      },
+      "forward_10day_target_t10": {
+        "target_horizon": "Next 10 Days (Oct 15, 2026)",
+        "expected_move_pct": "+4.95% to +8.91%",
+        "predicted_price_bounds_inr": "\u20b93,914.74 \u2013 \u20b94,062.45"
+      },
+      "recommended_stop_loss": "INR 3,633.86 (-2.58%)",
+      "kelly_capital_allocation_inr": 18650.5,
+      "recommended_shares_quantity": 5,
+      "max_risk_inr": 481.18,
+      "top_historical_rag_match": "Secures mega turnkey EPC infrastructure contract valued above INR 4000 Crore with tight execution schedule"
+    },
+    {
+      "id": "SIG_20261001_05_TATAMOTORS",
+      "symbol": "TATAMOTORS",
+      "company_name": "Tata Motors Ltd",
+      "sector": "Automotive & EV",
+      "news_date": "Oct 01, 2026 (Today)",
+      "news_time": "10:10 AM IST",
+      "source_type": "MONTHLY_AUTO_DISPATCH",
+      "headline": "Tata Motors reports September 2026 total domestic vehicle sales of 71,345 units down 4.2% YoY amid commercial vehicle fleet replacement slowdown and festive inventory rebalancing",
+      "current_live_ltp_t0": 1000.0,
+      "optimal_entry_price": 1000.0,
+      "execution_order_type": "MARKET_ORDER",
+      "day_change_pct": 0.0,
+      "day_high": 1010.0,
+      "day_low": 990.0,
+      "volume": 1000000,
+      "is_genuine_live_tick": true,
+      "predicted_direction": "BULLISH",
+      "conviction_score_pct": 90.2,
+      "confluence_grade": "A+ (HIGH CONFLUENCE)",
+      "materiality_ratio": 25000.0,
+      "market_regime": "NEUTRAL_CONSOLIDATION",
+      "market_drag_contribution_pct": -0.09,
+      "recommended_execution_strategy": "MOMENTUM BUY",
+      "target_confidence_note": "Order: MARKET_ORDER. Microstructure defense active.",
+      "warnings_detected": [
+        "1st of Month National Auto OEM Sales Day. Monthly vehicle dispatch volume volatility dominates over individual contract wins."
+      ],
+      "applied_mitigations": [
+        "Discounted single-day catalyst alpha by 60% due to scheduled macro calendar release."
+      ],
+      "predicted_tomorrows_price_range_t1": {
+        "target_horizon": "TOMORROW (Oct 02/03 Session)",
+        "expected_move_pct": "+0.86% to +1.44%",
+        "predicted_price_bounds_inr": "\u20b91,008.64 \u2013 \u20b91,014.40"
+      },
+      "forward_5day_target_t5": {
+        "target_horizon": "Next 5 Days (Oct 08, 2026)",
+        "expected_move_pct": "+2.30% to +4.03%",
+        "predicted_price_bounds_inr": "\u20b91,023.00 \u2013 \u20b91,040.30"
+      },
+      "forward_10day_target_t10": {
+        "target_horizon": "Next 10 Days (Oct 15, 2026)",
+        "expected_move_pct": "+3.60% to +6.48%",
+        "predicted_price_bounds_inr": "\u20b91,036.00 \u2013 \u20b91,064.80"
+      },
+      "recommended_stop_loss": "INR 970.00 (-3.0%)",
+      "kelly_capital_allocation_inr": 20000.0,
+      "recommended_shares_quantity": 20,
+      "max_risk_inr": 600.0,
+      "top_historical_rag_match": "Signs strategic European export agreement for electric SUV portfolio with record initial shipment volume"
+    },
+    {
+      "id": "SIG_20261001_06_TATASTEEL",
+      "symbol": "TATASTEEL",
+      "company_name": "Tata Steel Ltd",
+      "sector": "Metals & Mining",
+      "news_date": "Oct 01, 2026 (Today)",
+      "news_time": "10:30 AM IST",
+      "source_type": "GOVERNMENT_GRANT_ACCORD",
+      "headline": "UK Government finalizes binding GBP 500 Million grant agreement for Port Talbot green electric arc furnace transition; confirms decarbonization subsidy closure",
+      "current_live_ltp_t0": 183.0,
+      "optimal_entry_price": 183.0,
+      "execution_order_type": "MARKET_ORDER",
+      "day_change_pct": -0.71,
+      "day_high": 186.55,
+      "day_low": 182.31,
+      "volume": 8254249,
+      "is_genuine_live_tick": true,
+      "predicted_direction": "BULLISH",
+      "conviction_score_pct": 72.2,
+      "confluence_grade": "C (COUNTER-TREND CONFLICT)",
+      "materiality_ratio": 25000.0,
+      "market_regime": "NEUTRAL_CONSOLIDATION",
+      "market_drag_contribution_pct": -0.09,
+      "recommended_execution_strategy": "MOMENTUM BUY",
+      "target_confidence_note": "Order: MARKET_ORDER. Microstructure defense active.",
+      "warnings_detected": [],
+      "applied_mitigations": [],
+      "predicted_tomorrows_price_range_t1": {
+        "target_horizon": "TOMORROW (Oct 02/03 Session)",
+        "expected_move_pct": "+2.16% to +3.60%",
+        "predicted_price_bounds_inr": "\u20b9186.95 \u2013 \u20b9189.59"
+      },
+      "forward_5day_target_t5": {
+        "target_horizon": "Next 5 Days (Oct 08, 2026)",
+        "expected_move_pct": "+5.76% to +10.08%",
+        "predicted_price_bounds_inr": "\u20b9193.54 \u2013 \u20b9201.45"
+      },
+      "forward_10day_target_t10": {
+        "target_horizon": "Next 10 Days (Oct 15, 2026)",
+        "expected_move_pct": "+9.00% to +16.20%",
+        "predicted_price_bounds_inr": "\u20b9199.47 \u2013 \u20b9212.65"
+      },
+      "recommended_stop_loss": "INR 177.51 (-3.0%)",
+      "kelly_capital_allocation_inr": 19947.0,
+      "recommended_shares_quantity": 109,
+      "max_risk_inr": 598.41,
+      "top_historical_rag_match": "Signs strategic European export agreement for electric SUV portfolio with record initial shipment volume"
+    },
+    {
+      "id": "SIG_20261001_07_IRFC",
+      "symbol": "IRFC",
+      "company_name": "Indian Railway Finance Corp",
+      "sector": "Railway & Infrastructure",
+      "news_date": "Oct 01, 2026 (Today)",
+      "news_time": "10:50 AM IST",
+      "source_type": "SOCIAL_MEDIA_RUMOR",
+      "headline": "Social media messaging groups circulating unverified claim that Ministry of Railways has finalized 1:1 bonus share issue and special interim dividend proposal",
+      "current_live_ltp_t0": 78.51,
+      "optimal_entry_price": 78.51,
+      "execution_order_type": "ABSTAIN (FILTERED RUMOR)",
+      "day_change_pct": -0.97,
+      "day_high": 78.92,
+      "day_low": 78.25,
+      "volume": 2537544,
+      "is_genuine_live_tick": true,
+      "predicted_direction": "ABSTAIN",
+      "conviction_score_pct": 76.5,
+      "confluence_grade": "C (COUNTER-TREND CONFLICT)",
+      "materiality_ratio": 25000.0,
+      "market_regime": "NEUTRAL_CONSOLIDATION",
+      "market_drag_contribution_pct": -0.09,
+      "recommended_execution_strategy": "ABSTAIN - CAPITAL PROTECTED",
+      "target_confidence_note": "Order: ABSTAIN (FILTERED RUMOR). Microstructure defense active.",
+      "warnings_detected": [
+        "Social media rumor quarantined. Zero institutional verification."
+      ],
+      "applied_mitigations": [
+        "Filtered unverified leak. Zero capital allocated."
+      ],
+      "predicted_tomorrows_price_range_t1": {
+        "target_horizon": "TOMORROW (Oct 02/03 Session)",
+        "expected_move_pct": "0.00%",
+        "predicted_price_bounds_inr": "\u20b978.51 \u2013 \u20b978.51"
+      },
+      "forward_5day_target_t5": {
+        "target_horizon": "Next 5 Days (Oct 08, 2026)",
+        "expected_move_pct": "0.00%",
+        "predicted_price_bounds_inr": "\u20b978.51 \u2013 \u20b978.51"
+      },
+      "forward_10day_target_t10": {
+        "target_horizon": "Next 10 Days (Oct 15, 2026)",
+        "expected_move_pct": "0.00%",
+        "predicted_price_bounds_inr": "\u20b978.51 \u2013 \u20b978.51"
+      },
+      "recommended_stop_loss": "INR 78.51 (-0.0%)",
+      "kelly_capital_allocation_inr": 19941.54,
+      "recommended_shares_quantity": 254,
+      "max_risk_inr": 99.71,
+      "top_historical_rag_match": "Defence Acquisition Council accords Acceptance of Necessity for major indigenous manufacturing contract"
+    }
+  ]
+}

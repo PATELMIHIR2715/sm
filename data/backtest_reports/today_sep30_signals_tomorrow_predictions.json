@@ -1,0 +1,336 @@
+{
+  "prediction_generation_timestamp": "2026-09-30 11:41:30 IST",
+  "prediction_target_session": "TOMORROW (Oct 01, 2026)",
+  "benchmark_signals_count": 7,
+  "market_regime": {
+    "nifty_symbol": "^NSEI",
+    "nifty_ltp": 22701.6,
+    "nifty_change_pct": -0.06,
+    "market_regime": "NEUTRAL_CONSOLIDATION",
+    "regime_multiplier": 1.0,
+    "is_market_in_pullback": false,
+    "timestamp": "2026-09-30 11:41:27 IST"
+  },
+  "predictions": [
+    {
+      "id": "SIG_20260930_01_BHARTIARTL",
+      "symbol": "BHARTIARTL",
+      "company_name": "Bharti Airtel Ltd",
+      "sector": "Telecommunications & Digital",
+      "news_date": "Sep 30, 2026 (Today)",
+      "news_time": "09:15 AM IST",
+      "source_type": "NSE_FILING",
+      "headline": "Airtel Business secures landmark 10-year enterprise contract with leading private bank for customized 5G SD-WAN network across 6,500 branches worth INR 3,800 Crore",
+      "current_live_ltp_t0": 1766.0,
+      "optimal_entry_price": 1766.0,
+      "execution_order_type": "MARKET_ORDER",
+      "day_change_pct": -0.29,
+      "day_high": 1779.5,
+      "day_low": 1755.0,
+      "volume": 2296516,
+      "is_genuine_live_tick": true,
+      "predicted_direction": "BULLISH",
+      "conviction_score_pct": 92.4,
+      "confluence_grade": "A+ (HIGH CONFLUENCE)",
+      "materiality_ratio": 0.0253,
+      "market_regime": "NEUTRAL_CONSOLIDATION",
+      "market_drag_contribution_pct": -0.07,
+      "recommended_execution_strategy": "CONFLUENCE MOMENTUM BUY",
+      "target_confidence_note": "Order: MARKET_ORDER. Microstructure defense active.",
+      "warnings_detected": [],
+      "applied_mitigations": [],
+      "predicted_tomorrows_price_range_t1": {
+        "target_horizon": "TOMORROW (Oct 01, 2026 Session)",
+        "expected_move_pct": "+2.50% to +4.17%",
+        "predicted_price_bounds_inr": "\u20b91,810.15 \u2013 \u20b91,839.64"
+      },
+      "forward_5day_target_t5": {
+        "target_horizon": "Next 5 Days (Oct 07, 2026)",
+        "expected_move_pct": "+5.14% to +9.00%",
+        "predicted_price_bounds_inr": "\u20b91,856.77 \u2013 \u20b91,924.94"
+      },
+      "forward_10day_target_t10": {
+        "target_horizon": "Next 10 Days (Oct 14, 2026)",
+        "expected_move_pct": "+8.64% to +16.26%",
+        "predicted_price_bounds_inr": "\u20b91,918.58 \u2013 \u20b92,053.15"
+      },
+      "recommended_stop_loss": "INR 1,710.90 (-3.12%)",
+      "kelly_capital_allocation_inr": 19426.0,
+      "recommended_shares_quantity": 11,
+      "max_risk_inr": 606.09,
+      "top_historical_rag_match": "Secures mega turnkey EPC infrastructure contract valued above INR 4000 Crore with tight execution schedule"
+    },
+    {
+      "id": "SIG_20260930_02_TCS",
+      "symbol": "TCS",
+      "company_name": "Tata Consultancy Services Ltd",
+      "sector": "Information Technology",
+      "news_date": "Sep 30, 2026 (Today)",
+      "news_time": "09:30 AM IST",
+      "source_type": "NSE_FILING",
+      "headline": "TCS signs USD 600 Million multi-year core transformation and cloud AI modernization deal with major Nordic financial and insurance conglomerate",
+      "current_live_ltp_t0": 2070.7,
+      "optimal_entry_price": 2083.75,
+      "execution_order_type": "LIMIT_ON_VWAP_PULLBACK (\u20b92,083.75)",
+      "day_change_pct": 1.88,
+      "day_high": 2101.0,
+      "day_low": 2055.0,
+      "volume": 2019555,
+      "is_genuine_live_tick": true,
+      "predicted_direction": "BULLISH",
+      "conviction_score_pct": 88.0,
+      "confluence_grade": "A+ (HIGH CONFLUENCE)",
+      "materiality_ratio": 0.0208,
+      "market_regime": "NEUTRAL_CONSOLIDATION",
+      "market_drag_contribution_pct": -0.04,
+      "recommended_execution_strategy": "ACCUMULATE ON PULLBACK (AVOID OPEN CHASE)",
+      "target_confidence_note": "Order: LIMIT_ON_VWAP_PULLBACK (\u20b92,083.75). Microstructure defense active.",
+      "warnings_detected": [
+        "Pre-Market Gap Trap (+1.80% open gap with RSI 55.0). Risk of opening selloff.",
+        "Raw Alpha (+3.37%) exceeds single-day 14D ATR ceiling (1.44%)."
+      ],
+      "applied_mitigations": [
+        "Convert to Limit Order at VWAP pullback band (prevents buying at morning peak).",
+        "Clamped T+1 target to realistic 1-day ATR limit (1.44%). Shifted excess to T+5.",
+        "Applied 1.20x Sector Momentum Tailwind factor."
+      ],
+      "predicted_tomorrows_price_range_t1": {
+        "target_horizon": "TOMORROW (Oct 01, 2026 Session)",
+        "expected_move_pct": "+1.26% to +2.11%",
+        "predicted_price_bounds_inr": "\u20b92,110.01 \u2013 \u20b92,127.72"
+      },
+      "forward_5day_target_t5": {
+        "target_horizon": "Next 5 Days (Oct 07, 2026)",
+        "expected_move_pct": "+2.27% to +3.98%",
+        "predicted_price_bounds_inr": "\u20b92,131.05 \u2013 \u20b92,166.68"
+      },
+      "forward_10day_target_t10": {
+        "target_horizon": "Next 10 Days (Oct 14, 2026)",
+        "expected_move_pct": "+3.86% to +7.26%",
+        "predicted_price_bounds_inr": "\u20b92,164.18 \u2013 \u20b92,235.03"
+      },
+      "recommended_stop_loss": "INR 2,046.24 (-1.8%)",
+      "kelly_capital_allocation_inr": 18753.75,
+      "recommended_shares_quantity": 9,
+      "max_risk_inr": 337.57,
+      "top_historical_rag_match": "Signs multi-year large deal TCV exceeding USD 500 Million for enterprise AI cloud migration and core modernization"
+    },
+    {
+      "id": "SIG_20260930_03_MM",
+      "symbol": "M&M",
+      "company_name": "Mahindra & Mahindra Ltd",
+      "sector": "Automotive & EV",
+      "news_date": "Sep 30, 2026 (Today)",
+      "news_time": "09:45 AM IST",
+      "source_type": "GLOBAL_EXPORT_ORDER",
+      "headline": "Mahindra signs commercial export agreement with British EV logistics operator for 15,000 Next-Gen electric commercial vehicles over 2 years worth INR 2,400 Crore",
+      "current_live_ltp_t0": 2962.3,
+      "optimal_entry_price": 2962.3,
+      "execution_order_type": "MARKET_ORDER",
+      "day_change_pct": 0.49,
+      "day_high": 2986.0,
+      "day_low": 2925.0,
+      "volume": 865989,
+      "is_genuine_live_tick": true,
+      "predicted_direction": "BULLISH",
+      "conviction_score_pct": 90.2,
+      "confluence_grade": "A+ (HIGH CONFLUENCE)",
+      "materiality_ratio": 0.02,
+      "market_regime": "NEUTRAL_CONSOLIDATION",
+      "market_drag_contribution_pct": -0.07,
+      "recommended_execution_strategy": "CONFLUENCE MOMENTUM BUY",
+      "target_confidence_note": "Order: MARKET_ORDER. Microstructure defense active.",
+      "warnings_detected": [
+        "Raw Alpha (+3.36%) exceeds single-day 14D ATR ceiling (2.90%)."
+      ],
+      "applied_mitigations": [
+        "Clamped T+1 target to realistic 1-day ATR limit (2.90%). Shifted excess to T+5."
+      ],
+      "predicted_tomorrows_price_range_t1": {
+        "target_horizon": "TOMORROW (Oct 01, 2026 Session)",
+        "expected_move_pct": "+2.12% to +3.54%",
+        "predicted_price_bounds_inr": "\u20b93,025.10 \u2013 \u20b93,067.17"
+      },
+      "forward_5day_target_t5": {
+        "target_horizon": "Next 5 Days (Oct 07, 2026)",
+        "expected_move_pct": "+4.37% to +7.64%",
+        "predicted_price_bounds_inr": "\u20b93,091.75 \u2013 \u20b93,188.62"
+      },
+      "forward_10day_target_t10": {
+        "target_horizon": "Next 10 Days (Oct 14, 2026)",
+        "expected_move_pct": "+7.34% to +13.81%",
+        "predicted_price_bounds_inr": "\u20b93,179.73 \u2013 \u20b93,371.39"
+      },
+      "recommended_stop_loss": "INR 2,882.61 (-2.69%)",
+      "kelly_capital_allocation_inr": 17773.8,
+      "recommended_shares_quantity": 6,
+      "max_risk_inr": 478.12,
+      "top_historical_rag_match": "Signs strategic European export agreement for electric SUV portfolio with record initial shipment volume"
+    },
+    {
+      "id": "SIG_20260930_04_BAJFINANCE",
+      "symbol": "BAJFINANCE",
+      "company_name": "Bajaj Finance Ltd",
+      "sector": "Banking & NBFC",
+      "news_date": "Sep 30, 2026 (Today)",
+      "news_time": "10:10 AM IST",
+      "source_type": "REGULATORY_CLEARANCE",
+      "headline": "RBI officially lifts supervisory lending restrictions on digital loan sanctioning products following comprehensive compliance and IT systems audit",
+      "current_live_ltp_t0": 960.4,
+      "optimal_entry_price": 960.4,
+      "execution_order_type": "MARKET_ORDER",
+      "day_change_pct": -1.38,
+      "day_high": 981.5,
+      "day_low": 957.9,
+      "volume": 2412439,
+      "is_genuine_live_tick": true,
+      "predicted_direction": "BEARISH",
+      "conviction_score_pct": 72.9,
+      "confluence_grade": "C (COUNTER-TREND CONFLICT)",
+      "materiality_ratio": 0.0,
+      "market_regime": "NEUTRAL_CONSOLIDATION",
+      "market_drag_contribution_pct": -0.07,
+      "recommended_execution_strategy": "TACTICAL SHORT (RESISTANCE REJECTION)",
+      "target_confidence_note": "Order: MARKET_ORDER. Microstructure defense active.",
+      "warnings_detected": [],
+      "applied_mitigations": [
+        "Market weakness (-0.06%) acts as systemic tailwind for short."
+      ],
+      "predicted_tomorrows_price_range_t1": {
+        "target_horizon": "TOMORROW (Oct 01, 2026 Session)",
+        "expected_move_pct": "-2.45% to -4.09%",
+        "predicted_price_bounds_inr": "\u20b9921.12 \u2013 \u20b9936.87"
+      },
+      "forward_5day_target_t5": {
+        "target_horizon": "Next 5 Days (Oct 07, 2026)",
+        "expected_move_pct": "-4.61% to -8.06%",
+        "predicted_price_bounds_inr": "\u20b9882.99 \u2013 \u20b9916.13"
+      },
+      "forward_10day_target_t10": {
+        "target_horizon": "Next 10 Days (Oct 14, 2026)",
+        "expected_move_pct": "-7.62% to -14.34%",
+        "predicted_price_bounds_inr": "\u20b9822.68 \u2013 \u20b9887.22"
+      },
+      "recommended_stop_loss": "INR 990.36 (-3.12%)",
+      "kelly_capital_allocation_inr": 19208.0,
+      "recommended_shares_quantity": 20,
+      "max_risk_inr": 599.29,
+      "top_historical_rag_match": "Reserve Bank of India imposes regulatory restriction on onboarding new digital customers and credit card issuance"
+    },
+    {
+      "id": "SIG_20260930_05_COALINDIA",
+      "symbol": "COALINDIA",
+      "company_name": "Coal India Ltd",
+      "sector": "Metals & Mining",
+      "news_date": "Sep 30, 2026 (Today)",
+      "news_time": "10:25 AM IST",
+      "source_type": "CABINET_DECISION",
+      "headline": "CCEA approves enhanced commercial linkage auction policy with guaranteed price realization and 8% annual dividend payout floor",
+      "current_live_ltp_t0": 431.0,
+      "optimal_entry_price": 431.0,
+      "execution_order_type": "MARKET_ORDER",
+      "day_change_pct": 1.41,
+      "day_high": 432.9,
+      "day_low": 425.1,
+      "volume": 3572265,
+      "is_genuine_live_tick": true,
+      "predicted_direction": "BEARISH",
+      "conviction_score_pct": 71.3,
+      "confluence_grade": "C (COUNTER-TREND CONFLICT)",
+      "materiality_ratio": 0.0,
+      "market_regime": "NEUTRAL_CONSOLIDATION",
+      "market_drag_contribution_pct": -0.07,
+      "recommended_execution_strategy": "TACTICAL SHORT (RESISTANCE REJECTION)",
+      "target_confidence_note": "Order: MARKET_ORDER. Microstructure defense active.",
+      "warnings_detected": [],
+      "applied_mitigations": [
+        "Market weakness (-0.06%) acts as systemic tailwind for short."
+      ],
+      "predicted_tomorrows_price_range_t1": {
+        "target_horizon": "TOMORROW (Oct 01, 2026 Session)",
+        "expected_move_pct": "-2.45% to -4.09%",
+        "predicted_price_bounds_inr": "\u20b9413.37 \u2013 \u20b9420.44"
+      },
+      "forward_5day_target_t5": {
+        "target_horizon": "Next 5 Days (Oct 07, 2026)",
+        "expected_move_pct": "-4.61% to -8.06%",
+        "predicted_price_bounds_inr": "\u20b9396.26 \u2013 \u20b9411.13"
+      },
+      "forward_10day_target_t10": {
+        "target_horizon": "Next 10 Days (Oct 14, 2026)",
+        "expected_move_pct": "-7.62% to -14.34%",
+        "predicted_price_bounds_inr": "\u20b9369.19 \u2013 \u20b9398.16"
+      },
+      "recommended_stop_loss": "INR 444.45 (-3.12%)",
+      "kelly_capital_allocation_inr": 19826.0,
+      "recommended_shares_quantity": 46,
+      "max_risk_inr": 618.57,
+      "top_historical_rag_match": "New conglomerate entrant launches aggressive dealer rebate scheme sparking price war and operating margin downgrades"
+    },
+    {
+      "id": "SIG_20260930_06_VEDL",
+      "symbol": "VEDL",
+      "company_name": "Vedanta Ltd",
+      "sector": "Metals & Mining",
+      "news_date": "Sep 30, 2026 (Today)",
+      "news_time": "10:40 AM IST",
+      "source_type": "HIGH_COURT_STAY",
+      "headline": "High Court issues interim stay order on environmental clearance for 400,000 TPA copper smelter expansion pending judicial review committee report",
+      "current_live_ltp_t0": 259.25,
+      "optimal_entry_price": 259.25,
+      "execution_order_type": "MARKET_ORDER",
+      "day_change_pct": -0.29,
+      "day_high": 260.2,
+      "day_low": 256.9,
+      "volume": 3400691,
+      "is_genuine_live_tick": true,
+      "predicted_direction": "BULLISH",
+      "conviction_score_pct": 92.4,
+      "confluence_grade": "A+ (HIGH CONFLUENCE)",
+      "materiality_ratio": 0.0,
+      "market_regime": "NEUTRAL_CONSOLIDATION",
+      "market_drag_contribution_pct": -0.07,
+      "recommended_execution_strategy": "CONFLUENCE MOMENTUM BUY",
+      "target_confidence_note": "Order: MARKET_ORDER. Microstructure defense active.",
+      "warnings_detected": [],
+      "applied_mitigations": [],
+      "predicted_tomorrows_price_range_t1": {
+        "target_horizon": "TOMORROW (Oct 01, 2026 Session)",
+        "expected_move_pct": "+2.35% to +3.91%",
+        "predicted_price_bounds_inr": "\u20b9265.34 \u2013 \u20b9269.39"
+      },
+      "forward_5day_target_t5": {
+        "target_horizon": "Next 5 Days (Oct 07, 2026)",
+        "expected_move_pct": "+4.61% to +8.06%",
+        "predicted_price_bounds_inr": "\u20b9271.20 \u2013 \u20b9280.15"
+      },
+      "forward_10day_target_t10": {
+        "target_horizon": "Next 10 Days (Oct 14, 2026)",
+        "expected_move_pct": "+7.62% to +14.34%",
+        "predicted_price_bounds_inr": "\u20b9279.00 \u2013 \u20b9296.43"
+      },
+      "recommended_stop_loss": "INR 251.16 (-3.12%)",
+      "kelly_capital_allocation_inr": 19962.25,
+      "recommended_shares_quantity": 77,
+      "max_risk_inr": 622.82,
+      "top_historical_rag_match": "Receives Establishment Inspection Report EIR with Voluntary Action Indicated VAI classification from US FDA"
+    },
+    {
+      "id": "SIG_20260930_07_IDEA",
+      "symbol": "IDEA",
+      "company_name": "Vodafone Idea Ltd",
+      "sector": "Telecommunications",
+      "news_date": "Sep 30, 2026 (Today)",
+      "news_time": "11:00 AM IST",
+      "source_type": "UNCONFIRMED_RUMOR",
+      "headline": "Unverified Telegram message claims Department of Telecommunications considering immediate conversion of spectrum dues into perpetual zero-coupon equity",
+      "current_live_ltp_t0": 13.17,
+      "day_change_pct": -2.88,
+      "pipeline_status": "FILTERED_UNVERIFIED_RUMOR",
+      "conviction_score_pct": 28.0,
+      "predicted_direction": "ABSTAIN",
+      "recommended_strategy": "NO TRADE (CAPITAL PROTECTED)",
+      "catalyst_note": "Signal flagged as unverified social media rumor with insufficient conviction (<65%). INR 0 capital placed at risk."
+    }
+  ]
+}

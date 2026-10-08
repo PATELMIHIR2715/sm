@@ -1,0 +1,21 @@
+{
+  "symbol": "INFY",
+  "company_name": "Infosys Ltd",
+  "sector": "Information Technology",
+  "tier": "MEGA_CAP",
+  "annual_revenue_cr": 153670.0,
+  "market_cap_cr": 780000.0,
+  "nifty_beta": 0.85,
+  "sector_beta": 1.2,
+  "fno_lot_size": 400,
+  "current_ltp": 1009.55,
+  "atr_14_inr": 24.52,
+  "atr_14_pct": 2.43,
+  "single_day_max_ceiling_pct": 2.79,
+  "realized_volatility_20d_pct": 27.97,
+  "ema_50": 1066.98,
+  "ema_200": 1066.36,
+  "rsi_14": 41.6,
+  "cached_timestamp": 1790828389.7509327,
+  "cached_date_str": "2026-10-01 09:49:49 IST"
+}

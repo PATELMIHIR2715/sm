@@ -1,0 +1,21 @@
+{
+  "symbol": "COALINDIA",
+  "company_name": "Coal India Ltd",
+  "sector": "Metals & Mining",
+  "tier": "LARGE_CAP",
+  "annual_revenue_cr": 138252.0,
+  "market_cap_cr": 265000.0,
+  "nifty_beta": 0.95,
+  "sector_beta": 1.2,
+  "fno_lot_size": 2100,
+  "current_ltp": 418.2,
+  "atr_14_inr": 7.18,
+  "atr_14_pct": 1.72,
+  "single_day_max_ceiling_pct": 2.32,
+  "realized_volatility_20d_pct": 21.27,
+  "ema_50": 416.3,
+  "ema_200": 416.18,
+  "rsi_14": 43.6,
+  "cached_timestamp": 1790828464.7237422,
+  "cached_date_str": "2026-10-01 09:51:04 IST"
+}

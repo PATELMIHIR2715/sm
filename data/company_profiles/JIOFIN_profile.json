@@ -1,0 +1,28 @@
+{
+  "symbol": "JIOFIN",
+  "company_name": "Jio Financial Services Ltd",
+  "sector": "Banking & NBFC",
+  "tier": "LARGE_CAP",
+  "annual_revenue_cr": 1854.0,
+  "market_cap_cr": 136000.0,
+  "nifty_beta": 1.15,
+  "sector_beta": 1.25,
+  "fno_lot_size": 2100,
+  "current_ltp": 213.88,
+  "atr_14_inr": 3.98,
+  "atr_14_pct": 1.86,
+  "single_day_max_ceiling_pct": 2.51,
+  "realized_volatility_20d_pct": 18.65,
+  "ema_50": 234.1,
+  "ema_200": 235.71,
+  "rsi_14": 23.9,
+  "sector_valuation": {
+    "sector_pe": 15.2,
+    "median_5y_pe": 16.8,
+    "pe_premium_pct": -9.5,
+    "valuation_state": "REASONABLE_VALUE",
+    "multiple_factor": 1.1
+  },
+  "cached_timestamp": 1790829843.3349981,
+  "cached_date_str": "2026-10-01 10:14:03 IST"
+}

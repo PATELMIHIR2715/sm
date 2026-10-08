@@ -1,0 +1,14 @@
+# Institutional AI News Impact Platform Robots Policy
+User-agent: *
+Allow: /
+Allow: /#radar
+Allow: /#audit
+
+# Disallow private admin routes and internal endpoints
+Disallow: /#admin
+Disallow: /api/notifications/admin*
+Disallow: /api/notifications/smtp-config
+Disallow: /api/settings/
+Disallow: /api/pipeline/poll-now
+
+Sitemap: https://institutional-alpha.trade/sitemap.xml

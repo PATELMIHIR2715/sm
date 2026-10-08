@@ -1,0 +1,122 @@
+{
+  "audit_timestamp": "2026-09-30 11:30:00 IST",
+  "audit_scope": "REAL-TIME EXCHANGE VERIFICATION (Zero Synthetic Data / Zero Lookahead)",
+  "summary": {
+    "total_predictions_evaluated": 6,
+    "exact_target_hits": 1,
+    "directional_accuracy_pct": 66.67,
+    "noise_filter_accuracy_pct": 100.0,
+    "average_1day_target_corridor_overshoot_pct": 1.42,
+    "primary_bottleneck": "1-Day target ATR multipliers did not scale down for large-cap macro beta drag and open-gap fade dynamics.",
+    "pipeline_fix_action": "Implement Dynamic Beta Drag Discounting, Gap-Fade Suppression, and Multi-Horizon Scaling (1.0x ATR for T+1, 2.5x ATR for T+5)."
+  },
+  "yesterday_signals_t1_audit": [
+    {
+      "symbol": "INFY",
+      "company_name": "Infosys Ltd",
+      "headline": "USD 450M generative AI cloud modernization deal over 5 years",
+      "sep29_base_price_t0": 989.7,
+      "sep30_high_t1": 1024.0,
+      "sep30_current_ltp": 1011.0,
+      "actual_max_move_pct": 3.47,
+      "actual_current_move_pct": 2.15,
+      "predicted_direction": "BULLISH",
+      "predicted_t1_corridor": "\u20b91,008.41 \u2013 \u20b91,024.44 (+1.89% to +3.51%)",
+      "t1_verdict": "EXACT TARGET HIT (100% IN RANGE)",
+      "is_target_hit": true,
+      "failure_mode_analysis": "None. Strong institutional accumulation in large-cap IT pushed stock straight into the top boundary of predicted target."
+    },
+    {
+      "symbol": "LT",
+      "company_name": "Larsen & Toubro Ltd",
+      "headline": "INR 12,500 Cr High-Speed Rail bullet train viaduct & terminal contract",
+      "sep29_base_price_t0": 3744.0,
+      "sep30_high_t1": 3786.5,
+      "sep30_current_ltp": 3769.4,
+      "actual_max_move_pct": 1.14,
+      "actual_current_move_pct": 0.68,
+      "predicted_direction": "BULLISH",
+      "predicted_t1_corridor": "\u20b93,829.44 \u2013 \u20b93,902.67 (+2.28% to +4.24%)",
+      "t1_verdict": "PARTIAL MOVE (UNDER TARGET BAND)",
+      "is_target_hit": false,
+      "failure_mode_analysis": "Direction was positive (+1.14%), but target corridor (+2.28% to +4.24%) was too wide for a \u20b95.2 Lakh Cr market-cap stock in 1 single session. Capex contract materiality requires T+5 multi-day horizon."
+    },
+    {
+      "symbol": "NTPC",
+      "company_name": "NTPC Ltd",
+      "headline": "1,200 MW ultra-mega solar-wind hybrid SECI tender win",
+      "sep29_base_price_t0": 319.15,
+      "sep30_high_t1": 323.95,
+      "sep30_current_ltp": 321.65,
+      "actual_max_move_pct": 1.5,
+      "actual_current_move_pct": 0.78,
+      "predicted_direction": "BULLISH",
+      "predicted_t1_corridor": "\u20b9324.91 \u2013 \u20b9329.85 (+1.80% to +3.35%)",
+      "t1_verdict": "NEAR HIT (MISSED BY 96 PAISE)",
+      "is_target_hit": false,
+      "failure_mode_analysis": "Peak price \u20b9323.95 reached within 0.30% of target lower threshold \u20b9324.91. Broad utility sector consolidation restricted the final intraday push."
+    },
+    {
+      "symbol": "CIPLA",
+      "company_name": "Cipla Ltd",
+      "headline": "US FDA Form 483 with 6 critical observations at Pithampur API facility",
+      "sep29_base_price_t0": 1387.9,
+      "sep30_high_t1": 1384.0,
+      "sep30_current_ltp": 1363.6,
+      "actual_max_move_pct": -2.1,
+      "actual_current_move_pct": -1.75,
+      "predicted_direction": "BEARISH",
+      "predicted_t1_corridor": "\u20b91,308.15 \u2013 \u20b91,344.96 (-5.75% to -3.09%)",
+      "t1_verdict": "DIRECTIONAL HIT (BAND OVERESTIMATED)",
+      "is_target_hit": false,
+      "failure_mode_analysis": "Short trade was highly profitable (dropped -2.10% from \u20b91,387.90 to low \u20b91,358.80), but RAG archetype pegged target too aggressively (-5.75%) based on historical Import Alerts rather than 483 observations."
+    },
+    {
+      "symbol": "SUNPHARMA",
+      "company_name": "Sun Pharma Industries Ltd",
+      "headline": "Generic Deferasirox 180-day market exclusivity USD 280M market",
+      "sep29_base_price_t0": 1845.2,
+      "sep30_high_t1": 1863.6,
+      "sep30_current_ltp": 1825.3,
+      "actual_max_move_pct": 1.0,
+      "actual_current_move_pct": -1.08,
+      "predicted_direction": "BULLISH",
+      "predicted_t1_corridor": "\u20b91,878.65 \u2013 \u20b91,907.33 (+1.81% to +3.37%)",
+      "t1_verdict": "GAP-FADE REVERSAL (MISSED)",
+      "is_target_hit": false,
+      "failure_mode_analysis": "Opened high at \u20b91,861.30 (+0.87%) into pre-market excitement, but institutional profit-booking faded the opening gap. Pipeline failed to detect pre-market extended RSI."
+    },
+    {
+      "symbol": "IRFC",
+      "company_name": "Indian Railway Finance Corp",
+      "headline": "Unverified WhatsApp rumor of 8% discount OFS stake sale",
+      "sep29_base_price_t0": 77.32,
+      "sep30_high_t1": 79.49,
+      "sep30_current_ltp": 79.15,
+      "actual_max_move_pct": 2.8,
+      "actual_current_move_pct": 2.36,
+      "predicted_direction": "ABSTAIN",
+      "predicted_t1_corridor": "NO TRADE (NOISE FILTERED)",
+      "t1_verdict": "CAPITAL PROTECTED (NOISE FILTER SUCCESS)",
+      "is_target_hit": true,
+      "failure_mode_analysis": "Correctly abstained from trading on social media rumor, preserving risk capacity for high-conviction filings."
+    }
+  ],
+  "systemic_root_cause_analysis": [
+    {
+      "failure_category": "1. Single-Day ATR Over-Expectation",
+      "why_it_happened": "The model assigned multi-day reaction volatility (+3% to +6%) to 1-day (T+1) horizon. Large caps like L&T, NTPC, Sun Pharma have average daily true range of only 1.1% to 1.6%.",
+      "engineering_fix": "Scale 1-Day (T+1) target bounds strictly to (0.7x to 1.2x Daily ATR). Reserve >3% target bounds strictly for T+5 / T+10 multi-horizon swings."
+    },
+    {
+      "failure_category": "2. Pre-Market Gap-Fade Vulnerability",
+      "why_it_happened": "Positive FDA approvals (Sun Pharma) or contracts often cause early pre-market gap-ups that short-term momentum traders immediately sell into, producing red intraday candles.",
+      "engineering_fix": "Add Gap-Fade Check: If stock opens >0.8% above previous close and RSI_15min > 70, convert execution from Market Order to Limit Order at VWAP pullback."
+    },
+    {
+      "failure_category": "3. Sector Breadth Blindspot",
+      "why_it_happened": "Stock news was evaluated in isolation without checking if the respective Sectoral Index (Nifty Pharma, Nifty PSE, Nifty Metal) was facing sector-wide profit taking.",
+      "engineering_fix": "Incorporate Sector Relative Strength (RS) Index into the Confluence Engine alongside Nifty 50."
+    }
+  ]
+}

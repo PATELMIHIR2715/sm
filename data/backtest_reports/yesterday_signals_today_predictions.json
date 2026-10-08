@@ -1,0 +1,202 @@
+{
+  "test_run_name": "Yesterday's Signal Test Run -> Today's Forward Price Predictions",
+  "run_timestamp": "2026-09-28T17:16:55.485878",
+  "total_yesterday_signals_ingested": 6,
+  "actionable_useful_signals": 5,
+  "filtered_noise_signals": 1,
+  "predictions": [
+    {
+      "id": "YEST_01_HAL",
+      "symbol": "HAL",
+      "company_name": "Hindustan Aeronautics Ltd",
+      "sector": "Defense & Aerospace",
+      "source_type": "PIB_GEM_TENDER",
+      "signal_arrival_date": "Sep 25, 2026 (Friday)",
+      "signal_arrival_time": "10:20 AM IST",
+      "headline": "Cabinet clears landmark INR 14,200 Crore defense procurement contract for 240 indigenous AL-31FP aero-engines for Sukhoi Su-30MKI fighters with HAL",
+      "yesterday_base_price_t0": 4450.0,
+      "predicted_direction": "BULLISH",
+      "conviction_score_pct": 98.0,
+      "adjusted_confluence_conviction": 98.0,
+      "confluence_grade": "A+ (HIGH CONFLUENCE)",
+      "materiality_ratio": 0.4733,
+      "predicted_todays_price_range": {
+        "target_horizon": "TODAY (Sep 28, 2026 Close)",
+        "expected_move_pct": "+2.56% to +8.13%",
+        "predicted_price_bounds_inr": "INR 4,563.92 - INR 4,811.78"
+      },
+      "forward_5day_target_t5": {
+        "target_horizon": "Next 5 Days (Oct 05, 2026)",
+        "expected_move_pct": "+4.10% to +14.63%",
+        "predicted_price_bounds_inr": "INR 4,632.45 - INR 5,101.04"
+      },
+      "forward_10day_target_t10": {
+        "target_horizon": "Next 10 Days (Oct 12, 2026)",
+        "expected_move_pct": "+5.63% to +21.14%",
+        "predicted_price_bounds_inr": "INR 4,700.53 - INR 5,390.73"
+      },
+      "recommended_stop_loss": "INR 4,279.12 (-3.84%)",
+      "kelly_capital_allocation_inr": 17800.0,
+      "recommended_shares_quantity": 4,
+      "max_risk_inr": 683.52,
+      "top_historical_rag_match": "Defence Acquisition Council accords Acceptance of Necessity for major indigenous manufacturing contract"
+    },
+    {
+      "id": "YEST_02_ASIANPAINT",
+      "symbol": "ASIANPAINT",
+      "company_name": "Asian Paints Ltd",
+      "sector": "Paints & Consumer",
+      "source_type": "NSE_FILING",
+      "signal_arrival_date": "Sep 25, 2026 (Friday)",
+      "signal_arrival_time": "02:10 PM IST",
+      "headline": "Brent crude spikes 4.5% alongside aggressive festive dealer rebate schemes; analysts estimate 120-150 bps operating margin contraction for paint manufacturers",
+      "yesterday_base_price_t0": 2540.0,
+      "predicted_direction": "BEARISH",
+      "conviction_score_pct": 87.5,
+      "adjusted_confluence_conviction": 96.3,
+      "confluence_grade": "A+ (HIGH CONFLUENCE)",
+      "materiality_ratio": 0.0,
+      "predicted_todays_price_range": {
+        "target_horizon": "TODAY (Sep 28, 2026 Close)",
+        "expected_move_pct": "-3.96% to -1.76%",
+        "predicted_price_bounds_inr": "INR 2,439.42 - INR 2,495.30"
+      },
+      "forward_5day_target_t5": {
+        "target_horizon": "Next 5 Days (Oct 05, 2026)",
+        "expected_move_pct": "-7.13% to -2.82%",
+        "predicted_price_bounds_inr": "INR 2,358.90 - INR 2,468.37"
+      },
+      "forward_10day_target_t10": {
+        "target_horizon": "Next 10 Days (Oct 12, 2026)",
+        "expected_move_pct": "-10.30% to -3.87%",
+        "predicted_price_bounds_inr": "INR 2,278.38 - INR 2,441.70"
+      },
+      "recommended_stop_loss": "INR 2,607.06 (+2.64%)",
+      "kelly_capital_allocation_inr": 20320.0,
+      "recommended_shares_quantity": 8,
+      "max_risk_inr": 536.45,
+      "top_historical_rag_match": "New conglomerate entrant launches aggressive dealer rebate scheme sparking price war and operating margin downgrades"
+    },
+    {
+      "id": "YEST_03_JSWSTEEL",
+      "symbol": "JSWSTEEL",
+      "company_name": "JSW Steel Ltd",
+      "sector": "Metals & Mining",
+      "source_type": "NSE_FILING",
+      "signal_arrival_date": "Sep 26, 2026 (Saturday)",
+      "signal_arrival_time": "11:30 AM IST",
+      "headline": "JSW Steel announces successful commissioning of 5 MTPA hot strip mill expansion at Dolvi facility one month ahead of schedule to meet domestic auto demand",
+      "yesterday_base_price_t0": 945.0,
+      "predicted_direction": "BULLISH",
+      "conviction_score_pct": 82.0,
+      "adjusted_confluence_conviction": 90.2,
+      "confluence_grade": "A+ (HIGH CONFLUENCE)",
+      "materiality_ratio": 0.0,
+      "predicted_todays_price_range": {
+        "target_horizon": "TODAY (Sep 28, 2026 Close)",
+        "expected_move_pct": "+2.16% to +4.86%",
+        "predicted_price_bounds_inr": "INR 965.41 - INR 990.93"
+      },
+      "forward_5day_target_t5": {
+        "target_horizon": "Next 5 Days (Oct 05, 2026)",
+        "expected_move_pct": "+3.46% to +8.75%",
+        "predicted_price_bounds_inr": "INR 977.70 - INR 1,027.69"
+      },
+      "forward_10day_target_t10": {
+        "target_horizon": "Next 10 Days (Oct 12, 2026)",
+        "expected_move_pct": "+4.75% to +12.64%",
+        "predicted_price_bounds_inr": "INR 989.89 - INR 1,064.45"
+      },
+      "recommended_stop_loss": "INR 914.38 (-3.24%)",
+      "kelly_capital_allocation_inr": 21735.0,
+      "recommended_shares_quantity": 23,
+      "max_risk_inr": 704.21,
+      "top_historical_rag_match": "Successfully commissions multi-million tonne hot strip mill expansion ahead of schedule to meet domestic auto demand"
+    },
+    {
+      "id": "YEST_04_BEL",
+      "symbol": "BEL",
+      "company_name": "Bharat Electronics Ltd",
+      "sector": "Defense & Aerospace",
+      "source_type": "NSE_FILING",
+      "signal_arrival_date": "Sep 25, 2026 (Friday)",
+      "signal_arrival_time": "03:45 PM IST",
+      "headline": "Bharat Electronics receives INR 1850 Crore contract for supply of indigenous tactical radar suites and battlefield communication systems for Indian Armed Forces",
+      "yesterday_base_price_t0": 365.0,
+      "predicted_direction": "BULLISH",
+      "conviction_score_pct": 74.0,
+      "adjusted_confluence_conviction": 81.4,
+      "confluence_grade": "A+ (HIGH CONFLUENCE)",
+      "materiality_ratio": 0.0925,
+      "predicted_todays_price_range": {
+        "target_horizon": "TODAY (Sep 28, 2026 Close)",
+        "expected_move_pct": "+2.24% to +5.50%",
+        "predicted_price_bounds_inr": "INR 373.18 - INR 385.07"
+      },
+      "forward_5day_target_t5": {
+        "target_horizon": "Next 5 Days (Oct 05, 2026)",
+        "expected_move_pct": "+3.58% to +9.90%",
+        "predicted_price_bounds_inr": "INR 378.07 - INR 401.13"
+      },
+      "forward_10day_target_t10": {
+        "target_horizon": "Next 10 Days (Oct 12, 2026)",
+        "expected_move_pct": "+4.93% to +14.30%",
+        "predicted_price_bounds_inr": "INR 382.99 - INR 417.19"
+      },
+      "recommended_stop_loss": "INR 352.74 (-3.36%)",
+      "kelly_capital_allocation_inr": 21900.0,
+      "recommended_shares_quantity": 60,
+      "max_risk_inr": 735.84,
+      "top_historical_rag_match": "Defense PSU signs landmark export order for radar equipment and communication avionics with friendly foreign nation"
+    },
+    {
+      "id": "YEST_05_WIPRO",
+      "symbol": "WIPRO",
+      "company_name": "Wipro Ltd",
+      "signal_arrival_date": "Sep 26, 2026 (Saturday)",
+      "signal_arrival_time": "04:15 PM IST",
+      "source_type": "UNCONFIRMED_RUMOR",
+      "yesterday_base_price_inr": 540.0,
+      "pipeline_status": "FILTERED_UNVERIFIED_RUMOR",
+      "conviction_score_pct": 32.0,
+      "recommendation": "NO TRADE (CAPITAL PROTECTED)",
+      "catalyst": "Social media message claims unverified restructuring in North American BFSI business unit with possible key account deferrals"
+    },
+    {
+      "id": "YEST_06_TATASTEEL",
+      "symbol": "TATASTEEL",
+      "company_name": "Tata Steel Ltd",
+      "sector": "Metals & Mining",
+      "source_type": "CREDIT_RATING",
+      "signal_arrival_date": "Sep 27, 2026 (Sunday)",
+      "signal_arrival_time": "02:30 PM IST",
+      "headline": "CARE Ratings assigns CARE AA+ Positive outlook to Tata Steel on Kalinganagar phase-2 commissioning and structural debt reduction",
+      "yesterday_base_price_t0": 180.0,
+      "predicted_direction": "BULLISH",
+      "conviction_score_pct": 78.0,
+      "adjusted_confluence_conviction": 85.8,
+      "confluence_grade": "A+ (HIGH CONFLUENCE)",
+      "materiality_ratio": 0.0,
+      "predicted_todays_price_range": {
+        "target_horizon": "TODAY (Sep 28, 2026 Close)",
+        "expected_move_pct": "+2.24% to +5.04%",
+        "predicted_price_bounds_inr": "INR 184.03 - INR 189.07"
+      },
+      "forward_5day_target_t5": {
+        "target_horizon": "Next 5 Days (Oct 05, 2026)",
+        "expected_move_pct": "+3.58% to +9.07%",
+        "predicted_price_bounds_inr": "INR 186.44 - INR 196.33"
+      },
+      "forward_10day_target_t10": {
+        "target_horizon": "Next 10 Days (Oct 12, 2026)",
+        "expected_move_pct": "+4.93% to +13.10%",
+        "predicted_price_bounds_inr": "INR 188.87 - INR 203.58"
+      },
+      "recommended_stop_loss": "INR 173.95 (-3.36%)",
+      "kelly_capital_allocation_inr": 21960.0,
+      "recommended_shares_quantity": 122,
+      "max_risk_inr": 737.86,
+      "top_historical_rag_match": "Global steel benchmarks slump 6% amidst aggressive export dumping from East Asian mills and subdued European PMI"
+    }
+  ]
+}

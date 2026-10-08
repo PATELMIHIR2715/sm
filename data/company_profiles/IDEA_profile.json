@@ -1,0 +1,21 @@
+{
+  "symbol": "IDEA",
+  "company_name": "Vodafone Idea Ltd",
+  "sector": "Telecommunications & Digital",
+  "tier": "MID_CAP",
+  "annual_revenue_cr": 42000.0,
+  "market_cap_cr": 92000.0,
+  "nifty_beta": 1.65,
+  "sector_beta": 1.35,
+  "fno_lot_size": 80000,
+  "current_ltp": 12.9,
+  "atr_14_inr": 0.44,
+  "atr_14_pct": 3.41,
+  "single_day_max_ceiling_pct": 5.97,
+  "realized_volatility_20d_pct": 42.21,
+  "ema_50": 14.11,
+  "ema_200": 14.13,
+  "rsi_14": 23.4,
+  "cached_timestamp": 1790828465.331705,
+  "cached_date_str": "2026-10-01 09:51:05 IST"
+}
