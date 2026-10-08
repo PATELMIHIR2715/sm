@@ -1,6 +1,7 @@
 const { Client, LocalAuth } = require('whatsapp-web.js');
 const qrcode = require('qrcode');
 const path = require('path');
+const fs = require('fs');
 const { formatWhatsAppAlert, formatWhatsAppPreCatalystAlert } = require('./notification_templates');
 
 class WhatsAppNotificationService {
@@ -152,6 +153,44 @@ class WhatsAppNotificationService {
       totalRecipients: numbers.length,
       formattedText,
       results
+    };
+  }
+
+  async regenerateQrCode(forceClearSession = true) {
+    console.log(`[WHATSAPP SERVICE] QR code regeneration triggered (forceClearSession=${forceClearSession})...`);
+    this.status = 'AWAITING_QR';
+    this.qrCodeRaw = null;
+    this.qrDataUrl = null;
+    this.authenticatedUser = null;
+
+    if (this.client) {
+      try {
+        await this.client.destroy();
+      } catch (err) {
+        console.warn('[WHATSAPP DESTROY WARNING]', err.message);
+      }
+      this.client = null;
+    }
+
+    this.isInitializing = false;
+
+    if (forceClearSession) {
+      try {
+        const authPath = path.join(__dirname, '.wwebjs_auth');
+        if (fs.existsSync(authPath)) {
+          fs.rmSync(authPath, { recursive: true, force: true });
+          console.log('[WHATSAPP SERVICE] Expired session cache cleared from:', authPath);
+        }
+      } catch (err) {
+        console.warn('[WHATSAPP CACHE CLEAR WARNING]', err.message);
+      }
+    }
+
+    this.initClient();
+    return {
+      success: true,
+      status: this.status,
+      message: 'Fresh session initiated. Waiting for QR code generation from WhatsApp Web...'
     };
   }
 

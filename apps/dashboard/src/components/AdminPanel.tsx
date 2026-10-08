@@ -42,6 +42,7 @@ import {
   Cloud,
   Copy,
   Check,
+  QrCode,
 } from 'lucide-react';
 import { TIMELINES, type LiveSignal } from '../data/benchmarkData';
 
@@ -151,6 +152,8 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
   const [qrDataUrl, setQrDataUrl] = useState<string | null>(null);
   const [testWaNumber, setTestWaNumber] = useState<string>('+919876543210');
   const [isRestartingWa, setIsRestartingWa] = useState<boolean>(false);
+  const [isGeneratingQr, setIsGeneratingQr] = useState<boolean>(false);
+  const [qrPollNotice, setQrPollNotice] = useState<string | null>(null);
 
   // Jev AI Engine State
   const [jevConfig, setJevConfig] = useState<any>({
@@ -815,6 +818,67 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
       }
     } catch (err: any) {
       triggerNotice('error', err.message);
+    }
+  };
+
+  // Generate Fresh QR Code when session expired or re-pairing is needed
+  const handleGenerateQr = async (forceClear: boolean = true) => {
+    setIsGeneratingQr(true);
+    setQrPollNotice('Clearing expired session and generating fresh QR code...');
+    setQrDataUrl(null);
+    try {
+      const res = await fetch('http://127.0.0.1:5001/api/notifications/generate-qr', {
+        method: 'POST',
+        headers: getAuthHeaders(),
+        body: JSON.stringify({ forceClearSession: forceClear })
+      });
+      const data = await res.json();
+      if (data.success) {
+        triggerNotice('success', 'Session reset initiated! Generating new WhatsApp QR code...');
+        if (data.qrDataUrl) {
+          setQrDataUrl(data.qrDataUrl);
+          setIsGeneratingQr(false);
+          setQrPollNotice(null);
+          return;
+        }
+
+        // Auto-poll for the new QR code every 1.5 seconds for up to 30 seconds
+        let attempts = 0;
+        const maxAttempts = 20;
+        const pollInterval = setInterval(async () => {
+          attempts++;
+          setQrPollNotice(`Waiting for WhatsApp QR code (${attempts * 1.5}s)...`);
+          try {
+            const qrRes = await fetch('http://127.0.0.1:5001/api/notifications/qr');
+            if (qrRes.ok) {
+              const qrData = await qrRes.json();
+              if (qrData.qrDataUrl) {
+                setQrDataUrl(qrData.qrDataUrl);
+                setIsGeneratingQr(false);
+                setQrPollNotice(null);
+                clearInterval(pollInterval);
+                triggerNotice('success', 'New QR Code ready! Scan with your phone.');
+                fetchAllData();
+                return;
+              }
+            }
+          } catch (_) {}
+
+          if (attempts >= maxAttempts) {
+            clearInterval(pollInterval);
+            setIsGeneratingQr(false);
+            setQrPollNotice('QR generation took longer than expected. Click Generate QR again if needed.');
+          }
+        }, 1500);
+      } else {
+        triggerNotice('error', data.error || 'Failed to trigger QR generation.');
+        setIsGeneratingQr(false);
+        setQrPollNotice(null);
+      }
+    } catch (err: any) {
+      triggerNotice('error', err.message);
+      setIsGeneratingQr(false);
+      setQrPollNotice(null);
     }
   };
 
@@ -1706,40 +1770,101 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
 
                 <span
                   className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
-                    overview?.gateways.whatsapp.status === 'CONNECTED_READY'
+                    overview?.gateways.whatsapp.status === 'CONNECTED_READY' || overview?.gateways.whatsapp.status === 'AUTHENTICATED'
                       ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
                       : 'bg-amber-50 text-amber-700 border border-amber-200'
                   }`}
                 >
-                  {overview?.gateways.whatsapp.status || 'CONNECTED'}
+                  {overview?.gateways.whatsapp.status === 'CONNECTED_READY' || overview?.gateways.whatsapp.status === 'AUTHENTICATED'
+                    ? 'AUTHENTICATED / READY'
+                    : overview?.gateways.whatsapp.status || 'DISCONNECTED'}
                 </span>
               </div>
 
-              {overview?.gateways.whatsapp.status === 'CONNECTED_READY' ? (
-                <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
-                  <div className="flex items-center gap-2 text-xs text-emerald-700 font-semibold font-mono">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                    <span>Session Authenticated & Ready</span>
+              {overview?.gateways.whatsapp.status === 'CONNECTED_READY' || overview?.gateways.whatsapp.status === 'AUTHENTICATED' ? (
+                <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2 text-xs text-emerald-700 font-semibold font-mono">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                      <span>Session Authenticated & Ready</span>
+                    </div>
+                    <span className="text-[10px] font-mono text-emerald-700 bg-emerald-100/70 border border-emerald-200 px-2 py-0.5 rounded font-bold">
+                      LINKED
+                    </span>
                   </div>
                   <div className="text-xs text-slate-600">
-                    Logged in account: <strong className="font-mono text-slate-900">{overview.gateways.whatsapp.authenticatedUser || 'Connected Phone'}</strong>
+                    Logged in account: <strong className="font-mono text-slate-900">{overview?.gateways.whatsapp.authenticatedUser || 'Connected Phone'}</strong>
                   </div>
                   <p className="text-[11px] text-slate-500">
                     Incoming pre-catalyst and execution signals will be immediately pushed to all registered subscriber WhatsApp chats within 300ms.
                   </p>
+
+                  <div className="pt-2 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <span className="text-[11px] text-slate-500 font-mono">
+                      Session expired on phone or want to re-link another number?
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => handleGenerateQr(true)}
+                      disabled={isGeneratingQr}
+                      className="px-2.5 py-1 rounded-lg text-xs font-mono font-bold text-amber-800 bg-amber-50 hover:bg-amber-100 border border-amber-200 transition flex items-center gap-1.5 cursor-pointer shrink-0"
+                    >
+                      <QrCode className={`w-3.5 h-3.5 ${isGeneratingQr ? 'animate-spin' : ''}`} />
+                      <span>{isGeneratingQr ? 'Generating QR...' : 'Generate New QR Code'}</span>
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <div className="bg-amber-50/50 p-4 rounded-xl border border-amber-200 space-y-3 text-center">
-                  <p className="text-xs text-amber-800 font-medium">
-                    Scan QR code with WhatsApp on your phone (Linked Devices):
-                  </p>
+                  <div className="flex items-center justify-between">
+                    <p className="text-xs text-amber-800 font-medium text-left">
+                      Scan QR code with WhatsApp on your phone (Linked Devices):
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() => handleGenerateQr(true)}
+                      disabled={isGeneratingQr}
+                      className="px-2.5 py-1 rounded-lg text-xs font-mono font-bold text-amber-900 bg-amber-100 hover:bg-amber-200 border border-amber-300 transition flex items-center gap-1.5 cursor-pointer"
+                      title="Clear session and force generate brand new QR code"
+                    >
+                      <RefreshCw className={`w-3 h-3 ${isGeneratingQr ? 'animate-spin' : ''}`} />
+                      <span>{isGeneratingQr ? 'Generating...' : 'Refresh QR'}</span>
+                    </button>
+                  </div>
+
                   {qrDataUrl ? (
-                    <div className="flex justify-center">
-                      <img src={qrDataUrl} alt="WhatsApp QR Code" className="w-48 h-48 rounded-lg border border-slate-200 shadow-xs" />
+                    <div className="flex flex-col items-center justify-center space-y-2 pt-1">
+                      <img src={qrDataUrl} alt="WhatsApp QR Code" className="w-48 h-48 rounded-lg border border-slate-200 shadow-xs bg-white p-2" />
+                      <p className="text-[11px] text-slate-500 font-sans">
+                        Open WhatsApp on Phone &gt; Settings &gt; Linked Devices &gt; Link a Device
+                      </p>
+                      <button
+                        type="button"
+                        onClick={() => handleGenerateQr(true)}
+                        disabled={isGeneratingQr}
+                        className="text-xs font-mono text-amber-800 hover:text-amber-950 underline cursor-pointer mt-1"
+                      >
+                        QR expired? Click to generate a fresh QR code
+                      </button>
                     </div>
                   ) : (
-                    <div className="py-6 text-xs text-slate-500 font-mono">
-                      Generating session QR code...
+                    <div className="py-6 space-y-3">
+                      <div className="flex items-center justify-center gap-2 text-xs text-slate-500 font-mono">
+                        <RefreshCw className="w-4 h-4 animate-spin text-amber-600" />
+                        <span>{qrPollNotice || 'Generating session QR code...'}</span>
+                      </div>
+                      <p className="text-[11px] text-slate-500 font-sans max-w-md mx-auto">
+                        If your previous WhatsApp session expired or was disconnected, click below to immediately clear expired tokens and spawn a fresh QR code.
+                      </p>
+                      <button
+                        type="button"
+                        onClick={() => handleGenerateQr(true)}
+                        disabled={isGeneratingQr}
+                        className="py-1.5 px-3.5 rounded-lg text-xs font-mono font-bold text-white bg-emerald-600 hover:bg-emerald-700 disabled:bg-slate-400 shadow-xs transition inline-flex items-center gap-1.5 cursor-pointer"
+                      >
+                        <QrCode className="w-3.5 h-3.5" />
+                        <span>⚡ Generate Fresh QR Code Now</span>
+                      </button>
                     </div>
                   )}
                 </div>
@@ -1763,14 +1888,29 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
                   </button>
                 </div>
 
-                <button
-                  onClick={handleRestartWhatsApp}
-                  disabled={isRestartingWa}
-                  className="flex items-center justify-center gap-1.5 w-full py-1.5 rounded-lg text-xs font-mono text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 transition cursor-pointer"
-                >
-                  <RotateCcw className={`w-3 h-3 ${isRestartingWa ? 'animate-spin' : ''}`} />
-                  <span>Restart WhatsApp Session</span>
-                </button>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <button
+                    type="button"
+                    onClick={() => handleGenerateQr(true)}
+                    disabled={isGeneratingQr}
+                    className="flex items-center justify-center gap-1.5 w-full py-2 px-3 rounded-lg text-xs font-mono font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 disabled:bg-slate-100 disabled:text-slate-400 transition cursor-pointer shadow-2xs"
+                    title="Force clear expired session and generate a new QR code for device pairing"
+                  >
+                    <QrCode className={`w-3.5 h-3.5 ${isGeneratingQr ? 'animate-spin' : ''}`} />
+                    <span>{isGeneratingQr ? 'Generating QR Code...' : '⚡ Generate New QR Code (Session Expired)'}</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={handleRestartWhatsApp}
+                    disabled={isRestartingWa}
+                    className="flex items-center justify-center gap-1.5 w-full py-2 px-3 rounded-lg text-xs font-mono text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 border border-slate-200 transition cursor-pointer"
+                    title="Restart WhatsApp Web headless browser engine"
+                  >
+                    <RotateCcw className={`w-3.5 h-3.5 ${isRestartingWa ? 'animate-spin' : ''}`} />
+                    <span>Restart WhatsApp Session</span>
+                  </button>
+                </div>
               </div>
             </div>
 

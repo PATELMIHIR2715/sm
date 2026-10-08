@@ -657,6 +657,21 @@ app.post('/api/notifications/restart-whatsapp', requireAdminAuth, async (req, re
   }
 });
 
+// 13b. Admin: Regenerate WhatsApp QR Code (When session expired or re-pairing is needed)
+app.post('/api/notifications/generate-qr', requireAdminAuth, async (req, res) => {
+  try {
+    const { forceClearSession } = req.body || {};
+    const result = await waService.regenerateQrCode(forceClearSession !== false);
+    res.json({
+      success: true,
+      ...result,
+      qrDataUrl: waService.qrDataUrl
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
 // 14. Admin: Full System Overview Endpoint
 app.get('/api/notifications/admin-overview', requireAdminAuth, (req, res) => {
   const subData = loadSubscribersData();
