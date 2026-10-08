@@ -1,0 +1,26 @@
+[
+  {
+    "id": "SIG_SAMPLE_20261008_BHEL",
+    "symbol": "BHEL",
+    "company_name": "Bharat Heavy Electricals Ltd",
+    "sector": "Power & Capital Goods",
+    "headline": "BHEL declared lowest bidder (L1) for landmark INR 6,100 Crore NTPC Supercritical Thermal Power Project",
+    "news_date": "2026-10-08",
+    "news_time": "09:18 AM IST",
+    "created_at": "2026-10-08T09:18:00",
+    "current_base_price_inr": 434.45,
+    "predicted_direction": "BULLISH",
+    "conviction_score_pct": 94.0,
+    "materiality_ratio": 0.2557,
+    "optimal_entry_price": 436.50,
+    "execution_order_type": "LIMIT_ACCUMULATION",
+    "actionability_status": "FRESH_ACTIONABLE",
+    "t1_target": {
+      "percentage_range": "+1.8% to +4.0%",
+      "price_target_range_inr": "₹442.20 – ₹451.80",
+      "target_date_horizon": "Tomorrow (Oct 09, 2026 Session)"
+    },
+    "recommended_stop_loss": "₹421.40 (-3.0%)",
+    "recommended_strategy": "STRONG BUY ACCUMULATION - Grade A"
+  }
+]

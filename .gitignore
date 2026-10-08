@@ -21,19 +21,27 @@ tokens/
 session-*/
 *.session
 
-# Sensitive Local Data Stores & User Directories
+# Sensitive Local Data Stores, Subscriber Stores & Live Poller Streams
 data/jev_config.json
 data/subscribers.json
+data/notification_subscribers.json
+data/dispatched_alerts_log.json
 data/dispatch_history.json
 data/live_signals_stream.json
 data/signals_archive.json
+data/signals_archive_90d.json
+data/seen_filing_hashes.json
+data/pipeline_live_progress.json
+data/verified_market_live_prices.json
 data/jev_classification_cache.json
 data/jev_pipeline_telemetry.json
 
-# Keep example files & directories tracked
-!data/jev_config.example.json
-!data/market_events_10y_corpus.json
-!data/historical_events/
+# Keep seed data & example files tracked
+!data/*.example.json
+!data/historical_10yr_embedded_database.json
+!data/macro_patterns_master.json
+!data/nifty500_master.json
+!data/company_profiles/
 !data/backtest_reports/
 
 # ------------------------------------------------------------------------------

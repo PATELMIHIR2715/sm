@@ -1,0 +1,17 @@
+[
+  {
+    "id": "SUB_SAMPLE_01",
+    "name": "Institutional Trader",
+    "whatsapp": "+919876543210",
+    "email": "trader@institutional-desk.com",
+    "active": true,
+    "created_at": "2026-10-08T09:00:00Z",
+    "preferences": {
+      "preCatalystRadar": true,
+      "liveSignals": true,
+      "doNotChaseAlerts": true,
+      "stopLossWarnings": true,
+      "dailyBriefing": true
+    }
+  }
+]
