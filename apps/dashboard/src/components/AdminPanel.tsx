@@ -147,11 +147,11 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
   const [smtpFrom, setSmtpFrom] = useState<string>('');
   const [showSmtpPass, setShowSmtpPass] = useState<boolean>(false);
   const [isSavingSmtp, setIsSavingSmtp] = useState<boolean>(false);
-  const [testEmailAddress, setTestEmailAddress] = useState<string>('');
+  const [testEmailAddress, setTestEmailAddress] = useState<string>(() => (typeof window !== 'undefined' ? localStorage.getItem('user_alert_email') || '' : ''));
 
   // WhatsApp QR & Tester State
   const [qrDataUrl, setQrDataUrl] = useState<string | null>(null);
-  const [testWaNumber, setTestWaNumber] = useState<string>('+919876543210');
+  const [testWaNumber, setTestWaNumber] = useState<string>(() => (typeof window !== 'undefined' ? localStorage.getItem('user_alert_wa') || '' : ''));
   const [isRestartingWa, setIsRestartingWa] = useState<boolean>(false);
   const [isGeneratingQr, setIsGeneratingQr] = useState<boolean>(false);
   const [qrPollNotice, setQrPollNotice] = useState<string | null>(null);
@@ -1603,7 +1603,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
                       <label className="text-[11px] font-medium text-slate-600 block mb-1">WhatsApp Number (+91)</label>
                       <input
                         type="tel"
-                        placeholder="+919876543210"
+                        placeholder="+91 Mobile Number (WhatsApp)"
                         value={newSubWa}
                         onChange={(e) => setNewSubWa(e.target.value)}
                         className="w-full bg-white border border-slate-200 rounded-lg px-3 py-1.5 text-xs text-slate-900 font-mono focus:outline-none focus:border-blue-500"
@@ -1876,7 +1876,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
                 <div className="flex flex-col sm:flex-row items-center gap-2">
                   <input
                     type="tel"
-                    placeholder="+919876543210"
+                    placeholder="+91 Mobile Number (WhatsApp)"
                     value={testWaNumber}
                     onChange={(e) => setTestWaNumber(e.target.value)}
                     className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-1.5 text-xs text-slate-900 font-mono focus:outline-none focus:border-blue-500"
@@ -2020,7 +2020,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
               <div className="pt-2 border-t border-slate-200 flex flex-col sm:flex-row items-center gap-2">
                 <input
                   type="email"
-                  placeholder="mihirpqtel@gmail.com"
+                  placeholder="trader@domain.com"
                   value={testEmailAddress}
                   onChange={(e) => setTestEmailAddress(e.target.value)}
                   className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-1.5 text-xs text-slate-900 font-mono focus:outline-none focus:border-blue-500"

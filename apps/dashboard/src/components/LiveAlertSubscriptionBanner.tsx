@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Bell, Smartphone, Mail, Send, CheckCircle2, ShieldCheck, Settings, Sparkles } from 'lucide-react';
 import { NOTIFICATIONS_API_BASE } from '../config';
 
@@ -9,14 +9,56 @@ interface LiveAlertSubscriptionBannerProps {
 export const LiveAlertSubscriptionBanner: React.FC<LiveAlertSubscriptionBannerProps> = ({
   onOpenSettings
 }) => {
-  const [whatsapp, setWhatsapp] = useState('+919876543210');
-  const [email, setEmail] = useState('mihirpqtel@gmail.com');
+  const [whatsapp, setWhatsapp] = useState<string>(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('user_alert_wa') || '';
+    }
+    return '';
+  });
+  const [email, setEmail] = useState<string>(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('user_alert_email') || '';
+    }
+    return '';
+  });
   const [loading, setLoading] = useState(false);
   const [successMsg, setSuccessMsg] = useState<string | null>(null);
 
+  // Sync state across components & storage
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const savedWa = localStorage.getItem('user_alert_wa');
+      const savedEmail = localStorage.getItem('user_alert_email');
+      if (savedWa !== null) setWhatsapp(savedWa);
+      if (savedEmail !== null) setEmail(savedEmail);
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    return () => window.removeEventListener('storage', handleStorageChange);
+  }, []);
+
+  const handleWhatsappChange = (val: string) => {
+    setWhatsapp(val);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('user_alert_wa', val);
+    }
+  };
+
+  const handleEmailChange = (val: string) => {
+    setEmail(val);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('user_alert_email', val);
+    }
+  };
+
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!whatsapp && !email) return;
+    if (!whatsapp.trim() && !email.trim()) return;
+
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('user_alert_wa', whatsapp.trim());
+      localStorage.setItem('user_alert_email', email.trim());
+    }
 
     setLoading(true);
     setSuccessMsg(null);
@@ -26,8 +68,8 @@ export const LiveAlertSubscriptionBanner: React.FC<LiveAlertSubscriptionBannerPr
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          whatsapp,
-          email,
+          whatsapp: whatsapp.trim(),
+          email: email.trim(),
           name: 'Institutional Subscriber',
           sendWelcome: true
         })
@@ -106,9 +148,9 @@ export const LiveAlertSubscriptionBanner: React.FC<LiveAlertSubscriptionBannerPr
             <input
               type="text"
               value={whatsapp}
-              onChange={(e) => setWhatsapp(e.target.value)}
-              placeholder="+91 WhatsApp Number"
-              className="w-full sm:w-44 bg-slate-50 border border-slate-200 rounded-lg pl-8 pr-2.5 py-1.5 text-xs text-slate-900 font-mono focus:outline-none focus:bg-white focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition"
+              onChange={(e) => handleWhatsappChange(e.target.value)}
+              placeholder="+91 Mobile Number (WhatsApp)"
+              className="w-full sm:w-52 bg-slate-50 border border-slate-200 rounded-lg pl-8 pr-2.5 py-1.5 text-xs text-slate-900 font-mono focus:outline-none focus:bg-white focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition"
             />
           </div>
 
@@ -118,8 +160,8 @@ export const LiveAlertSubscriptionBanner: React.FC<LiveAlertSubscriptionBannerPr
             <input
               type="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email for HTML reports"
+              onChange={(e) => handleEmailChange(e.target.value)}
+              placeholder="trader@domain.com"
               className="w-full sm:w-52 bg-slate-50 border border-slate-200 rounded-lg pl-8 pr-2.5 py-1.5 text-xs text-slate-900 font-mono focus:outline-none focus:bg-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition"
             />
           </div>
