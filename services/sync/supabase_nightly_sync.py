@@ -685,10 +685,9 @@ class SupabaseNightlySyncManager:
                 "accuracy_records_synced": pushed_counts.get("accuracy_audits", 0),
                 "jev_records_synced": pushed_counts.get("jev_classifications", 0),
                 "prices_synced": pushed_counts.get("market_prices", 0),
-                "subscribers_synced": pushed_counts.get("subscribers", 0),
                 "total_records_pushed": sum(pushed_counts.values()),
                 "duration_ms": duration_ms,
-                "details": {"summary": pushed_counts}
+                "details": {"summary": pushed_counts, "subscribers_synced": pushed_counts.get("subscribers", 0)}
             }
 
             try:
