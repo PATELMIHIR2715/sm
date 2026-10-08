@@ -35,6 +35,9 @@ data/pipeline_live_progress.json
 data/verified_market_live_prices.json
 data/jev_classification_cache.json
 data/jev_pipeline_telemetry.json
+data/supabase_config.json
+data/supabase_sync_telemetry.json
+data/supabase_cron.log
 
 # Keep seed data & example files tracked
 !data/*.example.json

@@ -20,6 +20,7 @@ try:
     from services.ai_pipeline.jev_classifier import jev_classifier
     from services.market_data.live_price_provider import LivePriceProvider
     from services.storage.signals_retention_manager import signals_retention_manager
+    from services.sync.supabase_nightly_sync import supabase_sync_manager
 except ImportError:
     sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
     from services.ai_pipeline.scaled_rag_engine import ScaledVectorRAGEngine
@@ -31,6 +32,7 @@ except ImportError:
     from services.ai_pipeline.jev_classifier import jev_classifier
     from services.market_data.live_price_provider import LivePriceProvider
     from services.storage.signals_retention_manager import signals_retention_manager
+    from services.sync.supabase_nightly_sync import supabase_sync_manager
 
 # Initialize singletons
 rag_engine = ScaledVectorRAGEngine()
@@ -568,6 +570,20 @@ class ProductionAPIHandler(BaseHTTPRequestHandler):
             self._set_headers(200)
             self.wfile.write(json.dumps(stats, indent=2).encode('utf-8'))
 
+        elif path in ['/api/sync/supabase/status']:
+            st = supabase_sync_manager.get_status()
+            self._set_headers(200)
+            self.wfile.write(json.dumps(st, indent=2).encode('utf-8'))
+
+        elif path in ['/api/sync/supabase/schema']:
+            schema_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../scripts/supabase_schema.sql"))
+            schema_content = ""
+            if os.path.exists(schema_path):
+                with open(schema_path, "r", encoding="utf-8") as f:
+                    schema_content = f.read()
+            self._set_headers(200)
+            self.wfile.write(json.dumps({"success": True, "schema_sql": schema_content}, indent=2).encode('utf-8'))
+
         elif path in ['/api/status', '']:
             self._set_headers(200)
             self.wfile.write(json.dumps({"status": "ONLINE", "version": "2.2.0-MICROSTRUCTURE-DEFENSE"}).encode('utf-8'))
@@ -691,6 +707,50 @@ class ProductionAPIHandler(BaseHTTPRequestHandler):
                     "pruned_count": pruned_count,
                     "stats": stats
                 }, indent=2).encode('utf-8'))
+            except Exception as e:
+                self._set_headers(500)
+                self.wfile.write(json.dumps({"success": False, "error": str(e)}).encode('utf-8'))
+
+        elif path in ['/api/sync/supabase/config']:
+            if not is_admin_authorized(self.headers):
+                self._set_headers(401)
+                self.wfile.write(json.dumps({"success": False, "error": "UNAUTHORIZED: Administrator authentication required."}).encode('utf-8'))
+                return
+
+            content_length = int(self.headers.get('Content-Length', 0))
+            body = self.rfile.read(content_length).decode('utf-8')
+            try:
+                payload = json.loads(body) if body else {}
+                url = payload.get("supabase_url")
+                key = payload.get("supabase_key")
+                sched_hour = payload.get("scheduled_hour_ist")
+                auto_sync = payload.get("auto_sync_enabled")
+                st = supabase_sync_manager.save_config(
+                    supabase_url=url,
+                    supabase_key=key,
+                    scheduled_hour_ist=sched_hour,
+                    auto_sync_enabled=auto_sync
+                )
+                self._set_headers(200)
+                self.wfile.write(json.dumps({
+                    "success": True,
+                    "message": "Supabase configuration updated successfully.",
+                    "status": st
+                }, indent=2).encode('utf-8'))
+            except Exception as e:
+                self._set_headers(400)
+                self.wfile.write(json.dumps({"success": False, "error": str(e)}).encode('utf-8'))
+
+        elif path in ['/api/sync/supabase/push-now']:
+            if not is_admin_authorized(self.headers):
+                self._set_headers(401)
+                self.wfile.write(json.dumps({"success": False, "error": "UNAUTHORIZED: Administrator authentication required."}).encode('utf-8'))
+                return
+
+            try:
+                res = supabase_sync_manager.sync_all(sync_mode="MANUAL_ADMIN")
+                self._set_headers(200)
+                self.wfile.write(json.dumps(res, indent=2).encode('utf-8'))
             except Exception as e:
                 self._set_headers(500)
                 self.wfile.write(json.dumps({"success": False, "error": str(e)}).encode('utf-8'))
