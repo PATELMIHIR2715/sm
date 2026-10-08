@@ -32,7 +32,7 @@ import {
 
 export function App() {
   const [viewMode, setViewMode] = useState<'trader' | 'admin'>('trader');
-  const [timelineKey, setTimelineKey] = useState<string>('sep2026_live');
+  const timelineKey = 'sep2026_live';
   const [activeTab, setActiveTab] = useState<
     'pre_catalyst_radar' | 'today_live' | 'verification_audit' | 'news_tester' | 'multi_horizon' | 'trading_sim' | 'archetypes' | 'all_signals'
   >('pre_catalyst_radar');
@@ -125,13 +125,6 @@ export function App() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  // Handle timeline change
-  const handleTimelineChange = (key: string) => {
-    setTimelineKey(key);
-    if (key !== 'sep2026_live' && activeTab === 'today_live') {
-      setActiveTab('multi_horizon');
-    }
-  };
 
   // Filter signals based on search query
   const filteredSignals = currentTimeline.table1_signals.filter((s) => {
@@ -171,8 +164,6 @@ export function App() {
     <div className="min-h-screen bg-slate-50 text-slate-800 flex flex-col font-sans">
       {/* 1. Header Navigation & Branding */}
       <Header
-        currentTimelineKey={timelineKey}
-        onTimelineChange={handleTimelineChange}
         isRefreshing={isRefreshing}
         onRefresh={handleLiveSync}
         onOpenNotifications={() => setIsNotificationModalOpen(true)}

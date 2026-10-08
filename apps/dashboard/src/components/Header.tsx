@@ -1,16 +1,13 @@
-import { Activity, RefreshCw, Layers } from 'lucide-react';
+import React from 'react';
+import { Activity, RefreshCw } from 'lucide-react';
 
 interface HeaderProps {
-  currentTimelineKey: string;
-  onTimelineChange: (key: string) => void;
   isRefreshing: boolean;
   onRefresh: () => void;
   onOpenNotifications?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
-  currentTimelineKey,
-  onTimelineChange,
   isRefreshing,
   onRefresh,
   onOpenNotifications
@@ -39,7 +36,7 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
         </div>
 
-        {/* Timeline Selector, Notifications & Refresh */}
+        {/* Notifications, Live Stream Status & Sync */}
         <div className="flex items-center space-x-2 overflow-x-auto pb-0.5 sm:pb-0 w-full sm:w-auto justify-between sm:justify-end">
 
           {onOpenNotifications && (
@@ -59,26 +56,10 @@ export const Header: React.FC<HeaderProps> = ({
             </button>
           )}
 
-          <div className="flex items-center bg-slate-50 rounded-lg border border-slate-200 px-2 sm:px-2.5 py-1 shrink-0">
-            <Layers className="w-3.5 h-3.5 text-blue-600 mr-1.5 shrink-0" />
-            <select
-              value={currentTimelineKey}
-              onChange={(e) => onTimelineChange(e.target.value)}
-              className="bg-transparent text-xs text-slate-800 font-mono focus:outline-none cursor-pointer pr-1 max-w-[150px] sm:max-w-none truncate"
-            >
-              <option value="sep2026_live" className="bg-white text-slate-900">
-                Live Cycle (Sep 18 – 28, 2026)
-              </option>
-              <option value="blind_10day" className="bg-white text-slate-900">
-                Blind 10-Day (May 06 – 17, 2024)
-              </option>
-              <option value="blind_20day" className="bg-white text-slate-900">
-                Blind 20-Day (Jul 08 – Aug 02, 2024)
-              </option>
-              <option value="blind_30day" className="bg-white text-slate-900">
-                Blind 30-Day (Jan 02 – Feb 12, 2024)
-              </option>
-            </select>
+          {/* Dedicated Live NSE Stream indicator (Backtest & Blind Run selectors removed from user view) */}
+          <div className="flex items-center gap-1.5 bg-emerald-50/80 text-emerald-800 border border-emerald-200/90 rounded-lg px-2.5 py-1 text-xs font-mono font-medium shrink-0 shadow-2xs select-none">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="font-semibold text-[11px]">Real-Time NSE Stream</span>
           </div>
 
           <button
