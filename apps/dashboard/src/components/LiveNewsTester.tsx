@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Zap, Brain, Shield, Target, DollarSign, Smartphone, CheckCircle } from 'lucide-react';
+import { API_BASE } from '../config';
 
 interface AnalysisResult {
   status: string;
@@ -83,7 +84,7 @@ export const LiveNewsTester: React.FC = () => {
   const handleRunAnalysis = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://127.0.0.1:5000/api/analyze-news', {
+      const response = await fetch(`${API_BASE}/api/analyze-news`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

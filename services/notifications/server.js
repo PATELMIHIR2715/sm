@@ -231,6 +231,17 @@ app.get('/api/notifications/status', (req, res) => {
   });
 });
 
+// Health check endpoint for Render 24/7 keep-alive pingers
+app.get(['/health', '/api/health'], (req, res) => {
+  res.json({
+    status: 'healthy',
+    uptime: process.uptime(),
+    service: 'notification-hub',
+    render_keep_alive: true,
+    timestamp: new Date().toISOString()
+  });
+});
+
 // 2. WhatsApp QR Code Endpoint
 app.get('/api/notifications/qr', (req, res) => {
   res.json(waService.getQrData());

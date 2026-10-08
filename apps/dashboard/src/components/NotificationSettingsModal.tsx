@@ -10,6 +10,7 @@ import {
   Sparkles,
   Lock
 } from 'lucide-react';
+import { NOTIFICATIONS_API_BASE } from '../config';
 
 interface NotificationSettingsModalProps {
   isOpen: boolean;
@@ -63,7 +64,7 @@ export const NotificationSettingsModal: React.FC<NotificationSettingsModalProps>
 
     setLoading(true);
     try {
-      const res = await fetch('http://127.0.0.1:5001/api/notifications/subscribe', {
+      const res = await fetch(`${NOTIFICATIONS_API_BASE}/api/notifications/subscribe`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -109,7 +110,7 @@ export const NotificationSettingsModal: React.FC<NotificationSettingsModalProps>
     }
     setLoading(true);
     try {
-      const res = await fetch('http://127.0.0.1:5001/api/notifications/test-whatsapp', {
+      const res = await fetch(`${NOTIFICATIONS_API_BASE}/api/notifications/test-whatsapp`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ targetNumber: targetNumber.trim() })
@@ -135,7 +136,7 @@ export const NotificationSettingsModal: React.FC<NotificationSettingsModalProps>
     }
     setLoading(true);
     try {
-      const res = await fetch('http://127.0.0.1:5001/api/notifications/test-email', {
+      const res = await fetch(`${NOTIFICATIONS_API_BASE}/api/notifications/test-email`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ targetEmail: targetEmail.trim() })

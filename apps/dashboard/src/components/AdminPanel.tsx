@@ -45,6 +45,7 @@ import {
   QrCode,
 } from 'lucide-react';
 import { TIMELINES, type LiveSignal } from '../data/benchmarkData';
+import { API_BASE, NOTIFICATIONS_API_BASE } from '../config';
 
 interface Subscriber {
   id: string;
@@ -224,7 +225,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
   ) => {
     setIsLoadingArchive(true);
     try {
-      let url = `http://127.0.0.1:5000/api/signals/archive?days=${days}`;
+      let url = `${API_BASE}/api/signals/archive?days=${days}`;
       if (symbol.trim()) {
         url += `&symbol=${encodeURIComponent(symbol.trim())}`;
       }
@@ -237,7 +238,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
         setArchiveSignals(d.signals || []);
         if (d.stats) setArchiveStats(d.stats);
       }
-      const statsRes = await fetch('http://127.0.0.1:5000/api/signals/archive/stats');
+      const statsRes = await fetch(`${API_BASE}/api/signals/archive/stats`);
       if (statsRes.ok) {
         setArchiveStats(await statsRes.json());
       }
@@ -253,7 +254,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
     if (!window.confirm('Run 90-Day retention audit and prune signals exceeding 90 calendar days?')) return;
     setIsPruningArchive(true);
     try {
-      const res = await fetch('http://127.0.0.1:5000/api/signals/archive/prune', {
+      const res = await fetch(`${API_BASE}/api/signals/archive/prune`, {
         method: 'POST',
         headers: getAuthHeaders()
       });
@@ -363,7 +364,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
   // Tab 9: Supabase Warehouse Functions
   const fetchSupabaseStatus = async () => {
     try {
-      const res = await fetch('http://127.0.0.1:5000/api/sync/supabase/status');
+      const res = await fetch(`${API_BASE}/api/sync/supabase/status`);
       if (res.ok) {
         const d = await res.json();
         setSupabaseStatus(d);
@@ -371,7 +372,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
         if (d.scheduled_hour_ist !== undefined) setSupabaseSchedHour(d.scheduled_hour_ist);
         if (d.auto_sync_enabled !== undefined) setSupabaseAutoSync(d.auto_sync_enabled);
       }
-      const schemaRes = await fetch('http://127.0.0.1:5000/api/sync/supabase/schema');
+      const schemaRes = await fetch(`${API_BASE}/api/sync/supabase/schema`);
       if (schemaRes.ok) {
         const sd = await schemaRes.json();
         if (sd.schema_sql) setSupabaseSchemaSql(sd.schema_sql);
@@ -385,7 +386,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
     e.preventDefault();
     setIsSavingSupabase(true);
     try {
-      const res = await fetch('http://127.0.0.1:5000/api/sync/supabase/config', {
+      const res = await fetch(`${API_BASE}/api/sync/supabase/config`, {
         method: 'POST',
         headers: getAuthHeaders(),
         body: JSON.stringify({
@@ -413,7 +414,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
   const handlePushSupabaseNow = async () => {
     setIsPushingSupabase(true);
     try {
-      const res = await fetch('http://127.0.0.1:5000/api/sync/supabase/push-now', {
+      const res = await fetch(`${API_BASE}/api/sync/supabase/push-now`, {
         method: 'POST',
         headers: getAuthHeaders()
       });
@@ -450,7 +451,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
     setIsVerifyingAuth(true);
     setAuthError(null);
     try {
-      const res = await fetch('http://127.0.0.1:5001/api/admin/auth/verify', {
+      const res = await fetch(`${NOTIFICATIONS_API_BASE}/api/admin/auth/verify`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ token: authKeyInput.trim() })
@@ -498,7 +499,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
       };
 
       // 1. Overview
-      const ovRes = await fetch('http://127.0.0.1:5001/api/notifications/admin-overview', { headers: authHeaders });
+      const ovRes = await fetch(`${NOTIFICATIONS_API_BASE}/api/notifications/admin-overview`, { headers: authHeaders });
       if (ovRes.status === 401) {
         sessionStorage.removeItem('institutional_admin_token');
         setAdminToken('');
@@ -516,36 +517,36 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
       }
 
       // 2. Subscribers
-      const subRes = await fetch('http://127.0.0.1:5001/api/notifications/subscribers', { headers: authHeaders });
+      const subRes = await fetch(`${NOTIFICATIONS_API_BASE}/api/notifications/subscribers`, { headers: authHeaders });
       if (subRes.ok) {
         const d = await subRes.json();
         setSubscribers(d.subscribers || []);
       }
 
       // 3. History
-      const histRes = await fetch('http://127.0.0.1:5001/api/notifications/history');
+      const histRes = await fetch(`${NOTIFICATIONS_API_BASE}/api/notifications/history`);
       if (histRes.ok) {
         const d = await histRes.json();
         setLogs(d.history || []);
       }
 
       // 4. QR Code
-      const qrRes = await fetch('http://127.0.0.1:5001/api/notifications/qr');
+      const qrRes = await fetch(`${NOTIFICATIONS_API_BASE}/api/notifications/qr`);
       if (qrRes.ok) {
         const d = await qrRes.json();
         setQrDataUrl(d.qrDataUrl || null);
       }
 
       // 5. Jev Model Config
-      const jevRes = await fetch('http://127.0.0.1:5000/api/settings/jev-model');
+      const jevRes = await fetch(`${API_BASE}/api/settings/jev-model`);
       if (jevRes.ok) setJevConfig(await jevRes.json());
 
       // 6. Pipeline status
-      const pipeRes = await fetch('http://127.0.0.1:5000/api/pipeline/status');
+      const pipeRes = await fetch(`${API_BASE}/api/pipeline/status`);
       if (pipeRes.ok) setPipelineStatus(await pipeRes.json());
 
       // 7. 90-Day Signals Archive & Stats
-      const archRes = await fetch('http://127.0.0.1:5000/api/signals/archive?days=90');
+      const archRes = await fetch(`${API_BASE}/api/signals/archive?days=90`);
       if (archRes.ok) {
         const d = await archRes.json();
         setArchiveSignals(d.signals || []);
@@ -566,7 +567,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
     const existingToken = sessionStorage.getItem('institutional_admin_token');
     if (existingToken) {
       setIsVerifyingAuth(true);
-      fetch('http://127.0.0.1:5001/api/admin/auth/verify', {
+      fetch(`${NOTIFICATIONS_API_BASE}/api/admin/auth/verify`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ token: existingToken })
@@ -670,7 +671,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
     }
 
     try {
-      const res = await fetch('http://127.0.0.1:5001/api/notifications/subscribe', {
+      const res = await fetch(`${NOTIFICATIONS_API_BASE}/api/notifications/subscribe`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -699,7 +700,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
   // Toggle subscriber status
   const handleToggleSubscriber = async (id: string) => {
     try {
-      const res = await fetch(`http://127.0.0.1:5001/api/notifications/subscribers/${id}/toggle`, {
+      const res = await fetch(`${NOTIFICATIONS_API_BASE}/api/notifications/subscribers/${id}/toggle`, {
         method: 'POST',
         headers: getAuthHeaders()
       });
@@ -718,7 +719,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
     if (!window.confirm(`Permanently remove subscriber "${name}" from alerts registry?`)) return;
 
     try {
-      const res = await fetch(`http://127.0.0.1:5001/api/notifications/subscribers/${id}`, {
+      const res = await fetch(`${NOTIFICATIONS_API_BASE}/api/notifications/subscribers/${id}`, {
         method: 'DELETE',
         headers: getAuthHeaders()
       });
@@ -735,7 +736,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
   // Direct test alert to subscriber
   const handleTestSubscriber = async (id: string, name: string) => {
     try {
-      const res = await fetch(`http://127.0.0.1:5001/api/notifications/subscribers/${id}/test`, {
+      const res = await fetch(`${NOTIFICATIONS_API_BASE}/api/notifications/subscribers/${id}/test`, {
         method: 'POST',
         headers: getAuthHeaders(),
         body: JSON.stringify({ channel: 'BOTH' })
@@ -755,7 +756,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
     e.preventDefault();
     setIsSavingSmtp(true);
     try {
-      const res = await fetch('http://127.0.0.1:5001/api/notifications/smtp-config', {
+      const res = await fetch(`${NOTIFICATIONS_API_BASE}/api/notifications/smtp-config`, {
         method: 'POST',
         headers: getAuthHeaders(),
         body: JSON.stringify({
@@ -784,7 +785,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
   // Test individual email
   const handleTestEmail = async () => {
     try {
-      const res = await fetch('http://127.0.0.1:5001/api/notifications/test-email', {
+      const res = await fetch(`${NOTIFICATIONS_API_BASE}/api/notifications/test-email`, {
         method: 'POST',
         headers: getAuthHeaders(),
         body: JSON.stringify({ targetEmail: testEmailAddress })
@@ -804,7 +805,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
   // Test WhatsApp
   const handleTestWhatsApp = async () => {
     try {
-      const res = await fetch('http://127.0.0.1:5001/api/notifications/test-whatsapp', {
+      const res = await fetch(`${NOTIFICATIONS_API_BASE}/api/notifications/test-whatsapp`, {
         method: 'POST',
         headers: getAuthHeaders(),
         body: JSON.stringify({ targetNumber: testWaNumber })
@@ -827,7 +828,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
     setQrPollNotice('Clearing expired session and generating fresh QR code...');
     setQrDataUrl(null);
     try {
-      const res = await fetch('http://127.0.0.1:5001/api/notifications/generate-qr', {
+      const res = await fetch(`${NOTIFICATIONS_API_BASE}/api/notifications/generate-qr`, {
         method: 'POST',
         headers: getAuthHeaders(),
         body: JSON.stringify({ forceClearSession: forceClear })
@@ -849,7 +850,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
           attempts++;
           setQrPollNotice(`Waiting for WhatsApp QR code (${attempts * 1.5}s)...`);
           try {
-            const qrRes = await fetch('http://127.0.0.1:5001/api/notifications/qr');
+            const qrRes = await fetch(`${NOTIFICATIONS_API_BASE}/api/notifications/qr`);
             if (qrRes.ok) {
               const qrData = await qrRes.json();
               if (qrData.qrDataUrl) {
@@ -886,7 +887,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
   const handleRestartWhatsApp = async () => {
     setIsRestartingWa(true);
     try {
-      const res = await fetch('http://127.0.0.1:5001/api/notifications/restart-whatsapp', {
+      const res = await fetch(`${NOTIFICATIONS_API_BASE}/api/notifications/restart-whatsapp`, {
         method: 'POST',
         headers: getAuthHeaders()
       });
@@ -905,7 +906,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
   // Save Jev Model Settings
   const handleSaveJev = async () => {
     try {
-      const res = await fetch('http://127.0.0.1:5000/api/settings/jev-model', {
+      const res = await fetch(`${API_BASE}/api/settings/jev-model`, {
         method: 'POST',
         headers: getAuthHeaders(),
         body: JSON.stringify({
@@ -928,7 +929,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
   const handleTestJev = async () => {
     setIsTestingJev(true);
     try {
-      const res = await fetch('http://127.0.0.1:5000/api/settings/jev-model/test', {
+      const res = await fetch(`${API_BASE}/api/settings/jev-model/test`, {
         method: 'POST',
         headers: getAuthHeaders(),
         body: JSON.stringify({ api_key: jevApiKey })
@@ -980,7 +981,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
     };
 
     try {
-      const res = await fetch('http://127.0.0.1:5001/api/notifications/broadcast-signal', {
+      const res = await fetch(`${NOTIFICATIONS_API_BASE}/api/notifications/broadcast-signal`, {
         method: 'POST',
         headers: getAuthHeaders(),
         body: JSON.stringify({
@@ -1007,7 +1008,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
   const handleManualPoll = async () => {
     setIsManualPolling(true);
     try {
-      const res = await fetch('http://127.0.0.1:5000/api/pipeline/poll-now', {
+      const res = await fetch(`${API_BASE}/api/pipeline/poll-now`, {
         method: 'POST',
         headers: getAuthHeaders()
       });
@@ -1029,7 +1030,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
   const handleClearLogs = async () => {
     if (!window.confirm('Clear all dispatched alert history logs?')) return;
     try {
-      const res = await fetch('http://127.0.0.1:5001/api/notifications/history/clear', {
+      const res = await fetch(`${NOTIFICATIONS_API_BASE}/api/notifications/history/clear`, {
         method: 'POST',
         headers: getAuthHeaders()
       });

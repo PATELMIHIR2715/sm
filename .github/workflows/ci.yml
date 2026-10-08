@@ -1,0 +1,72 @@
+name: CI/CD Pipeline - Test & Auto-Deploy
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  frontend-build:
+    name: Build & Verify Frontend
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: apps/dashboard/package-lock.json
+
+      - name: Install Frontend Dependencies
+        working-directory: apps/dashboard
+        run: npm ci
+
+      - name: Typecheck and Build Production Bundle
+        working-directory: apps/dashboard
+        run: npm run build
+
+  backend-verify:
+    name: Verify Backend & Dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Backend Dependencies
+        run: pip install -r requirements.txt
+
+      - name: Validate Python Modules Syntax & Initialization
+        run: |
+          python -m py_compile services/api/live_sync_server.py
+          python -m py_compile services/sync/supabase_nightly_sync.py
+          python -m py_compile services/ai_pipeline/scaled_rag_engine.py
+          python -m py_compile services/ai_pipeline/jev_classifier.py
+          python -c "from services.ai_pipeline.scaled_rag_engine import ScaledVectorRAGEngine; engine = ScaledVectorRAGEngine(); print(f'Successfully initialized RAG with {len(engine.records)} patterns')"
+
+  trigger-render-deploy:
+    name: Trigger Render Auto-Deploy Hook
+    needs: [frontend-build, backend-verify]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Render Deploy Hook (if secret configured)
+        env:
+          RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
+        run: |
+          if [ -n "$RENDER_DEPLOY_HOOK" ]; then
+            echo "Triggering Render deployment webhook..."
+            curl -s -X POST "$RENDER_DEPLOY_HOOK"
+            echo "Deploy trigger sent successfully."
+          else
+            echo "RENDER_DEPLOY_HOOK secret is optional when Render GitHub integration is enabled (Render auto-deploys from git push directly)."
+          fi

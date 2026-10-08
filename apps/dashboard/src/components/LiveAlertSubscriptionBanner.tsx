@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Bell, Smartphone, Mail, Send, CheckCircle2, ShieldCheck, Settings, Sparkles } from 'lucide-react';
+import { NOTIFICATIONS_API_BASE } from '../config';
 
 interface LiveAlertSubscriptionBannerProps {
   onOpenSettings: () => void;
@@ -21,7 +22,7 @@ export const LiveAlertSubscriptionBanner: React.FC<LiveAlertSubscriptionBannerPr
     setSuccessMsg(null);
 
     try {
-      const res = await fetch('http://127.0.0.1:5001/api/notifications/subscribe', {
+      const res = await fetch(`${NOTIFICATIONS_API_BASE}/api/notifications/subscribe`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -50,14 +51,14 @@ export const LiveAlertSubscriptionBanner: React.FC<LiveAlertSubscriptionBannerPr
     setLoading(true);
     try {
       if (email) {
-        await fetch('http://127.0.0.1:5001/api/notifications/test-email', {
+        await fetch(`${NOTIFICATIONS_API_BASE}/api/notifications/test-email`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ targetEmail: email })
         });
       }
       if (whatsapp) {
-        await fetch('http://127.0.0.1:5001/api/notifications/test-whatsapp', {
+        await fetch(`${NOTIFICATIONS_API_BASE}/api/notifications/test-whatsapp`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ targetNumber: whatsapp })

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Radar, Clock, TrendingUp, Activity } from 'lucide-react';
+import { API_BASE } from '../config';
 
 export interface PreCatalystItem {
   id: string;
@@ -152,7 +153,7 @@ export const PreCatalystRadarView: React.FC = () => {
   ]);
 
   React.useEffect(() => {
-    fetch('http://127.0.0.1:5000/api/pre-catalyst-radar')
+    fetch(`${API_BASE}/api/pre-catalyst-radar`)
       .then((res) => {
         if (res.ok) return res.json();
         throw new Error('Network response not ok');

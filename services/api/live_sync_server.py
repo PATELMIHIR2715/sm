@@ -34,6 +34,8 @@ except ImportError:
     from services.storage.signals_retention_manager import signals_retention_manager
     from services.sync.supabase_nightly_sync import supabase_sync_manager
 
+PROJECT_ROOT = os.environ.get("PROJECT_ROOT", os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
+
 # Initialize singletons
 rag_engine = ScaledVectorRAGEngine()
 confluence_engine = TechnicalConfluenceEngine()
@@ -460,7 +462,7 @@ class ProductionAPIHandler(BaseHTTPRequestHandler):
             }, indent=2).encode('utf-8'))
 
         elif path in ['/api/live-stream']:
-            stream_file = "d:/sm/data/live_signals_stream.json"
+            stream_file = os.path.join(PROJECT_ROOT, "data/live_signals_stream.json")
             stream_data = []
             if os.path.exists(stream_file):
                 try:
@@ -514,16 +516,18 @@ class ProductionAPIHandler(BaseHTTPRequestHandler):
         elif path in ['/api/pipeline/status']:
             regime = LivePriceProvider.get_market_regime()
             stream_count = 0
-            if os.path.exists("d:/sm/data/live_signals_stream.json"):
+            stream_file = os.path.join(PROJECT_ROOT, "data/live_signals_stream.json")
+            if os.path.exists(stream_file):
                 try:
-                    with open("d:/sm/data/live_signals_stream.json", "r", encoding="utf-8") as f:
+                    with open(stream_file, "r", encoding="utf-8") as f:
                         stream_count = len(json.load(f))
                 except Exception: pass
             
             seen_count = 0
-            if os.path.exists("d:/sm/data/seen_filing_hashes.json"):
+            seen_file = os.path.join(PROJECT_ROOT, "data/seen_filing_hashes.json")
+            if os.path.exists(seen_file):
                 try:
-                    with open("d:/sm/data/seen_filing_hashes.json", "r", encoding="utf-8") as f:
+                    with open(seen_file, "r", encoding="utf-8") as f:
                         seen_count = len(json.load(f))
                 except Exception: pass
 
@@ -583,6 +587,16 @@ class ProductionAPIHandler(BaseHTTPRequestHandler):
                     schema_content = f.read()
             self._set_headers(200)
             self.wfile.write(json.dumps({"success": True, "schema_sql": schema_content}, indent=2).encode('utf-8'))
+
+        elif path in ['/health', '/api/health']:
+            self._set_headers(200)
+            self.wfile.write(json.dumps({
+                "status": "healthy",
+                "uptime": "online",
+                "service": "nse-ai-backend-engine",
+                "render_keep_alive": True,
+                "timestamp": datetime.now().isoformat()
+            }, indent=2).encode('utf-8'))
 
         elif path in ['/api/status', '']:
             self._set_headers(200)
@@ -768,7 +782,7 @@ def run_server(port=5000):
     httpd.serve_forever()
 
 if __name__ == "__main__":
-    port = 5000
+    port = int(os.environ.get("PORT", 5000))
     if len(sys.argv) > 1:
         port = int(sys.argv[1])
     run_server(port)

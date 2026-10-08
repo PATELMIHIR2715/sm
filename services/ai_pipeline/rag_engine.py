@@ -9,9 +9,10 @@ class CPUHistoricalRAGEngine:
     Queries the persistent embedded database containing verified price outcomes (2015-2025).
     """
 
-    def __init__(self, database_file="d:/sm/data/historical_10yr_embedded_database.json", fallback_file="d:/sm/data/macro_patterns_master.json"):
-        self.database_file = database_file
-        self.fallback_file = fallback_file
+    def __init__(self, database_file=None, fallback_file=None):
+        base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../data"))
+        self.database_file = database_file or os.path.join(base_dir, "historical_10yr_embedded_database.json")
+        self.fallback_file = fallback_file or os.path.join(base_dir, "macro_patterns_master.json")
         self.records = self._load_records()
 
     def _load_records(self):

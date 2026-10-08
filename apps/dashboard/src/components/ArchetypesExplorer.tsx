@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Database, Search, Filter, TrendingUp, TrendingDown, Layers } from 'lucide-react';
+import { API_BASE } from '../config';
 
 interface Archetype {
   event_uuid: string;
@@ -25,7 +26,7 @@ export const ArchetypesExplorer: React.FC = () => {
   useEffect(() => {
     const fetchArchetypes = async () => {
       try {
-        const res = await fetch('http://127.0.0.1:5000/api/archetypes');
+        const res = await fetch(`${API_BASE}/api/archetypes`);
         if (res.ok) {
           const data = await res.json();
           setArchetypes(data.archetypes || []);

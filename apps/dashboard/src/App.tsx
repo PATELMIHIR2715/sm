@@ -16,6 +16,7 @@ import { PreCatalystRadarView } from './components/PreCatalystRadarView';
 import { NotificationSettingsModal } from './components/NotificationSettingsModal';
 import { LiveAlertSubscriptionBanner } from './components/LiveAlertSubscriptionBanner';
 import { AdminPanel } from './components/AdminPanel';
+import { API_BASE } from './config';
 import {
   Flame,
   Target,
@@ -95,7 +96,7 @@ export function App() {
     setSyncNotice('Connecting to Live Exchange tick feed...');
 
     try {
-      const response = await fetch('http://127.0.0.1:5000/api/live-sync');
+      const response = await fetch(`${API_BASE}/api/live-sync`);
       if (response.ok) {
         const data = await response.json();
         if (data.live_signals && data.live_signals.length > 0) {
@@ -418,7 +419,7 @@ export function App() {
           <div className="flex items-center gap-3">
             <span>Latency: <strong className="text-slate-900">13.04 ms</strong></span>
             <span>&bull;</span>
-            <span>API Backend: <strong className="text-emerald-600">ONLINE (127.0.0.1:5000)</strong></span>
+            <span>API Backend: <strong className="text-emerald-600">ONLINE</strong></span>
             <span>&bull;</span>
             <button
               onClick={() => navigateTo('admin')}

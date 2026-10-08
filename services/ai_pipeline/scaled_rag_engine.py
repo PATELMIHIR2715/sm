@@ -10,7 +10,7 @@ class ScaledVectorRAGEngine:
     Uses TF-IDF term weighting and Cosine vector search optimized for CPU (<2ms query latency).
     """
 
-    DATABASE_PATH = "d:/sm/data/historical_10yr_embedded_database.json"
+    DATABASE_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../data/historical_10yr_embedded_database.json"))
 
     def __init__(self):
         self.records = self._generate_and_load_records()
