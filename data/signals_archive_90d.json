@@ -1,5 +1,87 @@
 [
   {
+    "id": "AUTO_1791449845_JSFB",
+    "symbol": "JSFB",
+    "company_name": "JSFB",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "JSFB: Updates",
+    "created_at": "2026-10-08T14:27:25",
+    "epoch_timestamp": 1791449845.0,
+    "retention_policy_days": 90,
+    "retention_expires_at": "2027-01-06T14:27:25",
+    "days_retained": 0.0,
+    "days_remaining": 90.0,
+    "current_base_price_inr": 488.15,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 99.0,
+    "materiality_ratio": 0.0192,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.60% to -2.00%",
+      "price_target_range_inr": "₹465.70 - ₹478.39",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.28% to -3.20%",
+      "price_target_range_inr": "₹447.73 - ₹472.53",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.96% to -4.40%",
+      "price_target_range_inr": "₹429.77 - ₹466.67",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹502.79 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH",
+    "kelly_capital_allocation_inr": 15000,
+    "tracking_status": "ACTIVE_MONITORING",
+    "max_gain_reached_pct": 0.0,
+    "target_hit": false
+  },
+  {
+    "id": "AUTO_1791449803_SATIN",
+    "symbol": "SATIN",
+    "company_name": "SATIN",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "SATIN: Certificate under SEBI (Depositories and Participants) Regulations, 2018",
+    "created_at": "2026-10-08T14:26:43",
+    "epoch_timestamp": 1791449803.0,
+    "retention_policy_days": 90,
+    "retention_expires_at": "2027-01-06T14:26:43",
+    "days_retained": 0.0,
+    "days_remaining": 90.0,
+    "current_base_price_inr": 217.35,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 77.0,
+    "materiality_ratio": 0.1111,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-5.06% to -2.00%",
+      "price_target_range_inr": "₹206.35 - ₹213.00",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-9.11% to -3.20%",
+      "price_target_range_inr": "₹197.55 - ₹210.39",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-13.16% to -4.40%",
+      "price_target_range_inr": "₹188.75 - ₹207.79",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹223.87 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH",
+    "kelly_capital_allocation_inr": 15000,
+    "tracking_status": "ACTIVE_MONITORING",
+    "max_gain_reached_pct": 0.0,
+    "target_hit": false
+  },
+  {
     "id": "AUTO_1791449772_PICCADIL",
     "symbol": "PICCADIL",
     "company_name": "PICCADIL",
