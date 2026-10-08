@@ -517,8 +517,26 @@ app.post('/api/notifications/subscribers/:id/test', requireAdminAuth, async (req
   res.json({ success: true, subscriber: sub, results });
 });
 
-// 6. Test WhatsApp Endpoint
-app.post('/api/notifications/test-whatsapp', requireAdminAuth, async (req, res) => {
+// Lightweight Rate Limiter for Public User Device Verification (10 requests/minute per IP)
+const userTestLimiter = new Map();
+function rateLimitUserTests(req, res, next) {
+  const ip = req.ip || req.headers['x-forwarded-for'] || '127.0.0.1';
+  const now = Date.now();
+  const entry = userTestLimiter.get(ip) || { count: 0, resetTime: now + 60000 };
+  if (now > entry.resetTime) {
+    entry.count = 0;
+    entry.resetTime = now + 60000;
+  }
+  if (entry.count >= 10) {
+    return res.status(429).json({ success: false, error: 'Too many test requests. Please wait 1 minute.' });
+  }
+  entry.count += 1;
+  userTestLimiter.set(ip, entry);
+  next();
+}
+
+// 6. Test WhatsApp Endpoint (Public for user device verification)
+app.post('/api/notifications/test-whatsapp', rateLimitUserTests, async (req, res) => {
   const { targetNumber } = req.body;
   const num = normalizePhoneNumber(targetNumber) || waService.defaultRecipients[0];
   
@@ -546,8 +564,8 @@ app.post('/api/notifications/test-whatsapp', requireAdminAuth, async (req, res) 
   });
 });
 
-// 7. Test Email Endpoint
-app.post('/api/notifications/test-email', requireAdminAuth, async (req, res) => {
+// 7. Test Email Endpoint (Public for user inbox verification)
+app.post('/api/notifications/test-email', rateLimitUserTests, async (req, res) => {
   const { targetEmail } = req.body;
   const email = (targetEmail ? targetEmail.trim().toLowerCase() : null) || emailService.defaultRecipients[0];
 
