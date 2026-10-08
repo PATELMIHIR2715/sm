@@ -44,7 +44,7 @@ export function App() {
   const timelineKey = 'sep2026_live';
   const [activeTab, setActiveTab] = useState<
     'pre_catalyst_radar' | 'today_live' | 'verification_audit' | 'news_tester' | 'multi_horizon' | 'trading_sim' | 'archetypes' | 'all_signals'
-  >('pre_catalyst_radar');
+  >('today_live');
   const [isRefreshing, setIsRefreshing] = useState<boolean>(false);
   const [isNotificationModalOpen, setIsNotificationModalOpen] = useState<boolean>(false);
   const [searchQuery, setSearchQuery] = useState<string>('');
