@@ -199,7 +199,86 @@ function loadSubscribersData() {
 function saveSubscribersData(data) {
   fs.mkdirSync(path.dirname(SUBSCRIBERS_FILE), { recursive: true });
   fs.writeFileSync(SUBSCRIBERS_FILE, JSON.stringify(data, null, 2), 'utf-8');
+  if (data && Array.isArray(data.subscribers)) {
+    syncSubscribersToSupabaseCloud(data.subscribers).catch(() => {});
+  }
 }
+
+// Supabase Cloud Warehouse Subscriber Backup (Zero-Data-Loss)
+async function syncSubscribersToSupabaseCloud(subscribers) {
+  const sbUrl = (process.env.SUPABASE_URL || '').trim().replace(/\/+$/, '');
+  const sbKey = (process.env.SUPABASE_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY || '').trim();
+  if (!sbUrl || !sbKey || !Array.isArray(subscribers) || subscribers.length === 0) return;
+
+  const endpoint = `${sbUrl}/rest/v1/notification_subscribers?resolution=merge-duplicates`;
+  const records = subscribers.map(s => ({
+    id: s.id,
+    name: s.name || 'Institutional Trader',
+    whatsapp: s.whatsapp || '',
+    email: s.email || '',
+    active: s.active !== false,
+    preferences: s.preferences || {},
+    created_at: s.created_at || new Date().toISOString(),
+    updated_at: s.updated_at || new Date().toISOString()
+  }));
+
+  try {
+    const res = await fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        'apikey': sbKey,
+        'Authorization': `Bearer ${sbKey}`,
+        'Content-Type': 'application/json',
+        'Prefer': 'resolution=merge-duplicates'
+      },
+      body: JSON.stringify(records)
+    });
+    if (res.ok) {
+      console.log(`[SUPABASE CLOUD SYNC] Synced ${records.length} subscribers to Supabase successfully.`);
+    } else {
+      const errTxt = await res.text().catch(() => '');
+      console.warn('[SUPABASE CLOUD NOTICE] Subscriber sync notice:', errTxt.slice(0, 100));
+    }
+  } catch (err) {
+    console.warn('[SUPABASE CLOUD NOTICE] Subscriber sync error:', err.message);
+  }
+}
+
+// Hydrate subscribers from Supabase cloud on boot if cloud has records
+async function hydrateSubscribersFromSupabase() {
+  const sbUrl = (process.env.SUPABASE_URL || '').trim().replace(/\/+$/, '');
+  const sbKey = (process.env.SUPABASE_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY || '').trim();
+  if (!sbUrl || !sbKey) return;
+
+  try {
+    const res = await fetch(`${sbUrl}/rest/v1/notification_subscribers?select=*`, {
+      headers: {
+        'apikey': sbKey,
+        'Authorization': `Bearer ${sbKey}`
+      }
+    });
+    if (res.ok) {
+      const cloudSubs = await res.json();
+      if (Array.isArray(cloudSubs) && cloudSubs.length > 0) {
+        const local = loadSubscribersData();
+        const localMap = new Map((local.subscribers || []).map(s => [s.id, s]));
+        for (const cs of cloudSubs) {
+          if (!localMap.has(cs.id)) {
+            localMap.set(cs.id, cs);
+          }
+        }
+        const merged = { subscribers: Array.from(localMap.values()) };
+        fs.writeFileSync(SUBSCRIBERS_FILE, JSON.stringify(merged, null, 2), 'utf-8');
+        console.log(`[SUPABASE HYDRATE] Loaded ${cloudSubs.length} subscribers from Supabase cloud warehouse.`);
+      }
+    }
+  } catch (e) {
+    console.warn('[SUPABASE HYDRATE NOTICE]', e.message);
+  }
+}
+
+// Trigger initial cloud hydration
+hydrateSubscribersFromSupabase().catch(() => {});
 
 // 1. Overall Status Endpoint
 app.get('/api/notifications/status', (req, res) => {

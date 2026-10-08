@@ -3527,6 +3527,16 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
                           {supabaseStatus?.inventory_pending?.market_prices_count || 10} ticks
                         </span>
                       </div>
+
+                      <div className="bg-white p-2.5 rounded-lg border border-slate-200 flex items-center justify-between">
+                        <div>
+                          <div className="font-mono font-bold text-slate-900">6. public.notification_subscribers</div>
+                          <div className="text-[10px] text-slate-500">Persistent WhatsApp & Email alert subscriber profiles & preferences</div>
+                        </div>
+                        <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                          {supabaseStatus?.inventory_pending?.subscribers_count || 1} subscribers
+                        </span>
+                      </div>
                     </div>
                   </div>
 

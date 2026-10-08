@@ -153,15 +153,39 @@ CREATE TABLE IF NOT EXISTS public.sync_telemetry_logs (
 
 CREATE INDEX IF NOT EXISTS idx_sync_logs_started ON public.sync_telemetry_logs(started_at DESC);
 
--- 7. Enable Row-Level Security (RLS)
+-- 7. Notification Subscribers Table (Cloud Storage so subscribers are never lost)
+CREATE TABLE IF NOT EXISTS public.notification_subscribers (
+    id TEXT PRIMARY KEY,
+    name TEXT DEFAULT 'Institutional Trader',
+    whatsapp TEXT,
+    email TEXT,
+    active BOOLEAN DEFAULT TRUE,
+    preferences JSONB DEFAULT '{
+        "preCatalystRadar": true,
+        "liveSignals": true,
+        "doNotChaseAlerts": true,
+        "stopLossWarnings": true,
+        "dailyBriefing": true,
+        "targetHits": true
+    }'::jsonb,
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_subscribers_whatsapp ON public.notification_subscribers(whatsapp);
+CREATE INDEX IF NOT EXISTS idx_subscribers_email ON public.notification_subscribers(email);
+CREATE INDEX IF NOT EXISTS idx_subscribers_active ON public.notification_subscribers(active);
+
+-- 8. Enable Row-Level Security (RLS)
 ALTER TABLE public.signals ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.evaluation_benchmarks ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.accuracy_audits ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.jev_classifications ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.market_price_snapshots ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.sync_telemetry_logs ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.notification_subscribers ENABLE ROW LEVEL SECURITY;
 
--- 8. Policies for Service Role Full Access (Used by Nightly Cron Job)
+-- 9. Policies for Service Role Full Access (Used by Nightly Cron Job)
 CREATE POLICY "Service Role Full Access Signals" ON public.signals
     FOR ALL TO service_role USING (true) WITH CHECK (true);
 
@@ -178,6 +202,9 @@ CREATE POLICY "Service Role Full Access Prices" ON public.market_price_snapshots
     FOR ALL TO service_role USING (true) WITH CHECK (true);
 
 CREATE POLICY "Service Role Full Access Sync Logs" ON public.sync_telemetry_logs
+    FOR ALL TO service_role USING (true) WITH CHECK (true);
+
+CREATE POLICY "Service Role Full Access Subscribers" ON public.notification_subscribers
     FOR ALL TO service_role USING (true) WITH CHECK (true);
 
 -- 9. Read-Only Policies for Anon / Authenticated Users (If public dashboard connects to Supabase directly)

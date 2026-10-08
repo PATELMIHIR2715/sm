@@ -21,6 +21,7 @@ STREAM_FILE = os.path.join(ROOT_DIR, "data", "live_signals_stream.json")
 JEV_CACHE_FILE = os.path.join(ROOT_DIR, "data", "jev_classification_cache.json")
 VERIFIED_PRICES_FILE = os.path.join(ROOT_DIR, "data", "verified_market_live_prices.json")
 BENCHMARK_TS_FILE = os.path.join(ROOT_DIR, "apps", "dashboard", "src", "data", "benchmarkData.ts")
+SUBSCRIBERS_FILE = os.path.join(ROOT_DIR, "data", "notification_subscribers.json")
 
 
 def load_env_variables() -> Dict[str, str]:
@@ -185,6 +186,7 @@ class SupabaseNightlySyncManager:
         benchmarks, audits = self.harvest_benchmarks_and_audits()
         jev = self.harvest_jev_classifications()
         prices = self.harvest_market_prices()
+        subscribers = self.harvest_subscribers()
 
         return {
             "signals_count": len(signals),
@@ -192,7 +194,8 @@ class SupabaseNightlySyncManager:
             "accuracy_audits_count": len(audits),
             "jev_classifications_count": len(jev),
             "market_prices_count": len(prices),
-            "total_records": len(signals) + len(benchmarks) + len(audits) + len(jev) + len(prices)
+            "subscribers_count": len(subscribers),
+            "total_records": len(signals) + len(benchmarks) + len(audits) + len(jev) + len(prices) + len(subscribers)
         }
 
     def harvest_signals(self) -> List[Dict[str, Any]]:
@@ -468,6 +471,30 @@ class SupabaseNightlySyncManager:
                 print(f"[HARVEST ERROR] verified_market_live_prices: {e}")
         return records
 
+    def harvest_subscribers(self) -> List[Dict[str, Any]]:
+        """Harvest registered WhatsApp and Email alert subscribers for permanent cloud backup."""
+        records: List[Dict[str, Any]] = []
+        if os.path.exists(SUBSCRIBERS_FILE):
+            try:
+                with open(SUBSCRIBERS_FILE, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                    subs = data.get("subscribers", [])
+                    for s in subs:
+                        if isinstance(s, dict) and s.get("id"):
+                            records.append({
+                                "id": str(s["id"]),
+                                "name": str(s.get("name", "Institutional Trader")),
+                                "whatsapp": str(s.get("whatsapp", "")),
+                                "email": str(s.get("email", "")),
+                                "active": bool(s.get("active", True)),
+                                "preferences": s.get("preferences", {}),
+                                "created_at": s.get("created_at") or datetime.now(timezone.utc).isoformat(),
+                                "updated_at": s.get("updated_at") or datetime.now(timezone.utc).isoformat()
+                            })
+            except Exception as e:
+                print(f"[HARVEST ERROR] subscribers: {e}")
+        return records
+
     # --------------------------------------------------------------------------
     # SUPABASE POSTGREST REST CLIENT (Zero-Dependency & Fault-Tolerant)
     # --------------------------------------------------------------------------
@@ -563,15 +590,16 @@ class SupabaseNightlySyncManager:
         benchmarks, audits = self.harvest_benchmarks_and_audits()
         jev = self.harvest_jev_classifications()
         prices = self.harvest_market_prices()
+        subscribers = self.harvest_subscribers()
 
-        total_records = len(signals) + len(benchmarks) + len(audits) + len(jev) + len(prices)
+        total_records = len(signals) + len(benchmarks) + len(audits) + len(jev) + len(prices) + len(subscribers)
 
         # Check if dry-run or unconfigured
         if dry_run or not (supabase_url and supabase_key):
             duration_ms = int((time.time() - start_time) * 1000)
             status = "DRY_RUN_VALIDATED" if dry_run else "AWAITING_SUPABASE_CONFIG"
             msg = (
-                f"[DRY-RUN] Validated {total_records} records across 5 schemas with zero data loss. "
+                f"[DRY-RUN] Validated {total_records} records across 6 schemas (including notification subscribers) with zero data loss. "
                 "Ready for automated push once Supabase URL and Key are entered."
                 if dry_run else
                 f"Harvested {total_records} records ready for push. Please configure Supabase URL and Key in Admin Console."
@@ -589,6 +617,7 @@ class SupabaseNightlySyncManager:
                     "accuracy_audits": len(audits),
                     "jev_classifications": len(jev),
                     "market_prices": len(prices),
+                    "subscribers": len(subscribers),
                     "total": total_records
                 },
                 "message": msg
@@ -632,11 +661,19 @@ class SupabaseNightlySyncManager:
             pushed_counts["market_prices"] = self._postgrest_upsert(supabase_url, supabase_key, "market_price_snapshots", prices)
             print(f"  ✓ market_price_snapshots: {pushed_counts['market_prices']} price ticks pushed")
 
+            # 6. Notification Subscribers (Zero-Data-Loss Cloud Backup)
+            if subscribers:
+                try:
+                    pushed_counts["subscribers"] = self._postgrest_upsert(supabase_url, supabase_key, "notification_subscribers", subscribers)
+                    print(f"  ✓ notification_subscribers: {pushed_counts['subscribers']} subscribers pushed")
+                except Exception as e:
+                    print(f"[SUPABASE NOTICE] notification_subscribers push: {e}")
+
             duration_ms = int((time.time() - start_time) * 1000)
             completed_iso = datetime.now(timezone.utc).isoformat()
             final_status = "SUCCESS"
 
-            # 6. Push sync execution log to Supabase
+            # 7. Push sync execution log to Supabase
             sync_log_entry = {
                 "id": f"SYNC_{int(start_time)}",
                 "sync_mode": sync_mode,
@@ -648,6 +685,7 @@ class SupabaseNightlySyncManager:
                 "accuracy_records_synced": pushed_counts.get("accuracy_audits", 0),
                 "jev_records_synced": pushed_counts.get("jev_classifications", 0),
                 "prices_synced": pushed_counts.get("market_prices", 0),
+                "subscribers_synced": pushed_counts.get("subscribers", 0),
                 "total_records_pushed": sum(pushed_counts.values()),
                 "duration_ms": duration_ms,
                 "details": {"summary": pushed_counts}
