@@ -1102,11 +1102,11 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
                 className="text-xs font-mono text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition cursor-pointer"
               >
                 <ArrowRight className="w-3.5 h-3.5 rotate-180" />
-                <span>Return to Public Terminal</span>
+                <span>Return to Platform (/)</span>
               </button>
 
               <span className="text-[10px] font-mono text-slate-400">
-                Port 5000 / 5001 Protected
+                Route: /admin
               </span>
             </div>
           </div>
@@ -1166,7 +1166,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
               className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-mono font-semibold bg-blue-600 hover:bg-blue-700 text-white shadow-xs transition cursor-pointer"
             >
               <ArrowRight className="w-3.5 h-3.5 rotate-180" />
-              <span>Return to Terminal</span>
+              <span>Return to Platform (/)</span>
             </button>
           </div>
         </div>

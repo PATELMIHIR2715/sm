@@ -31,7 +31,15 @@ import {
 } from 'lucide-react';
 
 export function App() {
-  const [viewMode, setViewMode] = useState<'trader' | 'admin'>('trader');
+  // Check if URL path is /admin or /portal (or legacy hash #admin)
+  const isCurrentAdminPath = () => {
+    if (typeof window === 'undefined') return false;
+    const path = window.location.pathname.toLowerCase();
+    const hash = window.location.hash.toLowerCase();
+    return path.startsWith('/admin') || path.startsWith('/portal') || hash === '#admin' || hash === '#portal';
+  };
+
+  const [viewMode, setViewMode] = useState<'trader' | 'admin'>(() => (isCurrentAdminPath() ? 'admin' : 'trader'));
   const timelineKey = 'sep2026_live';
   const [activeTab, setActiveTab] = useState<
     'pre_catalyst_radar' | 'today_live' | 'verification_audit' | 'news_tester' | 'multi_horizon' | 'trading_sim' | 'archetypes' | 'all_signals'
@@ -45,22 +53,40 @@ export function App() {
 
   const currentTimeline = TIMELINES[timelineKey] || TIMELINES['sep2026_live'];
 
-  // Sync viewMode with URL hash
+  // Pathname navigation helper (/admin vs /)
+  const navigateTo = (mode: 'trader' | 'admin') => {
+    if (mode === 'admin') {
+      if (window.location.pathname !== '/admin') {
+        window.history.pushState(null, '', '/admin');
+      }
+      setViewMode('admin');
+    } else {
+      if (window.location.pathname !== '/') {
+        window.history.pushState(null, '', '/');
+      }
+      setViewMode('trader');
+    }
+  };
+
+  // Sync viewMode with URL pathname (/admin vs /) and history popstate
   useEffect(() => {
-    const isHashAdmin = window.location.hash === '#admin' || window.location.hash === '#portal';
-    if (isHashAdmin) {
+    // If entered via legacy hash (#admin), seamlessly redirect to path /admin
+    if (window.location.hash === '#admin' || window.location.hash === '#portal') {
+      window.history.replaceState(null, '', '/admin');
       setViewMode('admin');
     }
-    const handleHashChange = () => {
-      const activeHashAdmin = window.location.hash === '#admin' || window.location.hash === '#portal';
-      if (activeHashAdmin) {
-        setViewMode('admin');
-      } else {
-        setViewMode('trader');
-      }
+
+    const handleLocationChange = () => {
+      const isAdmin = isCurrentAdminPath();
+      setViewMode(isAdmin ? 'admin' : 'trader');
     };
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+
+    window.addEventListener('popstate', handleLocationChange);
+    window.addEventListener('hashchange', handleLocationChange);
+    return () => {
+      window.removeEventListener('popstate', handleLocationChange);
+      window.removeEventListener('hashchange', handleLocationChange);
+    };
   }, []);
 
   // Real-time live synchronization function
@@ -113,17 +139,13 @@ export function App() {
       else if (e.key === 'r' || e.key === 'R') handleLiveSync();
       else if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
         e.preventDefault();
-        setViewMode((prev) => {
-          const next = prev === 'admin' ? 'trader' : 'admin';
-          window.location.hash = next === 'admin' ? 'admin' : '';
-          return next;
-        });
+        navigateTo(viewMode === 'admin' ? 'trader' : 'admin');
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [viewMode]);
 
 
   // Filter signals based on search query
@@ -147,14 +169,11 @@ export function App() {
 
   const activeLiveSetups = timelineKey === 'sep2026_live' ? liveSignals : currentTimeline.table4_today_live;
 
-  // Render Dedicated Full-Screen Admin Panel when active
+  // Render Dedicated Full-Screen Admin Panel when active (/admin)
   if (viewMode === 'admin') {
     return (
       <AdminPanel
-        onBackToTerminal={() => {
-          setViewMode('trader');
-          window.location.hash = '';
-        }}
+        onBackToTerminal={() => navigateTo('trader')}
         liveSignals={activeLiveSetups || []}
       />
     );
@@ -402,11 +421,8 @@ export function App() {
             <span>API Backend: <strong className="text-emerald-600">ONLINE (127.0.0.1:5000)</strong></span>
             <span>&bull;</span>
             <button
-              onClick={() => {
-                setViewMode('admin');
-                window.location.hash = 'admin';
-              }}
-              title="Restricted Operations Portal"
+              onClick={() => navigateTo('admin')}
+              title="Restricted Operations Portal (/admin)"
               className="text-slate-400 hover:text-slate-700 transition cursor-pointer flex items-center gap-1 opacity-25 hover:opacity-100"
             >
               <Lock className="w-3 h-3" />
