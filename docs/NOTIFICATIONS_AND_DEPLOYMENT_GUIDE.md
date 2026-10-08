@@ -56,10 +56,10 @@ This guide details the multi-channel notification infrastructure, real-time live
 # Gmail SMTP Credentials (Configured & Verified)
 SMTP_HOST="smtp.gmail.com"
 SMTP_PORT=465
-SMTP_USER="mihirpqtel@gmail.com"
-SMTP_PASS="qbjh xpul mqyt jjnm"
-SMTP_FROM="Institutional AI News Engine <mihirpqtel@gmail.com>"
-ALERT_EMAIL_RECIPIENTS="mihirpqtel@gmail.com"
+SMTP_USER="your-email@gmail.com"
+SMTP_PASS="your-16-digit-app-password"
+SMTP_FROM="Institutional AI News Engine <your-email@gmail.com>"
+ALERT_EMAIL_RECIPIENTS="your-email@gmail.com"
 
 # Notification Hub Port
 NOTIFICATION_PORT=5001
