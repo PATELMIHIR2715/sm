@@ -121,10 +121,11 @@ class WhatsAppNotificationService {
     try {
       const response = await this.client.sendMessage(chatId, message);
       console.log(`[WHATSAPP SENT] Delivered to ${chatId}`);
+      const messageId = response?.id?._serialized || response?.id || 'delivered';
       return {
         success: true,
         simulated: false,
-        messageId: response.id._serialized,
+        messageId,
         chatId
       };
     } catch (err) {

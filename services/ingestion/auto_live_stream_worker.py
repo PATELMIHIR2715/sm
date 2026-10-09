@@ -210,19 +210,95 @@ class AutoLiveStreamWorker:
             return None
 
     def _dispatch_instant_alert(self, signal: dict):
+        dispatched_hub = False
         try:
             import urllib.request
+            admin_key = os.environ.get("ADMIN_SECRET_KEY", "admin@institutional2026")
             req = urllib.request.Request(
                 "http://127.0.0.1:5001/api/notifications/broadcast-signal",
                 data=json.dumps({"signal": signal}).encode("utf-8"),
-                headers={"Content-Type": "application/json"}
+                headers={
+                    "Content-Type": "application/json",
+                    "x-admin-token": admin_key,
+                    "Authorization": f"Bearer {admin_key}"
+                }
             )
-            with urllib.request.urlopen(req, timeout=3) as resp:
+            with urllib.request.urlopen(req, timeout=5) as resp:
                 if resp.status == 200:
                     print(f"[AUTO-ALERT BROADCAST] Successfully sent WhatsApp & Email for {signal['symbol']}", flush=True)
+                    dispatched_hub = True
         except Exception as e:
-            # Silent fallback if notification hub is busy or starting
+            # Hub offline or error
             pass
+
+        # Direct Python SMTP Fallback (always delivers even on cloud/Render without Node hub)
+        if not dispatched_hub:
+            self._dispatch_direct_email(signal)
+
+    def _dispatch_direct_email(self, signal: dict):
+        try:
+            import smtplib
+            from email.mime.multipart import MIMEMultipart
+            from email.mime.text import MIMEText
+
+            recipients = []
+            sub_file = os.path.join(PROJECT_ROOT, "data/notification_subscribers.json")
+            if os.path.exists(sub_file):
+                try:
+                    with open(sub_file, "r", encoding="utf-8") as f:
+                        sub_data = json.load(f)
+                    for s in sub_data.get("subscribers", []):
+                        if s.get("active") is not False and s.get("email"):
+                            recipients.append(s["email"].strip().lower())
+                except Exception:
+                    pass
+
+            if not recipients:
+                recipients = [os.environ.get("SMTP_USER", "mihirpqtel@gmail.com")]
+
+            recipients = list(set(recipients))
+            smtp_user = os.environ.get("SMTP_USER", "mihirpqtel@gmail.com")
+            smtp_pass = os.environ.get("SMTP_PASS", "qbjh xpul mqyt jjnm")
+            smtp_host = os.environ.get("SMTP_HOST", "smtp.gmail.com")
+            smtp_port = int(os.environ.get("SMTP_PORT", 465))
+
+            symbol = signal.get("symbol", "NIFTY")
+            dir_text = signal.get("predicted_direction", "CATALYST")
+            conv = signal.get("conviction_score_pct", 80)
+            ltp = signal.get("current_base_price_inr", 0)
+            t1 = signal.get("t1_target", {}).get("price_target_range_inr", "TBD")
+            sl = signal.get("recommended_stop_loss", "TBD")
+
+            subject = f"⚡ LIVE SIGNAL ALERT: {symbol} | {dir_text} ({conv}% Conviction) | LTP ₹{ltp}"
+            html_content = f"""
+            <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: auto; padding: 20px; background: #0f172a; color: #f8fafc; border-radius: 12px;">
+              <h2 style="color: #38bdf8; margin-top: 0;">⚡ Institutional Market Catalyst Alert</h2>
+              <div style="background: #1e293b; padding: 16px; border-radius: 8px; border-left: 4px solid {'#10b981' if dir_text == 'BULLISH' else '#ef4444'};">
+                <h3 style="margin: 0 0 8px 0; color: #ffffff;">{symbol} — {signal.get('company_name', symbol)}</h3>
+                <p style="margin: 0; color: #94a3b8; font-size: 14px;"><strong>Direction:</strong> <span style="color: {'#10b981' if dir_text == 'BULLISH' else '#ef4444'}; font-weight: bold;">{dir_text} ({conv}% Conviction)</span></p>
+                <p style="margin: 4px 0 0 0; color: #94a3b8; font-size: 14px;"><strong>LTP:</strong> ₹{ltp:,.2f}</p>
+              </div>
+              <div style="margin-top: 16px; background: #1e293b; padding: 14px; border-radius: 8px;">
+                <p style="margin: 0 0 8px 0; font-size: 13px; color: #cbd5e1;"><strong>Headline:</strong> {signal.get('headline')}</p>
+                <p style="margin: 0 0 4px 0; font-size: 13px; color: #94a3b8;"><strong>T+1 Target:</strong> <span style="color: #38bdf8;">{t1}</span></p>
+                <p style="margin: 0; font-size: 13px; color: #94a3b8;"><strong>Stop-Loss:</strong> <span style="color: #f87171;">{sl}</span></p>
+              </div>
+              <p style="margin-top: 20px; font-size: 11px; color: #64748b; text-align: center;">Institutional AI News Impact Engine • Rolling 90-Day Retention Archive</p>
+            </div>
+            """
+
+            msg = MIMEMultipart("alternative")
+            msg["Subject"] = subject
+            msg["From"] = f"Institutional AI Alerts <{smtp_user}>"
+            msg["To"] = ", ".join(recipients)
+            msg.attach(MIMEText(html_content, "html"))
+
+            with smtplib.SMTP_SSL(smtp_host, smtp_port, timeout=10) as server:
+                server.login(smtp_user, smtp_pass)
+                server.sendmail(smtp_user, recipients, msg.as_string())
+            print(f"[DIRECT-EMAIL DISPATCH] Sent alert for {symbol} to {len(recipients)} subscribers ({', '.join(recipients)})", flush=True)
+        except Exception as err:
+            print(f"[DIRECT-EMAIL ERROR] Could not send direct email: {err}", flush=True)
 
     def poll_cycle(self) -> int:
         raw_items = []
