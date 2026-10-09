@@ -8,6 +8,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')
 
 from services.ai_pipeline.sentiment_classifier import CalibratedSentimentScorer
 from services.ingestion.nse_announcements import NSEAnnouncementsFetcher
+from services.ingestion.bse_announcements import BSEAnnouncementsFetcher
 from services.ingestion.insider_trading_pit import InsiderTradingPITFetcher
 from services.ingestion.bulk_block_deals import BulkBlockDealsFetcher
 from services.ingestion.credit_ratings_fetcher import CreditRatingsFetcher
@@ -28,6 +29,7 @@ class MultiSourcePipelineOrchestrator:
 
         # Data Fetchers
         self.nse_fetcher = NSEAnnouncementsFetcher()
+        self.bse_fetcher = BSEAnnouncementsFetcher()
         self.pit_fetcher = InsiderTradingPITFetcher()
         self.bulk_fetcher = BulkBlockDealsFetcher()
         self.ratings_fetcher = CreditRatingsFetcher()
@@ -87,8 +89,12 @@ class MultiSourcePipelineOrchestrator:
         new_signals = []
         
         all_items = []
-        all_items.extend(self.nse_fetcher.fetch_live_announcements())
-        all_items.extend(self.pit_fetcher.fetch_insider_disclosures())
+        try: all_items.extend(self.nse_fetcher.fetch_live_announcements())
+        except Exception: pass
+        try: all_items.extend(self.bse_fetcher.fetch_live_announcements())
+        except Exception: pass
+        try: all_items.extend(self.pit_fetcher.fetch_insider_disclosures())
+        except Exception: pass
         all_items.extend(self.bulk_fetcher.fetch_bulk_deals())
         all_items.extend(self.ratings_fetcher.fetch_rating_updates())
         all_items.extend(self.pib_gem_fetcher.fetch_pib_gem_releases())

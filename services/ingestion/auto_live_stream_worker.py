@@ -8,17 +8,20 @@ import yfinance as yf
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
+PROJECT_ROOT = os.environ.get("PROJECT_ROOT", os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
+
 from services.ai_pipeline.sentiment_classifier import CalibratedSentimentScorer
 from services.ai_pipeline.jev_classifier import jev_classifier
 from services.ingestion.nse_announcements import NSEAnnouncementsFetcher
+from services.ingestion.bse_announcements import BSEAnnouncementsFetcher
 from services.ingestion.insider_trading_pit import InsiderTradingPITFetcher
 from services.ingestion.bulk_block_deals import BulkBlockDealsFetcher
 from services.ingestion.credit_ratings_fetcher import CreditRatingsFetcher
 from services.ingestion.pib_gem_fetcher import PIBGEMFetcher
 from services.storage.signals_retention_manager import signals_retention_manager
 
-STREAM_FILE = "d:/sm/data/live_signals_stream.json"
-SEEN_FILE = "d:/sm/data/seen_filing_hashes.json"
+STREAM_FILE = os.path.join(PROJECT_ROOT, "data/live_signals_stream.json")
+SEEN_FILE = os.path.join(PROJECT_ROOT, "data/seen_filing_hashes.json")
 
 class AutoLiveStreamWorker:
     """
@@ -34,6 +37,7 @@ class AutoLiveStreamWorker:
     def __init__(self):
         self.scorer = CalibratedSentimentScorer()
         self.nse_fetcher = NSEAnnouncementsFetcher()
+        self.bse_fetcher = BSEAnnouncementsFetcher()
         self.pit_fetcher = InsiderTradingPITFetcher()
         self.bulk_fetcher = BulkBlockDealsFetcher()
         self.ratings_fetcher = CreditRatingsFetcher()
@@ -73,15 +77,16 @@ class AutoLiveStreamWorker:
         return hashlib.sha256(text.lower().strip().encode('utf-8')).hexdigest()
 
     def fetch_live_price(self, symbol: str) -> float:
-        clean = symbol.upper().replace(".NS", "")
-        ticker = f"{clean}.NS"
-        try:
-            tk = yf.Ticker(ticker)
-            hist = tk.history(period="1d", interval="1d")
-            if not hist.empty:
-                return round(float(hist.iloc[-1]["Close"]), 2)
-        except Exception:
-            pass
+        clean = symbol.upper().replace(".NS", "").replace(".BO", "")
+        for suffix in [".NS", ".BO"]:
+            ticker = f"{clean}{suffix}"
+            try:
+                tk = yf.Ticker(ticker)
+                hist = tk.history(period="1d", interval="1d")
+                if not hist.empty:
+                    return round(float(hist.iloc[-1]["Close"]), 2)
+            except Exception:
+                pass
         return 1000.0
 
     def compute_forward_targets(self, ltp: float, direction: str, atr_pct: float, materiality: float) -> dict:
@@ -360,7 +365,9 @@ class AutoLiveStreamWorker:
     def poll_cycle(self) -> int:
         raw_items = []
         try: raw_items.extend(self.nse_fetcher.fetch_live_announcements())
-        except Exception: pass
+        except Exception as e: print(f"[NSE Fetch Warning] {e}", flush=True)
+        try: raw_items.extend(self.bse_fetcher.fetch_live_announcements())
+        except Exception as e: print(f"[BSE Fetch Warning] {e}", flush=True)
         try: raw_items.extend(self.pit_fetcher.fetch_insider_disclosures())
         except Exception: pass
         try: raw_items.extend(self.bulk_fetcher.fetch_bulk_deals())

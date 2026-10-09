@@ -1,5 +1,3668 @@
 [
   {
+    "id": "AUTO_1791542863_LALPATHLAB",
+    "symbol": "LALPATHLAB",
+    "company_name": "Dr. Lal PathLabs Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Dr. Lal PathLabs Ltd: Attached",
+    "published_at": "2026-10-09T16:16:45.493",
+    "processed_at": "2026-10-09 16:17:43",
+    "current_base_price_inr": 1933.6,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 98.0,
+    "materiality_ratio": 0.0236,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.62% to -2.00%",
+      "price_target_range_inr": "₹1,844.27 - ₹1,894.93",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.32% to -3.20%",
+      "price_target_range_inr": "₹1,772.72 - ₹1,871.72",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.01% to -4.40%",
+      "price_target_range_inr": "₹1,701.37 - ₹1,848.52",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹1,991.61 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542861_GCCLINP",
+    "symbol": "GCCLINP",
+    "company_name": "GCCL Infrastructure & Projects Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "GCCL Infrastructure & Projects Ltd: Please find enclosed herewith Reg 74(5) of SEBI (DP) Regulations, 2018 for the quarter ended 30th September, 2026.",
+    "published_at": "2026-10-09T16:16:50.333",
+    "processed_at": "2026-10-09 16:17:41",
+    "current_base_price_inr": 1000.0,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 100.0,
+    "materiality_ratio": 0.0052,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.53% to -2.00%",
+      "price_target_range_inr": "₹954.70 - ₹980.00",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.15% to -3.20%",
+      "price_target_range_inr": "₹918.50 - ₹968.00",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.78% to -4.40%",
+      "price_target_range_inr": "₹882.20 - ₹956.00",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹1,030.00 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542809_5PAISA",
+    "symbol": "5PAISA",
+    "company_name": "5paisa Capital Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "5paisa Capital Ltd: 5Paisa Capital Ltdhas informed BSE that the meeting of the Board of Directors of the Company is scheduled on 15/10/2026 ,inter alia, to consider and approve Consolidated and Standalone ....",
+    "published_at": "2026-10-09T16:15:08.75",
+    "processed_at": "2026-10-09 16:16:49",
+    "current_base_price_inr": 339.55,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 100.0,
+    "materiality_ratio": 0.0332,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.67% to -2.00%",
+      "price_target_range_inr": "₹323.69 - ₹332.76",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.41% to -3.20%",
+      "price_target_range_inr": "₹310.99 - ₹328.68",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.14% to -4.40%",
+      "price_target_range_inr": "₹298.33 - ₹324.61",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹349.74 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542797_TECHNOCRAT",
+    "symbol": "TECHNOCRAT",
+    "company_name": "Technocrats Plasma Systems Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Technocrats Plasma Systems Ltd: Certificate under Reg. 74 (5) of SEBI (DP) Regulations, 2018 for the quarter ended 30th September, 2026",
+    "published_at": "2026-10-09T16:15:09.66",
+    "processed_at": "2026-10-09 16:16:37",
+    "current_base_price_inr": 408.0,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 91.0,
+    "materiality_ratio": 0.0236,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.62% to -2.00%",
+      "price_target_range_inr": "₹389.15 - ₹399.84",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.32% to -3.20%",
+      "price_target_range_inr": "₹374.05 - ₹394.94",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.01% to -4.40%",
+      "price_target_range_inr": "₹359.00 - ₹390.05",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹420.24 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542794_GRAVITY",
+    "symbol": "GRAVITY",
+    "company_name": "Gravity India Ltd-$",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Gravity India Ltd-$: Compliance Certificate under Reg. 74(5) of SEBI (DP) Regulations, 2018 for Quater ende on Sep 30, 2026.",
+    "published_at": "2026-10-09T16:15:51.24",
+    "processed_at": "2026-10-09 16:16:34",
+    "current_base_price_inr": 15.19,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 99.0,
+    "materiality_ratio": 0.0035,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.52% to -2.00%",
+      "price_target_range_inr": "₹14.50 - ₹14.89",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.14% to -3.20%",
+      "price_target_range_inr": "₹13.95 - ₹14.70",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.75% to -4.40%",
+      "price_target_range_inr": "₹13.41 - ₹14.52",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹15.65 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542792_AMDIND",
+    "symbol": "AMDIND",
+    "company_name": "AMDIND",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "AMDIND: Updates",
+    "published_at": "09-Oct-2026 16:15:39",
+    "processed_at": "2026-10-09 16:16:32",
+    "current_base_price_inr": 49.29,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 99.0,
+    "materiality_ratio": 0.0131,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.57% to -2.00%",
+      "price_target_range_inr": "₹47.04 - ₹48.30",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.23% to -3.20%",
+      "price_target_range_inr": "₹45.23 - ₹47.71",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.88% to -4.40%",
+      "price_target_range_inr": "₹43.43 - ₹47.12",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹50.77 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542750_UBL",
+    "symbol": "UBL",
+    "company_name": "United Breweries Ltd-$",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "United Breweries Ltd-$: Intimation of Product Launch under Regulation 30 of SEBI Listing Regulations",
+    "published_at": "2026-10-09T16:14:30.96",
+    "processed_at": "2026-10-09 16:15:50",
+    "current_base_price_inr": 1168.2,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 72.0,
+    "materiality_ratio": 0.0744,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.87% to -2.00%",
+      "price_target_range_inr": "₹1,111.31 - ₹1,144.84",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.77% to -3.20%",
+      "price_target_range_inr": "₹1,065.75 - ₹1,130.82",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.66% to -4.40%",
+      "price_target_range_inr": "₹1,020.31 - ₹1,116.80",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹1,203.25 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542734_TREL",
+    "symbol": "TREL",
+    "company_name": "Transindia Real Estate Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Transindia Real Estate Ltd: Enclosed herewith a certificate as received from MUFG Intime India Private Limited (Erstwhile Link Intime India Private Limited), the Registrar and Share Transfer Agent of the Company under ....",
+    "published_at": "2026-10-09T15:49:35.433",
+    "processed_at": "2026-10-09 16:15:34",
+    "current_base_price_inr": 25.77,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 100.0,
+    "materiality_ratio": 0.0044,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.52% to -2.00%",
+      "price_target_range_inr": "₹24.61 - ₹25.25",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.14% to -3.20%",
+      "price_target_range_inr": "₹23.67 - ₹24.95",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.75% to -4.40%",
+      "price_target_range_inr": "₹22.74 - ₹24.64",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹26.54 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542722_5PAISA",
+    "symbol": "5PAISA",
+    "company_name": "5paisa Capital Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "5paisa Capital Ltd: 5paisa Capital Limited has informed the Exchange about Certificate under Regulation 74(5) of SEBI (Depositories and Participants) Regulations, 2018 for the quarter ended September 30, 2026",
+    "published_at": "2026-10-09T15:49:45.987",
+    "processed_at": "2026-10-09 16:15:22",
+    "current_base_price_inr": 339.55,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 94.0,
+    "materiality_ratio": 0.0,
+    "ai_model": "LOCAL_GATEKEEPER (Zero Credit Used)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.50% to -2.00%",
+      "price_target_range_inr": "₹324.27 - ₹332.76",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.10% to -3.20%",
+      "price_target_range_inr": "₹312.05 - ₹328.68",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.70% to -4.40%",
+      "price_target_range_inr": "₹299.82 - ₹324.61",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹349.74 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542721_SBIN",
+    "symbol": "SBIN",
+    "company_name": "State Bank of India",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "State Bank of India: Newspaper Publication",
+    "published_at": "2026-10-09T15:51:29.067",
+    "processed_at": "2026-10-09 16:15:21",
+    "current_base_price_inr": 959.1,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 94.0,
+    "materiality_ratio": 0.0,
+    "ai_model": "LOCAL_GATEKEEPER (Zero Credit Used)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.50% to -2.00%",
+      "price_target_range_inr": "₹915.94 - ₹939.92",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.10% to -3.20%",
+      "price_target_range_inr": "₹881.41 - ₹928.41",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.70% to -4.40%",
+      "price_target_range_inr": "₹846.89 - ₹916.90",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹987.87 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542720_NELCAST",
+    "symbol": "NELCAST",
+    "company_name": "Nelcast Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Nelcast Ltd: Certificate under Reg. 74 (5) of SEBI (DP) Regulations, 2018",
+    "published_at": "2026-10-09T15:51:51.887",
+    "processed_at": "2026-10-09 16:15:20",
+    "current_base_price_inr": 142.48,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 84.0,
+    "materiality_ratio": 0.0411,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.71% to -2.00%",
+      "price_target_range_inr": "₹135.77 - ₹139.63",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.48% to -3.20%",
+      "price_target_range_inr": "₹130.40 - ₹137.92",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.25% to -4.40%",
+      "price_target_range_inr": "₹125.03 - ₹136.21",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹146.75 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542719_CRANESSOFT",
+    "symbol": "CRANESSOFT",
+    "company_name": "Cranes Software International Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Cranes Software International Ltd: Details of Voting Results at the 41st Annual General Meeting of the Shareholders of\r\nthe Company held on 30th September, 2026.",
+    "published_at": "2026-10-09T15:52:26.15",
+    "processed_at": "2026-10-09 16:15:19",
+    "current_base_price_inr": 5.94,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 100.0,
+    "materiality_ratio": 0.0096,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.55% to -2.00%",
+      "price_target_range_inr": "₹5.67 - ₹5.82",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.19% to -3.20%",
+      "price_target_range_inr": "₹5.45 - ₹5.75",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.83% to -4.40%",
+      "price_target_range_inr": "₹5.24 - ₹5.68",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹6.12 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542715_HITKITGLO",
+    "symbol": "HITKITGLO",
+    "company_name": "Hit Kit Global Solutions Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Hit Kit Global Solutions Ltd: Please find the attached Certificate under Regulation 74(5) of SEBI (LODR) Regulations, 2018 for the Second Quarter ended 30th September, 2026",
+    "published_at": "2026-10-09T15:52:39.143",
+    "processed_at": "2026-10-09 16:15:15",
+    "current_base_price_inr": 2.3,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 94.0,
+    "materiality_ratio": 0.0,
+    "ai_model": "LOCAL_GATEKEEPER (Zero Credit Used)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.50% to -2.00%",
+      "price_target_range_inr": "₹2.20 - ₹2.25",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.10% to -3.20%",
+      "price_target_range_inr": "₹2.11 - ₹2.23",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.70% to -4.40%",
+      "price_target_range_inr": "₹2.03 - ₹2.20",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹2.37 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542712_MUKKA",
+    "symbol": "MUKKA",
+    "company_name": "Mukka Proteins Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Mukka Proteins Ltd: Intimation of commencement of commercial production by overseas subsidiary.",
+    "published_at": "2026-10-09T15:53:42.923",
+    "processed_at": "2026-10-09 16:15:12",
+    "current_base_price_inr": 26.27,
+    "predicted_direction": "BULLISH",
+    "conviction_score_pct": 58.0,
+    "materiality_ratio": 0.1304,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": true,
+    "t1_target": {
+      "percentage_range": "+2.00% to +5.15%",
+      "price_target_range_inr": "₹26.80 - ₹27.62",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "+3.20% to +9.27%",
+      "price_target_range_inr": "₹27.11 - ₹28.71",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "+4.40% to +13.39%",
+      "price_target_range_inr": "₹27.43 - ₹29.79",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹25.48 (-3.0%)",
+    "recommended_strategy": "STRONG BUY ACCUMULATION"
+  },
+  {
+    "id": "AUTO_1791542711_INLANPR",
+    "symbol": "INLANPR",
+    "company_name": "Inland Printers Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Inland Printers Ltd: The 46th Annual General Meeting of the Company will be held on 5th November, 2026 at 11.30 a.m. through VC/OAVM to transact the business mentioned in the notice. a copy of the notice is ....",
+    "published_at": "2026-10-09T15:54:44.26",
+    "processed_at": "2026-10-09 16:15:11",
+    "current_base_price_inr": 63.36,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 100.0,
+    "materiality_ratio": 0.0009,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.50% to -2.00%",
+      "price_target_range_inr": "₹60.51 - ₹62.09",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.10% to -3.20%",
+      "price_target_range_inr": "₹58.23 - ₹61.33",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.70% to -4.40%",
+      "price_target_range_inr": "₹55.95 - ₹60.57",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹65.26 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542709_KOTYARK",
+    "symbol": "KOTYARK",
+    "company_name": "Kotyark Industries Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Kotyark Industries Ltd: The Board Meeting to be held on 12/10/2026 Stands Cancelled.",
+    "published_at": "2026-10-09T15:55:58.8",
+    "processed_at": "2026-10-09 16:15:09",
+    "current_base_price_inr": 32.28,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 92.0,
+    "materiality_ratio": 0.0158,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.58% to -2.00%",
+      "price_target_range_inr": "₹30.80 - ₹31.63",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.24% to -3.20%",
+      "price_target_range_inr": "₹29.62 - ₹31.25",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.91% to -4.40%",
+      "price_target_range_inr": "₹28.44 - ₹30.86",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹33.25 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542708_DCL",
+    "symbol": "DCL",
+    "company_name": "Devoted Construction Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Devoted Construction Ltd: Pursuant to Regulation 30 of the SEBI(Listing Obligations and Disclosures Requirements)Regulations,2015, we wish to inform you that the Board of Directors of the Company at its meeting ....",
+    "published_at": "2026-10-09T15:56:14.457",
+    "processed_at": "2026-10-09 16:15:08",
+    "current_base_price_inr": 1000.0,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 100.0,
+    "materiality_ratio": 0.0192,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.60% to -2.00%",
+      "price_target_range_inr": "₹954.00 - ₹980.00",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.28% to -3.20%",
+      "price_target_range_inr": "₹917.20 - ₹968.00",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.96% to -4.40%",
+      "price_target_range_inr": "₹880.40 - ₹956.00",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹1,030.00 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542706_AIRFLOA",
+    "symbol": "AIRFLOA",
+    "company_name": "Airfloa Rail Technology Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Airfloa Rail Technology Ltd: News Paper Advertisement featuring extensive Interview of Chairman of the Copany.",
+    "published_at": "2026-10-09T15:56:20.96",
+    "processed_at": "2026-10-09 16:15:06",
+    "current_base_price_inr": 565.55,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 96.0,
+    "materiality_ratio": 0.0324,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.66% to -2.00%",
+      "price_target_range_inr": "₹539.20 - ₹554.24",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.39% to -3.20%",
+      "price_target_range_inr": "₹518.10 - ₹547.45",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.12% to -4.40%",
+      "price_target_range_inr": "₹497.01 - ₹540.67",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹582.52 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542703_JAYIND",
+    "symbol": "JAYIND",
+    "company_name": "Jayatma Industries Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Jayatma Industries Ltd: Pursuant to Regulation 30 of SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015 ('SEBI Listing Regulations'), we wish to inform you that the Board of Directors of ....",
+    "published_at": "2026-10-09T15:57:11.273",
+    "processed_at": "2026-10-09 16:15:03",
+    "current_base_price_inr": 1000.0,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 100.0,
+    "materiality_ratio": 0.0219,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.61% to -2.00%",
+      "price_target_range_inr": "₹953.90 - ₹980.00",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.30% to -3.20%",
+      "price_target_range_inr": "₹917.00 - ₹968.00",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.99% to -4.40%",
+      "price_target_range_inr": "₹880.10 - ₹956.00",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹1,030.00 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542700_JAGSNPHARM",
+    "symbol": "JAGSNPHARM",
+    "company_name": "Jagsonpal Pharmaceuticals Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Jagsonpal Pharmaceuticals Ltd: Certificate in terms of Regulation 74(5) of SEBI (DP) Regulations, 2018 for the quarter ended September 30, 2026",
+    "published_at": "2026-10-09T15:57:39.213",
+    "processed_at": "2026-10-09 16:15:00",
+    "current_base_price_inr": 225.6,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 96.0,
+    "materiality_ratio": 0.007,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.54% to -2.00%",
+      "price_target_range_inr": "₹215.36 - ₹221.09",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.17% to -3.20%",
+      "price_target_range_inr": "₹207.17 - ₹218.38",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.80% to -4.40%",
+      "price_target_range_inr": "₹198.98 - ₹215.67",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹232.37 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542693_KANPRPLA",
+    "symbol": "KANPRPLA",
+    "company_name": "Kanpur Plastipack Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Kanpur Plastipack Ltd: Newspaper notice to Shareholders regarding Special Window for Transfer and Dematerialisation of Physical securities",
+    "published_at": "2026-10-09T15:57:42.563",
+    "processed_at": "2026-10-09 16:14:53",
+    "current_base_price_inr": 239.17,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 100.0,
+    "materiality_ratio": 0.0192,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.60% to -2.00%",
+      "price_target_range_inr": "₹228.17 - ₹234.39",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.28% to -3.20%",
+      "price_target_range_inr": "₹219.37 - ₹231.52",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.96% to -4.40%",
+      "price_target_range_inr": "₹210.57 - ₹228.65",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹246.35 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542689_INNOVISION",
+    "symbol": "INNOVISION",
+    "company_name": "Innovision Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Innovision Ltd: Intimation under regulation 30 for receipt of work order by Manpower vertical from Chhattisgarh State Health & family Welfare Department",
+    "published_at": "2026-10-09T15:57:47.353",
+    "processed_at": "2026-10-09 16:14:49",
+    "current_base_price_inr": 252.1,
+    "predicted_direction": "BULLISH",
+    "conviction_score_pct": 72.0,
+    "materiality_ratio": 0.0779,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": true,
+    "t1_target": {
+      "percentage_range": "+2.00% to +4.89%",
+      "price_target_range_inr": "₹257.14 - ₹264.43",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "+3.20% to +8.80%",
+      "price_target_range_inr": "₹260.17 - ₹274.28",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "+4.40% to +12.71%",
+      "price_target_range_inr": "₹263.19 - ₹284.14",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹244.54 (-3.0%)",
+    "recommended_strategy": "STRONG BUY ACCUMULATION"
+  },
+  {
+    "id": "AUTO_1791542686_ASIIL",
+    "symbol": "ASIIL",
+    "company_name": "ASI Industries Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "ASI Industries Ltd: Acquisition of shares through Stock Exchange.",
+    "published_at": "2026-10-09T15:57:49.29",
+    "processed_at": "2026-10-09 16:14:46",
+    "current_base_price_inr": 23.44,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 68.0,
+    "materiality_ratio": 0.063,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.82% to -2.00%",
+      "price_target_range_inr": "₹22.31 - ₹22.97",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.68% to -3.20%",
+      "price_target_range_inr": "₹21.41 - ₹22.69",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.53% to -4.40%",
+      "price_target_range_inr": "₹20.50 - ₹22.41",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹24.14 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542684_ZSOUTGAS",
+    "symbol": "ZSOUTGAS",
+    "company_name": "Southern Gas Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Southern Gas Ltd: Please find attached the certificate under regulation 74(5) of SEBI (DP) Regulations, 2018, for the quarter ended September 30, 2026.",
+    "published_at": "2026-10-09T15:58:51.117",
+    "processed_at": "2026-10-09 16:14:44",
+    "current_base_price_inr": 1000.0,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 94.0,
+    "materiality_ratio": 0.0,
+    "ai_model": "LOCAL_GATEKEEPER (Zero Credit Used)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.50% to -2.00%",
+      "price_target_range_inr": "₹955.00 - ₹980.00",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.10% to -3.20%",
+      "price_target_range_inr": "₹919.00 - ₹968.00",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.70% to -4.40%",
+      "price_target_range_inr": "₹883.00 - ₹956.00",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹1,030.00 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542682_ALIVUS",
+    "symbol": "ALIVUS",
+    "company_name": "Alivus Life Sciences Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Alivus Life Sciences Ltd: Kindly refer the attachment.",
+    "published_at": "2026-10-09T15:59:11.723",
+    "processed_at": "2026-10-09 16:14:42",
+    "current_base_price_inr": 1326.3,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 100.0,
+    "materiality_ratio": 0.007,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.54% to -2.00%",
+      "price_target_range_inr": "₹1,266.09 - ₹1,299.77",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.17% to -3.20%",
+      "price_target_range_inr": "₹1,217.94 - ₹1,283.86",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.80% to -4.40%",
+      "price_target_range_inr": "₹1,169.80 - ₹1,267.94",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹1,366.09 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542681_DCL",
+    "symbol": "DCL",
+    "company_name": "Devoted Construction Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Devoted Construction Ltd: Pursuant To Regulation 30 Of The SEBI (Listing Obligations And Disclosure Requirements) Regulations, 2015 (''Listing Regulations''), We Wish To Inform You That The Board Of Directors Of ....",
+    "published_at": "2026-10-09T16:00:11.773",
+    "processed_at": "2026-10-09 16:14:41",
+    "current_base_price_inr": 1000.0,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 98.0,
+    "materiality_ratio": 0.0192,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.60% to -2.00%",
+      "price_target_range_inr": "₹954.00 - ₹980.00",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.28% to -3.20%",
+      "price_target_range_inr": "₹917.20 - ₹968.00",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.96% to -4.40%",
+      "price_target_range_inr": "₹880.40 - ₹956.00",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹1,030.00 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542678_RAL",
+    "symbol": "RAL",
+    "company_name": "Resourceful Automobile Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Resourceful Automobile Ltd: Scrutinizer Report for the EGM held on 8th October, 2026.",
+    "published_at": "2026-10-09T16:11:43.347",
+    "processed_at": "2026-10-09 16:14:38",
+    "current_base_price_inr": 57.6,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 98.0,
+    "materiality_ratio": 0.0254,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.63% to -2.00%",
+      "price_target_range_inr": "₹54.93 - ₹56.45",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.33% to -3.20%",
+      "price_target_range_inr": "₹52.80 - ₹55.76",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.04% to -4.40%",
+      "price_target_range_inr": "₹50.66 - ₹55.07",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹59.33 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542673_BBL",
+    "symbol": "BBL",
+    "company_name": "Bharat Bijlee Ltd-$",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Bharat Bijlee Ltd-$: Certificate under Regulation 74(5) of the SEBI (DP) Regulations, 2018, for the quarter ended September 30, 2026.",
+    "published_at": "2026-10-09T16:12:51.963",
+    "processed_at": "2026-10-09 16:14:33",
+    "current_base_price_inr": 2189.0,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 94.0,
+    "materiality_ratio": 0.0,
+    "ai_model": "LOCAL_GATEKEEPER (Zero Credit Used)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.50% to -2.00%",
+      "price_target_range_inr": "₹2,090.49 - ₹2,145.22",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.10% to -3.20%",
+      "price_target_range_inr": "₹2,011.69 - ₹2,118.95",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.70% to -4.40%",
+      "price_target_range_inr": "₹1,932.89 - ₹2,092.68",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹2,254.67 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542673_SRUSTEELS",
+    "symbol": "SRUSTEELS",
+    "company_name": "SRU Steels Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "SRU Steels Ltd: Unaudited Financial Results for Quarter ended 30th June 2026",
+    "published_at": "2026-10-09T16:13:02.943",
+    "processed_at": "2026-10-09 16:14:33",
+    "current_base_price_inr": 1.45,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 98.0,
+    "materiality_ratio": 0.0341,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.67% to -2.00%",
+      "price_target_range_inr": "₹1.38 - ₹1.42",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.41% to -3.20%",
+      "price_target_range_inr": "₹1.33 - ₹1.40",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.14% to -4.40%",
+      "price_target_range_inr": "₹1.27 - ₹1.39",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹1.49 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542663_SOLARINDS",
+    "symbol": "SOLARINDS",
+    "company_name": "Solar Industries India Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Solar Industries India Ltd: Certificate under Regulation 74(5) of SEBI (Depositories and Participants) Regulations, 2018 for quarter ended September 30, 2026.",
+    "published_at": "2026-10-09T16:13:43.1",
+    "processed_at": "2026-10-09 16:14:23",
+    "current_base_price_inr": 20000.0,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 94.0,
+    "materiality_ratio": 0.0,
+    "ai_model": "LOCAL_GATEKEEPER (Zero Credit Used)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.50% to -2.00%",
+      "price_target_range_inr": "₹19,100.00 - ₹19,600.00",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.10% to -3.20%",
+      "price_target_range_inr": "₹18,380.00 - ₹19,360.00",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.70% to -4.40%",
+      "price_target_range_inr": "₹17,660.00 - ₹19,120.00",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹20,600.00 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542661_HEIDELBERG",
+    "symbol": "HEIDELBERG",
+    "company_name": "HEIDELBERG",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "HEIDELBERG: Certificate under SEBI (Depositories and Participants) Regulations, 2018",
+    "published_at": "09-Oct-2026 16:11:50",
+    "processed_at": "2026-10-09 16:14:21",
+    "current_base_price_inr": 124.27,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 78.0,
+    "materiality_ratio": 0.0665,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.83% to -2.00%",
+      "price_target_range_inr": "₹118.27 - ₹121.78",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.69% to -3.20%",
+      "price_target_range_inr": "₹113.47 - ₹120.29",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.56% to -4.40%",
+      "price_target_range_inr": "₹108.66 - ₹118.80",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹128.00 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542645_PSPL",
+    "symbol": "PSPL",
+    "company_name": "PDP Shipping & Projects Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "PDP Shipping & Projects Ltd: Compliance Certificate under Regulation 74 (5) of SEBI (DP) Regulations 2018",
+    "published_at": "2026-10-09T16:00:27.997",
+    "processed_at": "2026-10-09 16:14:05",
+    "current_base_price_inr": 1000.0,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 94.0,
+    "materiality_ratio": 0.0,
+    "ai_model": "LOCAL_GATEKEEPER (Zero Credit Used)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.50% to -2.00%",
+      "price_target_range_inr": "₹955.00 - ₹980.00",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.10% to -3.20%",
+      "price_target_range_inr": "₹919.00 - ₹968.00",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.70% to -4.40%",
+      "price_target_range_inr": "₹883.00 - ₹956.00",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹1,030.00 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542632_BEMHY",
+    "symbol": "BEMHY",
+    "company_name": "Bemco Hydraulics Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Bemco Hydraulics Ltd: Kindly find attached Certificate under Regulation 74(5) of SEBI (DP) Regulations, 2018 received from our RTA, Adroit corporate services Pvt Ltd for the quarter ended 30th September, 2026",
+    "published_at": "2026-10-09T16:02:14.333",
+    "processed_at": "2026-10-09 16:13:52",
+    "current_base_price_inr": 1000.0,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 94.0,
+    "materiality_ratio": 0.0,
+    "ai_model": "LOCAL_GATEKEEPER (Zero Credit Used)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.50% to -2.00%",
+      "price_target_range_inr": "₹955.00 - ₹980.00",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.10% to -3.20%",
+      "price_target_range_inr": "₹919.00 - ₹968.00",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.70% to -4.40%",
+      "price_target_range_inr": "₹883.00 - ₹956.00",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹1,030.00 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542619_MDRNSUT-B",
+    "symbol": "MDRNSUT-B",
+    "company_name": "Modern Denim Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Modern Denim Ltd: Modern Denim Limited has informed the exchange regarding Voting Result and Scrutinizer Report of the 48th AGM of the Company",
+    "published_at": "2026-10-09T16:02:20.597",
+    "processed_at": "2026-10-09 16:13:39",
+    "current_base_price_inr": 1000.0,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 100.0,
+    "materiality_ratio": 0.0035,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.52% to -2.00%",
+      "price_target_range_inr": "₹954.80 - ₹980.00",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.14% to -3.20%",
+      "price_target_range_inr": "₹918.60 - ₹968.00",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.75% to -4.40%",
+      "price_target_range_inr": "₹882.50 - ₹956.00",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹1,030.00 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542617_AUREATE",
+    "symbol": "AUREATE",
+    "company_name": "Aureate Tradde Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Aureate Tradde Ltd: Submission of revised Annual Report of Aureate Tradde Limited for the Financial Year 2025-26.",
+    "published_at": "2026-10-09T16:02:26.083",
+    "processed_at": "2026-10-09 16:13:37",
+    "current_base_price_inr": 1000.0,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 100.0,
+    "materiality_ratio": 0.0158,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.58% to -2.00%",
+      "price_target_range_inr": "₹954.20 - ₹980.00",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.24% to -3.20%",
+      "price_target_range_inr": "₹917.60 - ₹968.00",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.91% to -4.40%",
+      "price_target_range_inr": "₹880.90 - ₹956.00",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹1,030.00 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542616_JAYIND",
+    "symbol": "JAYIND",
+    "company_name": "Jayatma Industries Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Jayatma Industries Ltd: Pursuant to Regulation 30 of SEBI (LODR) Regulation 2015, and as per recommendation of nomination and Remuneration  committee Mr. Shyamlal Jainarayan is appointed as company secretary and ....",
+    "published_at": "2026-10-09T16:02:38.91",
+    "processed_at": "2026-10-09 16:13:36",
+    "current_base_price_inr": 1000.0,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 100.0,
+    "materiality_ratio": 0.0297,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.65% to -2.00%",
+      "price_target_range_inr": "₹953.50 - ₹980.00",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.37% to -3.20%",
+      "price_target_range_inr": "₹916.30 - ₹968.00",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.09% to -4.40%",
+      "price_target_range_inr": "₹879.10 - ₹956.00",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹1,030.00 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542614_ZNILKENG",
+    "symbol": "ZNILKENG",
+    "company_name": "Nilkanth Engineering Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Nilkanth Engineering Ltd: We submit herewith Confirmation certificate under Regulation 74(5) of SEBI (Depositories and Participants) Regulations, 2018 issued by our RTA - Adroit Corporate Services Private Limited ....",
+    "published_at": "2026-10-09T16:02:58.707",
+    "processed_at": "2026-10-09 16:13:34",
+    "current_base_price_inr": 1000.0,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 94.0,
+    "materiality_ratio": 0.0,
+    "ai_model": "LOCAL_GATEKEEPER (Zero Credit Used)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.50% to -2.00%",
+      "price_target_range_inr": "₹955.00 - ₹980.00",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.10% to -3.20%",
+      "price_target_range_inr": "₹919.00 - ₹968.00",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.70% to -4.40%",
+      "price_target_range_inr": "₹883.00 - ₹956.00",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹1,030.00 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542613_PAVNAIND",
+    "symbol": "PAVNAIND",
+    "company_name": "Pavna Industries Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Pavna Industries Ltd: Update on Disinvestment & Transfer of entire Equity stake of Swapnil Switches Private Limited",
+    "published_at": "2026-10-09T16:02:59.177",
+    "processed_at": "2026-10-09 16:13:33",
+    "current_base_price_inr": 15.3,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 85.0,
+    "materiality_ratio": 0.1032,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-5.02% to -2.00%",
+      "price_target_range_inr": "₹14.53 - ₹14.99",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-9.04% to -3.20%",
+      "price_target_range_inr": "₹13.92 - ₹14.81",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-13.05% to -4.40%",
+      "price_target_range_inr": "₹13.30 - ₹14.63",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹15.76 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542612_INDIAGLYCO",
+    "symbol": "INDIAGLYCO",
+    "company_name": "India Glycols Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "India Glycols Ltd: Please find attached",
+    "published_at": "2026-10-09T16:03:10.143",
+    "processed_at": "2026-10-09 16:13:32",
+    "current_base_price_inr": 329.6,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 100.0,
+    "materiality_ratio": 0.0044,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.52% to -2.00%",
+      "price_target_range_inr": "₹314.70 - ₹323.01",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.14% to -3.20%",
+      "price_target_range_inr": "₹302.77 - ₹319.05",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.75% to -4.40%",
+      "price_target_range_inr": "₹290.87 - ₹315.10",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹339.49 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542610_SRUSTEELS",
+    "symbol": "SRUSTEELS",
+    "company_name": "SRU Steels Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "SRU Steels Ltd: Outcome of Board Meeting to approve the  Unaudited Financial Results  along with Limited Review Report for the Quarter ended 30th June 2026.",
+    "published_at": "2026-10-09T16:03:38.203",
+    "processed_at": "2026-10-09 16:13:30",
+    "current_base_price_inr": 1000.0,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 100.0,
+    "materiality_ratio": 0.0105,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.55% to -2.00%",
+      "price_target_range_inr": "₹954.50 - ₹980.00",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.19% to -3.20%",
+      "price_target_range_inr": "₹918.10 - ₹968.00",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.83% to -4.40%",
+      "price_target_range_inr": "₹881.70 - ₹956.00",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹1,030.00 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542597_NOCIL",
+    "symbol": "NOCIL",
+    "company_name": "NOCIL Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "NOCIL Ltd: Compliances- Certificate under Reg 74(5) of SEBI (DP) regulations, 2018",
+    "published_at": "2026-10-09T16:04:03.19",
+    "processed_at": "2026-10-09 16:13:17",
+    "current_base_price_inr": 164.84,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 94.0,
+    "materiality_ratio": 0.0,
+    "ai_model": "LOCAL_GATEKEEPER (Zero Credit Used)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.50% to -2.00%",
+      "price_target_range_inr": "₹157.42 - ₹161.54",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.10% to -3.20%",
+      "price_target_range_inr": "₹151.49 - ₹159.57",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.70% to -4.40%",
+      "price_target_range_inr": "₹145.55 - ₹157.59",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹169.79 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542596_WMINIMT",
+    "symbol": "WMINIMT",
+    "company_name": "Western Ministil Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Western Ministil Ltd: Reg 74(5) of SEBI (DP) Regulations for the quarter ended 30th September 2026",
+    "published_at": "2026-10-09T16:04:22.183",
+    "processed_at": "2026-10-09 16:13:16",
+    "current_base_price_inr": 1000.0,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 97.0,
+    "materiality_ratio": 0.0175,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.59% to -2.00%",
+      "price_target_range_inr": "₹954.10 - ₹980.00",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.26% to -3.20%",
+      "price_target_range_inr": "₹917.40 - ₹968.00",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.93% to -4.40%",
+      "price_target_range_inr": "₹880.70 - ₹956.00",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹1,030.00 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542595_ESSARSHPNG",
+    "symbol": "ESSARSHPNG",
+    "company_name": "Essar Shipping Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Essar Shipping Ltd: Please find attached herewith Certificate required under Regulation 74 of SEBI (Depositories and Participants) Regulations, 2018, for the quarter and half-year ended on 30th September, 2026.",
+    "published_at": "2026-10-09T16:04:31.69",
+    "processed_at": "2026-10-09 16:13:15",
+    "current_base_price_inr": 16.25,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 100.0,
+    "materiality_ratio": 0.0017,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.51% to -2.00%",
+      "price_target_range_inr": "₹15.52 - ₹15.92",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.12% to -3.20%",
+      "price_target_range_inr": "₹14.93 - ₹15.73",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.73% to -4.40%",
+      "price_target_range_inr": "₹14.34 - ₹15.54",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹16.74 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542593_JINDRILL",
+    "symbol": "JINDRILL",
+    "company_name": "Jindal Drilling & Industries Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Jindal Drilling & Industries Ltd: Certificate under regulatioon 74(5) of SEBI (Depositories and Participants) Regulations, 2018 for the quarter ended 30th September 2026",
+    "published_at": "2026-10-09T16:05:16.14",
+    "processed_at": "2026-10-09 16:13:13",
+    "current_base_price_inr": 572.35,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 99.0,
+    "materiality_ratio": 0.0026,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.51% to -2.00%",
+      "price_target_range_inr": "₹546.54 - ₹560.90",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.12% to -3.20%",
+      "price_target_range_inr": "₹525.88 - ₹554.03",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.73% to -4.40%",
+      "price_target_range_inr": "₹505.21 - ₹547.17",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹589.52 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542592_TRADEWELL",
+    "symbol": "TRADEWELL",
+    "company_name": "Tradewell Holdings Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Tradewell Holdings Ltd: Enclosed herewith Certificate under reg. 74 (5) of SEBI (DP) Reg, 2018 for the quarter September 30, 2026",
+    "published_at": "2026-10-09T16:05:28.163",
+    "processed_at": "2026-10-09 16:13:12",
+    "current_base_price_inr": 1000.0,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 100.0,
+    "materiality_ratio": 0.0009,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.50% to -2.00%",
+      "price_target_range_inr": "₹955.00 - ₹980.00",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.10% to -3.20%",
+      "price_target_range_inr": "₹919.00 - ₹968.00",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.70% to -4.40%",
+      "price_target_range_inr": "₹883.00 - ₹956.00",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹1,030.00 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542578_HEALTHX",
+    "symbol": "HEALTHX",
+    "company_name": "Health X Platform Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Health X Platform Ltd: Please find the Certificate under Reg 74(5) of the SEBI (Depositories and Participants) Reg, 2018 for the quarter ended 30th September, 2026",
+    "published_at": "2026-10-09T16:05:50.59",
+    "processed_at": "2026-10-09 16:12:58",
+    "current_base_price_inr": 291.25,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 94.0,
+    "materiality_ratio": 0.0,
+    "ai_model": "LOCAL_GATEKEEPER (Zero Credit Used)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.50% to -2.00%",
+      "price_target_range_inr": "₹278.14 - ₹285.43",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.10% to -3.20%",
+      "price_target_range_inr": "₹267.66 - ₹281.93",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.70% to -4.40%",
+      "price_target_range_inr": "₹257.17 - ₹278.44",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹299.99 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542578_AMDIND",
+    "symbol": "AMDIND",
+    "company_name": "AMD Industries Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "AMD Industries Ltd: Disclosure under Regulation 10(6) of SEBI (SAST) Regulations, 2011.",
+    "published_at": "2026-10-09T16:06:06.017",
+    "processed_at": "2026-10-09 16:12:58",
+    "current_base_price_inr": 49.29,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 94.0,
+    "materiality_ratio": 0.098,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.99% to -2.00%",
+      "price_target_range_inr": "₹46.83 - ₹48.30",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.98% to -3.20%",
+      "price_target_range_inr": "₹44.86 - ₹47.71",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.97% to -4.40%",
+      "price_target_range_inr": "₹42.90 - ₹47.12",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹50.77 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542576_NCLRESE",
+    "symbol": "NCLRESE",
+    "company_name": "NCL Research & Financial Services Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "NCL Research & Financial Services Ltd: Please find attached declaration about non-applicability of Regulation 57(5) for QE Sept 30, 2026",
+    "published_at": "2026-10-09T16:06:45.893",
+    "processed_at": "2026-10-09 16:12:56",
+    "current_base_price_inr": 1000.0,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 99.0,
+    "materiality_ratio": 0.0201,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.60% to -2.00%",
+      "price_target_range_inr": "₹954.00 - ₹980.00",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.28% to -3.20%",
+      "price_target_range_inr": "₹917.20 - ₹968.00",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.96% to -4.40%",
+      "price_target_range_inr": "₹880.40 - ₹956.00",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹1,030.00 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542572_NISMGMT",
+    "symbol": "NISMGMT",
+    "company_name": "NIS Management Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "NIS Management Ltd: Bagging of Order for CCTV Surveillance System",
+    "published_at": "2026-10-09T16:07:03.027",
+    "processed_at": "2026-10-09 16:12:52",
+    "current_base_price_inr": 1000.0,
+    "predicted_direction": "BULLISH",
+    "conviction_score_pct": 90.0,
+    "materiality_ratio": 0.0473,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": true,
+    "t1_target": {
+      "percentage_range": "+2.00% to +4.74%",
+      "price_target_range_inr": "₹1,020.00 - ₹1,047.40",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "+3.20% to +8.53%",
+      "price_target_range_inr": "₹1,032.00 - ₹1,085.30",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "+4.40% to +12.32%",
+      "price_target_range_inr": "₹1,044.00 - ₹1,123.20",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹970.00 (-3.0%)",
+    "recommended_strategy": "STRONG BUY ACCUMULATION"
+  },
+  {
+    "id": "AUTO_1791542570_DCL",
+    "symbol": "DCL",
+    "company_name": "Devoted Construction Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Devoted Construction Ltd: The meeting of Board of Directors of Devoted Construction Limited held on 09/10/2026 commenced at 02:30 P.M. & concluded at 03:40 P.M. to inter-alia approved the following matters. \r\n1. ....",
+    "published_at": "2026-10-09T16:07:53.14",
+    "processed_at": "2026-10-09 16:12:50",
+    "current_base_price_inr": 1000.0,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 99.0,
+    "materiality_ratio": 0.0087,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.54% to -2.00%",
+      "price_target_range_inr": "₹954.60 - ₹980.00",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.17% to -3.20%",
+      "price_target_range_inr": "₹918.30 - ₹968.00",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.80% to -4.40%",
+      "price_target_range_inr": "₹882.00 - ₹956.00",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹1,030.00 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542567_PREMCAPM",
+    "symbol": "PREMCAPM",
+    "company_name": "Premium Capital Market & Investments Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Premium Capital Market & Investments Ltd: Certificate under Regulation 74(5) of the SEBI (DP) Regulations, 2018 for the Quarter ended September 30, 2026",
+    "published_at": "2026-10-09T16:07:53.697",
+    "processed_at": "2026-10-09 16:12:47",
+    "current_base_price_inr": 1000.0,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 94.0,
+    "materiality_ratio": 0.0,
+    "ai_model": "LOCAL_GATEKEEPER (Zero Credit Used)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.50% to -2.00%",
+      "price_target_range_inr": "₹955.00 - ₹980.00",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.10% to -3.20%",
+      "price_target_range_inr": "₹919.00 - ₹968.00",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.70% to -4.40%",
+      "price_target_range_inr": "₹883.00 - ₹956.00",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹1,030.00 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542566_INLANPR",
+    "symbol": "INLANPR",
+    "company_name": "Inland Printers Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Inland Printers Ltd: Pursuant to Regulation 42 of SEBI(LODR) Regulation, 2015 we hereby furnish the  book closure details for 46th AGM. The book closure will commence on 3.11.2026 upto 5.11.2026 (both days inclusive).",
+    "published_at": "2026-10-09T16:08:00.16",
+    "processed_at": "2026-10-09 16:12:46",
+    "current_base_price_inr": 1000.0,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 100.0,
+    "materiality_ratio": 0.0017,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.51% to -2.00%",
+      "price_target_range_inr": "₹954.90 - ₹980.00",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.12% to -3.20%",
+      "price_target_range_inr": "₹918.80 - ₹968.00",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.73% to -4.40%",
+      "price_target_range_inr": "₹882.70 - ₹956.00",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹1,030.00 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542553_NCLRESE",
+    "symbol": "NCLRESE",
+    "company_name": "NCL Research & Financial Services Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "NCL Research & Financial Services Ltd: Please find attached RTA Certificate u/r 74(5) for QE Sept 30, 2026",
+    "published_at": "2026-10-09T16:08:25.67",
+    "processed_at": "2026-10-09 16:12:33",
+    "current_base_price_inr": 1000.0,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 94.0,
+    "materiality_ratio": 0.0411,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.71% to -2.00%",
+      "price_target_range_inr": "₹952.90 - ₹980.00",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.48% to -3.20%",
+      "price_target_range_inr": "₹915.20 - ₹968.00",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.25% to -4.40%",
+      "price_target_range_inr": "₹877.50 - ₹956.00",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹1,030.00 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542550_HMVL",
+    "symbol": "HMVL",
+    "company_name": "Hindustan Media Ventures Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Hindustan Media Ventures Ltd: Certificate under Reg. 74(5) of SEBI (DP) Regulations, 2018 is enclosed",
+    "published_at": "2026-10-09T16:08:36.66",
+    "processed_at": "2026-10-09 16:12:30",
+    "current_base_price_inr": 74.08,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 84.0,
+    "materiality_ratio": 0.0394,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.70% to -2.00%",
+      "price_target_range_inr": "₹70.60 - ₹72.60",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.46% to -3.20%",
+      "price_target_range_inr": "₹67.81 - ₹71.71",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.22% to -4.40%",
+      "price_target_range_inr": "₹65.03 - ₹70.82",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹76.30 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542549_PATELENG",
+    "symbol": "PATELENG",
+    "company_name": "Patel Engineering Ltd-$",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Patel Engineering Ltd-$: Certificate under Regulation 74(5) of SEBI (DP) Regulations, 2018 for quarter ended September 30, 2026",
+    "published_at": "2026-10-09T16:09:19.957",
+    "processed_at": "2026-10-09 16:12:29",
+    "current_base_price_inr": 24.98,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 94.0,
+    "materiality_ratio": 0.0,
+    "ai_model": "LOCAL_GATEKEEPER (Zero Credit Used)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.50% to -2.00%",
+      "price_target_range_inr": "₹23.86 - ₹24.48",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.10% to -3.20%",
+      "price_target_range_inr": "₹22.96 - ₹24.18",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.70% to -4.40%",
+      "price_target_range_inr": "₹22.06 - ₹23.88",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹25.73 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542537_HEIDELBERG",
+    "symbol": "HEIDELBERG",
+    "company_name": "HeidelbergCement India Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "HeidelbergCement India Ltd: Certificate under Reg 74(5) of SEBI DP Regulations for the quarter ended 30 September 2026",
+    "published_at": "2026-10-09T16:09:35.923",
+    "processed_at": "2026-10-09 16:12:17",
+    "current_base_price_inr": 124.27,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 94.0,
+    "materiality_ratio": 0.0,
+    "ai_model": "LOCAL_GATEKEEPER (Zero Credit Used)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.50% to -2.00%",
+      "price_target_range_inr": "₹118.68 - ₹121.78",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.10% to -3.20%",
+      "price_target_range_inr": "₹114.20 - ₹120.29",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.70% to -4.40%",
+      "price_target_range_inr": "₹109.73 - ₹118.80",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹128.00 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542532_UNJHAFOR",
+    "symbol": "UNJHAFOR",
+    "company_name": "Unjha Formulations Ltd",
+    "sector": "Diversified",
+    "source_type": "BSE_FILING",
+    "headline": "Unjha Formulations Ltd: Compliance Certificate under Regulation 74(5) of SEBI (DP) Regulation",
+    "published_at": "2026-10-09T16:09:36.29",
+    "processed_at": "2026-10-09 16:12:12",
+    "current_base_price_inr": 1000.0,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 94.0,
+    "materiality_ratio": 0.0,
+    "ai_model": "LOCAL_GATEKEEPER (Zero Credit Used)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.50% to -2.00%",
+      "price_target_range_inr": "₹955.00 - ₹980.00",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.10% to -3.20%",
+      "price_target_range_inr": "₹919.00 - ₹968.00",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.70% to -4.40%",
+      "price_target_range_inr": "₹883.00 - ₹956.00",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹1,030.00 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542492_PATELENG",
+    "symbol": "PATELENG",
+    "company_name": "PATELENG",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "PATELENG: Certificate under SEBI (Depositories and Participants) Regulations, 2018",
+    "published_at": "09-Oct-2026 16:10:39",
+    "processed_at": "2026-10-09 16:11:32",
+    "current_base_price_inr": 24.98,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 75.0,
+    "materiality_ratio": 0.0595,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.80% to -2.00%",
+      "price_target_range_inr": "₹23.78 - ₹24.48",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.64% to -3.20%",
+      "price_target_range_inr": "₹22.82 - ₹24.18",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.48% to -4.40%",
+      "price_target_range_inr": "₹21.86 - ₹23.88",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹25.73 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542490_HMVL",
+    "symbol": "HMVL",
+    "company_name": "HMVL",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "HMVL: Certificate under SEBI (Depositories and Participants) Regulations, 2018",
+    "published_at": "09-Oct-2026 16:10:56",
+    "processed_at": "2026-10-09 16:11:30",
+    "current_base_price_inr": 74.08,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 82.0,
+    "materiality_ratio": 0.0473,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.74% to -2.00%",
+      "price_target_range_inr": "₹70.57 - ₹72.60",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.53% to -3.20%",
+      "price_target_range_inr": "₹67.76 - ₹71.71",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.32% to -4.40%",
+      "price_target_range_inr": "₹64.95 - ₹70.82",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹76.30 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542447_NOCIL",
+    "symbol": "NOCIL",
+    "company_name": "NOCIL",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "NOCIL: Certificate under SEBI (Depositories and Participants) Regulations, 2018",
+    "published_at": "09-Oct-2026 16:09:24",
+    "processed_at": "2026-10-09 16:10:47",
+    "current_base_price_inr": 164.84,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 89.0,
+    "materiality_ratio": 0.0324,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.66% to -2.00%",
+      "price_target_range_inr": "₹157.16 - ₹161.54",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.39% to -3.20%",
+      "price_target_range_inr": "₹151.01 - ₹159.57",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.12% to -4.40%",
+      "price_target_range_inr": "₹144.86 - ₹157.59",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹169.79 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542439_TEMBO",
+    "symbol": "TEMBO",
+    "company_name": "TEMBO",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "TEMBO: Resignation",
+    "published_at": "09-Oct-2026 16:09:47",
+    "processed_at": "2026-10-09 16:10:39",
+    "current_base_price_inr": 55.06,
+    "predicted_direction": "BEARISH",
+    "conviction_score_pct": 70.0,
+    "materiality_ratio": 0.084,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": true,
+    "t1_target": {
+      "percentage_range": "-4.92% to -2.00%",
+      "price_target_range_inr": "₹52.35 - ₹53.96",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.86% to -3.20%",
+      "price_target_range_inr": "₹50.18 - ₹53.30",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.79% to -4.40%",
+      "price_target_range_inr": "₹48.02 - ₹52.64",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹56.71 (+3.0%)",
+    "recommended_strategy": "TACTICAL SHORT / HEDGE"
+  },
+  {
+    "id": "AUTO_1791542437_ACCELYA",
+    "symbol": "ACCELYA",
+    "company_name": "ACCELYA",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "ACCELYA: Certificate under SEBI (Depositories and Participants) Regulations, 2018",
+    "published_at": "09-Oct-2026 16:09:54",
+    "processed_at": "2026-10-09 16:10:37",
+    "current_base_price_inr": 1061.6,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 74.0,
+    "materiality_ratio": 0.0796,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.90% to -2.00%",
+      "price_target_range_inr": "₹1,009.58 - ₹1,040.37",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.82% to -3.20%",
+      "price_target_range_inr": "₹967.97 - ₹1,027.63",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.74% to -4.40%",
+      "price_target_range_inr": "₹926.35 - ₹1,014.89",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹1,093.45 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542394_TREL",
+    "symbol": "TREL",
+    "company_name": "TREL",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "TREL: Certificate under SEBI (Depositories and Participants) Regulations, 2018",
+    "published_at": "09-Oct-2026 16:08:31",
+    "processed_at": "2026-10-09 16:09:54",
+    "current_base_price_inr": 25.77,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 79.0,
+    "materiality_ratio": 0.0621,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.81% to -2.00%",
+      "price_target_range_inr": "₹24.53 - ₹25.25",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.66% to -3.20%",
+      "price_target_range_inr": "₹23.54 - ₹24.95",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.51% to -4.40%",
+      "price_target_range_inr": "₹22.55 - ₹24.64",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹26.54 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791542332_ESSARSHPNG",
+    "symbol": "ESSARSHPNG",
+    "company_name": "ESSARSHPNG",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "ESSARSHPNG: Certificate under SEBI (Depositories and Participants) Regulations, 2018",
+    "published_at": "09-Oct-2026 16:07:27",
+    "processed_at": "2026-10-09 16:08:52",
+    "current_base_price_inr": 16.25,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 76.0,
+    "materiality_ratio": 0.063,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.82% to -2.00%",
+      "price_target_range_inr": "₹15.47 - ₹15.92",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.68% to -3.20%",
+      "price_target_range_inr": "₹14.84 - ₹15.73",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.53% to -4.40%",
+      "price_target_range_inr": "₹14.21 - ₹15.54",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹16.74 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791541898_CSLFINANCE",
+    "symbol": "CSLFINANCE",
+    "company_name": "CSLFINANCE",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "CSLFINANCE: Disclosure under SEBI Takeover Regulations",
+    "published_at": "09-Oct-2026 16:00:47",
+    "processed_at": "2026-10-09 16:01:38",
+    "current_base_price_inr": 203.28,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 92.0,
+    "materiality_ratio": 0.105,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-5.03% to -2.00%",
+      "price_target_range_inr": "₹193.06 - ₹199.21",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-9.05% to -3.20%",
+      "price_target_range_inr": "₹184.88 - ₹196.78",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-13.08% to -4.40%",
+      "price_target_range_inr": "₹176.69 - ₹194.34",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹209.38 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791541896_KOTYARK",
+    "symbol": "KOTYARK",
+    "company_name": "KOTYARK",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "KOTYARK: Updates",
+    "published_at": "09-Oct-2026 16:01:00",
+    "processed_at": "2026-10-09 16:01:36",
+    "current_base_price_inr": 32.28,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 100.0,
+    "materiality_ratio": 0.0105,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.55% to -2.00%",
+      "price_target_range_inr": "₹30.81 - ₹31.63",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.19% to -3.20%",
+      "price_target_range_inr": "₹29.64 - ₹31.25",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.83% to -4.40%",
+      "price_target_range_inr": "₹28.46 - ₹30.86",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹33.25 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791541864_JAGSNPHARM",
+    "symbol": "JAGSNPHARM",
+    "company_name": "JAGSNPHARM",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "JAGSNPHARM: Certificate under SEBI (Depositories and Participants) Regulations, 2018",
+    "published_at": "09-Oct-2026 15:59:34",
+    "processed_at": "2026-10-09 16:01:04",
+    "current_base_price_inr": 225.6,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 84.0,
+    "materiality_ratio": 0.0411,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.71% to -2.00%",
+      "price_target_range_inr": "₹214.97 - ₹221.09",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.48% to -3.20%",
+      "price_target_range_inr": "₹206.47 - ₹218.38",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.25% to -4.40%",
+      "price_target_range_inr": "₹197.96 - ₹215.67",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹232.37 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791541862_KANPRPLA",
+    "symbol": "KANPRPLA",
+    "company_name": "KANPRPLA",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "KANPRPLA: Press Release",
+    "published_at": "09-Oct-2026 15:59:52",
+    "processed_at": "2026-10-09 16:01:02",
+    "current_base_price_inr": 239.17,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 98.0,
+    "materiality_ratio": 0.0105,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.55% to -2.00%",
+      "price_target_range_inr": "₹228.29 - ₹234.39",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.19% to -3.20%",
+      "price_target_range_inr": "₹219.58 - ₹231.52",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.83% to -4.40%",
+      "price_target_range_inr": "₹210.88 - ₹228.65",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹246.35 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791541819_ALIVUS",
+    "symbol": "ALIVUS",
+    "company_name": "ALIVUS",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "ALIVUS: General Updates",
+    "published_at": "09-Oct-2026 15:58:55",
+    "processed_at": "2026-10-09 16:00:19",
+    "current_base_price_inr": 1326.3,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 100.0,
+    "materiality_ratio": 0.0044,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.52% to -2.00%",
+      "price_target_range_inr": "₹1,266.35 - ₹1,299.77",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.14% to -3.20%",
+      "price_target_range_inr": "₹1,218.34 - ₹1,283.86",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.75% to -4.40%",
+      "price_target_range_inr": "₹1,170.46 - ₹1,267.94",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹1,366.09 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791541746_PAVNAIND",
+    "symbol": "PAVNAIND",
+    "company_name": "PAVNAIND",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "PAVNAIND: Sale or disposal",
+    "published_at": "09-Oct-2026 15:57:54",
+    "processed_at": "2026-10-09 15:59:06",
+    "current_base_price_inr": 15.3,
+    "predicted_direction": "BEARISH",
+    "conviction_score_pct": 62.0,
+    "materiality_ratio": 0.1015,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": true,
+    "t1_target": {
+      "percentage_range": "-5.01% to -2.00%",
+      "price_target_range_inr": "₹14.53 - ₹14.99",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-9.02% to -3.20%",
+      "price_target_range_inr": "₹13.92 - ₹14.81",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-13.03% to -4.40%",
+      "price_target_range_inr": "₹13.31 - ₹14.63",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹15.76 (+3.0%)",
+    "recommended_strategy": "TACTICAL SHORT / HEDGE"
+  },
+  {
+    "id": "AUTO_1791541683_INDIAGLYCO",
+    "symbol": "INDIAGLYCO",
+    "company_name": "INDIAGLYCO",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "INDIAGLYCO: Price movement",
+    "published_at": "09-Oct-2026 15:57:31",
+    "processed_at": "2026-10-09 15:58:03",
+    "current_base_price_inr": 329.6,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 100.0,
+    "materiality_ratio": 0.0158,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.58% to -2.00%",
+      "price_target_range_inr": "₹314.50 - ₹323.01",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.24% to -3.20%",
+      "price_target_range_inr": "₹302.44 - ₹319.05",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.91% to -4.40%",
+      "price_target_range_inr": "₹290.34 - ₹315.10",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹339.49 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791541549_NELCAST",
+    "symbol": "NELCAST",
+    "company_name": "NELCAST",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "NELCAST: Certificate under SEBI (Depositories and Participants) Regulations, 2018",
+    "published_at": "09-Oct-2026 15:54:47",
+    "processed_at": "2026-10-09 15:55:49",
+    "current_base_price_inr": 142.48,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 75.0,
+    "materiality_ratio": 0.0612,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.81% to -2.00%",
+      "price_target_range_inr": "₹135.63 - ₹139.63",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.66% to -3.20%",
+      "price_target_range_inr": "₹130.14 - ₹137.92",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.51% to -4.40%",
+      "price_target_range_inr": "₹124.66 - ₹136.21",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹146.75 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791541474_INNOVISION",
+    "symbol": "INNOVISION",
+    "company_name": "INNOVISION",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "INNOVISION: Awarding of order(s)/contract(s)",
+    "published_at": "09-Oct-2026 15:53:15",
+    "processed_at": "2026-10-09 15:54:34",
+    "current_base_price_inr": 252.1,
+    "predicted_direction": "BULLISH",
+    "conviction_score_pct": 98.0,
+    "materiality_ratio": 0.0586,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": true,
+    "t1_target": {
+      "percentage_range": "+2.00% to +4.79%",
+      "price_target_range_inr": "₹257.14 - ₹264.18",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "+3.20% to +8.62%",
+      "price_target_range_inr": "₹260.17 - ₹273.83",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "+4.40% to +12.45%",
+      "price_target_range_inr": "₹263.19 - ₹283.49",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹244.54 (-3.0%)",
+    "recommended_strategy": "STRONG BUY ACCUMULATION"
+  },
+  {
+    "id": "AUTO_1791541340_SHEMAROO",
+    "symbol": "SHEMAROO",
+    "company_name": "SHEMAROO",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "SHEMAROO: Certificate under SEBI (Depositories and Participants) Regulations, 2018",
+    "published_at": "09-Oct-2026 15:50:27",
+    "processed_at": "2026-10-09 15:52:20",
+    "current_base_price_inr": 101.86,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 75.0,
+    "materiality_ratio": 0.0437,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.72% to -2.00%",
+      "price_target_range_inr": "₹97.05 - ₹99.82",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.50% to -3.20%",
+      "price_target_range_inr": "₹93.20 - ₹98.60",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.27% to -4.40%",
+      "price_target_range_inr": "₹89.36 - ₹97.38",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹104.92 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791541339_NYKAA",
+    "symbol": "NYKAA",
+    "company_name": "NYKAA",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "NYKAA: ESOP/ESOS/ESPS",
+    "published_at": "09-Oct-2026 15:50:31",
+    "processed_at": "2026-10-09 15:52:19",
+    "current_base_price_inr": 343.0,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 94.0,
+    "materiality_ratio": 0.098,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.99% to -2.00%",
+      "price_target_range_inr": "₹325.88 - ₹336.14",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.98% to -3.20%",
+      "price_target_range_inr": "₹312.20 - ₹332.02",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.97% to -4.40%",
+      "price_target_range_inr": "₹298.51 - ₹327.91",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹353.29 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791541320_MUKKA",
+    "symbol": "MUKKA",
+    "company_name": "MUKKA",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "MUKKA: Commencement of commercial production/operations",
+    "published_at": "09-Oct-2026 15:50:33",
+    "processed_at": "2026-10-09 15:52:00",
+    "current_base_price_inr": 26.27,
+    "predicted_direction": "BULLISH",
+    "conviction_score_pct": 91.0,
+    "materiality_ratio": 0.2476,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": true,
+    "t1_target": {
+      "percentage_range": "+2.00% to +5.74%",
+      "price_target_range_inr": "₹26.80 - ₹27.78",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "+3.20% to +10.33%",
+      "price_target_range_inr": "₹27.11 - ₹28.98",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "+4.40% to +14.92%",
+      "price_target_range_inr": "₹27.43 - ₹30.19",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹25.48 (-3.0%)",
+    "recommended_strategy": "STRONG BUY ACCUMULATION"
+  },
+  {
+    "id": "AUTO_1791541247_SBIN",
+    "symbol": "SBIN",
+    "company_name": "SBIN",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "SBIN: Copy of Newspaper Publication",
+    "published_at": "09-Oct-2026 15:50:05",
+    "processed_at": "2026-10-09 15:50:47",
+    "current_base_price_inr": 959.1,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 94.0,
+    "materiality_ratio": 0.0,
+    "ai_model": "LOCAL_GATEKEEPER (Zero Credit Used)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.50% to -2.00%",
+      "price_target_range_inr": "₹915.94 - ₹939.92",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.10% to -3.20%",
+      "price_target_range_inr": "₹881.41 - ₹928.41",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.70% to -4.40%",
+      "price_target_range_inr": "₹846.89 - ₹916.90",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹987.87 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791541145_BATAINDIA",
+    "symbol": "BATAINDIA",
+    "company_name": "BATAINDIA",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "BATAINDIA: Resignation of Director/KMP/SMP",
+    "published_at": "09-Oct-2026 15:48:19",
+    "processed_at": "2026-10-09 15:49:05",
+    "current_base_price_inr": 613.25,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 57.0,
+    "materiality_ratio": 0.084,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.92% to -2.00%",
+      "price_target_range_inr": "₹583.08 - ₹600.99",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.86% to -3.20%",
+      "price_target_range_inr": "₹558.92 - ₹593.63",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.79% to -4.40%",
+      "price_target_range_inr": "₹534.82 - ₹586.27",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹631.65 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791541084_SATIN",
+    "symbol": "SATIN",
+    "company_name": "SATIN",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "SATIN: Credit Rating",
+    "published_at": "09-Oct-2026 15:47:19",
+    "processed_at": "2026-10-09 15:48:04",
+    "current_base_price_inr": 223.87,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 76.0,
+    "materiality_ratio": 0.1916,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-5.46% to -2.00%",
+      "price_target_range_inr": "₹211.65 - ₹219.39",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-9.83% to -3.20%",
+      "price_target_range_inr": "₹201.86 - ₹216.71",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-14.20% to -4.40%",
+      "price_target_range_inr": "₹192.08 - ₹214.02",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹230.59 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791541082_5PAISA",
+    "symbol": "5PAISA",
+    "company_name": "5PAISA",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "5PAISA: Certificate under SEBI (Depositories and Participants) Regulations, 2018",
+    "published_at": "09-Oct-2026 15:47:19",
+    "processed_at": "2026-10-09 15:48:02",
+    "current_base_price_inr": 339.55,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 83.0,
+    "materiality_ratio": 0.0805,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.90% to -2.00%",
+      "price_target_range_inr": "₹322.91 - ₹332.76",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.82% to -3.20%",
+      "price_target_range_inr": "₹309.60 - ₹328.68",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.74% to -4.40%",
+      "price_target_range_inr": "₹296.29 - ₹324.61",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹349.74 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791541051_GKENERGY",
+    "symbol": "GKENERGY",
+    "company_name": "GKENERGY",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "GKENERGY: Certificate under SEBI (Depositories and Participants) Regulations, 2018",
+    "published_at": "09-Oct-2026 15:45:54",
+    "processed_at": "2026-10-09 15:47:31",
+    "current_base_price_inr": 113.08,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 78.0,
+    "materiality_ratio": 0.0831,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.92% to -2.00%",
+      "price_target_range_inr": "₹107.52 - ₹110.82",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.86% to -3.20%",
+      "price_target_range_inr": "₹103.06 - ₹109.46",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.79% to -4.40%",
+      "price_target_range_inr": "₹98.62 - ₹108.10",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹116.47 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791541049_ADVENZYMES",
+    "symbol": "ADVENZYMES",
+    "company_name": "ADVENZYMES",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "ADVENZYMES: Certificate under SEBI (Depositories and Participants) Regulations, 2018",
+    "published_at": "09-Oct-2026 15:46:02",
+    "processed_at": "2026-10-09 15:47:29",
+    "current_base_price_inr": 267.15,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 81.0,
+    "materiality_ratio": 0.0577,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.79% to -2.00%",
+      "price_target_range_inr": "₹254.35 - ₹261.81",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.62% to -3.20%",
+      "price_target_range_inr": "₹244.12 - ₹258.60",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.45% to -4.40%",
+      "price_target_range_inr": "₹233.89 - ₹255.40",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹275.16 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791541006_JAGRAN",
+    "symbol": "JAGRAN",
+    "company_name": "JAGRAN",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "JAGRAN: General Updates",
+    "published_at": "09-Oct-2026 15:45:32",
+    "processed_at": "2026-10-09 15:46:46",
+    "current_base_price_inr": 61.49,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 100.0,
+    "materiality_ratio": 0.0035,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.52% to -2.00%",
+      "price_target_range_inr": "₹58.71 - ₹60.26",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.14% to -3.20%",
+      "price_target_range_inr": "₹56.48 - ₹59.52",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.75% to -4.40%",
+      "price_target_range_inr": "₹54.26 - ₹58.78",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹63.33 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791540871_SOLARA",
+    "symbol": "SOLARA",
+    "company_name": "SOLARA",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "SOLARA: Certificate under SEBI (Depositories and Participants) Regulations, 2018",
+    "published_at": "09-Oct-2026 15:43:31",
+    "processed_at": "2026-10-09 15:44:31",
+    "current_base_price_inr": 644.35,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 72.0,
+    "materiality_ratio": 0.1006,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-5.00% to -2.00%",
+      "price_target_range_inr": "₹612.13 - ₹631.46",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-9.00% to -3.20%",
+      "price_target_range_inr": "₹586.36 - ₹623.73",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-13.00% to -4.40%",
+      "price_target_range_inr": "₹560.58 - ₹616.00",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹663.68 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791540738_COALINDIA",
+    "symbol": "COALINDIA",
+    "company_name": "COALINDIA",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "COALINDIA: Copy of Newspaper Publication",
+    "published_at": "09-Oct-2026 15:40:55",
+    "processed_at": "2026-10-09 15:42:18",
+    "current_base_price_inr": 411.55,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 94.0,
+    "materiality_ratio": 0.0,
+    "ai_model": "LOCAL_GATEKEEPER (Zero Credit Used)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.50% to -2.00%",
+      "price_target_range_inr": "₹393.03 - ₹403.32",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.10% to -3.20%",
+      "price_target_range_inr": "₹378.21 - ₹398.38",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.70% to -4.40%",
+      "price_target_range_inr": "₹363.40 - ₹393.44",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹423.90 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791540707_ASHOKLEY",
+    "symbol": "ASHOKLEY",
+    "company_name": "ASHOKLEY",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "ASHOKLEY: Credit Rating",
+    "published_at": "09-Oct-2026 15:40:43",
+    "processed_at": "2026-10-09 15:41:47",
+    "current_base_price_inr": 145.06,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 91.0,
+    "materiality_ratio": 0.1916,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-5.46% to -2.00%",
+      "price_target_range_inr": "₹137.14 - ₹142.16",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-9.83% to -3.20%",
+      "price_target_range_inr": "₹130.80 - ₹140.42",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-14.20% to -4.40%",
+      "price_target_range_inr": "₹124.46 - ₹138.68",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹149.41 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791540674_VEEDOL",
+    "symbol": "VEEDOL",
+    "company_name": "VEEDOL",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "VEEDOL: Certificate under SEBI (Depositories and Participants) Regulations, 2018",
+    "published_at": "09-Oct-2026 15:39:57",
+    "processed_at": "2026-10-09 15:41:14",
+    "current_base_price_inr": 1352.2,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 73.0,
+    "materiality_ratio": 0.0884,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.94% to -2.00%",
+      "price_target_range_inr": "₹1,285.40 - ₹1,325.16",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.89% to -3.20%",
+      "price_target_range_inr": "₹1,231.99 - ₹1,308.93",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.84% to -4.40%",
+      "price_target_range_inr": "₹1,178.58 - ₹1,292.70",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹1,392.77 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791540671_CHEMFAB",
+    "symbol": "CHEMFAB",
+    "company_name": "CHEMFAB",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "CHEMFAB: Certificate under SEBI (Depositories and Participants) Regulations, 2018",
+    "published_at": "09-Oct-2026 15:40:16",
+    "processed_at": "2026-10-09 15:41:11",
+    "current_base_price_inr": 332.3,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 76.0,
+    "materiality_ratio": 0.0682,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.84% to -2.00%",
+      "price_target_range_inr": "₹316.22 - ₹325.65",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.71% to -3.20%",
+      "price_target_range_inr": "₹303.36 - ₹321.67",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.58% to -4.40%",
+      "price_target_range_inr": "₹290.50 - ₹317.68",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹342.27 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791540567_MUKKA",
+    "symbol": "MUKKA",
+    "company_name": "MUKKA",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "MUKKA: Giving guarantees/indemnity/ becoming a surety for third party",
+    "published_at": "09-Oct-2026 15:38:10",
+    "processed_at": "2026-10-09 15:39:27",
+    "current_base_price_inr": 26.27,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 52.0,
+    "materiality_ratio": 0.1767,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-5.38% to -2.00%",
+      "price_target_range_inr": "₹24.86 - ₹25.74",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-9.68% to -3.20%",
+      "price_target_range_inr": "₹23.73 - ₹25.43",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-13.99% to -4.40%",
+      "price_target_range_inr": "₹22.59 - ₹25.11",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹27.06 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791540464_HITECHGEAR",
+    "symbol": "HITECHGEAR",
+    "company_name": "HITECHGEAR",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "HITECHGEAR: Certificate under SEBI (Depositories and Participants) Regulations, 2018",
+    "published_at": "09-Oct-2026 15:36:09",
+    "processed_at": "2026-10-09 15:37:44",
+    "current_base_price_inr": 573.05,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 73.0,
+    "materiality_ratio": 0.0551,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.78% to -2.00%",
+      "price_target_range_inr": "₹545.66 - ₹561.59",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.60% to -3.20%",
+      "price_target_range_inr": "₹523.77 - ₹554.71",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.43% to -4.40%",
+      "price_target_range_inr": "₹501.82 - ₹547.84",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹590.24 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791540451_RACLGEAR",
+    "symbol": "RACLGEAR",
+    "company_name": "RACLGEAR",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "RACLGEAR: Copy of Newspaper Publication",
+    "published_at": "09-Oct-2026 15:36:14",
+    "processed_at": "2026-10-09 15:37:31",
+    "current_base_price_inr": 1460.6,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 94.0,
+    "materiality_ratio": 0.0,
+    "ai_model": "LOCAL_GATEKEEPER (Zero Credit Used)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.50% to -2.00%",
+      "price_target_range_inr": "₹1,394.87 - ₹1,431.39",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.10% to -3.20%",
+      "price_target_range_inr": "₹1,342.29 - ₹1,413.86",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.70% to -4.40%",
+      "price_target_range_inr": "₹1,289.71 - ₹1,396.33",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹1,504.42 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791540449_BATAINDIA",
+    "symbol": "BATAINDIA",
+    "company_name": "BATAINDIA",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "BATAINDIA: Resignation",
+    "published_at": "09-Oct-2026 15:36:22",
+    "processed_at": "2026-10-09 15:37:29",
+    "current_base_price_inr": 613.25,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 63.0,
+    "materiality_ratio": 0.049,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.75% to -2.00%",
+      "price_target_range_inr": "₹584.12 - ₹600.99",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.55% to -3.20%",
+      "price_target_range_inr": "₹560.82 - ₹593.63",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.35% to -4.40%",
+      "price_target_range_inr": "₹537.51 - ₹586.27",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹631.65 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791540447_GUJENERGY",
+    "symbol": "GUJENERGY",
+    "company_name": "GUJENERGY",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "GUJENERGY: Credit Rating",
+    "published_at": "09-Oct-2026 15:36:53",
+    "processed_at": "2026-10-09 15:37:27",
+    "current_base_price_inr": 223.7,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 90.0,
+    "materiality_ratio": 0.1759,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-5.38% to -2.00%",
+      "price_target_range_inr": "₹211.66 - ₹219.23",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-9.68% to -3.20%",
+      "price_target_range_inr": "₹202.05 - ₹216.54",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-13.99% to -4.40%",
+      "price_target_range_inr": "₹192.40 - ₹213.86",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹230.41 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791540444_KPRMILL",
+    "symbol": "KPRMILL",
+    "company_name": "KPRMILL",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "KPRMILL: Certificate under SEBI (Depositories and Participants) Regulations, 2018",
+    "published_at": "09-Oct-2026 15:36:59",
+    "processed_at": "2026-10-09 15:37:24",
+    "current_base_price_inr": 1053.8,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 80.0,
+    "materiality_ratio": 0.0411,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.71% to -2.00%",
+      "price_target_range_inr": "₹1,004.17 - ₹1,032.72",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.48% to -3.20%",
+      "price_target_range_inr": "₹964.44 - ₹1,020.08",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.25% to -4.40%",
+      "price_target_range_inr": "₹924.71 - ₹1,007.43",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹1,085.41 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791540401_GREAVESCOT",
+    "symbol": "GREAVESCOT",
+    "company_name": "GREAVESCOT",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "GREAVESCOT: Press Release",
+    "published_at": "09-Oct-2026 15:35:24",
+    "processed_at": "2026-10-09 15:36:41",
+    "current_base_price_inr": 207.22,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 99.0,
+    "materiality_ratio": 0.0123,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.56% to -2.00%",
+      "price_target_range_inr": "₹197.77 - ₹203.08",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.21% to -3.20%",
+      "price_target_range_inr": "₹190.21 - ₹200.59",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.86% to -4.40%",
+      "price_target_range_inr": "₹182.64 - ₹198.10",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹213.44 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791540399_GENUSPOWER",
+    "symbol": "GENUSPOWER",
+    "company_name": "GENUSPOWER",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "GENUSPOWER: Analysts/Institutional Investor Meet/Con. Call Updates",
+    "published_at": "09-Oct-2026 15:35:30",
+    "processed_at": "2026-10-09 15:36:39",
+    "current_base_price_inr": 296.55,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 100.0,
+    "materiality_ratio": 0.035,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.67% to -2.00%",
+      "price_target_range_inr": "₹282.70 - ₹290.62",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.41% to -3.20%",
+      "price_target_range_inr": "₹271.61 - ₹287.06",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.14% to -4.40%",
+      "price_target_range_inr": "₹260.55 - ₹283.50",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹305.45 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791540326_NOIDATOLL",
+    "symbol": "NOIDATOLL",
+    "company_name": "NOIDATOLL",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "NOIDATOLL: Structural Digital Database",
+    "published_at": "09-Oct-2026 15:34:20",
+    "processed_at": "2026-10-09 15:35:26",
+    "current_base_price_inr": 3.85,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 98.0,
+    "materiality_ratio": 0.0621,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.81% to -2.00%",
+      "price_target_range_inr": "₹3.66 - ₹3.77",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.66% to -3.20%",
+      "price_target_range_inr": "₹3.52 - ₹3.73",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.51% to -4.40%",
+      "price_target_range_inr": "₹3.37 - ₹3.68",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹3.97 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791540234_MPHASIS",
+    "symbol": "MPHASIS",
+    "company_name": "MPHASIS",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "MPHASIS: Analysts/Institutional Investor Meet/Con. Call Updates",
+    "published_at": "09-Oct-2026 15:32:24",
+    "processed_at": "2026-10-09 15:33:54",
+    "current_base_price_inr": 2360.0,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 99.0,
+    "materiality_ratio": 0.0324,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.66% to -2.00%",
+      "price_target_range_inr": "₹2,250.02 - ₹2,312.80",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.39% to -3.20%",
+      "price_target_range_inr": "₹2,162.00 - ₹2,284.48",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.12% to -4.40%",
+      "price_target_range_inr": "₹2,073.97 - ₹2,256.16",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹2,430.80 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791539980_SOLARWORLD",
+    "symbol": "SOLARWORLD",
+    "company_name": "SOLARWORLD",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "SOLARWORLD: Certificate under SEBI (Depositories and Participants) Regulations, 2018",
+    "published_at": "09-Oct-2026 15:28:24",
+    "processed_at": "2026-10-09 15:29:40",
+    "current_base_price_inr": 129.9,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 81.0,
+    "materiality_ratio": 0.0761,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.88% to -2.00%",
+      "price_target_range_inr": "₹123.56 - ₹127.30",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.78% to -3.20%",
+      "price_target_range_inr": "₹118.49 - ₹125.74",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.69% to -4.40%",
+      "price_target_range_inr": "₹113.42 - ₹124.18",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹133.80 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791539877_MAITHANALL",
+    "symbol": "MAITHANALL",
+    "company_name": "MAITHANALL",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "MAITHANALL: Others",
+    "published_at": "09-Oct-2026 15:26:04",
+    "processed_at": "2026-10-09 15:27:57",
+    "current_base_price_inr": 877.35,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 99.0,
+    "materiality_ratio": 0.042,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.71% to -2.00%",
+      "price_target_range_inr": "₹836.03 - ₹859.80",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.48% to -3.20%",
+      "price_target_range_inr": "₹802.95 - ₹849.27",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.25% to -4.40%",
+      "price_target_range_inr": "₹769.87 - ₹838.75",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹903.67 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791539700_ACC",
+    "symbol": "ACC",
+    "company_name": "ACC",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "ACC: Certificate under SEBI (Depositories and Participants) Regulations, 2018",
+    "published_at": "09-Oct-2026 15:23:59",
+    "processed_at": "2026-10-09 15:25:00",
+    "current_base_price_inr": 1133.1,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 83.0,
+    "materiality_ratio": 0.049,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.75% to -2.00%",
+      "price_target_range_inr": "₹1,079.28 - ₹1,110.44",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.55% to -3.20%",
+      "price_target_range_inr": "₹1,036.22 - ₹1,096.84",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.35% to -4.40%",
+      "price_target_range_inr": "₹993.16 - ₹1,083.24",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹1,167.09 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791539669_SHREYANIND",
+    "symbol": "SHREYANIND",
+    "company_name": "SHREYANIND",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "SHREYANIND: Certificate under SEBI (Depositories and Participants) Regulations, 2018",
+    "published_at": "09-Oct-2026 15:22:59",
+    "processed_at": "2026-10-09 15:24:29",
+    "current_base_price_inr": 129.62,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 72.0,
+    "materiality_ratio": 0.0621,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.81% to -2.00%",
+      "price_target_range_inr": "₹123.39 - ₹127.03",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.66% to -3.20%",
+      "price_target_range_inr": "₹118.39 - ₹125.47",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.51% to -4.40%",
+      "price_target_range_inr": "₹113.40 - ₹123.92",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹133.51 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791539667_SURYODAY",
+    "symbol": "SURYODAY",
+    "company_name": "SURYODAY",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "SURYODAY: General Updates",
+    "published_at": "09-Oct-2026 15:23:18",
+    "processed_at": "2026-10-09 15:24:27",
+    "current_base_price_inr": 147.15,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 100.0,
+    "materiality_ratio": 0.0026,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.51% to -2.00%",
+      "price_target_range_inr": "₹140.51 - ₹144.21",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.12% to -3.20%",
+      "price_target_range_inr": "₹135.20 - ₹142.44",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.73% to -4.40%",
+      "price_target_range_inr": "₹129.89 - ₹140.68",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹151.56 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791539665_ZODIAC",
+    "symbol": "ZODIAC",
+    "company_name": "ZODIAC",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "ZODIAC: Credit Rating",
+    "published_at": "09-Oct-2026 15:23:24",
+    "processed_at": "2026-10-09 15:24:25",
+    "current_base_price_inr": 207.98,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 81.0,
+    "materiality_ratio": 0.1802,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-5.40% to -2.00%",
+      "price_target_range_inr": "₹196.75 - ₹203.82",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-9.72% to -3.20%",
+      "price_target_range_inr": "₹187.76 - ₹201.32",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-14.04% to -4.40%",
+      "price_target_range_inr": "₹178.78 - ₹198.83",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹214.22 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791539634_JHS",
+    "symbol": "JHS",
+    "company_name": "JHS",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "JHS: Certificate under SEBI (Depositories and Participants) Regulations, 2018",
+    "published_at": "09-Oct-2026 15:21:40",
+    "processed_at": "2026-10-09 15:23:54",
+    "current_base_price_inr": 9.61,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 69.0,
+    "materiality_ratio": 0.0691,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.85% to -2.00%",
+      "price_target_range_inr": "₹9.14 - ₹9.42",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.73% to -3.20%",
+      "price_target_range_inr": "₹8.77 - ₹9.30",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.61% to -4.40%",
+      "price_target_range_inr": "₹8.40 - ₹9.19",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹9.90 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791539622_OLAELEC",
+    "symbol": "OLAELEC",
+    "company_name": "OLAELEC",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "OLAELEC: Updates",
+    "published_at": "09-Oct-2026 15:22:42",
+    "processed_at": "2026-10-09 15:23:42",
+    "current_base_price_inr": 35.15,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 100.0,
+    "materiality_ratio": 0.0087,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.54% to -2.00%",
+      "price_target_range_inr": "₹33.55 - ₹34.45",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.17% to -3.20%",
+      "price_target_range_inr": "₹32.28 - ₹34.03",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-11.80% to -4.40%",
+      "price_target_range_inr": "₹31.00 - ₹33.60",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹36.20 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791539606_IRCON",
+    "symbol": "IRCON",
+    "company_name": "IRCON",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "IRCON: Bagging/Receiving of orders/contracts",
+    "published_at": "09-Oct-2026 15:22:49",
+    "processed_at": "2026-10-09 15:23:26",
+    "current_base_price_inr": 104.81,
+    "predicted_direction": "BULLISH",
+    "conviction_score_pct": 84.0,
+    "materiality_ratio": 0.0674,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": true,
+    "t1_target": {
+      "percentage_range": "+2.00% to +4.84%",
+      "price_target_range_inr": "₹106.91 - ₹109.88",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "+3.20% to +8.71%",
+      "price_target_range_inr": "₹108.16 - ₹113.94",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "+4.40% to +12.58%",
+      "price_target_range_inr": "₹109.42 - ₹118.00",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹101.67 (-3.0%)",
+    "recommended_strategy": "STRONG BUY ACCUMULATION"
+  },
+  {
+    "id": "AUTO_1791539552_DCMSHRIRAM",
+    "symbol": "DCMSHRIRAM",
+    "company_name": "DCMSHRIRAM",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "DCMSHRIRAM: Certificate under SEBI (Depositories and Participants) Regulations, 2018",
+    "published_at": "09-Oct-2026 15:20:56",
+    "processed_at": "2026-10-09 15:22:32",
+    "current_base_price_inr": 953.25,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 81.0,
+    "materiality_ratio": 0.0403,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.70% to -2.00%",
+      "price_target_range_inr": "₹908.45 - ₹934.18",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.46% to -3.20%",
+      "price_target_range_inr": "₹872.61 - ₹922.75",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.22% to -4.40%",
+      "price_target_range_inr": "₹836.76 - ₹911.31",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹981.85 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791539518_XTRANET",
+    "symbol": "XTRANET",
+    "company_name": "XTRANET",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "XTRANET: Acquisition",
+    "published_at": "09-Oct-2026 15:20:17",
+    "processed_at": "2026-10-09 15:21:58",
+    "current_base_price_inr": 285.9,
+    "predicted_direction": "BULLISH",
+    "conviction_score_pct": 83.0,
+    "materiality_ratio": 0.245,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": true,
+    "t1_target": {
+      "percentage_range": "+2.00% to +5.72%",
+      "price_target_range_inr": "₹291.62 - ₹302.25",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "+3.20% to +10.30%",
+      "price_target_range_inr": "₹295.05 - ₹315.35",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "+4.40% to +14.87%",
+      "price_target_range_inr": "₹298.48 - ₹328.41",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹277.32 (-3.0%)",
+    "recommended_strategy": "STRONG BUY ACCUMULATION"
+  },
+  {
+    "id": "AUTO_1791539516_MARICO",
+    "symbol": "MARICO",
+    "company_name": "MARICO",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "MARICO: Certificate under SEBI (Depositories and Participants) Regulations, 2018",
+    "published_at": "09-Oct-2026 15:20:37",
+    "processed_at": "2026-10-09 15:21:56",
+    "current_base_price_inr": 788.0,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 86.0,
+    "materiality_ratio": 0.0367,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.68% to -2.00%",
+      "price_target_range_inr": "₹751.12 - ₹772.24",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.42% to -3.20%",
+      "price_target_range_inr": "₹721.65 - ₹762.78",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.17% to -4.40%",
+      "price_target_range_inr": "₹692.10 - ₹753.33",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹811.64 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
+    "id": "AUTO_1791539515_HINDCON",
+    "symbol": "HINDCON",
+    "company_name": "HINDCON",
+    "sector": "Diversified",
+    "source_type": "NSE_FILING",
+    "headline": "HINDCON: Certificate under SEBI (Depositories and Participants) Regulations, 2018",
+    "published_at": "09-Oct-2026 15:20:47",
+    "processed_at": "2026-10-09 15:21:55",
+    "current_base_price_inr": 28.46,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 78.0,
+    "materiality_ratio": 0.0744,
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.13.0)",
+    "is_useful": false,
+    "t1_target": {
+      "percentage_range": "-4.87% to -2.00%",
+      "price_target_range_inr": "₹27.07 - ₹27.89",
+      "target_date_horizon": "Tomorrow (T+1)"
+    },
+    "t5_target": {
+      "percentage_range": "-8.77% to -3.20%",
+      "price_target_range_inr": "₹25.96 - ₹27.55",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-12.66% to -4.40%",
+      "price_target_range_inr": "₹24.86 - ₹27.21",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹29.31 (+3.0%)",
+    "recommended_strategy": "NEUTRAL WATCH"
+  },
+  {
     "id": "AUTO_1791539411_COCHINSHIP",
     "symbol": "COCHINSHIP",
     "company_name": "COCHINSHIP",
