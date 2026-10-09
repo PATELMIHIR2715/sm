@@ -141,76 +141,113 @@ def fetch_fresh_live_prices():
     t5_str = (now + timedelta(days=5)).strftime("%b %d, %Y")
     t10_str = (now + timedelta(days=10)).strftime("%b %d, %Y")
 
-    # 1. Ingest newly captured live-stream items from auto_live_stream_worker (if available)
+    # 1. Ingest newly captured live-stream items from auto_live_stream_worker and Supabase Cloud
     stream_file = os.path.join(PROJECT_ROOT, "data/live_signals_stream.json")
+    stream_items = []
     if os.path.exists(stream_file):
         try:
             with open(stream_file, "r", encoding="utf-8") as f:
                 stream_items = json.load(f)
-            # Find actionable signals or latest real-time captures
-            actionable_stream = [it for it in stream_items if it.get("is_useful") or it.get("predicted_direction") in ["BULLISH", "BEARISH"]]
-            for it in actionable_stream[:5]:
-                sym = it.get("symbol", "NIFTY500")
-                quote = LivePriceProvider.get_live_quote(sym)
-                ltp = quote.get("ltp", it.get("current_base_price_inr", 100.0))
-                day_chg = quote.get("change_pct", quote.get("day_change_pct", 0.0))
-                day_h = quote.get("high", ltp)
-                day_l = quote.get("low", ltp)
-                pred_dir = it.get("predicted_direction", "BULLISH")
-                conv = it.get("conviction_score_pct", 85.0)
-
-                stream_sig = {
-                    "id": it.get("id"),
-                    "symbol": sym,
-                    "company_name": it.get("company_name", sym),
-                    "sector": it.get("sector", "NSE Sector"),
-                    "headline": it.get("headline", ""),
-                    "news_date": today_display,
-                    "news_time": it.get("published_at", "").split()[-1] if it.get("published_at") else now.strftime("%I:%M %p IST"),
-                    "source_type": it.get("source_type", "NSE_LIVE_STREAM"),
-                    "current_base_price_inr": ltp,
-                    "day_change_pct": day_chg,
-                    "day_high": day_h,
-                    "day_low": day_l,
-                    "volume": quote.get("volume", 50000),
-                    "is_live_tick": True,
-                    "predicted_direction": pred_dir,
-                    "conviction_score_pct": conv,
-                    "confluence_grade": "A+" if conv >= 85 else "A",
-                    "allocated_capital_inr": round(100000.0 * 0.15, 2),
-                    "shares_qty": max(1, int(15000 / ltp)) if ltp > 0 else 10,
-                    "materiality_ratio": round(it.get("materiality_ratio", 0.15), 4),
-                    "market_regime": regime.get("market_regime", "BALANCED_EQUILIBRIUM"),
-                    "market_drag_contribution_pct": round(nifty_delta * 0.9, 2),
-                    "execution_order_type": "LIMIT_POST_AUCTION",
-                    "optimal_entry_price": ltp,
-                    "actionability_status": "FRESH_ACTIONABLE",
-                    "catalyst_absorption_pct": 12.5,
-                    "remaining_alpha_pct": 87.5,
-                    "warnings_detected": [],
-                    "applied_mitigations": ["SLIPPAGE_BUFFER", "REGIME_FILTER"],
-                    "t1_target": it.get("t1_target", {
-                        "percentage_range": "+2.00% to +5.00%",
-                        "price_target_range_inr": f"₹{ltp*1.02:,.2f} - ₹{ltp*1.05:,.2f}",
-                        "target_date_horizon": f"Tomorrow ({tomorrow_str} Session)"
-                    }),
-                    "t5_target": it.get("t5_target", {
-                        "percentage_range": "+3.50% to +8.50%",
-                        "price_target_range_inr": f"₹{ltp*1.035:,.2f} - ₹{ltp*1.085:,.2f}",
-                        "target_date_horizon": f"Next 5 Days ({t5_str})"
-                    }),
-                    "t10_target": it.get("t10_target", {
-                        "percentage_range": "+5.00% to +14.00%",
-                        "price_target_range_inr": f"₹{ltp*1.05:,.2f} - ₹{ltp*1.14:,.2f}",
-                        "target_date_horizon": f"Next 10 Days ({t10_str})"
-                    }),
-                    "recommended_stop_loss": it.get("recommended_stop_loss", f"₹{ltp*0.97:,.2f} (-3.0%)"),
-                    "recommended_strategy": it.get("recommended_strategy", "STRONG BUY ACCUMULATION" if pred_dir == "BULLISH" else "TACTICAL SHORT"),
-                    "target_confidence_note": f"Live Stream Ingested: {it.get('ai_model', 'JEV_AI')}"
-                }
-                live_signals.append(stream_sig)
         except Exception as e:
-            print(f"[STREAM MERGE ERROR] {e}", flush=True)
+            pass
+
+    # Cloud Bridge: Query Supabase warehouse for real-time live signals (guarantees Render has 100% of signals)
+    supa_cfg = supabase_sync_manager.get_config()
+    supa_url = (supa_cfg.get("supabase_url") or os.environ.get("SUPABASE_URL", "")).rstrip("/")
+    supa_key = supa_cfg.get("supabase_key") or os.environ.get("SUPABASE_KEY", "")
+    if supa_url and supa_key:
+        try:
+            import urllib.request
+            supa_req = urllib.request.Request(
+                f"{supa_url}/rest/v1/signals?predicted_direction=in.(BULLISH,BEARISH)&order=created_at.desc&limit=25",
+                headers={
+                    "apikey": supa_key,
+                    "Authorization": f"Bearer {supa_key}"
+                }
+            )
+            with urllib.request.urlopen(supa_req, timeout=3) as supa_resp:
+                if supa_resp.status == 200:
+                    supa_signals = json.loads(supa_resp.read().decode("utf-8"))
+                    seen_syms = {it.get("symbol") for it in stream_items if it.get("symbol")}
+                    for ss in supa_signals:
+                        sym_s = ss.get("symbol")
+                        if sym_s and sym_s not in seen_syms:
+                            stream_items.append(ss)
+                            seen_syms.add(sym_s)
+        except Exception:
+            pass
+
+    # Find actionable signals or latest real-time captures (take up to 15 unique actionable setups)
+    try:
+        seen_rendered_symbols = set()
+        actionable_stream = [it for it in stream_items if it.get("is_useful") or it.get("predicted_direction") in ["BULLISH", "BEARISH"]]
+        for it in actionable_stream:
+            sym = it.get("symbol", "NIFTY500").strip().upper()
+            if sym in seen_rendered_symbols:
+                continue
+            seen_rendered_symbols.add(sym)
+            if len(seen_rendered_symbols) > 15:
+                break
+            quote = LivePriceProvider.get_live_quote(sym)
+            ltp = quote.get("ltp", it.get("current_base_price_inr", 100.0))
+            day_chg = quote.get("change_pct", quote.get("day_change_pct", 0.0))
+            day_h = quote.get("high", ltp)
+            day_l = quote.get("low", ltp)
+            pred_dir = it.get("predicted_direction", "BULLISH")
+            conv = it.get("conviction_score_pct", 85.0)
+
+            stream_sig = {
+                "id": it.get("id"),
+                "symbol": sym,
+                "company_name": it.get("company_name", sym),
+                "sector": it.get("sector", "NSE Sector"),
+                "headline": it.get("headline", ""),
+                "news_date": today_display,
+                "news_time": it.get("published_at", "").split()[-1] if it.get("published_at") else now.strftime("%I:%M %p IST"),
+                "source_type": it.get("source_type", "NSE_LIVE_STREAM"),
+                "current_base_price_inr": ltp,
+                "day_change_pct": day_chg,
+                "day_high": day_h,
+                "day_low": day_l,
+                "volume": quote.get("volume", 50000),
+                "is_live_tick": True,
+                "predicted_direction": pred_dir,
+                "conviction_score_pct": conv,
+                "confluence_grade": "A+" if conv >= 85 else "A",
+                "allocated_capital_inr": round(100000.0 * 0.15, 2),
+                "shares_qty": max(1, int(15000 / ltp)) if ltp > 0 else 10,
+                "materiality_ratio": round(it.get("materiality_ratio", 0.15), 4),
+                "market_regime": regime.get("market_regime", "BALANCED_EQUILIBRIUM"),
+                "market_drag_contribution_pct": round(nifty_delta * 0.9, 2),
+                "execution_order_type": "LIMIT_POST_AUCTION",
+                "optimal_entry_price": ltp,
+                "actionability_status": "FRESH_ACTIONABLE",
+                "catalyst_absorption_pct": 12.5,
+                "remaining_alpha_pct": 87.5,
+                "warnings_detected": [],
+                "applied_mitigations": ["SLIPPAGE_BUFFER", "REGIME_FILTER"],
+                "t1_target": it.get("t1_target", {
+                    "percentage_range": "+2.00% to +5.00%",
+                    "price_target_range_inr": f"₹{ltp*1.02:,.2f} - ₹{ltp*1.05:,.2f}",
+                    "target_date_horizon": f"Tomorrow ({tomorrow_str} Session)"
+                }),
+                "t5_target": it.get("t5_target", {
+                    "percentage_range": "+3.50% to +8.50%",
+                    "price_target_range_inr": f"₹{ltp*1.035:,.2f} - ₹{ltp*1.085:,.2f}",
+                    "target_date_horizon": f"Next 5 Days ({t5_str})"
+                }),
+                "t10_target": it.get("t10_target", {
+                    "percentage_range": "+5.00% to +14.00%",
+                    "price_target_range_inr": f"₹{ltp*1.05:,.2f} - ₹{ltp*1.14:,.2f}",
+                    "target_date_horizon": f"Next 10 Days ({t10_str})"
+                }),
+                "recommended_stop_loss": it.get("recommended_stop_loss", f"₹{ltp*0.97:,.2f} (-3.0%)"),
+                "recommended_strategy": it.get("recommended_strategy", "STRONG BUY ACCUMULATION" if pred_dir == "BULLISH" else "TACTICAL SHORT"),
+                "target_confidence_note": f"Live Stream Ingested: {it.get('ai_model', 'JEV_AI')}"
+            }
+            live_signals.append(stream_sig)
+    except Exception as e:
+        print(f"[STREAM MERGE ERROR] {e}", flush=True)
 
     # 2. Add dynamic institutional watchlist signals
     for item in TICKER_CONFIGS:

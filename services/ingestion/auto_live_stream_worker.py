@@ -200,6 +200,9 @@ class AutoLiveStreamWorker:
             signals_retention_manager.store_signal(signal_record)
             print(f"[NEW EVENT PROCESSED] {symbol} | {pred_dir} ({conviction}%) | LTP: INR {ltp} | Retained: 90 Days", flush=True)
 
+            # Cloud Bridge: Real-Time Supabase Upsert
+            self._sync_to_supabase(signal_record)
+
             # Automatic Multi-Channel Alert Dispatch (WhatsApp & Email)
             if signal_record.get("conviction_score_pct", 0) >= 70 and signal_record.get("is_useful", True):
                 self._dispatch_instant_alert(signal_record)
@@ -257,10 +260,13 @@ class AutoLiveStreamWorker:
                 recipients = [os.environ.get("SMTP_USER", "mihirpqtel@gmail.com")]
 
             recipients = list(set(recipients))
-            smtp_user = os.environ.get("SMTP_USER", "mihirpqtel@gmail.com")
-            smtp_pass = os.environ.get("SMTP_PASS", "qbjh xpul mqyt jjnm")
+            smtp_user = os.environ.get("SMTP_USER", "")
+            smtp_pass = os.environ.get("SMTP_PASS", "")
             smtp_host = os.environ.get("SMTP_HOST", "smtp.gmail.com")
             smtp_port = int(os.environ.get("SMTP_PORT", 465))
+
+            if not smtp_user or not smtp_pass:
+                return
 
             symbol = signal.get("symbol", "NIFTY")
             dir_text = signal.get("predicted_direction", "CATALYST")
@@ -299,6 +305,57 @@ class AutoLiveStreamWorker:
             print(f"[DIRECT-EMAIL DISPATCH] Sent alert for {symbol} to {len(recipients)} subscribers ({', '.join(recipients)})", flush=True)
         except Exception as err:
             print(f"[DIRECT-EMAIL ERROR] Could not send direct email: {err}", flush=True)
+
+    def _sync_to_supabase(self, signal_record: dict):
+        try:
+            import urllib.request
+            from services.sync.supabase_nightly_sync import supabase_sync_manager
+            supa_cfg = supabase_sync_manager.get_config()
+            supa_url = (supa_cfg.get("supabase_url") or os.environ.get("SUPABASE_URL", "")).rstrip("/")
+            supa_key = supa_cfg.get("supabase_key") or os.environ.get("SUPABASE_KEY", "")
+            if not supa_url or not supa_key:
+                return
+
+            clean_rec = {
+                "id": signal_record.get("id"),
+                "symbol": signal_record.get("symbol"),
+                "company_name": signal_record.get("company_name", signal_record.get("symbol")),
+                "sector": signal_record.get("sector", "Diversified"),
+                "source_type": signal_record.get("source_type", "NSE_FILING"),
+                "headline": signal_record.get("headline", ""),
+                "news_date": signal_record.get("news_date", datetime.now().strftime("%b %d, %Y (Today)")),
+                "news_time": signal_record.get("news_time", datetime.now().strftime("%I:%M %p IST")),
+                "current_base_price_inr": float(signal_record.get("current_base_price_inr", 0.0)),
+                "predicted_direction": signal_record.get("predicted_direction", "NEUTRAL"),
+                "conviction_score_pct": float(signal_record.get("conviction_score_pct", 75.0)),
+                "materiality_ratio": float(signal_record.get("materiality_ratio", 0.0)),
+                "ai_model": signal_record.get("ai_model", "JEV_AI_SYSTEMONE"),
+                "is_useful": bool(signal_record.get("is_useful", True)),
+                "t1_target": signal_record.get("t1_target", {}),
+                "t5_target": signal_record.get("t5_target", {}),
+                "t10_target": signal_record.get("t10_target", {}),
+                "recommended_stop_loss": str(signal_record.get("recommended_stop_loss", "")),
+                "recommended_strategy": str(signal_record.get("recommended_strategy", "ACCUMULATE")),
+                "raw_metadata": signal_record,
+                "updated_at": datetime.now().isoformat()
+            }
+
+            req = urllib.request.Request(
+                f"{supa_url}/rest/v1/signals",
+                data=json.dumps([clean_rec]).encode("utf-8"),
+                headers={
+                    "apikey": supa_key,
+                    "Authorization": f"Bearer {supa_key}",
+                    "Content-Type": "application/json",
+                    "Prefer": "resolution=merge-duplicates"
+                },
+                method="POST"
+            )
+            with urllib.request.urlopen(req, timeout=5) as resp:
+                if resp.status in [200, 201]:
+                    print(f"[SUPABASE LIVE SYNC] Upserted {signal_record['symbol']} to Supabase cloud warehouse.", flush=True)
+        except Exception as e:
+            pass
 
     def poll_cycle(self) -> int:
         raw_items = []

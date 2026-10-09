@@ -27,7 +27,7 @@ data/subscribers.json
 data/notification_subscribers.json
 data/dispatched_alerts_log.json
 data/dispatch_history.json
-data/live_signals_stream.json
+# data/live_signals_stream.json (tracked for cloud deployment)
 data/signals_archive.json
 data/signals_archive_90d.json
 data/seen_filing_hashes.json

@@ -118,9 +118,13 @@ export function App() {
     }
   };
 
-  // Auto-sync on initial mount
+  // Auto-sync on initial mount + recurring 30s live poll cycle
   useEffect(() => {
     handleLiveSync();
+    const pollTimer = setInterval(() => {
+      handleLiveSync();
+    }, 30000);
+    return () => clearInterval(pollTimer);
   }, []);
 
   // Keyboard navigation shortcuts
