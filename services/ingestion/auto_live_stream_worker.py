@@ -125,84 +125,89 @@ class AutoLiveStreamWorker:
         }
 
     def process_incoming_item(self, item: dict) -> dict:
-        headline = item.get("headline", "")
-        symbol = item.get("symbol", "NIFTY500")
-        source = item.get("source_type", "NSE_FILING")
+        try:
+            headline = item.get("headline", "")
+            symbol = item.get("symbol", "NIFTY500")
+            source = item.get("source_type", "NSE_FILING")
 
-        h = self._hash_event(headline)
-        if h in self.seen_hashes:
-            return None # Already processed
+            h = self._hash_event(headline)
+            if h in self.seen_hashes:
+                return None # Already processed
 
-        self.seen_hashes.add(h)
-        self._save_seen_hashes()
+            self.seen_hashes.add(h)
+            self._save_seen_hashes()
 
-        # Company profile
-        company_meta = {
-            "symbol": symbol,
-            "company_name": item.get("company_name", symbol),
-            "sector": item.get("sector", "Diversified"),
-            "annual_revenue_cr": item.get("annual_revenue_cr", 20000.0),
-            "atr_percentage": item.get("atr_percentage", 2.5)
-        }
+            # Company profile
+            company_meta = {
+                "symbol": symbol,
+                "company_name": item.get("company_name", symbol),
+                "sector": item.get("sector", "Diversified"),
+                "annual_revenue_cr": item.get("annual_revenue_cr", 20000.0),
+                "atr_percentage": item.get("atr_percentage", 2.5)
+            }
 
-        # AI Prediction (uses Jev Model API if configured, otherwise calibrated institutional ensemble)
-        pred = jev_classifier.classify_event(headline, company_meta)
-        pred_dir = pred.get("direction", "NEUTRAL")
-        is_useful = pred_dir in ["BULLISH", "BEARISH"]
-        
-        # Real-time LTP
-        ltp = self.fetch_live_price(symbol)
-        
-        targets = self.compute_forward_targets(
-            ltp, pred_dir, company_meta["atr_percentage"], pred.get("materiality_ratio", 0.0)
-        )
+            # AI Prediction (uses Jev Model API if configured, otherwise calibrated institutional ensemble)
+            pred = jev_classifier.classify_event(headline, company_meta)
+            pred_dir = pred.get("direction", "NEUTRAL")
+            is_useful = pred_dir in ["BULLISH", "BEARISH"]
+            conviction = pred.get("conviction_pct", pred.get("confidence", 75.0))
+            
+            # Real-time LTP
+            ltp = self.fetch_live_price(symbol)
+            
+            targets = self.compute_forward_targets(
+                ltp, pred_dir, company_meta["atr_percentage"], pred.get("materiality_ratio", 0.0)
+            )
 
-        signal_record = {
-            "id": f"AUTO_{int(time.time())}_{symbol}",
-            "symbol": symbol,
-            "company_name": company_meta["company_name"],
-            "sector": company_meta["sector"],
-            "source_type": source,
-            "headline": headline,
-            "published_at": item.get("published_at", datetime.now().strftime("%Y-%m-%d %H:%M:%S")),
-            "processed_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "current_base_price_inr": ltp,
-            "predicted_direction": pred_dir,
-            "conviction_score_pct": pred.get("conviction_pct", 75.0),
-            "materiality_ratio": pred.get("materiality_ratio", 0.0),
-            "ai_model": pred.get("model_engine", "JEV_AI_CLASSIFIER"),
-            "is_useful": is_useful,
-            "t1_target": {
-                "percentage_range": targets["t1"]["range_pct"],
-                "price_target_range_inr": targets["t1"]["price_target"],
-                "target_date_horizon": targets["t1"]["deadline"]
-            },
-            "t5_target": {
-                "percentage_range": targets["t5"]["range_pct"],
-                "price_target_range_inr": targets["t5"]["price_target"],
-                "target_date_horizon": targets["t5"]["deadline"]
-            },
-            "t10_target": {
-                "percentage_range": targets["t10"]["range_pct"],
-                "price_target_range_inr": targets["t10"]["price_target"],
-                "target_date_horizon": targets["t10"]["deadline"]
-            },
-            "recommended_stop_loss": targets["stop_loss"],
-            "recommended_strategy": "STRONG BUY ACCUMULATION" if pred_dir == "BULLISH" else ("TACTICAL SHORT / HEDGE" if pred_dir == "BEARISH" else "NEUTRAL WATCH")
-        }
+            signal_record = {
+                "id": f"AUTO_{int(time.time())}_{symbol}",
+                "symbol": symbol,
+                "company_name": company_meta["company_name"],
+                "sector": company_meta["sector"],
+                "source_type": source,
+                "headline": headline,
+                "published_at": item.get("published_at", datetime.now().strftime("%Y-%m-%d %H:%M:%S")),
+                "processed_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                "current_base_price_inr": ltp,
+                "predicted_direction": pred_dir,
+                "conviction_score_pct": conviction,
+                "materiality_ratio": pred.get("materiality_ratio", 0.0),
+                "ai_model": pred.get("model_engine", "JEV_AI_CLASSIFIER"),
+                "is_useful": is_useful,
+                "t1_target": {
+                    "percentage_range": targets["t1"]["range_pct"],
+                    "price_target_range_inr": targets["t1"]["price_target"],
+                    "target_date_horizon": targets["t1"]["deadline"]
+                },
+                "t5_target": {
+                    "percentage_range": targets["t5"]["range_pct"],
+                    "price_target_range_inr": targets["t5"]["price_target"],
+                    "target_date_horizon": targets["t5"]["deadline"]
+                },
+                "t10_target": {
+                    "percentage_range": targets["t10"]["range_pct"],
+                    "price_target_range_inr": targets["t10"]["price_target"],
+                    "target_date_horizon": targets["t10"]["deadline"]
+                },
+                "recommended_stop_loss": targets["stop_loss"],
+                "recommended_strategy": "STRONG BUY ACCUMULATION" if pred_dir == "BULLISH" else ("TACTICAL SHORT / HEDGE" if pred_dir == "BEARISH" else "NEUTRAL WATCH")
+            }
 
-        self.live_stream.insert(0, signal_record)
-        self._save_stream()
+            self.live_stream.insert(0, signal_record)
+            self._save_stream()
 
-        # Strict 90-Day Retention Archive
-        signals_retention_manager.store_signal(signal_record)
-        print(f"[NEW EVENT PROCESSED] {symbol} | {pred['direction']} ({pred['direction_confidence']}%) | LTP: INR {ltp} | Retained: 90 Days", flush=True)
+            # Strict 90-Day Retention Archive
+            signals_retention_manager.store_signal(signal_record)
+            print(f"[NEW EVENT PROCESSED] {symbol} | {pred_dir} ({conviction}%) | LTP: INR {ltp} | Retained: 90 Days", flush=True)
 
-        # Automatic Multi-Channel Alert Dispatch (WhatsApp & Email)
-        if signal_record.get("conviction_score_pct", 0) >= 70 and signal_record.get("is_useful", True):
-            self._dispatch_instant_alert(signal_record)
+            # Automatic Multi-Channel Alert Dispatch (WhatsApp & Email)
+            if signal_record.get("conviction_score_pct", 0) >= 70 and signal_record.get("is_useful", True):
+                self._dispatch_instant_alert(signal_record)
 
-        return signal_record
+            return signal_record
+        except Exception as e:
+            print(f"[ERROR PROCESSING ITEM] {item.get('symbol', 'UNKNOWN')}: {e}", flush=True)
+            return None
 
     def _dispatch_instant_alert(self, signal: dict):
         try:

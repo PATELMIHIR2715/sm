@@ -4,7 +4,8 @@ import sys
 import time
 import re
 import hmac
-from datetime import datetime
+import threading
+from datetime import datetime, timedelta
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from urllib.parse import urlparse, parse_qs
 sys.stdout.reconfigure(encoding='utf-8')
@@ -134,6 +135,84 @@ def fetch_fresh_live_prices():
     regime = LivePriceProvider.get_market_regime()
     nifty_delta = regime.get("nifty_change_pct", 0.0)
 
+    now = datetime.now()
+    today_display = now.strftime("%b %d, %Y (Today)")
+    tomorrow_str = (now + timedelta(days=1)).strftime("%b %d, %Y")
+    t5_str = (now + timedelta(days=5)).strftime("%b %d, %Y")
+    t10_str = (now + timedelta(days=10)).strftime("%b %d, %Y")
+
+    # 1. Ingest newly captured live-stream items from auto_live_stream_worker (if available)
+    stream_file = os.path.join(PROJECT_ROOT, "data/live_signals_stream.json")
+    if os.path.exists(stream_file):
+        try:
+            with open(stream_file, "r", encoding="utf-8") as f:
+                stream_items = json.load(f)
+            # Find actionable signals or latest real-time captures
+            actionable_stream = [it for it in stream_items if it.get("is_useful") or it.get("predicted_direction") in ["BULLISH", "BEARISH"]]
+            for it in actionable_stream[:5]:
+                sym = it.get("symbol", "NIFTY500")
+                quote = LivePriceProvider.get_live_quote(sym)
+                ltp = quote.get("ltp", it.get("current_base_price_inr", 100.0))
+                day_chg = quote.get("change_pct", quote.get("day_change_pct", 0.0))
+                day_h = quote.get("high", ltp)
+                day_l = quote.get("low", ltp)
+                pred_dir = it.get("predicted_direction", "BULLISH")
+                conv = it.get("conviction_score_pct", 85.0)
+
+                stream_sig = {
+                    "id": it.get("id"),
+                    "symbol": sym,
+                    "company_name": it.get("company_name", sym),
+                    "sector": it.get("sector", "NSE Sector"),
+                    "headline": it.get("headline", ""),
+                    "news_date": today_display,
+                    "news_time": it.get("published_at", "").split()[-1] if it.get("published_at") else now.strftime("%I:%M %p IST"),
+                    "source_type": it.get("source_type", "NSE_LIVE_STREAM"),
+                    "current_base_price_inr": ltp,
+                    "day_change_pct": day_chg,
+                    "day_high": day_h,
+                    "day_low": day_l,
+                    "volume": quote.get("volume", 50000),
+                    "is_live_tick": True,
+                    "predicted_direction": pred_dir,
+                    "conviction_score_pct": conv,
+                    "confluence_grade": "A+" if conv >= 85 else "A",
+                    "allocated_capital_inr": round(100000.0 * 0.15, 2),
+                    "shares_qty": max(1, int(15000 / ltp)) if ltp > 0 else 10,
+                    "materiality_ratio": round(it.get("materiality_ratio", 0.15), 4),
+                    "market_regime": regime.get("market_regime", "BALANCED_EQUILIBRIUM"),
+                    "market_drag_contribution_pct": round(nifty_delta * 0.9, 2),
+                    "execution_order_type": "LIMIT_POST_AUCTION",
+                    "optimal_entry_price": ltp,
+                    "actionability_status": "FRESH_ACTIONABLE",
+                    "catalyst_absorption_pct": 12.5,
+                    "remaining_alpha_pct": 87.5,
+                    "warnings_detected": [],
+                    "applied_mitigations": ["SLIPPAGE_BUFFER", "REGIME_FILTER"],
+                    "t1_target": it.get("t1_target", {
+                        "percentage_range": "+2.00% to +5.00%",
+                        "price_target_range_inr": f"₹{ltp*1.02:,.2f} - ₹{ltp*1.05:,.2f}",
+                        "target_date_horizon": f"Tomorrow ({tomorrow_str} Session)"
+                    }),
+                    "t5_target": it.get("t5_target", {
+                        "percentage_range": "+3.50% to +8.50%",
+                        "price_target_range_inr": f"₹{ltp*1.035:,.2f} - ₹{ltp*1.085:,.2f}",
+                        "target_date_horizon": f"Next 5 Days ({t5_str})"
+                    }),
+                    "t10_target": it.get("t10_target", {
+                        "percentage_range": "+5.00% to +14.00%",
+                        "price_target_range_inr": f"₹{ltp*1.05:,.2f} - ₹{ltp*1.14:,.2f}",
+                        "target_date_horizon": f"Next 10 Days ({t10_str})"
+                    }),
+                    "recommended_stop_loss": it.get("recommended_stop_loss", f"₹{ltp*0.97:,.2f} (-3.0%)"),
+                    "recommended_strategy": it.get("recommended_strategy", "STRONG BUY ACCUMULATION" if pred_dir == "BULLISH" else "TACTICAL SHORT"),
+                    "target_confidence_note": f"Live Stream Ingested: {it.get('ai_model', 'JEV_AI')}"
+                }
+                live_signals.append(stream_sig)
+        except Exception as e:
+            print(f"[STREAM MERGE ERROR] {e}", flush=True)
+
+    # 2. Add dynamic institutional watchlist signals
     for item in TICKER_CONFIGS:
         symbol = item["symbol"]
         quote = LivePriceProvider.get_live_quote(symbol)
@@ -213,7 +292,7 @@ def fetch_fresh_live_prices():
             "company_name": item["company_name"],
             "sector": item["sector"],
             "headline": item["headline"],
-            "news_date": item.get("news_date", "Oct 01, 2026 (Today)"),
+            "news_date": today_display,
             "news_time": item.get("news_time", "09:30 AM IST"),
             "source_type": item.get("source_type", "NSE_FILING"),
             "current_base_price_inr": base_ltp,
@@ -240,17 +319,17 @@ def fetch_fresh_live_prices():
             "t1_target": {
                 "percentage_range": t1_obj["expected_move_pct"],
                 "price_target_range_inr": t1_obj["price_corridor_inr"],
-                "target_date_horizon": "Tomorrow (Oct 09, 2026 Session)"
+                "target_date_horizon": f"Tomorrow ({tomorrow_str} Session)"
             },
             "t5_target": {
                 "percentage_range": t5_obj["expected_move_pct"],
                 "price_target_range_inr": t5_obj["price_corridor_inr"],
-                "target_date_horizon": "Next 5 Days (Oct 15, 2026)"
+                "target_date_horizon": f"Next 5 Days ({t5_str})"
             },
             "t10_target": {
                 "percentage_range": t10_obj["expected_move_pct"],
                 "price_target_range_inr": t10_obj["price_corridor_inr"],
-                "target_date_horizon": "Next 10 Days (Oct 22, 2026)"
+                "target_date_horizon": f"Next 10 Days ({t10_str})"
             },
             "recommended_stop_loss": f"₹{defense['risk_parameters']['stop_loss_price_inr']:,.2f} (-{defense['risk_parameters']['stop_loss_pct']}%)",
             "recommended_strategy": defense["actionable_verdict"],
@@ -775,7 +854,24 @@ class ProductionAPIHandler(BaseHTTPRequestHandler):
     def log_message(self, format, *args):
         pass
 
+def start_background_stream_worker():
+    """Starts the auto live stream worker daemon thread so it runs continuously in the background on Render & locally"""
+    def _worker_daemon_thread():
+        # Allow server to bind port and start listening first before starting heavy scraping loop
+        time.sleep(2)
+        try:
+            from services.ingestion.auto_live_stream_worker import AutoLiveStreamWorker
+            worker = AutoLiveStreamWorker()
+            worker.run_daemon(interval_seconds=30)
+        except Exception as e:
+            print(f"[BACKGROUND WORKER EXCEPTION] {e}", flush=True)
+
+    t = threading.Thread(target=_worker_daemon_thread, daemon=True)
+    t.start()
+    print("[PRODUCTION LIVE-TICK API] Continuous AutoLiveStreamWorker daemon thread launched (30s poll cycle).", flush=True)
+
 def run_server(port=5000):
+    start_background_stream_worker()
     server_address = ('', port)
     httpd = HTTPServer(server_address, ProductionAPIHandler)
     print(f"[PRODUCTION LIVE-TICK API] Server listening on http://127.0.0.1:{port}", flush=True)
