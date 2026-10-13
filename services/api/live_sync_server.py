@@ -581,9 +581,25 @@ class ProductionAPIHandler(BaseHTTPRequestHandler):
         path = parsed.path.rstrip('/')
 
         if path in ['/api/live-sync']:
-            data = fetch_fresh_live_prices()
-            self._set_headers(200)
-            self.wfile.write(json.dumps(data, indent=2).encode('utf-8'))
+            try:
+                data = fetch_fresh_live_prices()
+                self._set_headers(200)
+                self.wfile.write(json.dumps(data, indent=2).encode('utf-8'))
+            except Exception as e:
+                print(f"[LIVE-SYNC HANDLER ERROR] {e}", flush=True)
+                stream_file = os.path.join(PROJECT_ROOT, "data/live_signals_stream.json")
+                fallback_signals = []
+                if os.path.exists(stream_file):
+                    try:
+                        with open(stream_file, "r", encoding="utf-8") as f:
+                            fallback_signals = json.load(f)
+                    except Exception:
+                        pass
+                self._set_headers(200)
+                self.wfile.write(json.dumps({
+                    "status": "SUCCESS_STREAM_FALLBACK",
+                    "live_signals": fallback_signals[:25]
+                }, indent=2).encode('utf-8'))
 
         elif path in ['/api/pre-catalyst-radar']:
             signals = PreCatalystEarlyWarningEngine.get_pre_catalyst_signals()
