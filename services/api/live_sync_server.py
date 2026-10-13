@@ -2,6 +2,7 @@ import os
 import json
 import sys
 import time
+import math
 import re
 import hmac
 import threading
@@ -189,7 +190,7 @@ def fetch_fresh_live_prices():
             if len(seen_rendered_symbols) > 15:
                 break
             ltp = float(it.get("current_base_price_inr", 0.0))
-            if ltp <= 0 or ltp == 1000.0:
+            if ltp <= 0:
                 quote = LivePriceProvider.get_live_quote(sym)
                 ltp = quote.get("ltp", ltp or 100.0)
                 day_chg = quote.get("change_pct", 0.0)
@@ -260,9 +261,18 @@ def fetch_fresh_live_prices():
     # 2. Add dynamic institutional watchlist signals
     for item in TICKER_CONFIGS:
         symbol = item["symbol"]
-        quote = LivePriceProvider.get_live_quote(symbol)
-        base_ltp = quote["ltp"]
-        open_gap = round(((quote["open"] - quote["prev_close"]) / quote["prev_close"]) * 100, 2) if quote.get("prev_close", 0) > 0 else 0.0
+        try:
+            quote = LivePriceProvider.get_live_quote(symbol)
+            base_ltp = quote.get("ltp", 1000.0)
+            if base_ltp is None or math.isnan(base_ltp) or base_ltp <= 0:
+                base_ltp = 1000.0
+            prev_c = quote.get("prev_close", base_ltp)
+            open_p = quote.get("open", base_ltp)
+            open_gap = round(((open_p - prev_c) / prev_c) * 100, 2) if prev_c > 0 else 0.0
+        except Exception:
+            base_ltp = 1000.0
+            open_gap = 0.0
+            quote = {"change_pct": 0.0, "high": 1000.0, "low": 1000.0, "volume": 50000, "prev_close": 1000.0}
 
         # 1. RAG search
         rag_matches = rag_engine.search_similar_patterns(headline=item["headline"], top_k=3)

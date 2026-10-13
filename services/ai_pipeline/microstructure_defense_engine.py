@@ -147,6 +147,9 @@ class MicrostructureDefenseEngine:
         # Fetch Real-Time Company Intelligence (ATR, Revenue, Market Cap, Betas)
         intel = CompanyIntelligenceProvider.get_company_intelligence(symbol)
         tier = intel["tier"]
+        if base_ltp is None or math.isnan(base_ltp) or base_ltp <= 0:
+            base_ltp = 1000.0
+
         atr_pct = intel["atr_14_pct"]
         nifty_beta = intel["nifty_beta"]
         sector_beta = intel["sector_beta"]
@@ -294,8 +297,11 @@ class MicrostructureDefenseEngine:
         # -------------------------------------------------------------
         # 7. Derivatives Call Resistance Wall Clamping
         # -------------------------------------------------------------
-        strike_step = 50.0 if base_ltp > 2000 else (20.0 if base_ltp > 1000 else 10.0)
-        nearest_call_strike = math.ceil(base_ltp / strike_step) * strike_step
+        try:
+            strike_step = 50.0 if base_ltp > 2000 else (20.0 if base_ltp > 1000 else 10.0)
+            nearest_call_strike = math.ceil(base_ltp / strike_step) * strike_step
+        except Exception:
+            nearest_call_strike = round(base_ltp * 1.05, 2)
 
         net_t1_pct = effective_alpha if is_bull else -abs(effective_alpha)
         mult = 1.0 if is_bull else -1.0
