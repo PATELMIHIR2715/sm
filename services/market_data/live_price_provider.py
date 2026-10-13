@@ -43,7 +43,7 @@ class LivePriceProvider:
         try:
             tk = yf.Ticker(yf_symbol)
             # Fetch 2 days of 1-day candles to get current session and previous close
-            df = tk.history(period="2d", interval="1d", timeout=5)
+            df = tk.history(period="2d", interval="1d", timeout=2)
             if not df.empty:
                 last_row = df.iloc[-1]
                 prev_row = df.iloc[-2] if len(df) > 1 else last_row
@@ -127,14 +127,15 @@ class LivePriceProvider:
         Fetches live NIFTY 50 and sectoral market regime to measure macro tailwind/headwind.
         """
         now = time.time()
-        if cls._regime_cache and (now - cls._last_regime_fetch < cls.CACHE_TTL_SECONDS * 2):
+        if cls._regime_cache and (now - cls._last_regime_fetch < 300):
             return cls._regime_cache
 
+        cls._last_regime_fetch = now
         nifty_change = 0.0
         nifty_ltp = 25800.0
         try:
             nifty_tk = yf.Ticker("^NSEI")
-            nifty_df = nifty_tk.history(period="2d", interval="1d")
+            nifty_df = nifty_tk.history(period="2d", interval="1d", timeout=2)
             if not nifty_df.empty:
                 last_nifty = nifty_df.iloc[-1]
                 prev_nifty = nifty_df.iloc[-2] if len(nifty_df) > 1 else last_nifty
@@ -142,7 +143,7 @@ class LivePriceProvider:
                 prev_close = round(float(prev_nifty["Close"]), 2)
                 nifty_change = round(((nifty_ltp - prev_close) / prev_close) * 100, 2)
         except Exception as e:
-            print(f"[REGIME FETCH ERROR] Nifty fetch: {e}")
+            pass
 
         # Market Regime Classification
         if nifty_change > 0.50:

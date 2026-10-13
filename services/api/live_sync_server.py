@@ -400,6 +400,25 @@ def fetch_fresh_live_prices():
         "live_signals": live_signals
     }
 
+_cached_live_sync_response = None
+_cached_live_sync_time = 0
+
+def get_cached_live_sync_data():
+    global _cached_live_sync_response, _cached_live_sync_time
+    now = time.time()
+    if _cached_live_sync_response and (now - _cached_live_sync_time < 30):
+        return _cached_live_sync_response
+
+    try:
+        data = fetch_fresh_live_prices()
+        _cached_live_sync_response = data
+        _cached_live_sync_time = now
+        return data
+    except Exception as e:
+        if _cached_live_sync_response:
+            return _cached_live_sync_response
+        raise e
+
 def get_verification_audit_data():
     """Loads verified empirical ground-truth results from JSON file"""
     audit_file = "data/backtest_reports/verified_yesterday_predictions_audit.json"
@@ -582,7 +601,7 @@ class ProductionAPIHandler(BaseHTTPRequestHandler):
 
         if path in ['/api/live-sync']:
             try:
-                data = fetch_fresh_live_prices()
+                data = get_cached_live_sync_data()
                 self._set_headers(200)
                 self.wfile.write(json.dumps(data, indent=2).encode('utf-8'))
             except Exception as e:
