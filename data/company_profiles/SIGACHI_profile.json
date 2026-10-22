@@ -1,0 +1,28 @@
+{
+  "symbol": "SIGACHI",
+  "company_name": "SIGACHI Ltd",
+  "sector": "Diversified",
+  "tier": "MID_CAP",
+  "annual_revenue_cr": 25000.0,
+  "market_cap_cr": 50000.0,
+  "nifty_beta": 1.0,
+  "sector_beta": 1.1,
+  "fno_lot_size": 500,
+  "current_ltp": 26.2,
+  "atr_14_inr": 1.17,
+  "atr_14_pct": 4.47,
+  "single_day_max_ceiling_pct": 7.82,
+  "realized_volatility_20d_pct": 29.79,
+  "ema_50": 29.25,
+  "ema_200": 29.14,
+  "rsi_14": 27.7,
+  "sector_valuation": {
+    "sector_pe": 23.5,
+    "median_5y_pe": 22.0,
+    "pe_premium_pct": 6.8,
+    "valuation_state": "FAIR_VALUATION",
+    "multiple_factor": 1.0
+  },
+  "cached_timestamp": 1792651172.7531703,
+  "cached_date_str": "2026-10-22 12:09:33 IST"
+}

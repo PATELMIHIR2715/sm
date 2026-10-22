@@ -26,6 +26,8 @@ CREATE TABLE IF NOT EXISTS public.signals (
     conviction_score_pct NUMERIC(5, 2) DEFAULT 75.0,
     materiality_ratio NUMERIC(10, 4) DEFAULT 0.0,
     ai_model TEXT DEFAULT 'JEV_SYSTEM_ONE',
+    model_version TEXT DEFAULT 'v3.0',
+    engine_version TEXT DEFAULT 'v3.0',
     is_useful BOOLEAN DEFAULT TRUE,
     is_rumor BOOLEAN DEFAULT FALSE,
     t1_target JSONB DEFAULT '{}'::jsonb,
@@ -53,6 +55,7 @@ CREATE INDEX IF NOT EXISTS idx_signals_symbol ON public.signals(symbol);
 CREATE INDEX IF NOT EXISTS idx_signals_created_at ON public.signals(created_at DESC);
 CREATE INDEX IF NOT EXISTS idx_signals_direction ON public.signals(predicted_direction);
 CREATE INDEX IF NOT EXISTS idx_signals_conviction ON public.signals(conviction_score_pct DESC);
+CREATE INDEX IF NOT EXISTS idx_signals_model_version ON public.signals(model_version);
 CREATE INDEX IF NOT EXISTS idx_signals_target_hit ON public.signals(target_hit);
 
 -- 2. Evaluation Benchmark Runs (Historical Backtests & Blind Evaluation Windows)

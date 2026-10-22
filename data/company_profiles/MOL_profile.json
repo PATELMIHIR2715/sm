@@ -1,0 +1,28 @@
+{
+  "symbol": "MOL",
+  "company_name": "MOL Ltd",
+  "sector": "Diversified",
+  "tier": "MID_CAP",
+  "annual_revenue_cr": 25000.0,
+  "market_cap_cr": 50000.0,
+  "nifty_beta": 1.0,
+  "sector_beta": 1.1,
+  "fno_lot_size": 500,
+  "current_ltp": 54.38,
+  "atr_14_inr": 3.36,
+  "atr_14_pct": 6.18,
+  "single_day_max_ceiling_pct": 10.81,
+  "realized_volatility_20d_pct": 56.31,
+  "ema_50": 58.71,
+  "ema_200": 58.65,
+  "rsi_14": 46.1,
+  "sector_valuation": {
+    "sector_pe": 23.5,
+    "median_5y_pe": 22.0,
+    "pe_premium_pct": 6.8,
+    "valuation_state": "FAIR_VALUATION",
+    "multiple_factor": 1.0
+  },
+  "cached_timestamp": 1792646492.875182,
+  "cached_date_str": "2026-10-22 10:51:33 IST"
+}

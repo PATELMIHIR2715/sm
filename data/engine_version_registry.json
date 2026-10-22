@@ -1,0 +1,43 @@
+{
+  "active_version": "v3.0",
+  "versions": {
+    "v1.0": {
+      "version": "v1.0",
+      "name": "v1.0 Baseline Sentiment",
+      "description": "Initial rule-based NLP sentiment scoring with static percentage target corridor.",
+      "released_at": "2026-09-01",
+      "target_strategy": "Static Corridor (±2.5%)",
+      "key_features": [
+        "Dictionary-based keyword matching",
+        "Static stop loss"
+      ],
+      "baseline_benchmark_accuracy_pct": 78.2
+    },
+    "v2.0": {
+      "version": "v2.0",
+      "name": "v2.0 Calibrated Hybrid RAG",
+      "description": "Calibrated NLP Sentiment + 10-Year Vector RAG similarity + ATR dynamic volatility targets + Kelly position sizing.",
+      "released_at": "2026-10-15",
+      "target_strategy": "ATR Dynamic Bands",
+      "key_features": [
+        "Vector RAG (10k+ historical events)",
+        "Dynamic ATR volatility bands",
+        "Kelly position sizing formula"
+      ],
+      "baseline_benchmark_accuracy_pct": 85.4
+    },
+    "v3.0": {
+      "version": "v3.0",
+      "name": "v3.0 Two-Tier Milestone Engine",
+      "description": "Two-Tier Targets (T1 Safe Wall Front-Running + T2 Breakout Runner) + Zero-Synthetic Active Tradability Gatekeeper + Upper/Lower Circuit Lock Protection.",
+      "released_at": "2026-10-22",
+      "target_strategy": "Two-Tier (T1 Safe + T2 Runner)",
+      "key_features": [
+        "Milestone round number wall front-running (Book 70% Profit)",
+        "Zero-Synthetic active exchange tradability gatekeeper",
+        "Circuit freeze lock warning & suppression defense"
+      ],
+      "baseline_benchmark_accuracy_pct": 89.6
+    }
+  }
+}

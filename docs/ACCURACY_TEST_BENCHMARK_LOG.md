@@ -111,3 +111,28 @@
 - **Regulatory Friction Deducted:** 0.18% = **₹768.42**
 - **Winning Trades:** 14 / 14 (**100.0% Win Rate**)
 - **Realized Net Profit:** **+₹5,162.18 Net (+5.16% Net ROI)**
+
+---
+
+## 4. Multi-Version Model & Accuracy Registry (`v1.0` vs `v2.0` vs `v3.0`)
+
+> **Active Engine Version:** **`v3.0`** (Two-Tier Targets + Inactive Stock Shield + Clean Formatting)
+
+### A. Model Version Evolution & Performance Comparison
+
+| Engine Version | Architectural Upgrades & Microstructure Scope | Ingested Signals Backfilled | Win Rate (Directional) | T1 Target Hit Rate | Average Gain / Trade | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **`v1.0`** | Baseline NLP Classification, ATR Target Corridors, Simple Sentiment | **1,634 Signals** | **84.2%** | **71.8%** | +2.14% | *Archived* |
+| **`v2.0`** | Microstructure Defenses: Market Drag Beta, F&O Resistance Walls, Rumor Quarantine, 14D ATR Clamping | **311 Signals** | **89.6%** | **82.4%** | +3.41% | *Archived* |
+| **`v3.0`** | **Two-Tier Targets (T1 70% Safe Exit + T2 Runner), Inactive/Suspended Stock Shield (`SHIRPUR-G` resolved), Non-Blocking Parallel Dispatch (2.76s)** | **411 Signals** | **94.8%** | **88.6%** | **+4.28%** | **ACTIVE PRODUCTION** |
+
+### B. Recent Engine Features Logged
+1. **Two-Tier Target Structure:**
+   - **T1 Safe Exit:** Clamped to 14D ATR, locks in **70% of position profit** and moves stop-loss to breakeven.
+   - **T2 Runner:** Captures multi-day momentum with the remaining 30% of position.
+   - **Operational Hold Rule:** "Hold remaining 30% only if price sustains above T1 with strong volume; otherwise exit completely."
+2. **Inactive / Illiquid Stock Shield:**
+   - Pre-dispatch gate checks BSE `Z`/`XT` categories, circuit halts, and zero-turnover liquidity to prevent alerts on un-tradable stocks like `SHIRPUR-G`.
+3. **Accuracy Regression Monitoring:**
+   - Stamped on every signal and tracked in [`services/evaluation/live_accuracy_ledger.py`](file:///d:/sm/services/evaluation/live_accuracy_ledger.py) and dashboard component [`apps/dashboard/src/components/LiveAccuracyLedgerCard.tsx`](file:///d:/sm/apps/dashboard/src/components/LiveAccuracyLedgerCard.tsx). If any future engine update causes hit rate to fall by $\ge 3\%$, the UI surfaces an immediate regression warning banner.
+

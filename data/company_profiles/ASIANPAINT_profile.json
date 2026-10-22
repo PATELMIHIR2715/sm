@@ -1,0 +1,28 @@
+{
+  "symbol": "ASIANPAINT",
+  "company_name": "Asian Paints Ltd",
+  "sector": "Paints & Consumer",
+  "tier": "LARGE_CAP",
+  "annual_revenue_cr": 35495.0,
+  "market_cap_cr": 302000.0,
+  "nifty_beta": 0.75,
+  "sector_beta": 1.1,
+  "fno_lot_size": 200,
+  "current_ltp": 2284.7,
+  "atr_14_inr": 52.49,
+  "atr_14_pct": 2.3,
+  "single_day_max_ceiling_pct": 3.1,
+  "realized_volatility_20d_pct": 23.16,
+  "ema_50": 2465.01,
+  "ema_200": 2495.52,
+  "rsi_14": 35.2,
+  "sector_valuation": {
+    "sector_pe": 48.5,
+    "median_5y_pe": 54.0,
+    "pe_premium_pct": -10.2,
+    "valuation_state": "REASONABLE_VALUE",
+    "multiple_factor": 1.08
+  },
+  "cached_timestamp": 1792644386.1727743,
+  "cached_date_str": "2026-10-22 10:16:26 IST"
+}

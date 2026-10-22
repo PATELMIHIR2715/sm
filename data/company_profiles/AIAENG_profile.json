@@ -1,0 +1,28 @@
+{
+  "symbol": "AIAENG",
+  "company_name": "AIAENG Ltd",
+  "sector": "Diversified",
+  "tier": "MID_CAP",
+  "annual_revenue_cr": 25000.0,
+  "market_cap_cr": 50000.0,
+  "nifty_beta": 1.0,
+  "sector_beta": 1.1,
+  "fno_lot_size": 500,
+  "current_ltp": 3590.0,
+  "atr_14_inr": 109.04,
+  "atr_14_pct": 3.04,
+  "single_day_max_ceiling_pct": 5.32,
+  "realized_volatility_20d_pct": 19.36,
+  "ema_50": 4023.26,
+  "ema_200": 4091.42,
+  "rsi_14": 29.2,
+  "sector_valuation": {
+    "sector_pe": 23.5,
+    "median_5y_pe": 22.0,
+    "pe_premium_pct": 6.8,
+    "valuation_state": "FAIR_VALUATION",
+    "multiple_factor": 1.0
+  },
+  "cached_timestamp": 1792646562.8323567,
+  "cached_date_str": "2026-10-22 10:52:43 IST"
+}

@@ -9,19 +9,21 @@
       "order_type": "LIMIT_ON_VWAP_PULLBACK (\u20b91,854.89)",
       "actionable_verdict": "ACCUMULATE ON VWAP PULLBACK",
       "warnings_detected": [
-        "Raw Alpha (+3.80%) exceeds 14D ATR limit (1.79% for MEGA_CAP).",
+        "Sector Valuation Overbought: Pharmaceuticals & Healthcare P/E (35.4x) is +21.2% above 5-yr median (29.2x). Risk of multiple compression.",
+        "Raw Alpha (+3.34%) exceeds 14D ATR limit (2.28% for MEGA_CAP).",
         "Systemic Drag: NIFTY (-0.40%) & Pharmaceuticals & Healthcare (-0.60%) create -0.59% headwind.",
         "Pre-Market Gap Trap (+1.50% gap with RSI 74.0). Morning fade expected.",
         "F&O Call OI Wall at \u20b91,860 acts as immediate upside resistance."
       ],
       "applied_mitigations": [
-        "Clamped T+1 target to realistic 1-day ATR limit (1.79%). Shifted excess to T+5.",
+        "Applied 0.88x Sector Valuation Multiple Discount.",
+        "Clamped T+1 target to realistic 1-day ATR limit (2.28%). Shifted excess to T+5.",
         "Subtracted Multi-Factor Beta Drag from T+1 target.",
         "Converted to Limit Order at VWAP pullback band (prevents buying morning spike).",
         "Clamped T+1 max target to \u20b91,856.28 just below Call OI wall."
       ],
-      "t1_target_bounds": "\u20b91,856.28 \u2013 \u20b91,868.25",
-      "t5_target_bounds": "\u20b91,890.50 \u2013 \u20b91,917.21",
+      "t1_target_bounds": "\u20b91,856.28 \u2013 \u20b91,873.70",
+      "t5_target_bounds": "\u20b91,904.97 \u2013 \u20b91,942.63",
       "test_status": "PASSED (DEFENSE ACTIVE)"
     },
     {
@@ -32,15 +34,17 @@
       "order_type": "MARKET_ORDER",
       "actionable_verdict": "MOMENTUM BUY",
       "warnings_detected": [
-        "Raw Alpha (+5.50%) exceeds 14D ATR limit (1.98% for MEGA_CAP).",
+        "Sector Valuation Overbought: Capital Goods & Infrastructure P/E (38.2x) is +50.4% above 5-yr median (25.4x). Risk of multiple compression.",
+        "Raw Alpha (+4.40%) exceeds 14D ATR limit (2.46% for MEGA_CAP).",
         "F&O Call OI Wall at \u20b93,750 acts as immediate upside resistance."
       ],
       "applied_mitigations": [
-        "Clamped T+1 target to realistic 1-day ATR limit (1.98%). Shifted excess to T+5.",
+        "Applied 0.80x Sector Valuation Multiple Discount.",
+        "Clamped T+1 target to realistic 1-day ATR limit (2.46%). Shifted excess to T+5.",
         "Clamped T+1 max target to \u20b93,742.50 just below Call OI wall."
       ],
-      "t1_target_bounds": "\u20b93,742.50 \u2013 \u20b93,788.48",
-      "t5_target_bounds": "\u20b93,862.68 \u2013 \u20b93,951.42",
+      "t1_target_bounds": "\u20b93,742.50 \u2013 \u20b93,799.26",
+      "t5_target_bounds": "\u20b93,891.51 \u2013 \u20b94,001.96",
       "test_status": "PASSED (DEFENSE ACTIVE)"
     },
     {
@@ -51,15 +55,17 @@
       "order_type": "MARKET_ORDER",
       "actionable_verdict": "MOMENTUM BUY",
       "warnings_detected": [
-        "Raw Alpha (+4.50%) exceeds 14D ATR limit (2.94% for LARGE_CAP).",
+        "Sector Valuation Overbought: Defense & Aerospace P/E (42.5x) is +77.1% above 5-yr median (24.0x). Risk of multiple compression.",
+        "Raw Alpha (+3.51%) exceeds 14D ATR limit (3.27% for LARGE_CAP).",
         "Systemic Drag: NIFTY (-1.25%) & Defense & Aerospace (-0.50%) create -1.77% headwind."
       ],
       "applied_mitigations": [
-        "Clamped T+1 target to realistic 1-day ATR limit (2.94%). Shifted excess to T+5.",
+        "Applied 0.78x Sector Valuation Multiple Discount.",
+        "Clamped T+1 target to realistic 1-day ATR limit (3.27%). Shifted excess to T+5.",
         "Subtracted Multi-Factor Beta Drag from T+1 target."
       ],
-      "t1_target_bounds": "\u20b94,833.70 \u2013 \u20b94,856.16",
-      "t5_target_bounds": "\u20b94,889.76 \u2013 \u20b94,957.44",
+      "t1_target_bounds": "\u20b94,843.20 \u2013 \u20b94,872.00",
+      "t5_target_bounds": "\u20b94,915.20 \u2013 \u20b95,001.60",
       "test_status": "PASSED (DEFENSE ACTIVE)"
     },
     {
@@ -89,15 +95,16 @@
       "order_type": "MARKET_ORDER",
       "actionable_verdict": "MOMENTUM BUY",
       "warnings_detected": [
-        "Raw Alpha (+4.20%) exceeds 14D ATR limit (3.24% for MID_CAP).",
+        "Raw Alpha (+4.20%) exceeds 14D ATR limit (3.71% for MID_CAP).",
         "F&O Call OI Wall at \u20b9400 acts as immediate upside resistance."
       ],
       "applied_mitigations": [
-        "Clamped T+1 target to realistic 1-day ATR limit (3.24%). Shifted excess to T+5.",
-        "Clamped T+1 max target to \u20b9399.20 just below Call OI wall."
+        "Clamped T+1 target to realistic 1-day ATR limit (3.71%). Shifted excess to T+5.",
+        "Clamped T+1 max target to \u20b9399.20 just below Call OI wall.",
+        "Capped T+5 multi-day swing target to Pattern Measured Ceiling (\u20b9425.46)."
       ],
-      "t1_target_bounds": "\u20b9399.20 \u2013 \u20b9401.20",
-      "t5_target_bounds": "\u20b9413.94 \u2013 \u20b9429.24",
+      "t1_target_bounds": "\u20b9399.20 \u2013 \u20b9402.31",
+      "t5_target_bounds": "\u20b9416.93 \u2013 \u20b9425.46",
       "test_status": "PASSED (DEFENSE ACTIVE)"
     },
     {
@@ -125,15 +132,16 @@
       "order_type": "MARKET_ORDER",
       "actionable_verdict": "MOMENTUM BUY",
       "warnings_detected": [
-        "Raw Alpha (+3.20%) exceeds 14D ATR limit (2.79% for MEGA_CAP).",
+        "Sector Valuation Overbought: Information Technology P/E (31.8x) is +20.0% above 5-yr median (26.5x). Risk of multiple compression.",
         "F&O Call OI Wall at \u20b9990 acts as immediate upside resistance."
       ],
       "applied_mitigations": [
-        "Clamped T+1 target to realistic 1-day ATR limit (2.79%). Shifted excess to T+5.",
-        "Clamped T+1 max target to \u20b9988.02 just below Call OI wall."
+        "Applied 0.88x Sector Valuation Multiple Discount.",
+        "Clamped T+1 max target to \u20b9988.02 just below Call OI wall.",
+        "Anchored Stop-Loss to Structural Support Floor at \u20b9975.50."
       ],
-      "t1_target_bounds": "\u20b9988.02 \u2013 \u20b91,006.27",
-      "t5_target_bounds": "\u20b91,033.84 \u2013 \u20b91,067.00",
+      "t1_target_bounds": "\u20b9988.02 \u2013 \u20b91,006.42",
+      "t5_target_bounds": "\u20b91,034.34 \u2013 \u20b91,067.69",
       "test_status": "PASSED (DEFENSE ACTIVE)"
     }
   ]

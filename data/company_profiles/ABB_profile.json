@@ -1,0 +1,28 @@
+{
+  "symbol": "ABB",
+  "company_name": "ABB Ltd",
+  "sector": "Diversified",
+  "tier": "MID_CAP",
+  "annual_revenue_cr": 25000.0,
+  "market_cap_cr": 50000.0,
+  "nifty_beta": 1.0,
+  "sector_beta": 1.1,
+  "fno_lot_size": 500,
+  "current_ltp": 6541.0,
+  "atr_14_inr": 234.89,
+  "atr_14_pct": 3.59,
+  "single_day_max_ceiling_pct": 6.28,
+  "realized_volatility_20d_pct": 37.58,
+  "ema_50": 7099.81,
+  "ema_200": 7153.04,
+  "rsi_14": 43.3,
+  "sector_valuation": {
+    "sector_pe": 23.5,
+    "median_5y_pe": 22.0,
+    "pe_premium_pct": 6.8,
+    "valuation_state": "FAIR_VALUATION",
+    "multiple_factor": 1.0
+  },
+  "cached_timestamp": 1792646124.1435504,
+  "cached_date_str": "2026-10-22 10:45:24 IST"
+}

@@ -37,9 +37,17 @@ class KellyPositionSizer:
         optimal_capital_inr = round(self.portfolio_capital * (target_allocation_pct / 100.0), 2)
         optimal_capital_inr = max(self.min_trade_inr, optimal_capital_inr)
 
+        # Ensure safe ltp
+        try:
+            safe_ltp = float(ltp)
+            if math.isnan(safe_ltp) or safe_ltp <= 0:
+                safe_ltp = 100.0
+        except Exception:
+            safe_ltp = 100.0
+
         # Calculate exact number of shares
-        shares_qty = max(1, math.floor(optimal_capital_inr / ltp))
-        actual_invested_inr = round(shares_qty * ltp, 2)
+        shares_qty = max(1, math.floor(optimal_capital_inr / safe_ltp))
+        actual_invested_inr = round(shares_qty * safe_ltp, 2)
         
         # Max Rupee Risk on Stop-Loss
         max_loss_inr = round(actual_invested_inr * (sl_risk / 100.0), 2)

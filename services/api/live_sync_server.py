@@ -662,6 +662,29 @@ class ProductionAPIHandler(BaseHTTPRequestHandler):
             self._set_headers(200)
             self.wfile.write(json.dumps(data, indent=2).encode('utf-8'))
 
+        elif path in ['/api/accuracy-meter', '/api/evaluation-metrics']:
+            try:
+                from services.evaluation.live_accuracy_ledger import LiveAccuracyLedger
+                data = LiveAccuracyLedger.get_or_evaluate_metrics()
+                self._set_headers(200)
+                self.wfile.write(json.dumps(data, indent=2).encode('utf-8'))
+            except Exception as e:
+                self._set_headers(500)
+                self.wfile.write(json.dumps({"error": str(e)}).encode('utf-8'))
+
+        elif path in ['/api/model-versions']:
+            try:
+                from services.evaluation.model_version_manager import ModelVersionManager
+                versions_data = {
+                    "active_version": ModelVersionManager.get_active_version(),
+                    "versions": ModelVersionManager.get_all_versions()
+                }
+                self._set_headers(200)
+                self.wfile.write(json.dumps(versions_data, indent=2).encode('utf-8'))
+            except Exception as e:
+                self._set_headers(500)
+                self.wfile.write(json.dumps({"error": str(e)}).encode('utf-8'))
+
         elif path in ['/api/telemetry']:
             regime = LivePriceProvider.get_market_regime()
             self._set_headers(200)
@@ -952,7 +975,7 @@ def start_background_stream_worker():
         try:
             from services.ingestion.auto_live_stream_worker import AutoLiveStreamWorker
             worker = AutoLiveStreamWorker()
-            worker.run_daemon(interval_seconds=30)
+            worker.run_daemon()
         except Exception as e:
             print(f"[BACKGROUND WORKER EXCEPTION] {e}", flush=True)
 

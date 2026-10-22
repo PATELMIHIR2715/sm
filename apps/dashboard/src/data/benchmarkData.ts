@@ -41,6 +41,12 @@ export interface LiveSignal {
   execution_order_type?: string;
   optimal_entry_price?: number;
   actionability_status?: string;
+  dispatchable?: boolean;
+  is_useful?: boolean;
+  preopen_status?: string;
+  preopen_verified_entry_inr?: number;
+  preopen_gap_pct?: number;
+  suppression_reason?: string;
   catalyst_absorption_pct?: number;
   remaining_alpha_pct?: number;
   warnings_detected?: string[];

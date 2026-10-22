@@ -8,7 +8,9 @@ import {
   Zap,
   Sliders,
   Sparkles,
-  Lock
+  Lock,
+  Send,
+  ExternalLink
 } from 'lucide-react';
 import { NOTIFICATIONS_API_BASE } from '../config';
 
@@ -206,6 +208,31 @@ export const NotificationSettingsModal: React.FC<NotificationSettingsModalProps>
 
         {/* Modal Body */}
         <div className="p-5 sm:p-6 space-y-5 max-h-[75vh] overflow-y-auto">
+          {/* Instant Telegram Channel Option */}
+          <div className="bg-sky-50/80 border border-sky-200 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
+            <div className="space-y-1">
+              <div className="flex items-center gap-1.5 text-xs font-bold text-sky-900 font-mono">
+                <Send className="w-4 h-4 text-sky-600" />
+                <span>Join Official Telegram Channel</span>
+                <span className="px-1.5 py-0.2 rounded text-[9px] font-mono font-bold bg-sky-100 text-sky-700 border border-sky-300">
+                  INSTANT
+                </span>
+              </div>
+              <p className="text-[11px] text-sky-700">
+                Receive every high-conviction trade signal, Pre-Catalyst Radar alert, and target update directly on Telegram.
+              </p>
+            </div>
+            <a
+              href="https://t.me/stockmarketsignalseventbased"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3.5 py-1.5 rounded-lg bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold flex items-center justify-center gap-1.5 shrink-0 shadow-xs transition"
+            >
+              <span>Join Channel</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          </div>
+
           {/* Subscription Form */}
           <form onSubmit={handleSubscribe} className="space-y-4">
             <div className="space-y-3 bg-slate-50 border border-slate-200 rounded-xl p-4">

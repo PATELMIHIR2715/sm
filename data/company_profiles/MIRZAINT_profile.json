@@ -1,0 +1,28 @@
+{
+  "symbol": "MIRZAINT",
+  "company_name": "MIRZAINT Ltd",
+  "sector": "Diversified",
+  "tier": "MID_CAP",
+  "annual_revenue_cr": 25000.0,
+  "market_cap_cr": 50000.0,
+  "nifty_beta": 1.0,
+  "sector_beta": 1.1,
+  "fno_lot_size": 500,
+  "current_ltp": 26.83,
+  "atr_14_inr": 0.94,
+  "atr_14_pct": 3.5,
+  "single_day_max_ceiling_pct": 6.12,
+  "realized_volatility_20d_pct": 19.92,
+  "ema_50": 29.81,
+  "ema_200": 30.44,
+  "rsi_14": 35.0,
+  "sector_valuation": {
+    "sector_pe": 23.5,
+    "median_5y_pe": 22.0,
+    "pe_premium_pct": 6.8,
+    "valuation_state": "FAIR_VALUATION",
+    "multiple_factor": 1.0
+  },
+  "cached_timestamp": 1792644798.064329,
+  "cached_date_str": "2026-10-22 10:23:18 IST"
+}

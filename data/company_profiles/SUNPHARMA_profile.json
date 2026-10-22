@@ -8,14 +8,14 @@
   "nifty_beta": 0.65,
   "sector_beta": 1.1,
   "fno_lot_size": 350,
-  "current_ltp": NaN,
-  "atr_14_inr": 31.81,
-  "atr_14_pct": NaN,
-  "single_day_max_ceiling_pct": NaN,
-  "realized_volatility_20d_pct": 19.33,
-  "ema_50": 1868.03,
-  "ema_200": 1878.16,
-  "rsi_14": 28.6,
+  "current_ltp": 1745.1,
+  "atr_14_inr": 34.53,
+  "atr_14_pct": 1.98,
+  "single_day_max_ceiling_pct": 2.28,
+  "realized_volatility_20d_pct": 16.98,
+  "ema_50": 1843.18,
+  "ema_200": 1858.95,
+  "rsi_14": 23.9,
   "sector_valuation": {
     "sector_pe": 35.4,
     "median_5y_pe": 29.2,
@@ -23,6 +23,6 @@
     "valuation_state": "EXPENSIVE_ELEVATED",
     "multiple_factor": 0.88
   },
-  "cached_timestamp": 1791862489.9515276,
-  "cached_date_str": "2026-10-13 09:04:50 IST"
+  "cached_timestamp": 1792640055.6743455,
+  "cached_date_str": "2026-10-22 09:04:16 IST"
 }

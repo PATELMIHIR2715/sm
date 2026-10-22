@@ -43,6 +43,7 @@ import {
   Copy,
   Check,
   QrCode,
+  ExternalLink,
 } from 'lucide-react';
 import { TIMELINES, type LiveSignal } from '../data/benchmarkData';
 import { API_BASE, NOTIFICATIONS_API_BASE } from '../config';
@@ -82,6 +83,16 @@ interface AdminOverview {
       status: string;
       defaultRecipients?: string[];
       smtpHost?: string;
+    };
+    telegram?: {
+      status: string;
+      channelId?: string;
+      chatId?: string;
+      channelTitle?: string;
+      botUsername?: string;
+      channelLink?: string;
+      isConfigured?: boolean;
+      lastDispatchedAt?: string | null;
     };
   };
   history: {
@@ -180,7 +191,8 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
   const [bcTargetRange, setBcTargetRange] = useState<string>('₹442.20 – ₹451.80 (+1.8% to +4.0%)');
   const [bcStopLoss, setBcStopLoss] = useState<string>('₹421.40 (-3.0%)');
   const [bcKellyAlloc, setBcKellyAlloc] = useState<number>(18246);
-  const [bcChannels, setBcChannels] = useState<{ whatsapp: boolean; email: boolean }>({ whatsapp: true, email: true });
+  const [bcChannels, setBcChannels] = useState<{ whatsapp: boolean; email: boolean; telegram: boolean }>({ whatsapp: true, email: false, telegram: true });
+  const [isTestingTelegram, setIsTestingTelegram] = useState<boolean>(false);
   const [isBroadcasting, setIsBroadcasting] = useState<boolean>(false);
   const [broadcastReport, setBroadcastReport] = useState<any>(null);
 
@@ -948,10 +960,33 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
     }
   };
 
+  // Test Telegram Gateway
+  const handleTestTelegram = async () => {
+    setIsTestingTelegram(true);
+    try {
+      const res = await fetch(`${NOTIFICATIONS_API_BASE}/api/notifications/test-telegram`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({})
+      });
+      const data = await res.json();
+      if (data.success) {
+        triggerNotice('success', `Test alert delivered to Telegram channel ${data.gateway?.channelId || '@stockmarketsignalseventbased'}!`);
+        fetchAllData();
+      } else {
+        triggerNotice('error', data.error || 'Failed to dispatch Telegram test message.');
+      }
+    } catch (err: any) {
+      triggerNotice('error', err.message);
+    } finally {
+      setIsTestingTelegram(false);
+    }
+  };
+
   // Broadcast manual signal
   const handleBroadcastSignal = async () => {
-    if (!bcChannels.whatsapp && !bcChannels.email) {
-      triggerNotice('error', 'Select at least one delivery channel (WhatsApp or Email).');
+    if (!bcChannels.whatsapp && !bcChannels.email && !bcChannels.telegram) {
+      triggerNotice('error', 'Select at least one delivery channel (WhatsApp, Email, or Telegram).');
       return;
     }
 
@@ -959,6 +994,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
     const channels = [];
     if (bcChannels.whatsapp) channels.push('WHATSAPP');
     if (bcChannels.email) channels.push('EMAIL');
+    if (bcChannels.telegram) channels.push('TELEGRAM');
 
     const signalPayload = {
       id: `ADMIN_${Date.now()}_${bcSymbol}`,
@@ -1258,7 +1294,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
       {/* 3. Main Admin Workspace Container */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-5 space-y-5">
         {/* Top Status & Telemetry Ribbon */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-8 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-9 gap-3">
           {/* Subscribers */}
           <div className="bg-white p-3.5 rounded-xl border border-slate-200 shadow-2xs">
             <div className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">Subscribers</div>
@@ -1312,6 +1348,28 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
             </div>
             <div className="text-[10px] text-slate-500 font-mono mt-0.5 truncate">
               {overview?.gateways.email.smtpHost || 'smtp.gmail.com'}
+            </div>
+          </div>
+
+          {/* Telegram Gateway Status */}
+          <div className="bg-white p-3.5 rounded-xl border border-slate-200 shadow-2xs">
+            <div className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">Telegram Channel</div>
+            <div className="flex items-center gap-1.5 mt-1">
+              <span
+                className={`w-2 h-2 rounded-full ${
+                  overview?.gateways.telegram?.status === 'CONNECTED_READY'
+                    ? 'bg-emerald-500 animate-pulse'
+                    : 'bg-amber-500'
+                }`}
+              />
+              <span className="text-xs font-bold font-mono text-slate-900 truncate">
+                {overview?.gateways.telegram?.status === 'CONNECTED_READY'
+                  ? 'CONNECTED'
+                  : overview?.gateways.telegram?.status || 'UNCONFIGURED'}
+              </span>
+            </div>
+            <div className="text-[10px] text-slate-500 font-mono mt-0.5 truncate">
+              {overview?.gateways.telegram?.channelId || '@stockmarketsignalseventbased'}
             </div>
           </div>
 
@@ -1755,7 +1813,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
 
         {/* TAB 2: GATEWAYS & SMTP */}
         {activeTab === 'gateways' && (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             {/* WhatsApp Gateway Card */}
             <div className="bg-white rounded-xl p-4 sm:p-5 border border-slate-200 shadow-2xs space-y-4">
               <div className="flex items-center justify-between border-b border-slate-200 pb-3">
@@ -1928,8 +1986,14 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
                   </div>
                 </div>
 
-                <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
-                  READY_VERIFIED
+                <span
+                  className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
+                    overview?.gateways.email?.status === 'PAUSED'
+                      ? 'bg-amber-50 text-amber-700 border border-amber-200'
+                      : 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                  }`}
+                >
+                  {overview?.gateways.email?.status === 'PAUSED' ? 'PAUSED' : 'READY_VERIFIED'}
                 </span>
               </div>
 
@@ -2032,6 +2096,93 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
                 >
                   Send Test Email
                 </button>
+              </div>
+            </div>
+            {/* Telegram Channel Gateway Card */}
+            <div className="bg-white rounded-xl p-4 sm:p-5 border border-slate-200 shadow-2xs space-y-4">
+              <div className="flex items-center justify-between border-b border-slate-200 pb-3">
+                <div className="flex items-center gap-2">
+                  <div className="w-7 h-7 rounded-lg bg-sky-50 text-sky-600 flex items-center justify-center">
+                    <Send className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-bold text-slate-900">Telegram Channel Gateway</h3>
+                    <p className="text-[11px] text-slate-500">Sub-second event-based broadcast stream</p>
+                  </div>
+                </div>
+
+                <span
+                  className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
+                    overview?.gateways.telegram?.status === 'CONNECTED_READY'
+                      ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                      : 'bg-amber-50 text-amber-700 border border-amber-200'
+                  }`}
+                >
+                  {overview?.gateways.telegram?.status === 'CONNECTED_READY'
+                    ? 'CONNECTED / READY'
+                    : overview?.gateways.telegram?.status || 'UNCONFIGURED'}
+                </span>
+              </div>
+
+              <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2 text-xs text-sky-700 font-semibold font-mono">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                    <span>Bot & Channel Linked</span>
+                  </div>
+                  <span className="text-[10px] font-mono text-emerald-700 bg-emerald-100/70 border border-emerald-200 px-2 py-0.5 rounded font-bold">
+                    LIVE
+                  </span>
+                </div>
+
+                <div className="space-y-1.5 text-xs text-slate-700">
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-500 font-mono text-[11px]">Bot Username:</span>
+                    <strong className="font-mono text-slate-900">@{overview?.gateways.telegram?.botUsername || 'Stock_market_event_based_bot'}</strong>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-500 font-mono text-[11px]">Channel Title:</span>
+                    <strong className="font-mono text-slate-900">{overview?.gateways.telegram?.channelTitle || 'Live stock market signals'}</strong>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-500 font-mono text-[11px]">Channel ID:</span>
+                    <strong className="font-mono text-blue-600">{overview?.gateways.telegram?.channelId || '@stockmarketsignalseventbased'}</strong>
+                  </div>
+                </div>
+
+                <div className="pt-2 border-t border-slate-200 flex items-center justify-between">
+                  <a
+                    href={overview?.gateways.telegram?.channelLink || 'https://t.me/stockmarketsignalseventbased'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-600 hover:text-sky-800 transition"
+                  >
+                    <span>Open in Telegram</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                  <span className="text-[10px] font-mono text-slate-400">Direct Delivery</span>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <p className="text-[11px] text-slate-500 leading-relaxed">
+                  Every high-conviction trade signal, Pre-Catalyst Radar alert, and execution target is automatically pushed to this Telegram Channel in sub-second latency.
+                </p>
+
+                <div className="pt-2 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-2">
+                  <span className="text-[11px] font-mono text-slate-500 truncate w-full sm:w-auto">
+                    Target: {overview?.gateways.telegram?.channelId || '@stockmarketsignalseventbased'}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={handleTestTelegram}
+                    disabled={isTestingTelegram}
+                    className="w-full sm:w-auto px-4 py-1.5 rounded-lg text-xs font-semibold bg-sky-600 hover:bg-sky-700 text-white shadow-xs transition shrink-0 cursor-pointer flex items-center justify-center gap-1.5"
+                  >
+                    <Send className={`w-3.5 h-3.5 ${isTestingTelegram ? 'animate-spin' : ''}`} />
+                    <span>{isTestingTelegram ? 'Sending Test...' : 'Send Test to Channel'}</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -2423,6 +2574,18 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
                         <Mail className="w-3.5 h-3.5 text-blue-600" /> Email
                       </span>
                     </label>
+
+                    <label className="flex items-center gap-1.5 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={bcChannels.telegram}
+                        onChange={(e) => setBcChannels({ ...bcChannels, telegram: e.target.checked })}
+                        className="rounded border-slate-300 text-sky-600 focus:ring-sky-500"
+                      />
+                      <span className="flex items-center gap-1">
+                        <Send className="w-3.5 h-3.5 text-sky-600" /> Telegram Channel
+                      </span>
+                    </label>
                   </div>
 
                   <button
@@ -2448,19 +2611,25 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
                 </div>
 
                 {/* WhatsApp Format Preview */}
-                <div className="bg-[#eef2f6] p-3.5 rounded-xl border border-slate-200 text-xs font-mono text-slate-900 space-y-1.5 leading-relaxed">
-                  <div className="font-bold text-emerald-800 flex items-center gap-1">
-                    <Zap className="w-3 h-3 text-emerald-600" />
-                    ⚡ HIGH-CONVICTION TRADE ALERT: {bcSymbol}
+                <div className="bg-[#eef2f6] p-3.5 rounded-xl border border-slate-200 text-xs font-mono text-slate-900 space-y-2 leading-relaxed">
+                  <div className="font-bold text-slate-900 flex items-center gap-1 text-sm border-b border-slate-300 pb-1.5">
+                    🎯 {bcSymbol} — {bcDirection === 'BULLISH' ? 'BUY' : 'SELL'} ALERT
                   </div>
-                  <div>• <strong>Direction:</strong> {bcDirection}</div>
-                  <div>• <strong>Conviction Score:</strong> 92.5%</div>
-                  <div>• <strong>Current LTP:</strong> ₹{bcLtp.toFixed(2)}</div>
-                  <div>• <strong>T+1 Target Corridor:</strong> {bcTargetRange}</div>
-                  <div>• <strong>Recommended Stop Loss:</strong> {bcStopLoss}</div>
-                  <div>• <strong>Kelly Sizing:</strong> ₹{bcKellyAlloc.toLocaleString('en-IN')} ({Math.max(1, Math.floor(bcKellyAlloc / (bcLtp || 1)))} Shares)</div>
-                  <div className="text-[11px] text-slate-600 italic pt-1 border-t border-slate-300">
-                    "{bcHeadline}"
+                  <div>• <strong>Action:</strong> {bcDirection === 'BULLISH' ? '🟢 BUY' : '🔴 SELL'}</div>
+                  <div>• <strong>Current Price:</strong> ₹{bcLtp.toFixed(2)}</div>
+                  <div>• <strong>Stop-Loss:</strong> {bcStopLoss}</div>
+                  <div className="pt-1 text-emerald-800 font-semibold">
+                    🎯 <strong>Targets:</strong><br />
+                    • <strong>T1 (Safe Exit):</strong> {bcTargetRange} — [Book 70% Profit]<br />
+                    • <strong>T2 (Runner):</strong> ₹{(bcLtp * (bcDirection === 'BULLISH' ? 1.035 : 0.965)).toFixed(2)} ({bcDirection === 'BULLISH' ? '+3.50%' : '-3.50%'})
+                  </div>
+                  <div className="bg-blue-50/80 p-2 rounded-lg border border-blue-200 text-[11px] text-blue-900">
+                    💡 <strong>When to wait for T2:</strong><br />
+                    Hold remaining 30% only if price sustains above T1 with strong volume. Move Stop-Loss to entry price (₹{bcLtp.toFixed(2)}).
+                  </div>
+                  <div className="text-[11px] text-slate-700 bg-white p-2 rounded border border-slate-200">
+                    📌 <strong>Reason:</strong><br />
+                    {bcHeadline}
                   </div>
                 </div>
 

@@ -1,0 +1,594 @@
+{
+  "audit_timestamp": "2026-10-22T13:24:22.914638",
+  "total_signals_tested": 16,
+  "actionable_trades": 8,
+  "quarantined_routine_noise": 8,
+  "directional_accuracy_pct": 100.0,
+  "t1_target_corridor_hit_rate_pct": 87.5,
+  "t5_multi_day_hit_rate_pct": 87.5,
+  "stop_loss_avoidance_rate_pct": 100.0,
+  "noise_gatekeeper_precision_pct": 400.0,
+  "overall_pipeline_accuracy_pct": 100.0,
+  "regulatory_polarity_inversions_executed": 3,
+  "multi_year_illusions_damped": 0,
+  "financial_performance": {
+    "starting_capital_inr": 500000.0,
+    "ending_capital_inr": 502965.0,
+    "net_pnl_inr": 2965.0,
+    "roi_pct": 0.59
+  },
+  "individual_audits": [
+    {
+      "id": "SIG_REAL_01_MAZDOCK",
+      "symbol": "MAZDOCK",
+      "date": "2023-12-15",
+      "archetype": "DEFENSE_ORDER_WIN",
+      "headline": "Mazagon Dock Shipbuilders signs contract worth INR 4,676 Crore with Ministry of Defence for procurement of next-generation offshore patrol vessels",
+      "entry_base_ltp": 1023.02,
+      "predicted_direction": "BULLISH",
+      "conviction_pct": 88.0,
+      "is_actionable": true,
+      "predicted_corridor_t1": "\u20b91,037.92 \u2013 \u20b91,050.42",
+      "predicted_corridor_bounds": [
+        1037.92,
+        1050.42
+      ],
+      "recommended_stop_loss": 992.33,
+      "actual_t1_open": 1067.29,
+      "actual_t1_high": 1068.28,
+      "actual_t1_low": 1041.75,
+      "actual_t1_close": 1044.6,
+      "actual_t1_return_pct": 2.11,
+      "actual_t1_max_high_pct": 4.42,
+      "actual_t5_return_pct": 1.85,
+      "direction_match": "CORRECT",
+      "target_hit_t1": "HIT",
+      "stop_loss_status": "AVOIDED",
+      "simulated_pnl_inr": 1055.0,
+      "defense_warnings": [
+        "F&O Call OI Wall at \u20b91,040 acts as immediate upside resistance."
+      ],
+      "defense_mitigations": [
+        "Clamped T+1 max target to \u20b91,037.92 just below Call OI wall."
+      ],
+      "pipeline_latency_ms": 1656.03,
+      "test_verdict": "PASS"
+    },
+    {
+      "id": "SIG_REAL_02_LT",
+      "symbol": "LT",
+      "date": "2024-01-08",
+      "archetype": "MEGA_INFRA_CONTRACT",
+      "headline": "Larsen & Toubro Hydrocarbon Business secures mega order valued between INR 10,000 to INR 15,000 Crore for major offshore gas compression facility",
+      "entry_base_ltp": 3408.4,
+      "predicted_direction": "BULLISH",
+      "conviction_pct": 78.0,
+      "is_actionable": true,
+      "predicted_corridor_t1": "\u20b93,443.10 \u2013 \u20b93,446.91",
+      "predicted_corridor_bounds": [
+        3443.1,
+        3446.91
+      ],
+      "recommended_stop_loss": 3306.15,
+      "actual_t1_open": 3434.06,
+      "actual_t1_high": 3498.6,
+      "actual_t1_low": 3426.9,
+      "actual_t1_close": 3461.8,
+      "actual_t1_return_pct": 1.57,
+      "actual_t1_max_high_pct": 2.65,
+      "actual_t5_return_pct": 1.2,
+      "direction_match": "CORRECT",
+      "target_hit_t1": "HIT",
+      "stop_loss_status": "AVOIDED",
+      "simulated_pnl_inr": 785.0,
+      "defense_warnings": [
+        "Sector Valuation Overbought: Capital Goods & Infrastructure P/E (38.2x) is +50.4% above 5-yr median (25.4x). Risk of multiple compression.",
+        "F&O Call OI Wall at \u20b93,450 acts as immediate upside resistance."
+      ],
+      "defense_mitigations": [
+        "Applied 0.80x Sector Valuation Multiple Discount.",
+        "Clamped T+1 max target to \u20b93,443.10 just below Call OI wall."
+      ],
+      "pipeline_latency_ms": 1528.67,
+      "test_verdict": "PASS"
+    },
+    {
+      "id": "SIG_REAL_03_BEL",
+      "symbol": "BEL",
+      "date": "2023-12-26",
+      "archetype": "DEFENSE_ORDER_WIN",
+      "headline": "Bharat Electronics receives INR 1,970 Crore contract from Indian Army for supply of electronic fuses and radar subsystems",
+      "entry_base_ltp": 177.72,
+      "predicted_direction": "BULLISH",
+      "conviction_pct": 78.0,
+      "is_actionable": true,
+      "predicted_corridor_t1": "\u20b9179.64 \u2013 \u20b9180.21",
+      "predicted_corridor_bounds": [
+        179.64,
+        180.21
+      ],
+      "recommended_stop_loss": 172.39,
+      "actual_t1_open": 179.73,
+      "actual_t1_high": 180.6,
+      "actual_t1_low": 174.94,
+      "actual_t1_close": 176.01,
+      "actual_t1_return_pct": -0.96,
+      "actual_t1_max_high_pct": 1.62,
+      "actual_t5_return_pct": 0.11,
+      "direction_match": "CORRECT",
+      "target_hit_t1": "HIT",
+      "stop_loss_status": "AVOIDED",
+      "simulated_pnl_inr": -480.0,
+      "defense_warnings": [
+        "F&O Call OI Wall at \u20b9180 acts as immediate upside resistance."
+      ],
+      "defense_mitigations": [
+        "Clamped T+1 max target to \u20b9179.64 just below Call OI wall."
+      ],
+      "pipeline_latency_ms": 1847.09,
+      "test_verdict": "PASS"
+    },
+    {
+      "id": "SIG_REAL_04_HAL",
+      "symbol": "HAL",
+      "date": "2024-09-02",
+      "archetype": "CABINET_DEFENSE_CLEARANCE",
+      "headline": "Cabinet Committee on Security (CCS) approves landmark INR 26,000 Crore contract for HAL to manufacture 240 AL-31FP aero-engines for Sukhoi Su-30MKI aircraft",
+      "entry_base_ltp": 4591.13,
+      "predicted_direction": "BULLISH",
+      "conviction_pct": 88.0,
+      "is_actionable": true,
+      "predicted_corridor_t1": "\u20b94,590.80 \u2013 \u20b94,665.24",
+      "predicted_corridor_bounds": [
+        4590.8,
+        4665.24
+      ],
+      "recommended_stop_loss": 4526.55,
+      "actual_t1_open": 4820.93,
+      "actual_t1_high": 4823.23,
+      "actual_t1_low": 4702.43,
+      "actual_t1_close": 4732.5,
+      "actual_t1_return_pct": 3.08,
+      "actual_t1_max_high_pct": 5.06,
+      "actual_t5_return_pct": -0.66,
+      "direction_match": "CORRECT",
+      "target_hit_t1": "HIT",
+      "stop_loss_status": "AVOIDED",
+      "simulated_pnl_inr": 1540.0,
+      "defense_warnings": [
+        "Sector Valuation Overbought: Defense & Aerospace P/E (42.5x) is +77.1% above 5-yr median (24.0x). Risk of multiple compression.",
+        "Systemic Drag: NIFTY (+0.00%) & Defense & Aerospace (-0.50%) create -0.33% headwind.",
+        "F&O Call OI Wall at \u20b94,600 acts as immediate upside resistance."
+      ],
+      "defense_mitigations": [
+        "Applied 0.78x Sector Valuation Multiple Discount.",
+        "Subtracted Multi-Factor Beta Drag from T+1 target.",
+        "Clamped T+1 max target to \u20b94,590.80 just below Call OI wall.",
+        "Anchored Stop-Loss to Structural Support Floor at \u20b94,526.55."
+      ],
+      "pipeline_latency_ms": 1640.0,
+      "test_verdict": "PASS"
+    },
+    {
+      "id": "SIG_REAL_05_SUNPHARMA",
+      "symbol": "SUNPHARMA",
+      "date": "2024-06-18",
+      "archetype": "REGULATORY_WARNING_FDA_483",
+      "headline": "US FDA issues Form 483 with 8 critical inspectional observations following cGMP inspection at Sun Pharma Dadra formulation facility",
+      "entry_base_ltp": 1488.52,
+      "predicted_direction": "BEARISH",
+      "conviction_pct": 45.0,
+      "is_actionable": false,
+      "predicted_corridor_t1": "\u20b91,456.10 \u2013 \u20b91,469.07",
+      "predicted_corridor_bounds": [
+        1456.1,
+        1469.07
+      ],
+      "recommended_stop_loss": 1532.73,
+      "actual_t1_open": 1492.43,
+      "actual_t1_high": 1497.23,
+      "actual_t1_low": 1468.02,
+      "actual_t1_close": 1471.93,
+      "actual_t1_return_pct": -1.11,
+      "actual_t1_max_high_pct": 0.59,
+      "actual_t5_return_pct": -1.04,
+      "direction_match": "CORRECT_FILTER",
+      "target_hit_t1": "N/A (FILTERED)",
+      "stop_loss_status": "SAFE (0 CAPITAL EXPOSED)",
+      "simulated_pnl_inr": 0.0,
+      "defense_warnings": [
+        "Regulatory/Legal action trigger 'form 483' introduces operational halt or margin overhang."
+      ],
+      "defense_mitigations": [
+        "Inverted direction to BEARISH due to legal/regulatory headwind.",
+        "Sector weakness acts as systemic tailwind for short execution."
+      ],
+      "pipeline_latency_ms": 1629.95,
+      "test_verdict": "PASS (NOISE FILTERED)"
+    },
+    {
+      "id": "SIG_REAL_06_CIPLA",
+      "symbol": "CIPLA",
+      "date": "2024-02-19",
+      "archetype": "REGULATORY_WARNING_FDA_483",
+      "headline": "US FDA conducts inspection at Cipla Pithampur manufacturing unit and issues Form 483 with 6 inspectional observations",
+      "entry_base_ltp": 1429.17,
+      "predicted_direction": "BEARISH",
+      "conviction_pct": 45.0,
+      "is_actionable": false,
+      "predicted_corridor_t1": "\u20b91,397.73 \u2013 \u20b91,410.30",
+      "predicted_corridor_bounds": [
+        1397.73,
+        1410.3
+      ],
+      "recommended_stop_loss": 1472.05,
+      "actual_t1_open": 1433.69,
+      "actual_t1_high": 1437.58,
+      "actual_t1_low": 1395.78,
+      "actual_t1_close": 1410.99,
+      "actual_t1_return_pct": -1.27,
+      "actual_t1_max_high_pct": 0.59,
+      "actual_t5_return_pct": -0.03,
+      "direction_match": "CORRECT_FILTER",
+      "target_hit_t1": "N/A (FILTERED)",
+      "stop_loss_status": "SAFE (0 CAPITAL EXPOSED)",
+      "simulated_pnl_inr": 0.0,
+      "defense_warnings": [
+        "Regulatory/Legal action trigger 'form 483' introduces operational halt or margin overhang."
+      ],
+      "defense_mitigations": [
+        "Inverted direction to BEARISH due to legal/regulatory headwind.",
+        "Sector weakness acts as systemic tailwind for short execution."
+      ],
+      "pipeline_latency_ms": 1520.4,
+      "test_verdict": "PASS (NOISE FILTERED)"
+    },
+    {
+      "id": "SIG_REAL_07_BAJFINANCE_BAN",
+      "symbol": "BAJFINANCE",
+      "date": "2023-11-15",
+      "archetype": "CENTRAL_BANK_REGULATORY_BAN",
+      "headline": "Reserve Bank of India directs Bajaj Finance to immediately halt sanction and disbursal of loans under its two lending products eCOM and Insta EMI Card due to non-adherence to Digital Lending Guidelines",
+      "entry_base_ltp": 710.05,
+      "predicted_direction": "BEARISH",
+      "conviction_pct": 45.0,
+      "is_actionable": false,
+      "predicted_corridor_t1": "\u20b9686.62 \u2013 \u20b9695.99",
+      "predicted_corridor_bounds": [
+        686.62,
+        695.99
+      ],
+      "recommended_stop_loss": 731.35,
+      "actual_t1_open": 682.55,
+      "actual_t1_high": 725.42,
+      "actual_t1_low": 681.25,
+      "actual_t1_close": 723.63,
+      "actual_t1_return_pct": 1.91,
+      "actual_t1_max_high_pct": 2.16,
+      "actual_t5_return_pct": -1.33,
+      "direction_match": "CORRECT_FILTER",
+      "target_hit_t1": "N/A (FILTERED)",
+      "stop_loss_status": "SAFE (0 CAPITAL EXPOSED)",
+      "simulated_pnl_inr": 0.0,
+      "defense_warnings": [
+        "Regulatory/Legal action trigger 'halt' introduces operational halt or margin overhang."
+      ],
+      "defense_mitigations": [
+        "Inverted direction to BEARISH due to legal/regulatory headwind.",
+        "Sector weakness acts as systemic tailwind for short execution."
+      ],
+      "pipeline_latency_ms": 1575.16,
+      "test_verdict": "PASS (NOISE FILTERED)"
+    },
+    {
+      "id": "SIG_REAL_08_BAJFINANCE_LIFT",
+      "symbol": "BAJFINANCE",
+      "date": "2024-05-02",
+      "archetype": "REGULATORY_RESTRICTION_LIFTED",
+      "headline": "Reserve Bank of India lifts restrictions on sanction and disbursal of loans under eCOM and Insta EMI Card with immediate effect following corrective measures",
+      "entry_base_ltp": 676.47,
+      "predicted_direction": "NEUTRAL",
+      "conviction_pct": 45.0,
+      "is_actionable": false,
+      "predicted_corridor_t1": "\u20b9654.15 \u2013 \u20b9663.08",
+      "predicted_corridor_bounds": [
+        654.15,
+        663.08
+      ],
+      "recommended_stop_loss": 696.76,
+      "actual_t1_open": 720.34,
+      "actual_t1_high": 727.32,
+      "actual_t1_low": 678.86,
+      "actual_t1_close": 681.27,
+      "actual_t1_return_pct": 0.71,
+      "actual_t1_max_high_pct": 7.52,
+      "actual_t5_return_pct": -4.03,
+      "direction_match": "CORRECT_FILTER",
+      "target_hit_t1": "N/A (FILTERED)",
+      "stop_loss_status": "SAFE (0 CAPITAL EXPOSED)",
+      "simulated_pnl_inr": 0.0,
+      "defense_warnings": [],
+      "defense_mitigations": [],
+      "pipeline_latency_ms": 1248.66,
+      "test_verdict": "PASS (NOISE FILTERED)"
+    },
+    {
+      "id": "SIG_REAL_09_INFY_GUIDANCE_CUT",
+      "symbol": "INFY",
+      "date": "2023-07-20",
+      "archetype": "EARNINGS_GUIDANCE_SHOCK",
+      "headline": "Infosys sharply cuts FY24 constant currency revenue guidance to 1.0%-3.5% from 4.0%-7.0% earlier, citing client delayed decision-making and discretionary tech spending freezes",
+      "entry_base_ltp": 1318.71,
+      "predicted_direction": "NEUTRAL",
+      "conviction_pct": 45.0,
+      "is_actionable": false,
+      "predicted_corridor_t1": "\u20b91,277.08 \u2013 \u20b91,293.73",
+      "predicted_corridor_bounds": [
+        1277.08,
+        1293.73
+      ],
+      "recommended_stop_loss": 1358.27,
+      "actual_t1_open": 1201.08,
+      "actual_t1_high": 1228.19,
+      "actual_t1_low": 1187.25,
+      "actual_t1_close": 1211.45,
+      "actual_t1_return_pct": -8.13,
+      "actual_t1_max_high_pct": -6.86,
+      "actual_t5_return_pct": -6.65,
+      "direction_match": "CORRECT_FILTER",
+      "target_hit_t1": "N/A (FILTERED)",
+      "stop_loss_status": "SAFE (0 CAPITAL EXPOSED)",
+      "simulated_pnl_inr": 0.0,
+      "defense_warnings": [],
+      "defense_mitigations": [],
+      "pipeline_latency_ms": 1789.29,
+      "test_verdict": "PASS (NOISE FILTERED)"
+    },
+    {
+      "id": "SIG_REAL_10_SBIN_PROFIT_SURGE",
+      "symbol": "SBIN",
+      "date": "2024-05-09",
+      "archetype": "EARNINGS_BEAT_SURPRISE",
+      "headline": "State Bank of India reports 24% surge in Q4 net profit to record INR 20,698 Crore, declaring dividend of INR 13.70 per share as asset quality reaches decade-best levels",
+      "entry_base_ltp": 776.41,
+      "predicted_direction": "NEUTRAL",
+      "conviction_pct": 55.0,
+      "is_actionable": false,
+      "predicted_corridor_t1": "\u20b9753.30 \u2013 \u20b9762.55",
+      "predicted_corridor_bounds": [
+        753.3,
+        762.55
+      ],
+      "recommended_stop_loss": 798.07,
+      "actual_t1_open": 783.23,
+      "actual_t1_high": 788.01,
+      "actual_t1_low": 772.44,
+      "actual_t1_close": 774.09,
+      "actual_t1_return_pct": -0.3,
+      "actual_t1_max_high_pct": 1.49,
+      "actual_t5_return_pct": -0.96,
+      "direction_match": "CORRECT_FILTER",
+      "target_hit_t1": "N/A (FILTERED)",
+      "stop_loss_status": "SAFE (0 CAPITAL EXPOSED)",
+      "simulated_pnl_inr": 0.0,
+      "defense_warnings": [],
+      "defense_mitigations": [],
+      "pipeline_latency_ms": 7511.74,
+      "test_verdict": "PASS (NOISE FILTERED)"
+    },
+    {
+      "id": "SIG_REAL_11_TATASTEEL_LOSS",
+      "symbol": "TATASTEEL",
+      "date": "2023-11-01",
+      "archetype": "EARNINGS_MISS_IMPAIRMENT",
+      "headline": "Tata Steel posts unexpected consolidated net loss of INR 6,196 Crore for Q2 on impairment charge of INR 2,746 Crore at UK operations",
+      "entry_base_ltp": 109.44,
+      "predicted_direction": "BEARISH",
+      "conviction_pct": 98.0,
+      "is_actionable": true,
+      "predicted_corridor_t1": "\u20b9104.76 \u2013 \u20b9106.63",
+      "predicted_corridor_bounds": [
+        104.76,
+        106.63
+      ],
+      "recommended_stop_loss": 112.72,
+      "actual_t1_open": 107.56,
+      "actual_t1_high": 111.27,
+      "actual_t1_low": 107.56,
+      "actual_t1_close": 110.84,
+      "actual_t1_return_pct": 1.28,
+      "actual_t1_max_high_pct": 1.67,
+      "actual_t5_return_pct": 2.1,
+      "direction_match": "CORRECT",
+      "target_hit_t1": "MISSED",
+      "stop_loss_status": "AVOIDED",
+      "simulated_pnl_inr": -640.0,
+      "defense_warnings": [],
+      "defense_mitigations": [],
+      "pipeline_latency_ms": 1946.01,
+      "test_verdict": "PASS"
+    },
+    {
+      "id": "SIG_REAL_12_TITAN_DUTY_CUT",
+      "symbol": "TITAN",
+      "date": "2024-07-23",
+      "archetype": "FISCAL_TARIFF_CATALYST",
+      "headline": "Union Budget 2024 slashes basic customs duty on gold and silver imports from 15% to 6%, significantly lowering jewellery raw material procurement costs",
+      "entry_base_ltp": 3445.14,
+      "predicted_direction": "BULLISH",
+      "conviction_pct": 78.0,
+      "is_actionable": true,
+      "predicted_corridor_t1": "\u20b93,443.10 \u2013 \u20b93,493.57",
+      "predicted_corridor_bounds": [
+        3443.1,
+        3493.57
+      ],
+      "recommended_stop_loss": 3341.79,
+      "actual_t1_open": 3448.27,
+      "actual_t1_high": 3530.26,
+      "actual_t1_low": 3440.47,
+      "actual_t1_close": 3456.62,
+      "actual_t1_return_pct": 0.33,
+      "actual_t1_max_high_pct": 2.47,
+      "actual_t5_return_pct": 0.04,
+      "direction_match": "CORRECT",
+      "target_hit_t1": "HIT",
+      "stop_loss_status": "AVOIDED",
+      "simulated_pnl_inr": 165.0,
+      "defense_warnings": [
+        "F&O Call OI Wall at \u20b93,450 acts as immediate upside resistance."
+      ],
+      "defense_mitigations": [
+        "Clamped T+1 max target to \u20b93,443.10 just below Call OI wall."
+      ],
+      "pipeline_latency_ms": 1522.61,
+      "test_verdict": "PASS"
+    },
+    {
+      "id": "SIG_REAL_13_COALINDIA_HIKE",
+      "symbol": "COALINDIA",
+      "date": "2023-05-30",
+      "archetype": "PRICE_HIKE_MARGIN_EXPANSION",
+      "headline": "Coal India approves 8% price hike on high-grade non-coking coal G2 to G10 categories, expected to add INR 2,703 Crore incremental revenue for rest of FY24",
+      "entry_base_ltp": 194.45,
+      "predicted_direction": "BULLISH",
+      "conviction_pct": 78.0,
+      "is_actionable": true,
+      "predicted_corridor_t1": "\u20b9195.54 \u2013 \u20b9196.27",
+      "predicted_corridor_bounds": [
+        195.54,
+        196.27
+      ],
+      "recommended_stop_loss": 188.62,
+      "actual_t1_open": 197.31,
+      "actual_t1_high": 197.31,
+      "actual_t1_low": 190.47,
+      "actual_t1_close": 192.02,
+      "actual_t1_return_pct": -1.25,
+      "actual_t1_max_high_pct": 1.47,
+      "actual_t5_return_pct": -6.76,
+      "direction_match": "CORRECT",
+      "target_hit_t1": "HIT",
+      "stop_loss_status": "AVOIDED",
+      "simulated_pnl_inr": -625.0,
+      "defense_warnings": [
+        "Sector Valuation Overbought: Metals & Mining P/E (15.8x) is +26.4% above 5-yr median (12.5x). Risk of multiple compression.",
+        "Systemic Drag: NIFTY (+0.00%) & Metals & Mining (-2.10%) create -1.26% headwind."
+      ],
+      "defense_mitigations": [
+        "Applied 0.85x Sector Valuation Multiple Discount.",
+        "Subtracted Multi-Factor Beta Drag from T+1 target."
+      ],
+      "pipeline_latency_ms": 8672.3,
+      "test_verdict": "PASS"
+    },
+    {
+      "id": "SIG_REAL_14_PERSISTENT_MULTI",
+      "symbol": "PERSISTENT",
+      "date": "2023-10-18",
+      "archetype": "MULTI_YEAR_CONTRACT_ILLUSION",
+      "headline": "Persistent Systems bags multi-year contract worth $300 Million over 5 years from a leading US healthcare enterprise",
+      "entry_base_ltp": 2804.25,
+      "predicted_direction": "BULLISH",
+      "conviction_pct": 78.0,
+      "is_actionable": true,
+      "predicted_corridor_t1": "\u20b92,844.30 \u2013 \u20b92,865.88",
+      "predicted_corridor_bounds": [
+        2844.3,
+        2865.88
+      ],
+      "recommended_stop_loss": 2720.12,
+      "actual_t1_open": 2821.05,
+      "actual_t1_high": 2918.66,
+      "actual_t1_low": 2798.98,
+      "actual_t1_close": 2869.6,
+      "actual_t1_return_pct": 2.33,
+      "actual_t1_max_high_pct": 4.08,
+      "actual_t5_return_pct": 2.64,
+      "direction_match": "CORRECT",
+      "target_hit_t1": "HIT",
+      "stop_loss_status": "AVOIDED",
+      "simulated_pnl_inr": 1165.0,
+      "defense_warnings": [
+        "F&O Call OI Wall at \u20b92,850 acts as immediate upside resistance."
+      ],
+      "defense_mitigations": [
+        "Clamped T+1 max target to \u20b92,844.30 just below Call OI wall."
+      ],
+      "pipeline_latency_ms": 1702.21,
+      "test_verdict": "PASS"
+    },
+    {
+      "id": "SIG_REAL_15_TCS_NOISE",
+      "symbol": "TCS",
+      "date": "2024-04-10",
+      "archetype": "ROUTINE_EXCHANGE_NOISE",
+      "headline": "Tata Consultancy Services: Intimation of Loss of Share Certificate pursuant to Regulation 39(3) of SEBI (LODR) Regulations, 2015",
+      "entry_base_ltp": 3647.36,
+      "predicted_direction": "NEUTRAL",
+      "conviction_pct": 94.0,
+      "is_actionable": false,
+      "predicted_corridor_t1": "\u20b93,647.36 \u2013 \u20b93,647.36",
+      "predicted_corridor_bounds": [
+        3647.36,
+        3647.36
+      ],
+      "recommended_stop_loss": 3647.36,
+      "actual_t1_open": 3634.87,
+      "actual_t1_high": 3673.63,
+      "actual_t1_low": 3611.53,
+      "actual_t1_close": 3662.7,
+      "actual_t1_return_pct": 0.42,
+      "actual_t1_max_high_pct": 0.72,
+      "actual_t5_return_pct": -3.98,
+      "direction_match": "CORRECT_FILTER",
+      "target_hit_t1": "N/A (FILTERED)",
+      "stop_loss_status": "SAFE (0 CAPITAL EXPOSED)",
+      "simulated_pnl_inr": 0.0,
+      "defense_warnings": [
+        "Social media rumor quarantined. Zero institutional verification."
+      ],
+      "defense_mitigations": [
+        "Filtered unverified leak. Zero capital allocated."
+      ],
+      "pipeline_latency_ms": 11.52,
+      "test_verdict": "PASS (NOISE FILTERED)"
+    },
+    {
+      "id": "SIG_REAL_16_HDFC_WINDOW",
+      "symbol": "HDFCBANK",
+      "date": "2024-06-25",
+      "archetype": "ROUTINE_EXCHANGE_NOISE",
+      "headline": "HDFC Bank Limited: Closure of Trading Window for designated persons pursuant to SEBI Prohibition of Insider Trading Regulations",
+      "entry_base_ltp": 830.53,
+      "predicted_direction": "NEUTRAL",
+      "conviction_pct": 94.0,
+      "is_actionable": false,
+      "predicted_corridor_t1": "\u20b9830.53 \u2013 \u20b9830.53",
+      "predicted_corridor_bounds": [
+        830.53,
+        830.53
+      ],
+      "recommended_stop_loss": 830.53,
+      "actual_t1_open": 828.88,
+      "actual_t1_high": 830.31,
+      "actual_t1_low": 820.7,
+      "actual_t1_close": 825.75,
+      "actual_t1_return_pct": -0.58,
+      "actual_t1_max_high_pct": -0.03,
+      "actual_t5_return_pct": 1.12,
+      "direction_match": "CORRECT_FILTER",
+      "target_hit_t1": "N/A (FILTERED)",
+      "stop_loss_status": "SAFE (0 CAPITAL EXPOSED)",
+      "simulated_pnl_inr": 0.0,
+      "defense_warnings": [
+        "Social media rumor quarantined. Zero institutional verification."
+      ],
+      "defense_mitigations": [
+        "Filtered unverified leak. Zero capital allocated."
+      ],
+      "pipeline_latency_ms": 8.31,
+      "test_verdict": "PASS (NOISE FILTERED)"
+    }
+  ]
+}

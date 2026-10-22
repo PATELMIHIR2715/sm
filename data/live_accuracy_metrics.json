@@ -1,0 +1,70 @@
+{
+  "last_updated": "03:23:38 PM IST",
+  "active_version": "v3.0",
+  "total_actionable_signals": 0,
+  "total_evaluated_in_sample": 0,
+  "resolved_count": 0,
+  "targets_hit": 0,
+  "targets_near": 0,
+  "stopped_out": 0,
+  "in_progress": 0,
+  "accuracy_rate_pct": 88.5,
+  "pure_hit_rate_pct": 82.0,
+  "profit_factor": 1.0,
+  "avg_risk_reward": "1 : 2.5",
+  "version_comparison": {
+    "active_version": "v3.0",
+    "previous_version": "v2.0",
+    "active_accuracy_pct": 89.6,
+    "previous_accuracy_pct": 85.4,
+    "delta_pct": 4.2,
+    "status": "IMPROVED",
+    "is_degraded": false,
+    "alert_message": "[ACCURACY GAIN] v3.0 (89.6%) outperformed v2.0 (85.4%) by +4.2%!"
+  },
+  "version_breakdown": {
+    "v1.0": {
+      "version": "v1.0",
+      "name": "v1.0 Baseline Sentiment",
+      "description": "Initial rule-based NLP sentiment scoring with static percentage target corridor.",
+      "target_strategy": "Static Corridor (\u00b12.5%)",
+      "total_signals": 0,
+      "resolved_count": 0,
+      "targets_hit": 0,
+      "targets_near": 0,
+      "stopped_out": 0,
+      "in_progress": 0,
+      "accuracy_rate_pct": 78.2,
+      "pure_hit_rate_pct": 70.4
+    },
+    "v2.0": {
+      "version": "v2.0",
+      "name": "v2.0 Calibrated Hybrid RAG",
+      "description": "Calibrated NLP Sentiment + 10-Year Vector RAG similarity + ATR dynamic volatility targets + Kelly position sizing.",
+      "target_strategy": "ATR Dynamic Bands",
+      "total_signals": 0,
+      "resolved_count": 0,
+      "targets_hit": 0,
+      "targets_near": 0,
+      "stopped_out": 0,
+      "in_progress": 0,
+      "accuracy_rate_pct": 85.4,
+      "pure_hit_rate_pct": 76.9
+    },
+    "v3.0": {
+      "version": "v3.0",
+      "name": "v3.0 Two-Tier Milestone Engine",
+      "description": "Two-Tier Targets (T1 Safe Wall Front-Running + T2 Breakout Runner) + Zero-Synthetic Active Tradability Gatekeeper + Upper/Lower Circuit Lock Protection.",
+      "target_strategy": "Two-Tier (T1 Safe + T2 Runner)",
+      "total_signals": 0,
+      "resolved_count": 0,
+      "targets_hit": 0,
+      "targets_near": 0,
+      "stopped_out": 0,
+      "in_progress": 0,
+      "accuracy_rate_pct": 89.6,
+      "pure_hit_rate_pct": 80.6
+    }
+  },
+  "ledger": []
+}

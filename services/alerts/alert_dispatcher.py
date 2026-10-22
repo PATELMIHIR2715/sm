@@ -59,6 +59,30 @@ class InstantAlertDispatcher:
         self._persist_alert(alert_payload)
         return alert_payload
 
+    def send_to_telegram(self, alert_payload: Dict[str, Any], chat_id: str = None) -> bool:
+        try:
+            import urllib.request
+            token = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
+            destination = chat_id or os.environ.get("TELEGRAM_CHAT_ID", os.environ.get("TELEGRAM_CHANNEL_ID", "-1004309575686")).strip()
+            if not token:
+                return False
+
+            text = alert_payload.get("formatted_text", "")
+            req_data = json.dumps({
+                "chat_id": destination,
+                "text": text,
+                "parse_mode": "Markdown",
+                "disable_web_page_preview": True
+            }).encode("utf-8")
+
+            url = f"https://api.telegram.org/bot{token}/sendMessage"
+            req = urllib.request.Request(url, data=req_data, headers={"Content-Type": "application/json"})
+            with urllib.request.urlopen(req, timeout=5) as res:
+                return res.status == 200
+        except Exception as e:
+            print(f"[ALERT-DISPATCHER TELEGRAM ERROR] {e}", flush=True)
+            return False
+
     def _persist_alert(self, alert: Dict[str, Any]):
         os.makedirs(os.path.dirname(self.ALERTS_LOG_FILE), exist_ok=True)
         alerts = []

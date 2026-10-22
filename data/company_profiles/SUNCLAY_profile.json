@@ -1,0 +1,28 @@
+{
+  "symbol": "SUNCLAY",
+  "company_name": "SUNCLAY Ltd",
+  "sector": "Diversified",
+  "tier": "MID_CAP",
+  "annual_revenue_cr": 25000.0,
+  "market_cap_cr": 50000.0,
+  "nifty_beta": 1.0,
+  "sector_beta": 1.1,
+  "fno_lot_size": 500,
+  "current_ltp": 1072.8,
+  "atr_14_inr": 54.19,
+  "atr_14_pct": 5.05,
+  "single_day_max_ceiling_pct": 8.84,
+  "realized_volatility_20d_pct": 46.96,
+  "ema_50": 1217.01,
+  "ema_200": 1232.95,
+  "rsi_14": 31.4,
+  "sector_valuation": {
+    "sector_pe": 23.5,
+    "median_5y_pe": 22.0,
+    "pe_premium_pct": 6.8,
+    "valuation_state": "FAIR_VALUATION",
+    "multiple_factor": 1.0
+  },
+  "cached_timestamp": 1792647338.2786481,
+  "cached_date_str": "2026-10-22 11:05:38 IST"
+}

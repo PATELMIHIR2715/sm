@@ -70,6 +70,19 @@ export const SignalDetailModal: React.FC<SignalDetailModalProps> = ({
           </button>
         </div>
 
+        {/* Upper / Lower Circuit Freeze Warning Banner */}
+        {((signal as any).circuit_warning || (signal as any).is_circuit_locked) && (
+          <div className="bg-red-50 border border-red-300 text-red-700 px-3.5 py-2.5 rounded-xl text-xs font-mono font-bold flex items-center gap-2 animate-pulse">
+            <span className="text-base">⚠️</span>
+            <div>
+              <div>{(signal as any).circuit_warning || 'CIRCUIT FREEZE DETECTED'}</div>
+              <div className="text-[10px] font-normal text-red-600 font-sans mt-0.5">
+                {(signal as any).circuit_info?.trading_advice || 'Liquidity frozen by exchange price band. Avoid aggressive market orders.'}
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Regulatory News Announcement Card */}
         <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-200 space-y-1.5">
           <div className="flex items-center justify-between text-[10px] font-mono text-slate-500 uppercase tracking-wider font-semibold">
@@ -160,29 +173,65 @@ export const SignalDetailModal: React.FC<SignalDetailModalProps> = ({
             </span>
           </div>
 
-          <div className="bg-slate-50 p-3 rounded-xl border border-slate-200 flex items-center justify-between font-mono">
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-blue-100/70 text-blue-600 flex items-center justify-center shrink-0">
-                <Target className="w-4 h-4" />
-              </div>
-              <div>
-                <div className="text-xs font-bold text-slate-800">
-                  T+1 Tomorrow Target Corridor
+          {(signal as any).two_tier_targets ? (
+            <div className="grid grid-cols-2 gap-2.5 font-mono">
+              <div className="bg-emerald-50 p-3 rounded-xl border border-emerald-200">
+                <div className="text-[11px] font-bold text-emerald-800 flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+                  {(signal as any).two_tier_targets.t1_safe.label}
                 </div>
-                <div className="text-[10px] text-slate-500">
-                  Deadline: {signal.t1_target.target_date_horizon}
+                <div className="text-base font-bold text-slate-900 mt-1">
+                  ₹{Number((signal as any).two_tier_targets.t1_safe.price).toLocaleString('en-IN', { minimumFractionDigits: 2 })}
+                </div>
+                <div className="text-xs font-bold text-emerald-700">
+                  {(signal as any).two_tier_targets.t1_safe.percentage}
+                </div>
+                <p className="text-[10px] text-slate-600 font-sans mt-1">
+                  {(signal as any).two_tier_targets.t1_safe.action_advice}
+                </p>
+              </div>
+
+              <div className="bg-blue-50 p-3 rounded-xl border border-blue-200">
+                <div className="text-[11px] font-bold text-blue-800 flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+                  {(signal as any).two_tier_targets.t2_runner.label}
+                </div>
+                <div className="text-base font-bold text-slate-900 mt-1">
+                  ₹{Number((signal as any).two_tier_targets.t2_runner.price).toLocaleString('en-IN', { minimumFractionDigits: 2 })}
+                </div>
+                <div className="text-xs font-bold text-blue-700">
+                  {(signal as any).two_tier_targets.t2_runner.percentage}
+                </div>
+                <p className="text-[10px] text-slate-600 font-sans mt-1">
+                  {(signal as any).two_tier_targets.t2_runner.action_advice}
+                </p>
+              </div>
+            </div>
+          ) : (
+            <div className="bg-slate-50 p-3 rounded-xl border border-slate-200 flex items-center justify-between font-mono">
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-blue-100/70 text-blue-600 flex items-center justify-center shrink-0">
+                  <Target className="w-4 h-4" />
+                </div>
+                <div>
+                  <div className="text-xs font-bold text-slate-800">
+                    T+1 Tomorrow Target Corridor
+                  </div>
+                  <div className="text-[10px] text-slate-500">
+                    Deadline: {signal.t1_target.target_date_horizon}
+                  </div>
+                </div>
+              </div>
+              <div className="text-right">
+                <div className="text-base font-bold text-slate-900">
+                  {signal.t1_target.price_target_range_inr}
+                </div>
+                <div className="text-xs font-bold text-emerald-600">
+                  {signal.t1_target.percentage_range}
                 </div>
               </div>
             </div>
-            <div className="text-right">
-              <div className="text-base font-bold text-slate-900">
-                {signal.t1_target.price_target_range_inr}
-              </div>
-              <div className="text-xs font-bold text-emerald-600">
-                {signal.t1_target.percentage_range}
-              </div>
-            </div>
-          </div>
+          )}
         </div>
 
         {/* Kelly Sizing & Action Desk */}
@@ -197,7 +246,7 @@ export const SignalDetailModal: React.FC<SignalDetailModalProps> = ({
             </span>
           </div>
 
-          <div className="grid grid-cols-3 gap-3 text-xs">
+          <div className="grid grid-cols-4 gap-2 text-xs">
             <div>
               <div className="text-slate-500 text-[10px] font-semibold">Position Size:</div>
               <div className="text-xs font-bold text-slate-900 mt-0.5">
@@ -209,6 +258,13 @@ export const SignalDetailModal: React.FC<SignalDetailModalProps> = ({
               <div className="text-slate-500 text-[10px] font-semibold">Shares:</div>
               <div className="text-xs font-bold text-slate-700 mt-0.5">
                 {signal.shares_qty || 4} Qty
+              </div>
+            </div>
+
+            <div>
+              <div className="text-slate-500 text-[10px] font-semibold">Risk/Reward:</div>
+              <div className="text-xs font-bold text-indigo-600 mt-0.5">
+                {(signal as any).risk_reward_ratio || '1 : 2.5'}
               </div>
             </div>
 

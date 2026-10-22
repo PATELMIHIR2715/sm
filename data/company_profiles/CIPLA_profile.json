@@ -1,0 +1,28 @@
+{
+  "symbol": "CIPLA",
+  "company_name": "Cipla Ltd",
+  "sector": "Pharmaceuticals & Healthcare",
+  "tier": "LARGE_CAP",
+  "annual_revenue_cr": 25774.0,
+  "market_cap_cr": 132000.0,
+  "nifty_beta": 0.6,
+  "sector_beta": 1.15,
+  "fno_lot_size": 650,
+  "current_ltp": 1300.3,
+  "atr_14_inr": 26.05,
+  "atr_14_pct": 2.0,
+  "single_day_max_ceiling_pct": 2.7,
+  "realized_volatility_20d_pct": 15.88,
+  "ema_50": 1369.7,
+  "ema_200": 1377.51,
+  "rsi_14": 27.1,
+  "sector_valuation": {
+    "sector_pe": 35.4,
+    "median_5y_pe": 29.2,
+    "pe_premium_pct": 21.2,
+    "valuation_state": "EXPENSIVE_ELEVATED",
+    "multiple_factor": 0.88
+  },
+  "cached_timestamp": 1792640905.8653188,
+  "cached_date_str": "2026-10-22 09:18:26 IST"
+}

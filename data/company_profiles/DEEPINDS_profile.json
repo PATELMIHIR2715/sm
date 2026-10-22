@@ -1,0 +1,28 @@
+{
+  "symbol": "DEEPINDS",
+  "company_name": "DEEPINDS Ltd",
+  "sector": "Diversified",
+  "tier": "MID_CAP",
+  "annual_revenue_cr": 25000.0,
+  "market_cap_cr": 50000.0,
+  "nifty_beta": 1.0,
+  "sector_beta": 1.1,
+  "fno_lot_size": 500,
+  "current_ltp": 702.8,
+  "atr_14_inr": 35.07,
+  "atr_14_pct": 4.99,
+  "single_day_max_ceiling_pct": 8.73,
+  "realized_volatility_20d_pct": 45.68,
+  "ema_50": 712.06,
+  "ema_200": 692.53,
+  "rsi_14": 34.4,
+  "sector_valuation": {
+    "sector_pe": 23.5,
+    "median_5y_pe": 22.0,
+    "pe_premium_pct": 6.8,
+    "valuation_state": "FAIR_VALUATION",
+    "multiple_factor": 1.0
+  },
+  "cached_timestamp": 1792641482.7845376,
+  "cached_date_str": "2026-10-22 09:28:03 IST"
+}

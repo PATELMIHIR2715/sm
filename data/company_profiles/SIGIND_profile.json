@@ -1,0 +1,28 @@
+{
+  "symbol": "SIGIND",
+  "company_name": "SIGIND Ltd",
+  "sector": "Diversified",
+  "tier": "MID_CAP",
+  "annual_revenue_cr": 25000.0,
+  "market_cap_cr": 50000.0,
+  "nifty_beta": 1.0,
+  "sector_beta": 1.1,
+  "fno_lot_size": 500,
+  "current_ltp": 54.6,
+  "atr_14_inr": 4.5,
+  "atr_14_pct": 8.24,
+  "single_day_max_ceiling_pct": 14.42,
+  "realized_volatility_20d_pct": 50.26,
+  "ema_50": 62.67,
+  "ema_200": 61.71,
+  "rsi_14": 22.7,
+  "sector_valuation": {
+    "sector_pe": 23.5,
+    "median_5y_pe": 22.0,
+    "pe_premium_pct": 6.8,
+    "valuation_state": "FAIR_VALUATION",
+    "multiple_factor": 1.0
+  },
+  "cached_timestamp": 1792649466.9465697,
+  "cached_date_str": "2026-10-22 11:41:07 IST"
+}

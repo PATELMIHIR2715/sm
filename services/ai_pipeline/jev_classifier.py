@@ -51,17 +51,21 @@ class JevClassifier:
             "instructions": "Classify the corporate event archetype:",
             "criteria": {
                 "ORDER_WIN": "Contract, tender, defense, or commercial order win",
-                "EARNINGS_SURPRISE": "Financial results, profit jump, margin expansion, or dividend",
-                "REGULATORY_APPROVAL": "Cabinet, FDA, SEBI, CCI, or statutory clearance",
-                "CAPEX_EXPANSION": "Capacity expansion, new manufacturing plant, or strategic JV",
-                "RATING_UPGRADE": "Credit rating or equity research brokerage upgrade",
-                "LITIGATION_PENALTY": "Tax notice, penalty, investigation, or negative litigation",
-                "ROUTINE_FILING": "General administrative disclosure or routine compliance"
+                "CAPEX_APPROVAL": "Capacity expansion, new manufacturing plant, land acquisition, or strategic JV",
+                "DIVIDEND": "Interim or special dividend declaration, bonus issue, or share buyback",
+                "CLOSURE_OR_DISPOSAL": "Plant shutdown, business sale, divestment, or impairment",
+                "RATING_ACTION": "Credit rating or equity research brokerage upgrade or downgrade",
+                "REGULATORY_OR_LEGAL": "Cabinet, FDA, SEBI, tax notice, penalty, or statutory action",
+                "ROUTINE_COMPLIANCE": "General administrative disclosure, AGM/EGM, or routine filings"
             }
         },
         "is_actionable": {
-            "type": "noul",
-            "instructions": "Is this an actionable high-conviction catalyst for a defended T+1 price target move?"
+            "type": "choice",
+            "instructions": "Is this an actionable high-conviction catalyst for a defended T+1 price target move?",
+            "criteria": {
+                "YES": "Actionable high-conviction catalyst",
+                "NO": "Routine compliance or non-actionable filing"
+            }
         }
     }
 
@@ -77,7 +81,15 @@ class JevClassifier:
         re.compile(r"confirmation certificate (?:in the matter of|pursuant to)", re.I),
         re.compile(r"statement of investor complaints", re.I),
         re.compile(r"re-affirmation of credit rating without revision|credit rating reaffirms", re.I),
-        re.compile(r"change in registered office address", re.I)
+        re.compile(r"change in registered office address", re.I),
+        # Routine director/KMP rotation patterns (zero valuation impact)
+        re.compile(r"^(?:[A-Z0-9_\-]+:\s*)?(?:Resignation|Cessation|Resignation of Director/KMP/SMP|Appointment of Company Secretary)\s*$", re.I),
+        re.compile(r"(?:resignation|cessation) of (?:independent director|non-executive director|company secretary|compliance officer|director/kmp/smp)", re.I),
+        re.compile(r"completion of (?:tenure|term) of independent director", re.I),
+        re.compile(r"appointment of (?:company secretary|compliance officer|internal auditor)", re.I),
+        re.compile(r"intimation of (?:demise of independent director|cessation of independent director)", re.I),
+        re.compile(r"disclosure under regulation 30.*?(?:cessation of independent director|cessastion of independent director)", re.I),
+        re.compile(r"allotment of (?:equity shares|shares) under (?:esop|esps|esos)|esop/esos/esps", re.I)
     ]
 
     def __init__(self):
@@ -445,8 +457,39 @@ class JevClassifier:
                     category = cat_obj.get("choice", "ORDER_WIN")
 
                     act_obj = answers.get("is_actionable", {})
-                    actionable_prob = float(act_obj.get("noul", 0.50))
-                    is_actionable = actionable_prob >= 0.20 and direction in ["BULLISH", "BEARISH"]
+                    # Retrieve actionability from choice ("YES"/"NO") or boolean
+                    choice_val = act_obj.get("choice")
+                    if choice_val in ["YES", "NO"]:
+                        probs = act_obj.get("probabilities", {})
+                        actionable_prob = float(probs.get("YES", 0.90 if choice_val == "YES" else 0.10))
+                        is_actionable = choice_val == "YES" and direction in ["BULLISH", "BEARISH"]
+                    else:
+                        actionable_val = act_obj.get("value", act_obj.get("bool", None))
+                        if isinstance(actionable_val, bool):
+                            actionable_prob = 1.0 if actionable_val else 0.0
+                            is_actionable = actionable_val and direction in ["BULLISH", "BEARISH"]
+                        else:
+                            actionable_prob = float(act_obj.get("probability", act_obj.get("confidence", 0.50)))
+                            is_actionable = actionable_prob >= 0.50 and direction in ["BULLISH", "BEARISH"]
+
+                    # Audit Mandate 3: Archetype & Materiality Hurdle Gatekeeper
+                    from services.ai_pipeline.sentiment_classifier import CalibratedSentimentScorer
+                    scorer = CalibratedSentimentScorer()
+                    gate_res = scorer.evaluate_catalyst_archetype_and_materiality(
+                        headline=headline,
+                        company=company_meta,
+                        candidate_direction=direction
+                    )
+                    if not gate_res.get("is_actionable", True):
+                        direction = gate_res.get("direction", "NEUTRAL")
+                        is_actionable = False
+                        category = gate_res.get("category", "IMMATERIAL_CATALYST")
+                        rationale = gate_res.get("reasoning", "")
+                        base_mat_ratio = gate_res.get("materiality_ratio", 0.0)
+                    elif gate_res.get("category") == "LONG_GESTATION_CAPEX":
+                        category = "LONG_GESTATION_CAPEX"
+                        base_mat_ratio = gate_res.get("materiality_ratio", base_mat_ratio)
+                        rationale = f"{rationale} [{gate_res.get('reasoning')}]"
 
                     model_ver = resp_data.get("model", "jev-1.13.0")
                     rationale = f"Jev SystemOne {category} ({direction}): Materiality score {mat_score:.1f}/4.0 with {conviction_pct}% probabilistic certainty for T+1 session."
@@ -484,13 +527,13 @@ class JevClassifier:
         pred = scorer.analyze_event(headline, company_meta)
         
         fallback_res = {
-            "direction": pred.get("direction", "BULLISH").replace(" / UNCONFIRMED", ""),
+            "direction": pred.get("direction", "NEUTRAL").replace(" / UNCONFIRMED", ""),
             "conviction_pct": float(pred.get("direction_confidence", 80.0)),
             "materiality_ratio": float(pred.get("materiality_ratio", 0.05)),
             "materiality_score": 1.5,
-            "category": "CORPORATE_ACTION",
+            "category": pred.get("category", "CORPORATE_ACTION"),
             "trade_horizon": "T+1",
-            "is_actionable": pred.get("direction") in ["BULLISH", "BEARISH"],
+            "is_actionable": pred.get("is_actionable", False) and pred.get("direction") in ["BULLISH", "BEARISH"],
             "rationale": pred.get("reasoning", headline),
             "model_engine": "CALIBRATED_FALLBACK_ENSEMBLE",
             "latency_ms": 11.2,

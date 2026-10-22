@@ -49,6 +49,17 @@ class EmailNotificationService {
   }
 
   async sendSignalEmail(signal, recipients = null) {
+    if (process.env.ENABLE_EMAIL_NOTIFICATIONS === 'false' || process.env.EMAIL_NOTIFICATIONS_PAUSED === 'true') {
+      const sym = signal.symbol || 'STOCK';
+      console.log(`[EMAIL PAUSED] Skipping email dispatch for ${sym} (Email notifications are paused).`);
+      return {
+        success: true,
+        paused: true,
+        message: 'Email notifications are paused by configuration.',
+        recipients: (recipients && recipients.length > 0) ? recipients : this.defaultRecipients
+      };
+    }
+
     const to = (recipients && recipients.length > 0) ? recipients : this.defaultRecipients;
     const sym = signal.symbol || 'STOCK';
     const dir = signal.predicted_direction || 'BULLISH';
@@ -106,6 +117,7 @@ class EmailNotificationService {
   }
 
   getStatus() {
+    const isPaused = process.env.ENABLE_EMAIL_NOTIFICATIONS === 'false' || process.env.EMAIL_NOTIFICATIONS_PAUSED === 'true';
     const rawUser = process.env.SMTP_USER || '';
     let userMasked = 'Not set';
     if (rawUser.includes('@')) {
@@ -116,7 +128,8 @@ class EmailNotificationService {
     }
 
     return {
-      status: this.status,
+      status: isPaused ? 'PAUSED' : this.status,
+      isPaused,
       defaultRecipients: this.defaultRecipients,
       smtpHost: process.env.SMTP_HOST || 'Local JsonTransport',
       smtpUserMasked: userMasked,

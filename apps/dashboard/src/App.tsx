@@ -3,6 +3,7 @@ import { TIMELINES, type LiveSignal } from './data/benchmarkData';
 import { Header } from './components/Header';
 import { TickerTape } from './components/TickerTape';
 import { KPIStats } from './components/KPIStats';
+import { LiveAccuracyLedgerCard } from './components/LiveAccuracyLedgerCard';
 import { LiveProgressCard } from './components/LiveProgressCard';
 import { TableTodayLive } from './components/TableTodayLive';
 import { TableMultiHorizon } from './components/TableMultiHorizon';
@@ -260,6 +261,9 @@ export function App() {
 
         {/* 5. High-Level KPI Summary Cards */}
         <KPIStats timeline={currentTimeline} />
+
+        {/* 5b. Ground-Truth Live Hit-Rate Ledger & Real-Time Accuracy Meter */}
+        <LiveAccuracyLedgerCard />
 
         {/* 6. Equity Curve Chart */}
         {currentTimeline.table3_trades.length > 0 && activeTab === 'trading_sim' && (

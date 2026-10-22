@@ -19,10 +19,12 @@ from typing import Dict, Any, List, Optional
 
 try:
     from services.market_data.company_intelligence_provider import CompanyIntelligenceProvider
+    from services.ai_pipeline.price_action_calibrator import PriceActionPatternCalibrator
 except ImportError:
     import sys, os
     sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
     from services.market_data.company_intelligence_provider import CompanyIntelligenceProvider
+    from services.ai_pipeline.price_action_calibrator import PriceActionPatternCalibrator
 
 class MicrostructureDefenseEngine:
     # Judicial & Regulatory Negative Triggers that INVERT sentiment
@@ -362,6 +364,32 @@ class MicrostructureDefenseEngine:
         sl_pct = min(3.0, round(atr_pct * 1.5, 2))
         sl_price = round(optimal_entry_price * (1 - sl_pct / 100), 2) if is_bull else round(optimal_entry_price * (1 + sl_pct / 100), 2)
 
+        # -------------------------------------------------------------
+        # 9. Price Action Geometry & Pattern Resistance Calibration
+        # -------------------------------------------------------------
+        pa_meta = None
+        dual_tier_targets = None
+        try:
+            pa_res = PriceActionPatternCalibrator.calibrate_targets(
+                symbol=symbol,
+                base_ltp=optimal_entry_price,
+                predicted_direction="BULLISH" if is_bull else "BEARISH",
+                raw_t1_target_inr=t1_max_inr,
+                raw_t5_target_inr=t5_max_inr,
+                sl_price_inr=sl_price
+            )
+            t1_max_inr = pa_res["calibrated_t1_target"]
+            t5_max_inr = pa_res["calibrated_t5_target"]
+            sl_price = pa_res["calibrated_stop_loss"]
+            pa_meta = pa_res.get("price_action_meta")
+            dual_tier_targets = pa_res.get("dual_tier_targets")
+            if pa_res.get("warnings"):
+                warnings.extend(pa_res["warnings"])
+            if pa_res.get("mitigations"):
+                applied_mitigations.extend(pa_res["mitigations"])
+        except Exception:
+            pass
+
         return {
             "symbol": symbol.upper(),
             "stock_profile": intel,
@@ -375,6 +403,8 @@ class MicrostructureDefenseEngine:
             "warnings_detected": warnings,
             "applied_mitigations": applied_mitigations,
             "net_beta_adjusted_t1_pct": round(net_t1_pct, 2),
+            "price_action_geometry": pa_meta,
+            "dual_tier_targets": dual_tier_targets,
             "multi_horizon_targets": {
                 "t1_session": {
                     "horizon": "T+1 (1-Day Intraday/BTST)",

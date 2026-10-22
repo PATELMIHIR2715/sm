@@ -1,0 +1,28 @@
+{
+  "symbol": "NTPC",
+  "company_name": "NTPC Ltd",
+  "sector": "Power & Renewable Energy",
+  "tier": "LARGE_CAP",
+  "annual_revenue_cr": 176206.0,
+  "market_cap_cr": 395000.0,
+  "nifty_beta": 0.8,
+  "sector_beta": 1.2,
+  "fno_lot_size": 1500,
+  "current_ltp": 303.0,
+  "atr_14_inr": 6.9,
+  "atr_14_pct": 2.28,
+  "single_day_max_ceiling_pct": 3.08,
+  "realized_volatility_20d_pct": 19.38,
+  "ema_50": 324.49,
+  "ema_200": 326.97,
+  "rsi_14": 29.0,
+  "sector_valuation": {
+    "sector_pe": 22.4,
+    "median_5y_pe": 14.5,
+    "pe_premium_pct": 54.5,
+    "valuation_state": "EXTREME_OVERBOUGHT",
+    "multiple_factor": 0.8
+  },
+  "cached_timestamp": 1792639160.6224124,
+  "cached_date_str": "2026-10-22 08:49:21 IST"
+}

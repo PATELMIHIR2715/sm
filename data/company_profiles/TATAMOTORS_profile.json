@@ -16,6 +16,13 @@
   "ema_50": 1000.0,
   "ema_200": 950.0,
   "rsi_14": 55.0,
-  "cached_timestamp": 1790828942.6835358,
-  "cached_date_str": "2026-10-01 09:59:03 IST"
+  "sector_valuation": {
+    "sector_pe": 23.5,
+    "median_5y_pe": 22.0,
+    "pe_premium_pct": 6.8,
+    "valuation_state": "FAIR_VALUATION",
+    "multiple_factor": 1.0
+  },
+  "cached_timestamp": 1792639348.465281,
+  "cached_date_str": "2026-10-22 08:52:30 IST"
 }

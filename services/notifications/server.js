@@ -2,11 +2,25 @@ const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
+const dns = require('dns');
+
+process.on('uncaughtException', (err) => {
+  console.error('[UNCAUGHT EXCEPTION PREVENTED CRASH]', err?.message || err);
+});
+process.on('unhandledRejection', (reason) => {
+  console.error('[UNHANDLED REJECTION PREVENTED CRASH]', reason?.message || reason);
+});
+
+if (dns.setDefaultResultOrder) {
+  try { dns.setDefaultResultOrder('ipv4first'); } catch (_) {}
+}
+
 require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 require('dotenv').config({ path: path.resolve(__dirname, '../../.env') });
 
 const WhatsAppNotificationService = require('./whatsapp_service');
 const EmailNotificationService = require('./email_service');
+const TelegramNotificationService = require('./telegram_service');
 
 const app = express();
 const PORT = process.env.NOTIFICATION_PORT || 5001;
@@ -115,6 +129,7 @@ app.post('/api/admin/auth/verify', (req, res) => {
 // Initialize Services
 const waService = new WhatsAppNotificationService();
 const emailService = new EmailNotificationService();
+const tgService = new TelegramNotificationService();
 
 // Helper to normalize phone numbers
 function normalizePhoneNumber(raw) {
@@ -294,6 +309,7 @@ app.get('/api/notifications/status', (req, res) => {
     subscribers_count: activeSubs.length,
     whatsapp: waService.getStatus(),
     email: emailService.getStatus(),
+    telegram: tgService.getStatus(),
     config: {
       whatsappNumbers: allWa,
       emailRecipients: allEmails,
@@ -392,7 +408,8 @@ app.post('/api/notifications/subscribe', async (req, res) => {
       }
     }
 
-    if (cleanEmail) {
+    const isEmailEnabled = process.env.ENABLE_EMAIL_NOTIFICATIONS !== 'false' && process.env.EMAIL_NOTIFICATIONS_PAUSED !== 'true';
+    if (cleanEmail && isEmailEnabled) {
       try {
         welcomeReport.email = await emailService.sendTestEmail(cleanEmail);
       } catch (err) {
@@ -584,15 +601,35 @@ app.post('/api/notifications/test-email', rateLimitUserTests, async (req, res) =
   });
 });
 
+// 7b. Test Telegram Channel Endpoint (Public rate-limited for channel verification)
+app.post('/api/notifications/test-telegram', rateLimitUserTests, async (req, res) => {
+  const { targetChatId } = req.body || {};
+  const result = await tgService.sendTestMessage(targetChatId);
+  recordDispatchedAlert({
+    channel: 'TELEGRAM',
+    type: 'TEST_MESSAGE',
+    recipient: targetChatId || tgService.chatId || tgService.channelId,
+    result
+  });
+
+  res.json({
+    success: result.success,
+    gateway: tgService.getStatus(),
+    result
+  });
+});
+
 // 8. Broadcast Signal to All Subscribers (Called by Python Engine or UI)
 app.post('/api/notifications/broadcast-signal', requireAdminAuth, async (req, res) => {
-  const { signal, targetNumbers, targetEmails, channels } = req.body;
+  const { signal, targetNumbers, targetEmails, targetTelegramChannels, channels } = req.body;
 
   if (!signal) {
     return res.status(400).json({ error: 'Missing required `signal` payload.' });
   }
 
-  const selectedChannels = channels || ['WHATSAPP', 'EMAIL'];
+  const isEmailEnabled = process.env.ENABLE_EMAIL_NOTIFICATIONS !== 'false' && process.env.EMAIL_NOTIFICATIONS_PAUSED !== 'true';
+  const defaultChannels = isEmailEnabled ? ['WHATSAPP', 'EMAIL', 'TELEGRAM'] : ['WHATSAPP', 'TELEGRAM'];
+  const selectedChannels = (channels || defaultChannels).filter(c => c !== 'EMAIL' || isEmailEnabled);
   const subData = loadSubscribersData();
   const activeSubs = subData.subscribers.filter(s => s.active !== false);
 
@@ -628,21 +665,39 @@ app.post('/api/notifications/broadcast-signal', requireAdminAuth, async (req, re
     channels: {},
     recipientsCount: {
       whatsapp: waRecipients.length,
-      email: emRecipients.length
+      email: emRecipients.length,
+      telegram: tgService.getStatus().channelId
     }
   };
 
-  // WhatsApp Dispatch to all recipients
+  // Multi-Channel Parallel Dispatch (Zero Head-of-Line Blocking)
+  const dispatchPromises = [];
+
   if (selectedChannels.includes('WHATSAPP') && waRecipients.length > 0) {
-    const waRes = await waService.broadcastSignal(signal, waRecipients);
-    responseReport.channels.whatsapp = waRes;
+    dispatchPromises.push(
+      waService.broadcastSignal(signal, waRecipients)
+        .then(res => { responseReport.channels.whatsapp = res; })
+        .catch(err => { responseReport.channels.whatsapp = { success: false, error: err.message }; })
+    );
   }
 
-  // Email Dispatch to all recipients
   if (selectedChannels.includes('EMAIL') && emRecipients.length > 0) {
-    const emRes = await emailService.sendSignalEmail(signal, emRecipients);
-    responseReport.channels.email = emRes;
+    dispatchPromises.push(
+      emailService.sendSignalEmail(signal, emRecipients)
+        .then(res => { responseReport.channels.email = res; })
+        .catch(err => { responseReport.channels.email = { success: false, error: err.message }; })
+    );
   }
+
+  if (selectedChannels.includes('TELEGRAM')) {
+    dispatchPromises.push(
+      tgService.broadcastSignal(signal, targetTelegramChannels)
+        .then(res => { responseReport.channels.telegram = res; })
+        .catch(err => { responseReport.channels.telegram = { success: false, error: err.message }; })
+    );
+  }
+
+  await Promise.allSettled(dispatchPromises);
 
   recordDispatchedAlert({
     channel: 'MULTI_CHANNEL',
@@ -654,7 +709,7 @@ app.post('/api/notifications/broadcast-signal', requireAdminAuth, async (req, re
 
   res.json({
     success: true,
-    message: `Alert broadcast successfully for ${signal.symbol} to ${waRecipients.length} WhatsApp & ${emRecipients.length} Email subscribers`,
+    message: `Alert broadcast successfully for ${signal.symbol} across ${selectedChannels.join(', ')}`,
     report: responseReport
   });
 });
@@ -741,6 +796,56 @@ app.post('/api/notifications/smtp-config', requireAdminAuth, (req, res) => {
   });
 });
 
+// 11b. Admin: Update Telegram Gateway Credentials Dynamically
+app.post('/api/notifications/telegram-config', requireAdminAuth, (req, res) => {
+  const { botToken, channelId, chatId, botUsername } = req.body;
+  if (!botToken) {
+    return res.status(400).json({ success: false, error: 'Telegram Bot Token is required.' });
+  }
+
+  process.env.TELEGRAM_BOT_TOKEN = botToken;
+  if (channelId) process.env.TELEGRAM_CHANNEL_ID = channelId;
+  if (chatId) process.env.TELEGRAM_CHAT_ID = chatId;
+  if (botUsername) process.env.TELEGRAM_BOT_USERNAME = botUsername;
+
+  tgService.token = botToken;
+  if (channelId) tgService.channelId = channelId;
+  if (chatId) tgService.chatId = chatId;
+  if (botUsername) tgService.botUsername = botUsername;
+
+  const envPath = path.resolve(__dirname, '.env');
+  let envLines = [];
+  if (fs.existsSync(envPath)) {
+    envLines = fs.readFileSync(envPath, 'utf-8').split('\n');
+  }
+
+  const updateOrAdd = (key, val) => {
+    const idx = envLines.findIndex(l => l.startsWith(`${key}=`));
+    if (idx >= 0) {
+      envLines[idx] = `${key}="${val}"`;
+    } else {
+      envLines.push(`${key}="${val}"`);
+    }
+  };
+
+  updateOrAdd('TELEGRAM_BOT_TOKEN', botToken);
+  if (channelId) updateOrAdd('TELEGRAM_CHANNEL_ID', channelId);
+  if (chatId) updateOrAdd('TELEGRAM_CHAT_ID', chatId);
+  if (botUsername) updateOrAdd('TELEGRAM_BOT_USERNAME', botUsername);
+
+  try {
+    fs.writeFileSync(envPath, envLines.join('\n'), 'utf-8');
+  } catch (err) {
+    console.warn('[ENV SAVE WARNING]', err.message);
+  }
+
+  res.json({
+    success: true,
+    message: 'Telegram settings updated and verified.',
+    telegramStatus: tgService.getStatus()
+  });
+});
+
 // 12. Admin: Clear Alert Dispatch Log
 app.post('/api/notifications/history/clear', requireAdminAuth, (req, res) => {
   try {
@@ -803,7 +908,8 @@ app.get('/api/notifications/admin-overview', requireAdminAuth, (req, res) => {
     },
     gateways: {
       whatsapp: waService.getStatus(),
-      email: emailService.getStatus()
+      email: emailService.getStatus(),
+      telegram: tgService.getStatus()
     },
     history: {
       total_dispatches: historyCount,
