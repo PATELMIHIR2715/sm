@@ -106,6 +106,16 @@ class WhatsAppNotificationService {
   async sendTextMessage(targetNumber, message) {
     const chatId = this.sanitizeChatId(targetNumber);
 
+    if (process.env.ENABLE_WHATSAPP_NOTIFICATIONS === 'false' || process.env.WHATSAPP_NOTIFICATIONS_PAUSED === 'true') {
+      console.log(`[WHATSAPP PAUSED] Skipping WhatsApp dispatch for ${chatId} (WhatsApp notifications are paused).`);
+      return {
+        success: true,
+        paused: true,
+        message: 'WhatsApp notifications are paused by configuration.',
+        chatId
+      };
+    }
+
     if (this.status !== 'CONNECTED_READY') {
       console.log(`[WHATSAPP SIMULATION] Status is ${this.status}. Message queued/logged for ${chatId}:\n${message}\n`);
       return {
@@ -196,8 +206,10 @@ class WhatsAppNotificationService {
   }
 
   getStatus() {
+    const isPaused = process.env.ENABLE_WHATSAPP_NOTIFICATIONS === 'false' || process.env.WHATSAPP_NOTIFICATIONS_PAUSED === 'true';
     return {
-      status: this.status,
+      status: isPaused ? 'PAUSED' : this.status,
+      isPaused,
       authenticatedUser: this.authenticatedUser,
       hasQrCode: Boolean(this.qrDataUrl),
       defaultRecipients: this.defaultRecipients

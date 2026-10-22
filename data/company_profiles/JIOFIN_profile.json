@@ -5,17 +5,35 @@
   "tier": "LARGE_CAP",
   "annual_revenue_cr": 1854.0,
   "market_cap_cr": 136000.0,
-  "nifty_beta": 1.15,
-  "sector_beta": 1.25,
+  "nifty_beta": 1.41,
+  "sector_beta": 1.24,
+  "nifty_beta_metrics": {
+    "beta": 1.41,
+    "ols_beta": 1.54,
+    "ewma_beta": 1.41,
+    "r_squared": 0.559,
+    "sample_size": 245,
+    "estimation_quality": "HIGH_CONFIDENCE_ESTIMATE"
+  },
+  "sector_beta_metrics": {
+    "beta": 1.24,
+    "ols_beta": 1.17,
+    "ewma_beta": 1.24,
+    "r_squared": 0.497,
+    "sample_size": 245,
+    "estimation_quality": "HIGH_CONFIDENCE_ESTIMATE"
+  },
   "fno_lot_size": 2100,
-  "current_ltp": 209.87,
-  "atr_14_inr": 5.3,
-  "atr_14_pct": 2.53,
-  "single_day_max_ceiling_pct": 3.42,
-  "realized_volatility_20d_pct": 23.57,
-  "ema_50": 226.02,
-  "ema_200": 228.06,
-  "rsi_14": 40.6,
+  "current_ltp": 210.8,
+  "atr_14_inr": 5.38,
+  "atr_14_pct": 2.55,
+  "single_day_max_ceiling_pct": 3.44,
+  "realized_volatility_20d_pct": 23.56,
+  "ema_50": 226.41,
+  "ema_200": 246.59,
+  "rsi_14": 41.6,
+  "profile_verified": true,
+  "dispatchable": true,
   "sector_valuation": {
     "sector_pe": 15.2,
     "median_5y_pe": 16.8,
@@ -23,6 +41,6 @@
     "valuation_state": "REASONABLE_VALUE",
     "multiple_factor": 1.1
   },
-  "cached_timestamp": 1792641078.0055754,
-  "cached_date_str": "2026-10-22 09:21:18 IST"
+  "cached_timestamp": 1792663759.1360817,
+  "cached_date_str": "2026-10-22 15:39:19 IST"
 }

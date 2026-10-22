@@ -391,8 +391,9 @@ app.post('/api/notifications/subscribe', async (req, res) => {
 
   // Send optional welcome notifications
   let welcomeReport = { whatsapp: null, email: null };
+  const isWaWelcomeEnabled = process.env.ENABLE_WHATSAPP_NOTIFICATIONS !== 'false' && process.env.WHATSAPP_NOTIFICATIONS_PAUSED !== 'true';
   if (sendWelcome !== false) {
-    if (cleanWa) {
+    if (cleanWa && isWaWelcomeEnabled) {
       const waMsg = 
 `⚡ *INSTITUTIONAL AI NEWS NOTIFICATION SUBSCRIBED*
 • *Status:* LIVE ACTIVATED
@@ -628,8 +629,18 @@ app.post('/api/notifications/broadcast-signal', requireAdminAuth, async (req, re
   }
 
   const isEmailEnabled = process.env.ENABLE_EMAIL_NOTIFICATIONS !== 'false' && process.env.EMAIL_NOTIFICATIONS_PAUSED !== 'true';
-  const defaultChannels = isEmailEnabled ? ['WHATSAPP', 'EMAIL', 'TELEGRAM'] : ['WHATSAPP', 'TELEGRAM'];
-  const selectedChannels = (channels || defaultChannels).filter(c => c !== 'EMAIL' || isEmailEnabled);
+  const isWaEnabled = process.env.ENABLE_WHATSAPP_NOTIFICATIONS !== 'false' && process.env.WHATSAPP_NOTIFICATIONS_PAUSED !== 'true';
+
+  const defaultChannels = [];
+  if (isWaEnabled) defaultChannels.push('WHATSAPP');
+  if (isEmailEnabled) defaultChannels.push('EMAIL');
+  defaultChannels.push('TELEGRAM');
+
+  const selectedChannels = (channels || defaultChannels).filter(c => {
+    if (c === 'EMAIL' && !isEmailEnabled) return false;
+    if (c === 'WHATSAPP' && !isWaEnabled) return false;
+    return true;
+  });
   const subData = loadSubscribersData();
   const activeSubs = subData.subscribers.filter(s => s.active !== false);
 
@@ -673,7 +684,7 @@ app.post('/api/notifications/broadcast-signal', requireAdminAuth, async (req, re
   // Multi-Channel Parallel Dispatch (Zero Head-of-Line Blocking)
   const dispatchPromises = [];
 
-  if (selectedChannels.includes('WHATSAPP') && waRecipients.length > 0) {
+  if (selectedChannels.includes('WHATSAPP') && isWaEnabled && waRecipients.length > 0) {
     dispatchPromises.push(
       waService.broadcastSignal(signal, waRecipients)
         .then(res => { responseReport.channels.whatsapp = res; })

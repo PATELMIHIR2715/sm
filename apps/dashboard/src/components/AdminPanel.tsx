@@ -191,7 +191,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
   const [bcTargetRange, setBcTargetRange] = useState<string>('₹442.20 – ₹451.80 (+1.8% to +4.0%)');
   const [bcStopLoss, setBcStopLoss] = useState<string>('₹421.40 (-3.0%)');
   const [bcKellyAlloc, setBcKellyAlloc] = useState<number>(18246);
-  const [bcChannels, setBcChannels] = useState<{ whatsapp: boolean; email: boolean; telegram: boolean }>({ whatsapp: true, email: false, telegram: true });
+  const [bcChannels, setBcChannels] = useState<{ whatsapp: boolean; email: boolean; telegram: boolean }>({ whatsapp: false, email: false, telegram: true });
   const [isTestingTelegram, setIsTestingTelegram] = useState<boolean>(false);
   const [isBroadcasting, setIsBroadcasting] = useState<boolean>(false);
   const [broadcastReport, setBroadcastReport] = useState<any>(null);
@@ -1829,12 +1829,16 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
 
                 <span
                   className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
-                    overview?.gateways.whatsapp.status === 'CONNECTED_READY' || overview?.gateways.whatsapp.status === 'AUTHENTICATED'
+                    overview?.gateways.whatsapp?.status === 'PAUSED'
+                      ? 'bg-amber-50 text-amber-700 border border-amber-200'
+                      : overview?.gateways.whatsapp.status === 'CONNECTED_READY' || overview?.gateways.whatsapp.status === 'AUTHENTICATED'
                       ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
-                      : 'bg-amber-50 text-amber-700 border border-amber-200'
+                      : 'bg-slate-100 text-slate-600 border border-slate-200'
                   }`}
                 >
-                  {overview?.gateways.whatsapp.status === 'CONNECTED_READY' || overview?.gateways.whatsapp.status === 'AUTHENTICATED'
+                  {overview?.gateways.whatsapp?.status === 'PAUSED'
+                    ? 'PAUSED'
+                    : overview?.gateways.whatsapp.status === 'CONNECTED_READY' || overview?.gateways.whatsapp.status === 'AUTHENTICATED'
                     ? 'AUTHENTICATED / READY'
                     : overview?.gateways.whatsapp.status || 'DISCONNECTED'}
                 </span>
