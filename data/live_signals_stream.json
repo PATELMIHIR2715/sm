@@ -1,5 +1,154 @@
 [
   {
+    "id": "AUTO_1792664856_AARTIPHARM",
+    "symbol": "AARTIPHARM",
+    "company_name": "Aarti Pharmalabs Ltd",
+    "sector": "Diversified",
+    "tier": "MID_CAP",
+    "source_type": "BSE_FILING",
+    "headline": "Aarti Pharmalabs Ltd: This is to inform you that the Earnings Conference Call for investors and analysts has been scheduled for Thursday, October 28, 2026, at 3:30 p.m. (IST) to discuss the Company''s Q2-FY27 ....",
+    "published_at": "2026-10-22T15:56:42.357",
+    "processed_at": "2026-10-22 15:57:36",
+    "market_session": "AFTER_HOURS_CLOSED",
+    "is_after_hours": true,
+    "predicted_open_price_inr": "₹818.52 - ₹823.50 (-0.99%)",
+    "current_base_price_inr": 828.8,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 98.0,
+    "materiality_ratio": 0.0158,
+    "circuit_info": {
+      "is_circuit_locked": false,
+      "circuit_type": "NORMAL",
+      "circuit_band_pct": null,
+      "warning_badge": null,
+      "trading_advice": "Normal market liquidity active."
+    },
+    "is_circuit_locked": false,
+    "circuit_warning": null,
+    "risk_reward_ratio": "1 : 0.2",
+    "reward_risk_ratio_val": 0.24,
+    "position_sizing": {
+      "risk_reward_ratio": "1 : 0.2",
+      "optimal_allocation_pct": 20.0,
+      "allocated_capital_inr": 19891.2,
+      "shares_quantity": 24,
+      "max_stop_loss_risk_inr": 1094.02,
+      "target_profit_inr": 262.56,
+      "risk_profile": "AGGRESSIVE SIZE (HIGH CONVICTION)"
+    },
+    "allocated_capital_inr": 19891.2,
+    "shares_qty": 24,
+    "historical_rag_match": {
+      "matched_title": "Aster DM Quality Care Ltd - 540975 - Announcement under Regulation 30 (LODR)-Analyst / Investor Meet - Intimation",
+      "similarity_score": 0.6199,
+      "historical_1d_return": 0.15,
+      "historical_direction": "NEUTRAL"
+    },
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.14.0)",
+    "model_version": "v3.0",
+    "engine_version": "v3.0",
+    "is_useful": false,
+    "dispatchable": false,
+    "actionability_status": "PENDING_PREOPEN_VERIFICATION",
+    "preopen_status": "PENDING",
+    "t1_target": {
+      "percentage_range": "-2.20% to -1.32%",
+      "price_target_range_inr": "₹810.57 - ₹817.86",
+      "price_low": 810.57,
+      "price_high": 817.86,
+      "target_date_horizon": "Tomorrow 09:15 AM Open"
+    },
+    "two_tier_targets": {
+      "t1_safe": {
+        "label": "T1 Safe Profit-Lock",
+        "price": 817.86,
+        "percentage": "-1.32%",
+        "action_advice": "Book 70% profit here to secure green gains before resistance",
+        "clamped_to_milestone": false
+      },
+      "t2_runner": {
+        "label": "T2 Breakout Runner",
+        "price": 810.57,
+        "percentage": "-2.20%",
+        "action_advice": "Trail stop-loss to entry cost and ride breakout extension"
+      }
+    },
+    "t1_safe_target": {
+      "label": "T1 Safe Profit-Lock",
+      "price": 817.86,
+      "percentage": "-1.32%",
+      "action_advice": "Book 70% profit here to secure green gains before resistance",
+      "clamped_to_milestone": false
+    },
+    "t2_runner_target": {
+      "label": "T2 Breakout Runner",
+      "price": 810.57,
+      "percentage": "-2.20%",
+      "action_advice": "Trail stop-loss to entry cost and ride breakout extension"
+    },
+    "t5_target": {
+      "percentage_range": "-3.52% to -1.85%",
+      "price_target_range_inr": "₹799.63 - ₹813.47",
+      "target_date_horizon": "1-Week (T+5)"
+    },
+    "t10_target": {
+      "percentage_range": "-4.84% to -2.38%",
+      "price_target_range_inr": "₹788.69 - ₹809.07",
+      "target_date_horizon": "2-Weeks (T+10)"
+    },
+    "recommended_stop_loss": "₹874.38 (+5.5%)",
+    "recommended_strategy": "HIGH CONVICTION TACTICAL SHORT (MARKET TAILWIND ALIGNED)",
+    "execution_order_type": "TACTICAL_SHORT",
+    "target_confidence_note": "Bearish catalyst amplified by +0.88% broader market selling wave.",
+    "market_drag_contribution_pct": 0.88,
+    "india_vix": 15.76,
+    "nifty_change_pct": -0.88
+  },
+  {
+    "id": "AUTO_1792664854_ARIHANTSUP",
+    "symbol": "ARIHANTSUP",
+    "company_name": "Arihant Superstructures Ltd",
+    "sector": "Diversified",
+    "tier": "MID_CAP",
+    "source_type": "BSE_FILING",
+    "headline": "Arihant Superstructures Ltd: Resignation of Mr. Pramod Deshpande as the Independent Director of the Company with effect from close of Business hours on October 22, 2026.",
+    "published_at": "2026-10-22T15:56:46.233",
+    "processed_at": "2026-10-22 15:57:34",
+    "market_session": "AFTER_HOURS_CLOSED",
+    "is_after_hours": true,
+    "current_base_price_inr": 213.43,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 0.0,
+    "is_useful": false,
+    "dispatchable": false,
+    "actionability_status": "SUPPRESSED_LOW_ADTV_TURNOVER",
+    "suppression_reason": "LOW_ADTV_TURNOVER",
+    "recommended_strategy": "UNTRADABLE_LOW_ADTV_TURNOVER",
+    "ai_model": "JEV_AI_SYSTEMONE (jev-1.14.0)"
+  },
+  {
+    "id": "AUTO_1792664851_JIVIAL",
+    "symbol": "JIVIAL",
+    "company_name": "JIVIAL Ltd",
+    "sector": "Unverified",
+    "tier": "UNVERIFIED",
+    "source_type": "BSE_FILING",
+    "headline": "Jivial Industries Ltd: The Board of Directors of the company in their meeting held today has considered and approved the following:\r\n1. Alteration in the objects of the Initial Public Offer ('IPO') for which ....",
+    "published_at": "2026-10-22T15:57:01.633",
+    "processed_at": "2026-10-22 15:57:31",
+    "market_session": "AFTER_HOURS_CLOSED",
+    "is_after_hours": true,
+    "current_base_price_inr": null,
+    "predicted_direction": "NEUTRAL",
+    "conviction_score_pct": 0.0,
+    "is_useful": false,
+    "dispatchable": false,
+    "actionability_status": "SUPPRESSED_UNVERIFIED_COMPANY_FUNDAMENTALS",
+    "suppression_reason": "UNVERIFIED_COMPANY_FUNDAMENTALS",
+    "recommended_strategy": "SUPPRESSED_UNVERIFIED_COMPANY_FUNDAMENTALS",
+    "ai_model": "UNVERIFIED_FILTER"
+  },
+  {
     "id": "AUTO_1792664841_NUCLEUS",
     "symbol": "NUCLEUS",
     "company_name": "NUCLEUS",
